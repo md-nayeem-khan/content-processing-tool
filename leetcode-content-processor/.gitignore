@@ -31,8 +31,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-
-
-/leetcode-content-processor/logs
-/logs
