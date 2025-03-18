@@ -30,7 +30,9 @@ public class ContentSanitizer {
             solution = solution.substring(0, solution.length() - 1);
         }
         String figurePattern = "!\\[([^\\]]+)\\]\\(\\.\\.\\/Figures\\/(.+?\\.(jpg|jpeg|png|gif|svg|PNG|JPG|JPEG|GIF|SVG))\\)";
+        String svgFigurePattern = "!\\[([^\\]]+)\\]\\(\\.\\.\\/Documents\\/(.+?\\.(jpg|jpeg|png|gif|svg|PNG|JPG|JPEG|GIF|SVG))\\)";
         solution = solution.replaceAll(figurePattern, "!Flag content for figure!");
+        solution = solution.replaceAll(svgFigurePattern, "!Flag content for svg figure!");
 
 //        String figureWithLabelPattern = "!\\[([^\\]]+)\\]\\(\\.\\.\\/Figures\\/(.+?\\.(jpg|jpeg|png|gif|svg|PNG|JPG|JPEG|GIF|SVG))\\)\\n\\*[^\\*]+\\*";
 //        solution = solution.replaceAll(figureWithLabelPattern, "> Flag content for figure");
@@ -103,6 +105,9 @@ public class ContentSanitizer {
         matcher.appendTail(decodedString);
 
         question = decodedString.toString();
+
+        String figurePattern = "<img\\s+[^>]*?src\\s*=\\s*(['\"])(.*?)\\1[^>]*?>";
+        question = question.replaceAll(figurePattern, "!Flag content for figure!");
 
         question = question.replace("\\n", "\n");
         question = question.replace("\\t", "\n");
@@ -325,23 +330,38 @@ public class ContentSanitizer {
 
     public String insertFigures(String content, List<String> figures) {
         //Pattern pattern = Pattern.compile("\\\\begin\\{single-figure\\}([\\s\\S]*?)Flag content for figure([\\s\\S]*?)\\\\end\\{single-figure\\}", Pattern.DOTALL);
-        Pattern pattern = Pattern.compile("!Flag content for figure!");
-        Matcher matcher = pattern.matcher(content);
+        Pattern figurePattern = Pattern.compile("!Flag content for figure!");
+        Matcher figureMatcher = figurePattern.matcher(content);
 
         StringBuffer updatedContent = new StringBuffer();
         Iterator<String> figureIterator = figures.iterator();
 
-        while (matcher.find() && figureIterator.hasNext()) {
+        while (figureMatcher.find() && figureIterator.hasNext()) {
             String figure = figureIterator.next();
             String replacement = "\\begin{figure}[htbp]\n" +
                     "    \\centering\n" +
-                    "    \\includegraphics[width=0.48\\textwidth]{" + figure + "}\n" +
-                    "\\end{figure}\n";
-            matcher.appendReplacement(updatedContent, Matcher.quoteReplacement(replacement));
+                    "    \\includegraphics[width=0.65\\textwidth]{" + figure + "}\n" +
+                    "\\end{figure}";
+            figureMatcher.appendReplacement(updatedContent, Matcher.quoteReplacement(replacement));
         }
-        matcher.appendTail(updatedContent);
+        figureMatcher.appendTail(updatedContent);
 
-        return updatedContent.toString();
+        String modifiedContent = updatedContent.toString();
+        Pattern svgFigurePattern = Pattern.compile("!Flag content for svg figure!");
+        Matcher svgFigureMatcher = svgFigurePattern.matcher(modifiedContent);
+        StringBuffer finalContent = new StringBuffer();
+
+        while (svgFigureMatcher.find() && figureIterator.hasNext()) {
+            String figure = figureIterator.next();
+            String replacement = "\\begin{figure}[htbp]\n" +
+                    "    \\centering\n" +
+                    "    \\includegraphics[width=0.65\\textwidth]{" + figure + "}\n" +
+                    "\\end{figure}";
+            svgFigureMatcher.appendReplacement(finalContent, Matcher.quoteReplacement(replacement));
+        }
+        svgFigureMatcher.appendTail(finalContent);
+
+        return finalContent.toString();
     }
 
     public String insertSlides(String content, List<List<String>> slides) {

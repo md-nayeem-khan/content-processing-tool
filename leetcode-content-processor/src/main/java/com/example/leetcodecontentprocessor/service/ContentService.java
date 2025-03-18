@@ -52,8 +52,8 @@ public class ContentService {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-            String questionContent = convertHtmlContent(questionData.path("content").asText(), questionData.path("title").asText());
+            List<String> questionFigures = extractQuestionFigures(questionData.path("content").asText(), slug);
+            String questionContent = convertHtmlContent(questionData.path("content").asText(), questionData.path("title").asText(), questionFigures);
 
             List<String> codes = extractAndFetchIframeCodes(solutionMarkDownContent);
             List<String> figures = extractFigures(solutionMarkDownContent, slug);
@@ -79,9 +79,10 @@ public class ContentService {
         return sanitizeLatexSolutionWithSlides;
     }
 
-    private String convertHtmlContent(String content, String questionTitle) {
+    private String convertHtmlContent(String content, String questionTitle, List<String> figures) {
         String sanitizedContent = contentSanitizer.sanitizeQuestion(content);
         String latexContent = htmlConverter.convertToLatex(sanitizedContent);
+        latexContent = contentSanitizer.insertFigures(latexContent, figures);
         return contentSanitizer.sanitizeLatexQuestion(latexContent, questionTitle);
     }
 
@@ -169,14 +170,36 @@ public class ContentService {
 
     private List<String> extractFigures(String solutionContent, String questionSlug) {
         List<String> figures = new ArrayList<>();
-        Pattern pattern = Pattern.compile("!\\[([^\\]]+)\\]\\(\\.\\.\\/Figures\\/(.+?\\.(jpg|jpeg|png|gif|svg|PNG|JPG|JPEG|GIF|SVG))\\)");
-        Matcher matcher = pattern.matcher(solutionContent);
+        Pattern imgPattern = Pattern.compile("!\\[([^\\]]+)\\]\\(\\.\\.\\/Figures\\/(.+?\\.(jpg|jpeg|png|gif|svg|PNG|JPG|JPEG|GIF|SVG))\\)");
+        Matcher imgMatcher = imgPattern.matcher(solutionContent);
+        Pattern svgImgPattern = Pattern.compile("!\\[([^\\]]+)\\]\\(\\.\\.\\/Documents\\/(.+?\\.(jpg|jpeg|png|gif|svg|PNG|JPG|JPEG|GIF|SVG))\\)");
+        Matcher svgImgMatcher = svgImgPattern.matcher(solutionContent);
 
         int imageCounter = 0;
-        while (matcher.find()) {
+        while (imgMatcher.find()) {
             imageCounter++;
-            String imageExtension = matcher.group(3);
+            String imageExtension = imgMatcher.group(3);
             figures.add("images/" + questionSlug + "/" + imageCounter + "." + imageExtension);
+        }
+        while (svgImgMatcher.find()) {
+            imageCounter++;
+            String imageExtension = svgImgMatcher.group(3);
+            figures.add("images/" + questionSlug + "/" + imageCounter + "." + imageExtension);
+        }
+        return figures;
+    }
+
+    private List<String> extractQuestionFigures(String questionContent, String questionSlug) {
+        List<String> figures = new ArrayList<>();
+        Pattern imgPattern = Pattern.compile("<img[^>]*src=\\\"(.*?)\\\"[^>]*>");
+        Matcher imgMatcher = imgPattern.matcher(questionContent);
+
+        int imageCounter = 0;
+        while (imgMatcher.find()) {
+            imageCounter++;
+            String imageUrl = imgMatcher.group(1);
+            String imageExtension = imageUrl.substring(imageUrl.lastIndexOf('.'));
+            figures.add("images/" + questionSlug + "/" + "q-" + imageCounter + imageExtension);
         }
         return figures;
     }

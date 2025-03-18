@@ -27,6 +27,7 @@ public class FigureDownloadService {
     private String leetcodeSession;
 
     private static final String IMG_TAG_REGEX = "!\\[([^\\]]+)\\]\\(\\.\\.\\/Figures\\/(.+?\\.(jpg|jpeg|png|gif|svg|PNG|JPG|JPEG|GIF|SVG))\\)";
+    private static final String SVG_IMG_TAG_REGEX = "!\\[([^\\]]+)\\]\\(\\.\\.\\/Documents\\/(.+?\\.(jpg|jpeg|png|gif|svg|PNG|JPG|JPEG|GIF|SVG))\\)";
     private static final String SLIDE_TAG_REGEX = "!?!\\.\\./Documents/(\\S+?):\\d+,\\d+!?!";
     private static final String GRAPHQL_URL = "https://leetcode.com/graphql/";
     private static final String GRAPHQL_QUERY = "{\"query\":\"\\n    query ugcArticleOfficialSolutionArticle($questionSlug: String!) {\\n  ugcArticleOfficialSolutionArticle(questionSlug: $questionSlug) {\\n    content\\n  }\\n}\\n    \",\"variables\":{\"questionSlug\":\"%s\"},\"operationName\":\"ugcArticleOfficialSolutionArticle\"}";
@@ -44,6 +45,7 @@ public class FigureDownloadService {
                 String solutionContent = fetchSolutionContent(questionSlug);
                 String questionContent = fetchQuestionContent(questionSlug);
                 int imageCounter = 1;
+                int questionImageCounter = 1;
                 int slideCounter = 1;
                 if (solutionContent != null && !solutionContent.isEmpty()) {
                     Pattern imgPattern = Pattern.compile(IMG_TAG_REGEX);
@@ -54,6 +56,19 @@ public class FigureDownloadService {
                         String extension = imagePath.substring(imagePath.lastIndexOf('.'));
                         logger.info("Found image path: {} for question slug: {}", imagePath, questionSlug);
                         String imageUrl = "https://assets.leetcode.com/static_assets/media/original_images/" + imagePath;
+                        String sequentialImageName = questionSlug + "/" + imageCounter++ + extension;
+
+                        addImageToZip(imageUrl, zipOutputStream, sequentialImageName);
+                    }
+
+                    Pattern svgImgPattern = Pattern.compile(SVG_IMG_TAG_REGEX);
+                    Matcher svgImgMatcher = svgImgPattern.matcher(solutionContent);
+
+                    while (svgImgMatcher.find()) {
+                        String imagePath = svgImgMatcher.group(2);
+                        String extension = imagePath.substring(imagePath.lastIndexOf('.'));
+                        logger.info("Found image path: {} for question slug: {}", imagePath, questionSlug);
+                        String imageUrl = "https://assets.leetcode.com/static_assets/media/documents/" + imagePath;
                         String sequentialImageName = questionSlug + "/" + imageCounter++ + extension;
 
                         addImageToZip(imageUrl, zipOutputStream, sequentialImageName);
@@ -95,7 +110,7 @@ public class FigureDownloadService {
                         String imageUrl = imgMatcher.group(1);
                         String extension = imageUrl.substring(imageUrl.lastIndexOf('.'));
                         logger.info("Found image url: {} for question slug: {}", imageUrl, questionSlug);
-                        String sequentialImageName = questionSlug + "/" + imageCounter++ + extension;
+                        String sequentialImageName = questionSlug + "/" + "q-" +questionImageCounter++ + extension;
 
                         addImageToZip(imageUrl, zipOutputStream, sequentialImageName);
                     }
