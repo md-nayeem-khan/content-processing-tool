@@ -1,0 +1,1166 @@
+﻿{
+    "success":  true,
+    "book_title":  "Grokking the Modern System Design Interview",
+    "book_summary":  "System Design interviews now determine the seniority level at which youâre hired across Engineering and Product Management roles. Interviewers expect you to demonstrate technical depth, justify design choices, and build for scale. This course helps you do exactly that. Tackle carefully selected design problems, apply proven solutions, and navigate complex scalability challengesâwhether in interviews or real-world product design.\n\nStart by mastering a bottom-up approach: break down modern systems, with each component modeled as a scalable service. Then, apply the RESHADED framework to define requirements, surface constraints, and drive structured design decisions. Finally, design popular architectures using modular building blocks, and critique your solutions to improve under real interview conditions.",
+    "book_brief_summary":  "The ultimate guide to the System Design Interview â developed by FAANG engineers. Master distributed system fundamentals, and practice with real-world interview questions \u0026 mock interviews.",
+    "chapters":  [
+                     {
+                         "title":  "System Design Interviews",
+                         "sections":  [
+                                          {
+                                              "title":  "Getting Ready for the System Design Interview",
+                                              "id":  "4771234193080320",
+                                              "slug":  "getting-ready-for-the-system-design-interview"
+                                          },
+                                          {
+                                              "title":  "Key Concepts to Prepare for the System Design Interview",
+                                              "id":  "4705505809661952",
+                                              "slug":  "key-concepts-to-prepare-for-the-system-design-interview"
+                                          },
+                                          {
+                                              "title":  "Resources to Prepare for a System Design Interview",
+                                              "id":  "5546916426809344",
+                                              "slug":  "resources-to-prepare-for-a-system-design-interview"
+                                          },
+                                          {
+                                              "title":  "The Doâs and Donâts of the System Design Interview",
+                                              "id":  "6043988183744512",
+                                              "slug":  "the-dos-and-donts-of-the-system-design-interview"
+                                          },
+                                          {
+                                              "title":  "Let AI Evaluate your System Design Interview Preparation",
+                                              "id":  "6145339853373440",
+                                              "slug":  "let-ai-evaluate-your-system-design-interview-preparation"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Introduction",
+                         "sections":  [
+                                          {
+                                              "title":  "Introduction to Modern System Design",
+                                              "id":  "",
+                                              "slug":  "introduction-to-modern-system-design"
+                                          },
+                                          {
+                                              "title":  "Course Structure for Modern System Design",
+                                              "id":  "",
+                                              "slug":  "course-structure-for-modern-system-design"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Abstractions",
+                         "sections":  [
+                                          {
+                                              "title":  "Why Are Abstractions Important?",
+                                              "id":  "6539129789087744",
+                                              "slug":  "why-are-abstractions-important"
+                                          },
+                                          {
+                                              "title":  "Network Abstractions: Remote Procedure Calls",
+                                              "id":  "6670339758620672",
+                                              "slug":  "network-abstractions-remote-procedure-calls"
+                                          },
+                                          {
+                                              "title":  "Spectrum of Consistency Models",
+                                              "id":  "5131359030345728",
+                                              "slug":  "spectrum-of-consistency-models"
+                                          },
+                                          {
+                                              "title":  "The Spectrum of Failure Models",
+                                              "id":  "5023279047245824",
+                                              "slug":  "the-spectrum-of-failure-models"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Non-functional System Characteristics",
+                         "sections":  [
+                                          {
+                                              "title":  "Availability",
+                                              "id":  "5983424656965632",
+                                              "slug":  "availability"
+                                          },
+                                          {
+                                              "title":  "Reliability",
+                                              "id":  "",
+                                              "slug":  "reliability"
+                                          },
+                                          {
+                                              "title":  "Scalability",
+                                              "id":  "5991400583200768",
+                                              "slug":  "scalability"
+                                          },
+                                          {
+                                              "title":  "Maintainability",
+                                              "id":  "6540133490229248",
+                                              "slug":  "maintainability"
+                                          },
+                                          {
+                                              "title":  "Fault Tolerance",
+                                              "id":  "6693927511392256",
+                                              "slug":  "fault-tolerance"
+                                          },
+                                          {
+                                              "title":  "Let AI Evaluate Your Understanding of Non-Functional Requirements",
+                                              "id":  "6669534840487936",
+                                              "slug":  "let-ai-evaluate-your-understanding-of-non-functional-requirements"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Back-of-the-envelope Calculations",
+                         "sections":  [
+                                          {
+                                              "title":  "Put Back-of-the-envelope Numbers in Perspective",
+                                              "id":  "5711642666467328",
+                                              "slug":  "put-back-of-the-envelope-numbers-in-perspective"
+                                          },
+                                          {
+                                              "title":  "Examples of Resource Estimation",
+                                              "id":  "4766860129599488",
+                                              "slug":  "examples-of-resource-estimation"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Building Blocks",
+                         "sections":  [
+                                          {
+                                              "title":  "Introduction to Building Blocks for Modern System Design",
+                                              "id":  "6061247618875392",
+                                              "slug":  "introduction-to-building-blocks-for-modern-system-design"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Domain Name System",
+                         "sections":  [
+                                          {
+                                              "title":  "Introduction to Domain Name System (DNS)",
+                                              "id":  "5728619204182016",
+                                              "slug":  "introduction-to-domain-name-system-dns"
+                                          },
+                                          {
+                                              "title":  "How the Domain Name System Works",
+                                              "id":  "",
+                                              "slug":  "how-the-domain-name-system-works"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Load Balancers",
+                         "sections":  [
+                                          {
+                                              "title":  "Introduction to Load Balancers",
+                                              "id":  "4521972679049216",
+                                              "slug":  "introduction-to-load-balancers"
+                                          },
+                                          {
+                                              "title":  "Global and Local Load Balancing",
+                                              "id":  "",
+                                              "slug":  "global-and-local-load-balancing"
+                                          },
+                                          {
+                                              "title":  "Advanced Details of Load Balancers",
+                                              "id":  "",
+                                              "slug":  "advanced-details-of-load-balancers"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Databases",
+                         "sections":  [
+                                          {
+                                              "title":  "Introduction to Databases",
+                                              "id":  "",
+                                              "slug":  "introduction-to-databases"
+                                          },
+                                          {
+                                              "title":  "Types of Databases",
+                                              "id":  "",
+                                              "slug":  "types-of-databases"
+                                          },
+                                          {
+                                              "title":  "Data Replication",
+                                              "id":  "",
+                                              "slug":  "data-replication"
+                                          },
+                                          {
+                                              "title":  "Data Partitioning",
+                                              "id":  "",
+                                              "slug":  "data-partitioning"
+                                          },
+                                          {
+                                              "title":  "Trade-offs in Databases",
+                                              "id":  "",
+                                              "slug":  "trade-offs-in-databases"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Key-value Store",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: The Key-value Store",
+                                              "id":  "",
+                                              "slug":  "system-design-the-key-value-store"
+                                          },
+                                          {
+                                              "title":  "Design of a Key-value Store",
+                                              "id":  "5610927277211648",
+                                              "slug":  "design-of-a-key-value-store"
+                                          },
+                                          {
+                                              "title":  "Ensure Scalability and Replication",
+                                              "id":  "",
+                                              "slug":  "ensure-scalability-and-replication"
+                                          },
+                                          {
+                                              "title":  "Versioning Data and Achieving Configurability",
+                                              "id":  "",
+                                              "slug":  "versioning-data-and-achieving-configurability"
+                                          },
+                                          {
+                                              "title":  "Enable Fault Tolerance and Failure Detection",
+                                              "id":  "5842597234343936",
+                                              "slug":  "enable-fault-tolerance-and-failure-detection"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Content Delivery Network  (CDN)",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: The Content Delivery Network (CDN)",
+                                              "id":  "",
+                                              "slug":  "system-design-the-content-delivery-network-cdn"
+                                          },
+                                          {
+                                              "title":  "Introduction to a CDN",
+                                              "id":  "",
+                                              "slug":  "introduction-to-a-cdn"
+                                          },
+                                          {
+                                              "title":  "Design of a CDN",
+                                              "id":  "",
+                                              "slug":  "design-of-a-cdn"
+                                          },
+                                          {
+                                              "title":  "In-depth Investigation of CDN: Part 1",
+                                              "id":  "",
+                                              "slug":  "in-depth-investigation-of-cdn-part-1"
+                                          },
+                                          {
+                                              "title":  "In-depth Investigation of CDN: Part 2",
+                                              "id":  "",
+                                              "slug":  "in-depth-investigation-of-cdn-part-2"
+                                          },
+                                          {
+                                              "title":  "Evaluation of CDN\u0027s Design",
+                                              "id":  "",
+                                              "slug":  "evaluation-of-cdns-design"
+                                          },
+                                          {
+                                              "title":  "Quiz on CDN\u0027s Design",
+                                              "id":  "6624605451583488",
+                                              "slug":  "quiz-on-cdns-design"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Sequencer",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: Sequencer",
+                                              "id":  "6499939719053312",
+                                              "slug":  "system-design-sequencer"
+                                          },
+                                          {
+                                              "title":  "Design of a Unique ID Generator",
+                                              "id":  "",
+                                              "slug":  "design-of-a-unique-id-generator"
+                                          },
+                                          {
+                                              "title":  "Unique IDs with Causality",
+                                              "id":  "",
+                                              "slug":  "unique-ids-with-causality"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Distributed  Monitoring",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: Distributed Monitoring",
+                                              "id":  "",
+                                              "slug":  "system-design-distributed-monitoring"
+                                          },
+                                          {
+                                              "title":  "Introduction to Distributed Monitoring",
+                                              "id":  "4721220683038720",
+                                              "slug":  "introduction-to-distributed-monitoring"
+                                          },
+                                          {
+                                              "title":  "Prerequisites of a Monitoring System",
+                                              "id":  "6071737539624960",
+                                              "slug":  "prerequisites-of-a-monitoring-system"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Monitor Server-side Errors",
+                         "sections":  [
+                                          {
+                                              "title":  "Design of a Monitoring System",
+                                              "id":  "5485445638520832",
+                                              "slug":  "design-of-a-monitoring-system"
+                                          },
+                                          {
+                                              "title":  "Detailed Design of a Monitoring System",
+                                              "id":  "",
+                                              "slug":  "detailed-design-of-a-monitoring-system"
+                                          },
+                                          {
+                                              "title":  "Visualize Data in a Monitoring System",
+                                              "id":  "5232629720285184",
+                                              "slug":  "visualize-data-in-a-monitoring-system"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Monitor Client-side Errors",
+                         "sections":  [
+                                          {
+                                              "title":  "Focus on Client-side Errors in a Monitoring System",
+                                              "id":  "4768611427680256",
+                                              "slug":  "focus-on-client-side-errors-in-a-monitoring-system"
+                                          },
+                                          {
+                                              "title":  "Design of a Client-side Monitoring System",
+                                              "id":  "",
+                                              "slug":  "design-of-a-client-side-monitoring-system"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Distributed Cache",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: The Distributed Cache",
+                                              "id":  "5053577315221504",
+                                              "slug":  "system-design-the-distributed-cache"
+                                          },
+                                          {
+                                              "title":  "Background of Distributed Cache",
+                                              "id":  "",
+                                              "slug":  "background-of-distributed-cache"
+                                          },
+                                          {
+                                              "title":  "High-level Design of a Distributed Cache",
+                                              "id":  "5103962818084864",
+                                              "slug":  "high-level-design-of-a-distributed-cache"
+                                          },
+                                          {
+                                              "title":  "Detailed Design of a Distributed Cache",
+                                              "id":  "",
+                                              "slug":  "detailed-design-of-a-distributed-cache"
+                                          },
+                                          {
+                                              "title":  "Evaluation of a Distributed Cache\u0027s Design",
+                                              "id":  "",
+                                              "slug":  "evaluation-of-a-distributed-caches-design"
+                                          },
+                                          {
+                                              "title":  "Memcached versus Redis",
+                                              "id":  "5441771256938496",
+                                              "slug":  "memcached-versus-redis"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Distributed Cache System",
+                         "sections":  [
+
+                                      ]
+                     },
+                     {
+                         "title":  "Distributed Messaging Queue",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: The Distributed Messaging Queue",
+                                              "id":  "",
+                                              "slug":  "system-design-the-distributed-messaging-queue"
+                                          },
+                                          {
+                                              "title":  "Requirements of a Distributed Messaging Queueâs Design",
+                                              "id":  "",
+                                              "slug":  "requirements-of-a-distributed-messaging-queues-design"
+                                          },
+                                          {
+                                              "title":  "Considerations of a Distributed Messaging Queueâs Design",
+                                              "id":  "6191662786674688",
+                                              "slug":  "considerations-of-a-distributed-messaging-queues-design"
+                                          },
+                                          {
+                                              "title":  "Design of a Distributed Messaging Queue: Part 1",
+                                              "id":  "",
+                                              "slug":  "design-of-a-distributed-messaging-queue-part-1"
+                                          },
+                                          {
+                                              "title":  "Design of a Distributed Messaging Queue: Part 2",
+                                              "id":  "4953511267139584",
+                                              "slug":  "design-of-a-distributed-messaging-queue-part-2"
+                                          },
+                                          {
+                                              "title":  "Evaluation of a Distributed Messaging Queueâs Design",
+                                              "id":  "4654974423793664",
+                                              "slug":  "evaluation-of-a-distributed-messaging-queues-design"
+                                          },
+                                          {
+                                              "title":  "Quiz on the Distributed Messaging Queueâs Design",
+                                              "id":  "5261732032806912",
+                                              "slug":  "quiz-on-the-distributed-messaging-queues-design"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Pub-sub",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: The Pub-sub Abstraction",
+                                              "id":  "",
+                                              "slug":  "system-design-the-pub-sub-abstraction"
+                                          },
+                                          {
+                                              "title":  "Introduction to Pub-sub",
+                                              "id":  "",
+                                              "slug":  "introduction-to-pub-sub"
+                                          },
+                                          {
+                                              "title":  "Design of a Pub-sub System",
+                                              "id":  "",
+                                              "slug":  "design-of-a-pub-sub-system"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Pub-Sub",
+                         "sections":  [
+
+                                      ]
+                     },
+                     {
+                         "title":  "Rate Limiter",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: The Rate Limiter",
+                                              "id":  "",
+                                              "slug":  "system-design-the-rate-limiter"
+                                          },
+                                          {
+                                              "title":  "Requirements of a Rate Limiterâs Design",
+                                              "id":  "5887506125422592",
+                                              "slug":  "requirements-of-a-rate-limiters-design"
+                                          },
+                                          {
+                                              "title":  "Design of a Rate Limiter",
+                                              "id":  "",
+                                              "slug":  "design-of-a-rate-limiter"
+                                          },
+                                          {
+                                              "title":  "Rate Limiter Algorithms",
+                                              "id":  "",
+                                              "slug":  "rate-limiter-algorithms"
+                                          },
+                                          {
+                                              "title":  "Quiz on the Rate Limiterâs Design",
+                                              "id":  "6564352194248704",
+                                              "slug":  "quiz-on-the-rate-limiters-design"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Blob Store",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: A Blob Store",
+                                              "id":  "4862646238576640",
+                                              "slug":  "system-design-a-blob-store"
+                                          },
+                                          {
+                                              "title":  "Requirements of a Blob Store\u0027s Design",
+                                              "id":  "",
+                                              "slug":  "requirements-of-a-blob-stores-design"
+                                          },
+                                          {
+                                              "title":  "Design of a Blob Store",
+                                              "id":  "4910790825476096",
+                                              "slug":  "design-of-a-blob-store"
+                                          },
+                                          {
+                                              "title":  "Design Considerations of a Blob Store",
+                                              "id":  "",
+                                              "slug":  "design-considerations-of-a-blob-store"
+                                          },
+                                          {
+                                              "title":  "Evaluation of a Blob Store\u0027s Design",
+                                              "id":  "5348783000387584",
+                                              "slug":  "evaluation-of-a-blob-stores-design"
+                                          },
+                                          {
+                                              "title":  "Quiz on the Blob Store\u0027s Design",
+                                              "id":  "",
+                                              "slug":  "quiz-on-the-blob-stores-design"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Blob Store",
+                         "sections":  [
+
+                                      ]
+                     },
+                     {
+                         "title":  "Distributed Search",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: The Distributed Search",
+                                              "id":  "5400897294696448",
+                                              "slug":  "system-design-the-distributed-search"
+                                          },
+                                          {
+                                              "title":  "Requirements of a Distributed Search System\u0027s Design",
+                                              "id":  "",
+                                              "slug":  "requirements-of-a-distributed-search-systems-design"
+                                          },
+                                          {
+                                              "title":  "Indexing in a Distributed Search",
+                                              "id":  "",
+                                              "slug":  "indexing-in-a-distributed-search"
+                                          },
+                                          {
+                                              "title":  "Design of a Distributed Search",
+                                              "id":  "6573171574046720",
+                                              "slug":  "design-of-a-distributed-search"
+                                          },
+                                          {
+                                              "title":  "Scaling Search and Indexing",
+                                              "id":  "5899429382455296",
+                                              "slug":  "scaling-search-and-indexing"
+                                          },
+                                          {
+                                              "title":  "Evaluation of a Distributed Search\u0027s Design",
+                                              "id":  "4962799423324160",
+                                              "slug":  "evaluation-of-a-distributed-searchs-design"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Distributed Logging",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: Distributed Logging",
+                                              "id":  "",
+                                              "slug":  "system-design-distributed-logging"
+                                          },
+                                          {
+                                              "title":  "Introduction to Distributed Logging",
+                                              "id":  "5621964999229440",
+                                              "slug":  "introduction-to-distributed-logging"
+                                          },
+                                          {
+                                              "title":  "Design of a Distributed Logging Service",
+                                              "id":  "4835612456124416",
+                                              "slug":  "design-of-a-distributed-logging-service"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Distributed Task Scheduler",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: The Distributed Task Scheduler",
+                                              "id":  "6152021643624448",
+                                              "slug":  "system-design-the-distributed-task-scheduler"
+                                          },
+                                          {
+                                              "title":  "Requirements of a Distributed Task Scheduler\u0027s Design",
+                                              "id":  "",
+                                              "slug":  "requirements-of-a-distributed-task-schedulers-design"
+                                          },
+                                          {
+                                              "title":  "Design of a Distributed Task Scheduler",
+                                              "id":  "4969977353863168",
+                                              "slug":  "design-of-a-distributed-task-scheduler"
+                                          },
+                                          {
+                                              "title":  "Design Considerations of a Distributed Task Scheduler",
+                                              "id":  "",
+                                              "slug":  "design-considerations-of-a-distributed-task-scheduler"
+                                          },
+                                          {
+                                              "title":  "Evaluation of a Distributed Task Scheduler\u0027s Design",
+                                              "id":  "5231625754902528",
+                                              "slug":  "evaluation-of-a-distributed-task-schedulers-design"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Sharded Counters",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: The Sharded Counters",
+                                              "id":  "",
+                                              "slug":  "system-design-the-sharded-counters"
+                                          },
+                                          {
+                                              "title":  "High-level Design of Sharded Counters",
+                                              "id":  "6126387596886016",
+                                              "slug":  "high-level-design-of-sharded-counters"
+                                          },
+                                          {
+                                              "title":  "Detailed Design of Sharded Counters",
+                                              "id":  "",
+                                              "slug":  "detailed-design-of-sharded-counters"
+                                          },
+                                          {
+                                              "title":  "Quiz on the Sharded Counters\u0027 Design",
+                                              "id":  "5659634509021184",
+                                              "slug":  "quiz-on-the-sharded-counters-design"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Concluding the Building Blocks Discussion",
+                         "sections":  [
+                                          {
+                                              "title":  "AI Evaluation of Building Blocks in E-Commerce Platform",
+                                              "id":  "5469233437868032",
+                                              "slug":  "ai-evaluation-of-building-blocks-in-e-commerce-platform"
+                                          },
+                                          {
+                                              "title":  "AI Evaluation of Building Blocks in Online Education System",
+                                              "id":  "6068850835718144",
+                                              "slug":  "ai-evaluation-of-building-blocks-in-online-education-system"
+                                          },
+                                          {
+                                              "title":  "Wrapping Up the Building Blocks Discussion",
+                                              "id":  "4682017479852032",
+                                              "slug":  "wrapping-up-the-building-blocks-discussion"
+                                          },
+                                          {
+                                              "title":  "The RESHADED Approach for System Design",
+                                              "id":  "4564800009142272",
+                                              "slug":  "the-reshaded-approach-for-system-design"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Design YouTube",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: YouTube",
+                                              "id":  "5360542734090240",
+                                              "slug":  "system-design-youtube"
+                                          },
+                                          {
+                                              "title":  "Requirements of YouTube\u0027s Design",
+                                              "id":  "5574324458618880",
+                                              "slug":  "requirements-of-youtubes-design"
+                                          },
+                                          {
+                                              "title":  "Design of YouTube",
+                                              "id":  "5334361548783616",
+                                              "slug":  "design-of-youtube"
+                                          },
+                                          {
+                                              "title":  "Evaluation of YouTube\u0027s Design",
+                                              "id":  "4932171382390784",
+                                              "slug":  "evaluation-of-youtubes-design"
+                                          },
+                                          {
+                                              "title":  "The Reality Is More Complicated",
+                                              "id":  "5471711817891840",
+                                              "slug":  "the-reality-is-more-complicated"
+                                          },
+                                          {
+                                              "title":  "Quiz on YouTube\u0027s Design",
+                                              "id":  "6669179066777600",
+                                              "slug":  "quiz-on-youtubes-design"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "TikTok",
+                         "sections":  [
+
+                                      ]
+                     },
+                     {
+                         "title":  "Design Quora",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: Quora",
+                                              "id":  "5132399700869120",
+                                              "slug":  "system-design-quora"
+                                          },
+                                          {
+                                              "title":  "Requirements of Quora\u0027s Design",
+                                              "id":  "6254998790340608",
+                                              "slug":  "requirements-of-quoras-design"
+                                          },
+                                          {
+                                              "title":  "Initial Design of Quora",
+                                              "id":  "6337842040537088",
+                                              "slug":  "initial-design-of-quora"
+                                          },
+                                          {
+                                              "title":  "Final Design of Quora",
+                                              "id":  "",
+                                              "slug":  "final-design-of-quora"
+                                          },
+                                          {
+                                              "title":  "Evaluation of Quoraâs Design",
+                                              "id":  "5580185650331648",
+                                              "slug":  "evaluation-of-quoras-design"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Design Google Maps",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: Google Maps",
+                                              "id":  "5138720050642944",
+                                              "slug":  "system-design-google-maps"
+                                          },
+                                          {
+                                              "title":  "Requirements of Google Maps\u0027 Design",
+                                              "id":  "",
+                                              "slug":  "requirements-of-google-maps-design"
+                                          },
+                                          {
+                                              "title":  "Design of Google Maps",
+                                              "id":  "",
+                                              "slug":  "design-of-google-maps"
+                                          },
+                                          {
+                                              "title":  "Challenges of Google Maps\u0027 Design",
+                                              "id":  "",
+                                              "slug":  "challenges-of-google-maps-design"
+                                          },
+                                          {
+                                              "title":  "Detailed Design of Google Maps",
+                                              "id":  "",
+                                              "slug":  "detailed-design-of-google-maps"
+                                          },
+                                          {
+                                              "title":  "Evaluation of Google Maps\u0027 Design",
+                                              "id":  "",
+                                              "slug":  "evaluation-of-google-maps-design"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Design a Proximity Service / Yelp",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: Yelp",
+                                              "id":  "",
+                                              "slug":  "system-design-yelp"
+                                          },
+                                          {
+                                              "title":  "Requirements of Yelpâs Design",
+                                              "id":  "4552284171665408",
+                                              "slug":  "requirements-of-yelps-design"
+                                          },
+                                          {
+                                              "title":  "Design of Yelp",
+                                              "id":  "",
+                                              "slug":  "design-of-yelp"
+                                          },
+                                          {
+                                              "title":  "Design Considerations of Yelp",
+                                              "id":  "",
+                                              "slug":  "design-considerations-of-yelp"
+                                          },
+                                          {
+                                              "title":  "Quiz on Yelp\u0027s Design",
+                                              "id":  "6678825089368064",
+                                              "slug":  "quiz-on-yelps-design"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Design Uber",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: Uber",
+                                              "id":  "",
+                                              "slug":  "system-design-uber"
+                                          },
+                                          {
+                                              "title":  "Requirements of Uberâs Design",
+                                              "id":  "6376322179268608",
+                                              "slug":  "requirements-of-ubers-design"
+                                          },
+                                          {
+                                              "title":  "High-level Design of Uber",
+                                              "id":  "5429357153091584",
+                                              "slug":  "high-level-design-of-uber"
+                                          },
+                                          {
+                                              "title":  "Detailed Design of Uber",
+                                              "id":  "",
+                                              "slug":  "detailed-design-of-uber"
+                                          },
+                                          {
+                                              "title":  "Payment Service and Fraud Detection in Uber Design",
+                                              "id":  "6353616188735488",
+                                              "slug":  "payment-service-and-fraud-detection-in-uber-design"
+                                          },
+                                          {
+                                              "title":  "Evaluation of Uberâs Design",
+                                              "id":  "5469445371199488",
+                                              "slug":  "evaluation-of-ubers-design"
+                                          },
+                                          {
+                                              "title":  "Quiz on Uber\u0027s Design",
+                                              "id":  "6590232799739904",
+                                              "slug":  "quiz-on-ubers-design"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Uber Eats",
+                         "sections":  [
+
+                                      ]
+                     },
+                     {
+                         "title":  "Design Twitter",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: Twitter",
+                                              "id":  "4687773419700224",
+                                              "slug":  "system-design-twitter"
+                                          },
+                                          {
+                                              "title":  "Requirements of Twitterâs Design",
+                                              "id":  "5920537112477696",
+                                              "slug":  "requirements-of-twitters-design"
+                                          },
+                                          {
+                                              "title":  "High-level Design of Twitter",
+                                              "id":  "6194554750894080",
+                                              "slug":  "high-level-design-of-twitter"
+                                          },
+                                          {
+                                              "title":  "Detailed Design of Twitter",
+                                              "id":  "",
+                                              "slug":  "detailed-design-of-twitter"
+                                          },
+                                          {
+                                              "title":  "Client-side Load Balancer for Twitter",
+                                              "id":  "5379128533975040",
+                                              "slug":  "client-side-load-balancer-for-twitter"
+                                          },
+                                          {
+                                              "title":  "Quiz on Twitter\u0027s Design",
+                                              "id":  "6740284133605376",
+                                              "slug":  "quiz-on-twitters-design"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Design Newsfeed System",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: Newsfeed System",
+                                              "id":  "",
+                                              "slug":  "system-design-newsfeed-system"
+                                          },
+                                          {
+                                              "title":  "Requirements of a Newsfeed Systemâs Design",
+                                              "id":  "5590893725220864",
+                                              "slug":  "requirements-of-a-newsfeed-systems-design"
+                                          },
+                                          {
+                                              "title":  "Design of a Newsfeed System",
+                                              "id":  "5697004751028224",
+                                              "slug":  "design-of-a-newsfeed-system"
+                                          },
+                                          {
+                                              "title":  "Evaluation of a Newsfeed Systemâs Design",
+                                              "id":  "5660564772093952",
+                                              "slug":  "evaluation-of-a-newsfeed-systems-design"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Design Instagram",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: Instagram",
+                                              "id":  "",
+                                              "slug":  "system-design-instagram"
+                                          },
+                                          {
+                                              "title":  "Requirements of Instagramâs Design",
+                                              "id":  "5571545748996096",
+                                              "slug":  "requirements-of-instagrams-design"
+                                          },
+                                          {
+                                              "title":  "Design of Instagram",
+                                              "id":  "5160831733465088",
+                                              "slug":  "design-of-instagram"
+                                          },
+                                          {
+                                              "title":  "Detailed Design of Instagram",
+                                              "id":  "",
+                                              "slug":  "detailed-design-of-instagram"
+                                          },
+                                          {
+                                              "title":  "Quiz on Instagramâs Design",
+                                              "id":  "5987143142342656",
+                                              "slug":  "quiz-on-instagrams-design"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "NewsFeed",
+                         "sections":  [
+
+                                      ]
+                     },
+                     {
+                         "title":  "Design a URL Shortening Service / TinyURL",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: TinyURL",
+                                              "id":  "",
+                                              "slug":  "system-design-tinyurl"
+                                          },
+                                          {
+                                              "title":  "Requirements of TinyURL\u0027s Design",
+                                              "id":  "5146211836755968",
+                                              "slug":  "requirements-of-tinyurls-design"
+                                          },
+                                          {
+                                              "title":  "Design and Deployment of TinyURL",
+                                              "id":  "5753981720068096",
+                                              "slug":  "design-and-deployment-of-tinyurl"
+                                          },
+                                          {
+                                              "title":  "Encoder for TinyURL",
+                                              "id":  "5084162431647744",
+                                              "slug":  "encoder-for-tinyurl"
+                                          },
+                                          {
+                                              "title":  "Evaluation of TinyURL\u0027s Design",
+                                              "id":  "6451282881019904",
+                                              "slug":  "evaluation-of-tinyurls-design"
+                                          },
+                                          {
+                                              "title":  "Quiz on TinyURL\u0027s Design",
+                                              "id":  "6050864745152512",
+                                              "slug":  "quiz-on-tinyurls-design"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Design a Web Crawler",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: Web Crawler",
+                                              "id":  "",
+                                              "slug":  "system-design-web-crawler"
+                                          },
+                                          {
+                                              "title":  "Requirements of a Web Crawler\u0027s Design",
+                                              "id":  "6454882160082944",
+                                              "slug":  "requirements-of-a-web-crawlers-design"
+                                          },
+                                          {
+                                              "title":  "Design of a Web Crawler",
+                                              "id":  "6632099624255488",
+                                              "slug":  "design-of-a-web-crawler"
+                                          },
+                                          {
+                                              "title":  "Design Improvements of a Web Crawler",
+                                              "id":  "5983505204379648",
+                                              "slug":  "design-improvements-of-a-web-crawler"
+                                          },
+                                          {
+                                              "title":  "Evaluation of  Web Crawler\u0027s Design",
+                                              "id":  "6142975511363584",
+                                              "slug":  "evaluation-of-web-crawlers-design"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Design WhatsApp",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: WhatsApp",
+                                              "id":  "",
+                                              "slug":  "system-design-whatsapp"
+                                          },
+                                          {
+                                              "title":  "Requirements of WhatsAppâs Design",
+                                              "id":  "5023065490063360",
+                                              "slug":  "requirements-of-whatsapps-design"
+                                          },
+                                          {
+                                              "title":  "High-level Design of WhatsApp",
+                                              "id":  "6728651831246848",
+                                              "slug":  "high-level-design-of-whatsapp"
+                                          },
+                                          {
+                                              "title":  "Detailed Design of WhatsApp",
+                                              "id":  "",
+                                              "slug":  "detailed-design-of-whatsapp"
+                                          },
+                                          {
+                                              "title":  "Evaluation of WhatsAppâs Design",
+                                              "id":  "4861549654573056",
+                                              "slug":  "evaluation-of-whatsapps-design"
+                                          },
+                                          {
+                                              "title":  "Quiz on WhatsAppâs Design",
+                                              "id":  "4877609447456768",
+                                              "slug":  "quiz-on-whatsapps-design"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Facebook Messenger",
+                         "sections":  [
+
+                                      ]
+                     },
+                     {
+                         "title":  "Design Typeahead Suggestion",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: The Typeahead Suggestion System",
+                                              "id":  "",
+                                              "slug":  "system-design-the-typeahead-suggestion-system"
+                                          },
+                                          {
+                                              "title":  "Requirements of the Typeahead Suggestion Systemâs Design",
+                                              "id":  "6369391511339008",
+                                              "slug":  "requirements-of-the-typeahead-suggestion-systems-design"
+                                          },
+                                          {
+                                              "title":  "High-level Design of the Typeahead Suggestion System",
+                                              "id":  "6376843531255808",
+                                              "slug":  "high-level-design-of-the-typeahead-suggestion-system"
+                                          },
+                                          {
+                                              "title":  "Data Structure for Storing Prefixes",
+                                              "id":  "",
+                                              "slug":  "data-structure-for-storing-prefixes"
+                                          },
+                                          {
+                                              "title":  "Detailed Design of the Typeahead Suggestion System",
+                                              "id":  "5464491722801152",
+                                              "slug":  "detailed-design-of-the-typeahead-suggestion-system"
+                                          },
+                                          {
+                                              "title":  "Evaluation of the Typeahead Suggestion Systemâs Design",
+                                              "id":  "6626894497185792",
+                                              "slug":  "evaluation-of-the-typeahead-suggestion-systems-design"
+                                          },
+                                          {
+                                              "title":  "Quiz on the Typeahead Suggestion Systemâs Design",
+                                              "id":  "5201949791617024",
+                                              "slug":  "quiz-on-the-typeahead-suggestion-systems-design"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Design a Collaborative Document Editing Service / Google Docs",
+                         "sections":  [
+                                          {
+                                              "title":  "System Design: Google Docs",
+                                              "id":  "5540995072000000",
+                                              "slug":  "system-design-google-docs"
+                                          },
+                                          {
+                                              "title":  "Requirements of Google Docsâ Design",
+                                              "id":  "5975395656007680",
+                                              "slug":  "requirements-of-google-docs-design"
+                                          },
+                                          {
+                                              "title":  "Design of Google Docs",
+                                              "id":  "5921693154934784",
+                                              "slug":  "design-of-google-docs"
+                                          },
+                                          {
+                                              "title":  "Concurrency in Collaborative Editing",
+                                              "id":  "6200295243120640",
+                                              "slug":  "concurrency-in-collaborative-editing"
+                                          },
+                                          {
+                                              "title":  "Evaluation of Google Docsâ Design",
+                                              "id":  "5489039691481088",
+                                              "slug":  "evaluation-of-google-docs-design"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Spectacular Failures",
+                         "sections":  [
+                                          {
+                                              "title":  "Introduction to Distributed System Failures",
+                                              "id":  "6503055815606272",
+                                              "slug":  "introduction-to-distributed-system-failures"
+                                          },
+                                          {
+                                              "title":  "Facebook, WhatsApp, Instagram, Oculus Outage",
+                                              "id":  "5214324309622784",
+                                              "slug":  "facebook-whatsapp-instagram-oculus-outage"
+                                          },
+                                          {
+                                              "title":  "AWS Kinesis Outage Affecting Many Organizations",
+                                              "id":  "5243362298298368",
+                                              "slug":  "aws-kinesis-outage-affecting-many-organizations"
+                                          },
+                                          {
+                                              "title":  "AWS Wide Spread Outage",
+                                              "id":  "6672582694141952",
+                                              "slug":  "aws-wide-spread-outage"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "ChatGPT",
+                         "sections":  [
+
+                                      ]
+                     },
+                     {
+                         "title":  "Concluding Remarks",
+                         "sections":  [
+                                          {
+                                              "title":  "Conclusions",
+                                              "id":  "5067216508157952",
+                                              "slug":  "conclusions"
+                                          }
+                                      ]
+                     },
+                     {
+                         "title":  "Recovered Lessons",
+                         "sections":  [
+
+                                      ]
+                     }
+                 ],
+    "total_chapters":  49,
+    "total_sections":  180,
+    "error_message":  null,
+    "source":  "credentials_from_environment"
+}
