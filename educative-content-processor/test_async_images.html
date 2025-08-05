@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Async Image Downloading System</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 20px auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select { padding: 8px; width: 100%; box-sizing: border-box; }
+        button { background: #007ACC; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #005a9e; }
+        .response { margin-top: 20px; padding: 15px; background: #f5f5f5; border-radius: 4px; white-space: pre-wrap; }
+        .loading { color: #007ACC; }
+        .success { background: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
+        .error { background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h1>Test Async Image Downloading System</h1>
+    
+    <p>This tool tests our new async image downloading system with enhanced features:</p>
+    <ul>
+        <li>✅ Async downloads using aiohttp + aiofiles</li>
+        <li>✅ DrawIOWidget editorImagePath extraction</li>
+        <li>✅ MIME type detection from Content-Type headers</li>
+        <li>🔄 SVG to PNG conversion using cairosvg (with graceful fallback)</li>
+        <li>✅ Hierarchical image organization (chapter/section)</li>
+        <li>✅ Educative session cookie authentication</li>
+        <li>✅ Robust error handling for Windows compatibility</li>
+    </ul>
+    
+    <div style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 10px; margin: 10px 0; border-radius: 4px;">
+        <strong>📝 Note:</strong> SVG to PNG conversion requires Cairo graphics library. 
+        If not available, SVG files will be preserved as-is with appropriate LaTeX comments.
+    </div>
+    
+    <form id="testForm">
+        <div class="form-group">
+            <label for="book_name">Book Name:</label>
+            <input type="text" id="book_name" name="book_name" value="grokking-the-system-design-interview" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="chapter_number">Chapter Number:</label>
+            <select id="chapter_number" name="chapter_number" required>
+                <option value="1">Chapter 1 - System Design Basics</option>
+                <option value="2">Chapter 2 - Load Balancing</option>
+                <option value="3">Chapter 3 - Caching</option>
+                <option value="4">Chapter 4 - Data Partitioning</option>
+                <option value="5">Chapter 5 - Indexes</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="educative_course_name">Educative Course Name:</label>
+            <input type="text" id="educative_course_name" name="educative_course_name" value="grokking-the-system-design-interview" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="use_env_credentials">Use Environment Credentials:</label>
+            <input type="checkbox" id="use_env_credentials" name="use_env_credentials" checked style="width: auto;">
+        </div>
+        
+        <button type="submit">Test Async Image Processing</button>
+    </form>
+    
+    <div id="response" class="response" style="display: none;"></div>
+    
+    <script>
+        document.getElementById('testForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const data = {
+                book_name: formData.get('book_name'),
+                chapter_number: parseInt(formData.get('chapter_number')),
+                educative_course_name: formData.get('educative_course_name'),
+                use_env_credentials: formData.has('use_env_credentials')
+            };
+            
+            const responseDiv = document.getElementById('response');
+            responseDiv.style.display = 'block';
+            responseDiv.className = 'response loading';
+            responseDiv.textContent = 'Processing... This may take a while as images are downloaded and converted...';
+            
+            try {
+                const response = await fetch('/generate-section-content', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    responseDiv.className = 'response success';
+                    responseDiv.textContent = `SUCCESS!\n\nGenerated ${result.total_sections_generated} sections\n\nChapter Info:\n${JSON.stringify(result.chapter_info, null, 2)}\n\nSections:\n${JSON.stringify(result.generated_sections, null, 2)}`;
+                } else {
+                    responseDiv.className = 'response error';
+                    responseDiv.textContent = `ERROR: ${result.error_message || 'Unknown error'}\n\nDetails:\n${JSON.stringify(result, null, 2)}`;
+                }
+            } catch (error) {
+                responseDiv.className = 'response error';
+                responseDiv.textContent = `Network Error: ${error.message}`;
+            }
+        });
+    </script>
+</body>
+</html>

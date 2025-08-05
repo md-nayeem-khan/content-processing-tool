@@ -1,0 +1,57 @@
+% Chapter template for Educative course content with dynamic section inclusion
+\documentclass[../Main.tex]{subfiles}
+
+\begin{document}
+\chapter{ Introduction }
+
+\intro{
+Get familiar with System Design and the course structure, including prerequisites that set the foundation for mastering System Design interviews.
+}
+
+\section{ Introduction to Modern System Design }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_2_introduction/section_6516310599270400.tex
+\IfFileExists{chapter_2_introduction/section_6516310599270400.tex}{
+    \input{chapter_2_introduction/section_6516310599270400.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "Introduction to Modern System Design" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 6516310599270400
+        \item Section Slug: introduction-to-modern-system-design
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+\vspace{1cm}
+
+\section{ Course Structure for Modern System Design }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_2_introduction/section_6462916757028864.tex
+\IfFileExists{chapter_2_introduction/section_6462916757028864.tex}{
+    \input{chapter_2_introduction/section_6462916757028864.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "Course Structure for Modern System Design" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 6462916757028864
+        \item Section Slug: course-structure-for-modern-system-design
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+
+
+\end{document}

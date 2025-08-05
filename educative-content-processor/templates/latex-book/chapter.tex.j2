@@ -1,0 +1,46 @@
+% Chapter template for Educative course content with dynamic section inclusion
+\documentclass[../Main.tex]{subfiles}
+
+\begin{document}
+\chapter{ {{chapter.title | escape_latex}} }
+
+{% if chapter.summary %}
+\intro{
+{{chapter.summary | escape_latex}}
+}
+{% endif %}
+
+{% if chapter.sections %}
+{% for section in chapter.sections %}
+\section{ {{section.title | escape_latex}} }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_{{chapter_number}}_{{chapter_slug}}/section_{{section.id}}.tex
+\IfFileExists{chapter_{{chapter_number}}_{{chapter_slug}}/section_{{section.id}}.tex}{
+    \input{chapter_{{chapter_number}}_{{chapter_slug}}/section_{{section.id}}.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "{{section.title | escape_latex}}" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: {{section.id}}
+        \item Section Slug: {{section.slug}}
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+{% if not loop.last %}
+\vspace{1cm}
+{% endif %}
+
+{% endfor %}
+{% else %}
+\section{No Sections Available}
+This chapter contains no sections.
+{% endif %}
+
+\end{document}

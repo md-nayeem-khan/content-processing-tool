@@ -1,0 +1,1629 @@
+{
+  "book_title": "Grokking the Modern System Design Interview",
+  "content_type": "course",
+  "generation_timestamp": "2025-08-02T16:50:26.893974",
+  "chapters": [
+    {
+      "chapter_number": 1,
+      "chapter_title": "System Design Interviews",
+      "chapter_slug": "system_design_interviews",
+      "chapter_file": "files/chapter_1_system_design_interviews.tex",
+      "sections": [
+        {
+          "section_id": "4771234193080320",
+          "section_title": "Getting Ready for the System Design Interview",
+          "section_slug": "getting-ready-for-the-system-design-interview",
+          "section_file": "files/chapter_1_system_design_interviews/section_4771234193080320.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-08-02T19:56:00.763727",
+          "component_types": [
+            "SlateHTML",
+            "Columns",
+            "DrawIOWidget",
+            "StructuredQuiz"
+          ]
+        },
+        {
+          "section_id": "4705505809661952",
+          "section_title": "Key Concepts to Prepare for the System Design Interview",
+          "section_slug": "key-concepts-to-prepare-for-the-system-design-interview",
+          "section_file": "files/chapter_1_system_design_interviews/section_4705505809661952.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-08-02T19:56:18.910890",
+          "component_types": [
+            "SlateHTML",
+            "MarkMap",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "5546916426809344",
+          "section_title": "Resources to Prepare for a System Design Interview",
+          "section_slug": "resources-to-prepare-for-a-system-design-interview",
+          "section_file": "files/chapter_1_system_design_interviews/section_5546916426809344.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-08-02T19:56:31.057845",
+          "component_types": [
+            "SlateHTML",
+            "Columns",
+            "DrawIOWidget",
+            "StructuredQuiz",
+            "MarkdownEditor"
+          ]
+        },
+        {
+          "section_id": "6043988183744512",
+          "section_title": "The Do\u2019s and Don\u2019ts of the System Design Interview",
+          "section_slug": "the-dos-and-donts-of-the-system-design-interview",
+          "section_file": "files/chapter_1_system_design_interviews/section_6043988183744512.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-08-02T19:56:52.520476",
+          "component_types": [
+            "SlateHTML",
+            "Columns",
+            "LazyLoadPlaceholder",
+            "DrawIOWidget",
+            "MarkdownEditor",
+            "SpoilerEditor"
+          ]
+        },
+        {
+          "section_id": "6145339853373440",
+          "section_title": "Let AI Evaluate your System Design Interview Preparation",
+          "section_slug": "let-ai-evaluate-your-system-design-interview-preparation",
+          "section_file": "files/chapter_1_system_design_interviews/section_6145339853373440.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-08-02T19:56:54.503013",
+          "component_types": [
+            "SlateHTML",
+            "Notepad"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 2,
+      "chapter_title": "Introduction",
+      "chapter_slug": "introduction",
+      "chapter_file": "files/chapter_2_introduction.tex",
+      "sections": [
+        {
+          "section_id": "6516310599270400",
+          "section_title": "Introduction to Modern System Design",
+          "section_slug": "introduction-to-modern-system-design",
+          "section_file": "files/chapter_2_introduction/section_6516310599270400.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6462916757028864",
+          "section_title": "Course Structure for Modern System Design",
+          "section_slug": "course-structure-for-modern-system-design",
+          "section_file": "files/chapter_2_introduction/section_6462916757028864.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 3,
+      "chapter_title": "Abstractions",
+      "chapter_slug": "abstractions",
+      "chapter_file": "files/chapter_3_abstractions.tex",
+      "sections": [
+        {
+          "section_id": "6539129789087744",
+          "section_title": "Why Are Abstractions Important?",
+          "section_slug": "why-are-abstractions-important",
+          "section_file": "files/chapter_3_abstractions/section_6539129789087744.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6670339758620672",
+          "section_title": "Network Abstractions: Remote Procedure Calls",
+          "section_slug": "network-abstractions-remote-procedure-calls",
+          "section_file": "files/chapter_3_abstractions/section_6670339758620672.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5131359030345728",
+          "section_title": "Spectrum of Consistency Models",
+          "section_slug": "spectrum-of-consistency-models",
+          "section_file": "files/chapter_3_abstractions/section_5131359030345728.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5023279047245824",
+          "section_title": "The Spectrum of Failure Models",
+          "section_slug": "the-spectrum-of-failure-models",
+          "section_file": "files/chapter_3_abstractions/section_5023279047245824.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 4,
+      "chapter_title": "Non-functional System Characteristics",
+      "chapter_slug": "non_functional_system_characteristics",
+      "chapter_file": "files/chapter_4_non_functional_system_characteristics.tex",
+      "sections": [
+        {
+          "section_id": "5983424656965632",
+          "section_title": "Availability",
+          "section_slug": "availability",
+          "section_file": "files/chapter_4_non_functional_system_characteristics/section_5983424656965632.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5173989319639040",
+          "section_title": "Reliability",
+          "section_slug": "reliability",
+          "section_file": "files/chapter_4_non_functional_system_characteristics/section_5173989319639040.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5991400583200768",
+          "section_title": "Scalability",
+          "section_slug": "scalability",
+          "section_file": "files/chapter_4_non_functional_system_characteristics/section_5991400583200768.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6540133490229248",
+          "section_title": "Maintainability",
+          "section_slug": "maintainability",
+          "section_file": "files/chapter_4_non_functional_system_characteristics/section_6540133490229248.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6693927511392256",
+          "section_title": "Fault Tolerance",
+          "section_slug": "fault-tolerance",
+          "section_file": "files/chapter_4_non_functional_system_characteristics/section_6693927511392256.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6669534840487936",
+          "section_title": "Let AI Evaluate Your Understanding of Non-Functional Requirements",
+          "section_slug": "let-ai-evaluate-your-understanding-of-non-functional-requirements",
+          "section_file": "files/chapter_4_non_functional_system_characteristics/section_6669534840487936.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 5,
+      "chapter_title": "Back-of-the-envelope Calculations",
+      "chapter_slug": "back_of_the_envelope_calculations",
+      "chapter_file": "files/chapter_5_back_of_the_envelope_calculations.tex",
+      "sections": [
+        {
+          "section_id": "5711642666467328",
+          "section_title": "Put Back-of-the-envelope Numbers in Perspective",
+          "section_slug": "put-back-of-the-envelope-numbers-in-perspective",
+          "section_file": "files/chapter_5_back_of_the_envelope_calculations/section_5711642666467328.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "4766860129599488",
+          "section_title": "Examples of Resource Estimation",
+          "section_slug": "examples-of-resource-estimation",
+          "section_file": "files/chapter_5_back_of_the_envelope_calculations/section_4766860129599488.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 6,
+      "chapter_title": "Building Blocks",
+      "chapter_slug": "building_blocks",
+      "chapter_file": "files/chapter_6_building_blocks.tex",
+      "sections": [
+        {
+          "section_id": "6061247618875392",
+          "section_title": "Introduction to Building Blocks for Modern System Design",
+          "section_slug": "introduction-to-building-blocks-for-modern-system-design",
+          "section_file": "files/chapter_6_building_blocks/section_6061247618875392.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 7,
+      "chapter_title": "Domain Name System",
+      "chapter_slug": "domain_name_system",
+      "chapter_file": "files/chapter_7_domain_name_system.tex",
+      "sections": [
+        {
+          "section_id": "5728619204182016",
+          "section_title": "Introduction to Domain Name System (DNS)",
+          "section_slug": "introduction-to-domain-name-system-dns",
+          "section_file": "files/chapter_7_domain_name_system/section_5728619204182016.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "4570386150981632",
+          "section_title": "How the Domain Name System Works",
+          "section_slug": "how-the-domain-name-system-works",
+          "section_file": "files/chapter_7_domain_name_system/section_4570386150981632.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 8,
+      "chapter_title": "Load Balancers",
+      "chapter_slug": "load_balancers",
+      "chapter_file": "files/chapter_8_load_balancers.tex",
+      "sections": [
+        {
+          "section_id": "4521972679049216",
+          "section_title": "Introduction to Load Balancers",
+          "section_slug": "introduction-to-load-balancers",
+          "section_file": "files/chapter_8_load_balancers/section_4521972679049216.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5238392749293568",
+          "section_title": "Global and Local Load Balancing",
+          "section_slug": "global-and-local-load-balancing",
+          "section_file": "files/chapter_8_load_balancers/section_5238392749293568.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6596709789990912",
+          "section_title": "Advanced Details of Load Balancers",
+          "section_slug": "advanced-details-of-load-balancers",
+          "section_file": "files/chapter_8_load_balancers/section_6596709789990912.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 9,
+      "chapter_title": "Databases",
+      "chapter_slug": "databases",
+      "chapter_file": "files/chapter_9_databases.tex",
+      "sections": [
+        {
+          "section_id": "4901035478351872",
+          "section_title": "Introduction to Databases",
+          "section_slug": "introduction-to-databases",
+          "section_file": "files/chapter_9_databases/section_4901035478351872.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6521598450597888",
+          "section_title": "Types of Databases",
+          "section_slug": "types-of-databases",
+          "section_file": "files/chapter_9_databases/section_6521598450597888.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5241733675220992",
+          "section_title": "Data Replication",
+          "section_slug": "data-replication",
+          "section_file": "files/chapter_9_databases/section_5241733675220992.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6254160546103296",
+          "section_title": "Data Partitioning",
+          "section_slug": "data-partitioning",
+          "section_file": "files/chapter_9_databases/section_6254160546103296.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5531655174881280",
+          "section_title": "Trade-offs in Databases",
+          "section_slug": "trade-offs-in-databases",
+          "section_file": "files/chapter_9_databases/section_5531655174881280.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 10,
+      "chapter_title": "Key-value Store",
+      "chapter_slug": "key_value_store",
+      "chapter_file": "files/chapter_10_key_value_store.tex",
+      "sections": [
+        {
+          "section_id": "4747701493432320",
+          "section_title": "System Design: The Key-value Store",
+          "section_slug": "system-design-the-key-value-store",
+          "section_file": "files/chapter_10_key_value_store/section_4747701493432320.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5610927277211648",
+          "section_title": "Design of a Key-value Store",
+          "section_slug": "design-of-a-key-value-store",
+          "section_file": "files/chapter_10_key_value_store/section_5610927277211648.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5256346714243072",
+          "section_title": "Ensure Scalability and Replication",
+          "section_slug": "ensure-scalability-and-replication",
+          "section_file": "files/chapter_10_key_value_store/section_5256346714243072.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5979802812547072",
+          "section_title": "Versioning Data and Achieving Configurability",
+          "section_slug": "versioning-data-and-achieving-configurability",
+          "section_file": "files/chapter_10_key_value_store/section_5979802812547072.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5842597234343936",
+          "section_title": "Enable Fault Tolerance and Failure Detection",
+          "section_slug": "enable-fault-tolerance-and-failure-detection",
+          "section_file": "files/chapter_10_key_value_store/section_5842597234343936.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 11,
+      "chapter_title": "Content Delivery Network  (CDN)",
+      "chapter_slug": "content_delivery_network_cdn",
+      "chapter_file": "files/chapter_11_content_delivery_network_cdn.tex",
+      "sections": [
+        {
+          "section_id": "6624266925899776",
+          "section_title": "System Design: The Content Delivery Network (CDN)",
+          "section_slug": "system-design-the-content-delivery-network-cdn",
+          "section_file": "files/chapter_11_content_delivery_network_cdn/section_6624266925899776.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5560114131501056",
+          "section_title": "Introduction to a CDN",
+          "section_slug": "introduction-to-a-cdn",
+          "section_file": "files/chapter_11_content_delivery_network_cdn/section_5560114131501056.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5883973992972288",
+          "section_title": "Design of a CDN",
+          "section_slug": "design-of-a-cdn",
+          "section_file": "files/chapter_11_content_delivery_network_cdn/section_5883973992972288.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5267936226312192",
+          "section_title": "In-depth Investigation of CDN: Part 1",
+          "section_slug": "in-depth-investigation-of-cdn-part-1",
+          "section_file": "files/chapter_11_content_delivery_network_cdn/section_5267936226312192.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5382114350727168",
+          "section_title": "In-depth Investigation of CDN: Part 2",
+          "section_slug": "in-depth-investigation-of-cdn-part-2",
+          "section_file": "files/chapter_11_content_delivery_network_cdn/section_5382114350727168.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5971383947624448",
+          "section_title": "Evaluation of CDN's Design",
+          "section_slug": "evaluation-of-cdns-design",
+          "section_file": "files/chapter_11_content_delivery_network_cdn/section_5971383947624448.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6624605451583488",
+          "section_title": "Quiz on CDN's Design",
+          "section_slug": "quiz-on-cdns-design",
+          "section_file": "files/chapter_11_content_delivery_network_cdn/section_6624605451583488.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 12,
+      "chapter_title": "Sequencer",
+      "chapter_slug": "sequencer",
+      "chapter_file": "files/chapter_12_sequencer.tex",
+      "sections": [
+        {
+          "section_id": "6499939719053312",
+          "section_title": "System Design: Sequencer",
+          "section_slug": "system-design-sequencer",
+          "section_file": "files/chapter_12_sequencer/section_6499939719053312.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5216880444309504",
+          "section_title": "Design of a Unique ID Generator",
+          "section_slug": "design-of-a-unique-id-generator",
+          "section_file": "files/chapter_12_sequencer/section_5216880444309504.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5836711686307840",
+          "section_title": "Unique IDs with Causality",
+          "section_slug": "unique-ids-with-causality",
+          "section_file": "files/chapter_12_sequencer/section_5836711686307840.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 13,
+      "chapter_title": "Distributed  Monitoring",
+      "chapter_slug": "distributed_monitoring",
+      "chapter_file": "files/chapter_13_distributed_monitoring.tex",
+      "sections": [
+        {
+          "section_id": "6310983387840512",
+          "section_title": "System Design: Distributed Monitoring",
+          "section_slug": "system-design-distributed-monitoring",
+          "section_file": "files/chapter_13_distributed_monitoring/section_6310983387840512.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "4721220683038720",
+          "section_title": "Introduction to Distributed Monitoring",
+          "section_slug": "introduction-to-distributed-monitoring",
+          "section_file": "files/chapter_13_distributed_monitoring/section_4721220683038720.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6071737539624960",
+          "section_title": "Prerequisites of a Monitoring System",
+          "section_slug": "prerequisites-of-a-monitoring-system",
+          "section_file": "files/chapter_13_distributed_monitoring/section_6071737539624960.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 14,
+      "chapter_title": "Monitor Server-side Errors",
+      "chapter_slug": "monitor_server_side_errors",
+      "chapter_file": "files/chapter_14_monitor_server_side_errors.tex",
+      "sections": [
+        {
+          "section_id": "5485445638520832",
+          "section_title": "Design of a Monitoring System",
+          "section_slug": "design-of-a-monitoring-system",
+          "section_file": "files/chapter_14_monitor_server_side_errors/section_5485445638520832.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6718061809238016",
+          "section_title": "Detailed Design of a Monitoring System",
+          "section_slug": "detailed-design-of-a-monitoring-system",
+          "section_file": "files/chapter_14_monitor_server_side_errors/section_6718061809238016.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5232629720285184",
+          "section_title": "Visualize Data in a Monitoring System",
+          "section_slug": "visualize-data-in-a-monitoring-system",
+          "section_file": "files/chapter_14_monitor_server_side_errors/section_5232629720285184.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 15,
+      "chapter_title": "Monitor Client-side Errors",
+      "chapter_slug": "monitor_client_side_errors",
+      "chapter_file": "files/chapter_15_monitor_client_side_errors.tex",
+      "sections": [
+        {
+          "section_id": "4768611427680256",
+          "section_title": "Focus on Client-side Errors in a Monitoring System",
+          "section_slug": "focus-on-client-side-errors-in-a-monitoring-system",
+          "section_file": "files/chapter_15_monitor_client_side_errors/section_4768611427680256.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "4769741293486080",
+          "section_title": "Design of a Client-side Monitoring System",
+          "section_slug": "design-of-a-client-side-monitoring-system",
+          "section_file": "files/chapter_15_monitor_client_side_errors/section_4769741293486080.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 16,
+      "chapter_title": "Distributed Cache",
+      "chapter_slug": "distributed_cache",
+      "chapter_file": "files/chapter_16_distributed_cache.tex",
+      "sections": [
+        {
+          "section_id": "5053577315221504",
+          "section_title": "System Design: The Distributed Cache",
+          "section_slug": "system-design-the-distributed-cache",
+          "section_file": "files/chapter_16_distributed_cache/section_5053577315221504.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5353674067148800",
+          "section_title": "Background of Distributed Cache",
+          "section_slug": "background-of-distributed-cache",
+          "section_file": "files/chapter_16_distributed_cache/section_5353674067148800.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5103962818084864",
+          "section_title": "High-level Design of a Distributed Cache",
+          "section_slug": "high-level-design-of-a-distributed-cache",
+          "section_file": "files/chapter_16_distributed_cache/section_5103962818084864.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "4731033765543936",
+          "section_title": "Detailed Design of a Distributed Cache",
+          "section_slug": "detailed-design-of-a-distributed-cache",
+          "section_file": "files/chapter_16_distributed_cache/section_4731033765543936.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6094096892690432",
+          "section_title": "Evaluation of a Distributed Cache's Design",
+          "section_slug": "evaluation-of-a-distributed-caches-design",
+          "section_file": "files/chapter_16_distributed_cache/section_6094096892690432.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5441771256938496",
+          "section_title": "Memcached versus Redis",
+          "section_slug": "memcached-versus-redis",
+          "section_file": "files/chapter_16_distributed_cache/section_5441771256938496.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 17,
+      "chapter_title": "Distributed Messaging Queue",
+      "chapter_slug": "distributed_messaging_queue",
+      "chapter_file": "files/chapter_17_distributed_messaging_queue.tex",
+      "sections": [
+        {
+          "section_id": "5148400467312640",
+          "section_title": "System Design: The Distributed Messaging Queue",
+          "section_slug": "system-design-the-distributed-messaging-queue",
+          "section_file": "files/chapter_17_distributed_messaging_queue/section_5148400467312640.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5806944861814784",
+          "section_title": "Requirements of a Distributed Messaging Queue\u2019s Design",
+          "section_slug": "requirements-of-a-distributed-messaging-queues-design",
+          "section_file": "files/chapter_17_distributed_messaging_queue/section_5806944861814784.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6191662786674688",
+          "section_title": "Considerations of a Distributed Messaging Queue\u2019s Design",
+          "section_slug": "considerations-of-a-distributed-messaging-queues-design",
+          "section_file": "files/chapter_17_distributed_messaging_queue/section_6191662786674688.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6330012742975488",
+          "section_title": "Design of a Distributed Messaging Queue: Part 1",
+          "section_slug": "design-of-a-distributed-messaging-queue-part-1",
+          "section_file": "files/chapter_17_distributed_messaging_queue/section_6330012742975488.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "4953511267139584",
+          "section_title": "Design of a Distributed Messaging Queue: Part 2",
+          "section_slug": "design-of-a-distributed-messaging-queue-part-2",
+          "section_file": "files/chapter_17_distributed_messaging_queue/section_4953511267139584.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "4654974423793664",
+          "section_title": "Evaluation of a Distributed Messaging Queue\u2019s Design",
+          "section_slug": "evaluation-of-a-distributed-messaging-queues-design",
+          "section_file": "files/chapter_17_distributed_messaging_queue/section_4654974423793664.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5261732032806912",
+          "section_title": "Quiz on the Distributed Messaging Queue\u2019s Design",
+          "section_slug": "quiz-on-the-distributed-messaging-queues-design",
+          "section_file": "files/chapter_17_distributed_messaging_queue/section_5261732032806912.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 18,
+      "chapter_title": "Pub-sub",
+      "chapter_slug": "pub_sub",
+      "chapter_file": "files/chapter_18_pub_sub.tex",
+      "sections": [
+        {
+          "section_id": "4996814243889152",
+          "section_title": "System Design: The Pub-sub Abstraction",
+          "section_slug": "system-design-the-pub-sub-abstraction",
+          "section_file": "files/chapter_18_pub_sub/section_4996814243889152.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5155663642099712",
+          "section_title": "Introduction to Pub-sub",
+          "section_slug": "introduction-to-pub-sub",
+          "section_file": "files/chapter_18_pub_sub/section_5155663642099712.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5367894619193344",
+          "section_title": "Design of a Pub-sub System",
+          "section_slug": "design-of-a-pub-sub-system",
+          "section_file": "files/chapter_18_pub_sub/section_5367894619193344.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 19,
+      "chapter_title": "Rate Limiter",
+      "chapter_slug": "rate_limiter",
+      "chapter_file": "files/chapter_19_rate_limiter.tex",
+      "sections": [
+        {
+          "section_id": "4770834422169600",
+          "section_title": "System Design: The Rate Limiter",
+          "section_slug": "system-design-the-rate-limiter",
+          "section_file": "files/chapter_19_rate_limiter/section_4770834422169600.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5887506125422592",
+          "section_title": "Requirements of a Rate Limiter\u2019s Design",
+          "section_slug": "requirements-of-a-rate-limiters-design",
+          "section_file": "files/chapter_19_rate_limiter/section_5887506125422592.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5287353329647616",
+          "section_title": "Design of a Rate Limiter",
+          "section_slug": "design-of-a-rate-limiter",
+          "section_file": "files/chapter_19_rate_limiter/section_5287353329647616.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5447913559293952",
+          "section_title": "Rate Limiter Algorithms",
+          "section_slug": "rate-limiter-algorithms",
+          "section_file": "files/chapter_19_rate_limiter/section_5447913559293952.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6564352194248704",
+          "section_title": "Quiz on the Rate Limiter\u2019s Design",
+          "section_slug": "quiz-on-the-rate-limiters-design",
+          "section_file": "files/chapter_19_rate_limiter/section_6564352194248704.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 20,
+      "chapter_title": "Blob Store",
+      "chapter_slug": "blob_store",
+      "chapter_file": "files/chapter_20_blob_store.tex",
+      "sections": [
+        {
+          "section_id": "4862646238576640",
+          "section_title": "System Design: A Blob Store",
+          "section_slug": "system-design-a-blob-store",
+          "section_file": "files/chapter_20_blob_store/section_4862646238576640.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5129194917068800",
+          "section_title": "Requirements of a Blob Store's Design",
+          "section_slug": "requirements-of-a-blob-stores-design",
+          "section_file": "files/chapter_20_blob_store/section_5129194917068800.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "4910790825476096",
+          "section_title": "Design of a Blob Store",
+          "section_slug": "design-of-a-blob-store",
+          "section_file": "files/chapter_20_blob_store/section_4910790825476096.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "4593802865541120",
+          "section_title": "Design Considerations of a Blob Store",
+          "section_slug": "design-considerations-of-a-blob-store",
+          "section_file": "files/chapter_20_blob_store/section_4593802865541120.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5348783000387584",
+          "section_title": "Evaluation of a Blob Store's Design",
+          "section_slug": "evaluation-of-a-blob-stores-design",
+          "section_file": "files/chapter_20_blob_store/section_5348783000387584.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6060039001604096",
+          "section_title": "Quiz on the Blob Store's Design",
+          "section_slug": "quiz-on-the-blob-stores-design",
+          "section_file": "files/chapter_20_blob_store/section_6060039001604096.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 21,
+      "chapter_title": "Distributed Search",
+      "chapter_slug": "distributed_search",
+      "chapter_file": "files/chapter_21_distributed_search.tex",
+      "sections": [
+        {
+          "section_id": "5400897294696448",
+          "section_title": "System Design: The Distributed Search",
+          "section_slug": "system-design-the-distributed-search",
+          "section_file": "files/chapter_21_distributed_search/section_5400897294696448.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5706146547761152",
+          "section_title": "Requirements of a Distributed Search System's Design",
+          "section_slug": "requirements-of-a-distributed-search-systems-design",
+          "section_file": "files/chapter_21_distributed_search/section_5706146547761152.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6595902341120000",
+          "section_title": "Indexing in a Distributed Search",
+          "section_slug": "indexing-in-a-distributed-search",
+          "section_file": "files/chapter_21_distributed_search/section_6595902341120000.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6573171574046720",
+          "section_title": "Design of a Distributed Search",
+          "section_slug": "design-of-a-distributed-search",
+          "section_file": "files/chapter_21_distributed_search/section_6573171574046720.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5899429382455296",
+          "section_title": "Scaling Search and Indexing",
+          "section_slug": "scaling-search-and-indexing",
+          "section_file": "files/chapter_21_distributed_search/section_5899429382455296.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "4962799423324160",
+          "section_title": "Evaluation of a Distributed Search's Design",
+          "section_slug": "evaluation-of-a-distributed-searchs-design",
+          "section_file": "files/chapter_21_distributed_search/section_4962799423324160.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 22,
+      "chapter_title": "Distributed Logging",
+      "chapter_slug": "distributed_logging",
+      "chapter_file": "files/chapter_22_distributed_logging.tex",
+      "sections": [
+        {
+          "section_id": "6747547922333696",
+          "section_title": "System Design: Distributed Logging",
+          "section_slug": "system-design-distributed-logging",
+          "section_file": "files/chapter_22_distributed_logging/section_6747547922333696.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5621964999229440",
+          "section_title": "Introduction to Distributed Logging",
+          "section_slug": "introduction-to-distributed-logging",
+          "section_file": "files/chapter_22_distributed_logging/section_5621964999229440.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "4835612456124416",
+          "section_title": "Design of a Distributed Logging Service",
+          "section_slug": "design-of-a-distributed-logging-service",
+          "section_file": "files/chapter_22_distributed_logging/section_4835612456124416.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 23,
+      "chapter_title": "Distributed Task Scheduler",
+      "chapter_slug": "distributed_task_scheduler",
+      "chapter_file": "files/chapter_23_distributed_task_scheduler.tex",
+      "sections": [
+        {
+          "section_id": "6152021643624448",
+          "section_title": "System Design: The Distributed Task Scheduler",
+          "section_slug": "system-design-the-distributed-task-scheduler",
+          "section_file": "files/chapter_23_distributed_task_scheduler/section_6152021643624448.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6681764793942016",
+          "section_title": "Requirements of a Distributed Task Scheduler's Design",
+          "section_slug": "requirements-of-a-distributed-task-schedulers-design",
+          "section_file": "files/chapter_23_distributed_task_scheduler/section_6681764793942016.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "4969977353863168",
+          "section_title": "Design of a Distributed Task Scheduler",
+          "section_slug": "design-of-a-distributed-task-scheduler",
+          "section_file": "files/chapter_23_distributed_task_scheduler/section_4969977353863168.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "4856850956156928",
+          "section_title": "Design Considerations of a Distributed Task Scheduler",
+          "section_slug": "design-considerations-of-a-distributed-task-scheduler",
+          "section_file": "files/chapter_23_distributed_task_scheduler/section_4856850956156928.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5231625754902528",
+          "section_title": "Evaluation of a Distributed Task Scheduler's Design",
+          "section_slug": "evaluation-of-a-distributed-task-schedulers-design",
+          "section_file": "files/chapter_23_distributed_task_scheduler/section_5231625754902528.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 24,
+      "chapter_title": "Sharded Counters",
+      "chapter_slug": "sharded_counters",
+      "chapter_file": "files/chapter_24_sharded_counters.tex",
+      "sections": [
+        {
+          "section_id": "6071347163955200",
+          "section_title": "System Design: The Sharded Counters",
+          "section_slug": "system-design-the-sharded-counters",
+          "section_file": "files/chapter_24_sharded_counters/section_6071347163955200.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6126387596886016",
+          "section_title": "High-level Design of Sharded Counters",
+          "section_slug": "high-level-design-of-sharded-counters",
+          "section_file": "files/chapter_24_sharded_counters/section_6126387596886016.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5076411916484608",
+          "section_title": "Detailed Design of Sharded Counters",
+          "section_slug": "detailed-design-of-sharded-counters",
+          "section_file": "files/chapter_24_sharded_counters/section_5076411916484608.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5659634509021184",
+          "section_title": "Quiz on the Sharded Counters' Design",
+          "section_slug": "quiz-on-the-sharded-counters-design",
+          "section_file": "files/chapter_24_sharded_counters/section_5659634509021184.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 25,
+      "chapter_title": "Concluding the Building Blocks Discussion",
+      "chapter_slug": "concluding_the_building_blocks_discussion",
+      "chapter_file": "files/chapter_25_concluding_the_building_blocks_discussion.tex",
+      "sections": [
+        {
+          "section_id": "5469233437868032",
+          "section_title": "AI Evaluation of Building Blocks in E-Commerce Platform",
+          "section_slug": "ai-evaluation-of-building-blocks-in-e-commerce-platform",
+          "section_file": "files/chapter_25_concluding_the_building_blocks_discussion/section_5469233437868032.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6068850835718144",
+          "section_title": "AI Evaluation of Building Blocks in Online Education System",
+          "section_slug": "ai-evaluation-of-building-blocks-in-online-education-system",
+          "section_file": "files/chapter_25_concluding_the_building_blocks_discussion/section_6068850835718144.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "4682017479852032",
+          "section_title": "Wrapping Up the Building Blocks Discussion",
+          "section_slug": "wrapping-up-the-building-blocks-discussion",
+          "section_file": "files/chapter_25_concluding_the_building_blocks_discussion/section_4682017479852032.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "4564800009142272",
+          "section_title": "The RESHADED Approach for System Design",
+          "section_slug": "the-reshaded-approach-for-system-design",
+          "section_file": "files/chapter_25_concluding_the_building_blocks_discussion/section_4564800009142272.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 26,
+      "chapter_title": "Design YouTube",
+      "chapter_slug": "design_youtube",
+      "chapter_file": "files/chapter_26_design_youtube.tex",
+      "sections": [
+        {
+          "section_id": "5360542734090240",
+          "section_title": "System Design: YouTube",
+          "section_slug": "system-design-youtube",
+          "section_file": "files/chapter_26_design_youtube/section_5360542734090240.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5574324458618880",
+          "section_title": "Requirements of YouTube's Design",
+          "section_slug": "requirements-of-youtubes-design",
+          "section_file": "files/chapter_26_design_youtube/section_5574324458618880.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5334361548783616",
+          "section_title": "Design of YouTube",
+          "section_slug": "design-of-youtube",
+          "section_file": "files/chapter_26_design_youtube/section_5334361548783616.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "4932171382390784",
+          "section_title": "Evaluation of YouTube's Design",
+          "section_slug": "evaluation-of-youtubes-design",
+          "section_file": "files/chapter_26_design_youtube/section_4932171382390784.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5471711817891840",
+          "section_title": "The Reality Is More Complicated",
+          "section_slug": "the-reality-is-more-complicated",
+          "section_file": "files/chapter_26_design_youtube/section_5471711817891840.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6669179066777600",
+          "section_title": "Quiz on YouTube's Design",
+          "section_slug": "quiz-on-youtubes-design",
+          "section_file": "files/chapter_26_design_youtube/section_6669179066777600.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 27,
+      "chapter_title": "Design Quora",
+      "chapter_slug": "design_quora",
+      "chapter_file": "files/chapter_27_design_quora.tex",
+      "sections": [
+        {
+          "section_id": "5132399700869120",
+          "section_title": "System Design: Quora",
+          "section_slug": "system-design-quora",
+          "section_file": "files/chapter_27_design_quora/section_5132399700869120.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6254998790340608",
+          "section_title": "Requirements of Quora's Design",
+          "section_slug": "requirements-of-quoras-design",
+          "section_file": "files/chapter_27_design_quora/section_6254998790340608.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6337842040537088",
+          "section_title": "Initial Design of Quora",
+          "section_slug": "initial-design-of-quora",
+          "section_file": "files/chapter_27_design_quora/section_6337842040537088.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6323245837451264",
+          "section_title": "Final Design of Quora",
+          "section_slug": "final-design-of-quora",
+          "section_file": "files/chapter_27_design_quora/section_6323245837451264.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5580185650331648",
+          "section_title": "Evaluation of Quora\u2019s Design",
+          "section_slug": "evaluation-of-quoras-design",
+          "section_file": "files/chapter_27_design_quora/section_5580185650331648.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 28,
+      "chapter_title": "Design Google Maps",
+      "chapter_slug": "design_google_maps",
+      "chapter_file": "files/chapter_28_design_google_maps.tex",
+      "sections": [
+        {
+          "section_id": "5138720050642944",
+          "section_title": "System Design: Google Maps",
+          "section_slug": "system-design-google-maps",
+          "section_file": "files/chapter_28_design_google_maps/section_5138720050642944.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5704949308850176",
+          "section_title": "Requirements of Google Maps' Design",
+          "section_slug": "requirements-of-google-maps-design",
+          "section_file": "files/chapter_28_design_google_maps/section_5704949308850176.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6659265711833088",
+          "section_title": "Design of Google Maps",
+          "section_slug": "design-of-google-maps",
+          "section_file": "files/chapter_28_design_google_maps/section_6659265711833088.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "4659727862071296",
+          "section_title": "Challenges of Google Maps' Design",
+          "section_slug": "challenges-of-google-maps-design",
+          "section_file": "files/chapter_28_design_google_maps/section_4659727862071296.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6026783136940032",
+          "section_title": "Detailed Design of Google Maps",
+          "section_slug": "detailed-design-of-google-maps",
+          "section_file": "files/chapter_28_design_google_maps/section_6026783136940032.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6335210467098624",
+          "section_title": "Evaluation of Google Maps' Design",
+          "section_slug": "evaluation-of-google-maps-design",
+          "section_file": "files/chapter_28_design_google_maps/section_6335210467098624.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 29,
+      "chapter_title": "Design a Proximity Service / Yelp",
+      "chapter_slug": "design_a_proximity_service_yelp",
+      "chapter_file": "files/chapter_29_design_a_proximity_service_yelp.tex",
+      "sections": [
+        {
+          "section_id": "5264443638546432",
+          "section_title": "System Design: Yelp",
+          "section_slug": "system-design-yelp",
+          "section_file": "files/chapter_29_design_a_proximity_service_yelp/section_5264443638546432.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "4552284171665408",
+          "section_title": "Requirements of Yelp\u2019s Design",
+          "section_slug": "requirements-of-yelps-design",
+          "section_file": "files/chapter_29_design_a_proximity_service_yelp/section_4552284171665408.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5027439944400896",
+          "section_title": "Design of Yelp",
+          "section_slug": "design-of-yelp",
+          "section_file": "files/chapter_29_design_a_proximity_service_yelp/section_5027439944400896.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5518783229198336",
+          "section_title": "Design Considerations of Yelp",
+          "section_slug": "design-considerations-of-yelp",
+          "section_file": "files/chapter_29_design_a_proximity_service_yelp/section_5518783229198336.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6678825089368064",
+          "section_title": "Quiz on Yelp's Design",
+          "section_slug": "quiz-on-yelps-design",
+          "section_file": "files/chapter_29_design_a_proximity_service_yelp/section_6678825089368064.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 30,
+      "chapter_title": "Design Uber",
+      "chapter_slug": "design_uber",
+      "chapter_file": "files/chapter_30_design_uber.tex",
+      "sections": [
+        {
+          "section_id": "6344806557286400",
+          "section_title": "System Design: Uber",
+          "section_slug": "system-design-uber",
+          "section_file": "files/chapter_30_design_uber/section_6344806557286400.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6376322179268608",
+          "section_title": "Requirements of Uber\u2019s Design",
+          "section_slug": "requirements-of-ubers-design",
+          "section_file": "files/chapter_30_design_uber/section_6376322179268608.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5429357153091584",
+          "section_title": "High-level Design of Uber",
+          "section_slug": "high-level-design-of-uber",
+          "section_file": "files/chapter_30_design_uber/section_5429357153091584.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6683135341494272",
+          "section_title": "Detailed Design of Uber",
+          "section_slug": "detailed-design-of-uber",
+          "section_file": "files/chapter_30_design_uber/section_6683135341494272.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6353616188735488",
+          "section_title": "Payment Service and Fraud Detection in Uber Design",
+          "section_slug": "payment-service-and-fraud-detection-in-uber-design",
+          "section_file": "files/chapter_30_design_uber/section_6353616188735488.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5469445371199488",
+          "section_title": "Evaluation of Uber\u2019s Design",
+          "section_slug": "evaluation-of-ubers-design",
+          "section_file": "files/chapter_30_design_uber/section_5469445371199488.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6590232799739904",
+          "section_title": "Quiz on Uber's Design",
+          "section_slug": "quiz-on-ubers-design",
+          "section_file": "files/chapter_30_design_uber/section_6590232799739904.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 31,
+      "chapter_title": "Design Twitter",
+      "chapter_slug": "design_twitter",
+      "chapter_file": "files/chapter_31_design_twitter.tex",
+      "sections": [
+        {
+          "section_id": "4687773419700224",
+          "section_title": "System Design: Twitter",
+          "section_slug": "system-design-twitter",
+          "section_file": "files/chapter_31_design_twitter/section_4687773419700224.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5920537112477696",
+          "section_title": "Requirements of Twitter\u2019s Design",
+          "section_slug": "requirements-of-twitters-design",
+          "section_file": "files/chapter_31_design_twitter/section_5920537112477696.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6194554750894080",
+          "section_title": "High-level Design of Twitter",
+          "section_slug": "high-level-design-of-twitter",
+          "section_file": "files/chapter_31_design_twitter/section_6194554750894080.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6156135136755712",
+          "section_title": "Detailed Design of Twitter",
+          "section_slug": "detailed-design-of-twitter",
+          "section_file": "files/chapter_31_design_twitter/section_6156135136755712.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5379128533975040",
+          "section_title": "Client-side Load Balancer for Twitter",
+          "section_slug": "client-side-load-balancer-for-twitter",
+          "section_file": "files/chapter_31_design_twitter/section_5379128533975040.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6740284133605376",
+          "section_title": "Quiz on Twitter's Design",
+          "section_slug": "quiz-on-twitters-design",
+          "section_file": "files/chapter_31_design_twitter/section_6740284133605376.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 32,
+      "chapter_title": "Design Newsfeed System",
+      "chapter_slug": "design_newsfeed_system",
+      "chapter_file": "files/chapter_32_design_newsfeed_system.tex",
+      "sections": [
+        {
+          "section_id": "4943636425080832",
+          "section_title": "System Design: Newsfeed System",
+          "section_slug": "system-design-newsfeed-system",
+          "section_file": "files/chapter_32_design_newsfeed_system/section_4943636425080832.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5590893725220864",
+          "section_title": "Requirements of a Newsfeed System\u2019s Design",
+          "section_slug": "requirements-of-a-newsfeed-systems-design",
+          "section_file": "files/chapter_32_design_newsfeed_system/section_5590893725220864.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5697004751028224",
+          "section_title": "Design of a Newsfeed System",
+          "section_slug": "design-of-a-newsfeed-system",
+          "section_file": "files/chapter_32_design_newsfeed_system/section_5697004751028224.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5660564772093952",
+          "section_title": "Evaluation of a Newsfeed System\u2019s Design",
+          "section_slug": "evaluation-of-a-newsfeed-systems-design",
+          "section_file": "files/chapter_32_design_newsfeed_system/section_5660564772093952.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 33,
+      "chapter_title": "Design Instagram",
+      "chapter_slug": "design_instagram",
+      "chapter_file": "files/chapter_33_design_instagram.tex",
+      "sections": [
+        {
+          "section_id": "5206574926921728",
+          "section_title": "System Design: Instagram",
+          "section_slug": "system-design-instagram",
+          "section_file": "files/chapter_33_design_instagram/section_5206574926921728.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5571545748996096",
+          "section_title": "Requirements of Instagram\u2019s Design",
+          "section_slug": "requirements-of-instagrams-design",
+          "section_file": "files/chapter_33_design_instagram/section_5571545748996096.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5160831733465088",
+          "section_title": "Design of Instagram",
+          "section_slug": "design-of-instagram",
+          "section_file": "files/chapter_33_design_instagram/section_5160831733465088.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6638179708305408",
+          "section_title": "Detailed Design of Instagram",
+          "section_slug": "detailed-design-of-instagram",
+          "section_file": "files/chapter_33_design_instagram/section_6638179708305408.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5987143142342656",
+          "section_title": "Quiz on Instagram\u2019s Design",
+          "section_slug": "quiz-on-instagrams-design",
+          "section_file": "files/chapter_33_design_instagram/section_5987143142342656.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 34,
+      "chapter_title": "Design a URL Shortening Service / TinyURL",
+      "chapter_slug": "design_a_url_shortening_service_tinyurl",
+      "chapter_file": "files/chapter_34_design_a_url_shortening_service_tinyurl.tex",
+      "sections": [
+        {
+          "section_id": "6627189651144704",
+          "section_title": "System Design: TinyURL",
+          "section_slug": "system-design-tinyurl",
+          "section_file": "files/chapter_34_design_a_url_shortening_service_tinyurl/section_6627189651144704.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5146211836755968",
+          "section_title": "Requirements of TinyURL's Design",
+          "section_slug": "requirements-of-tinyurls-design",
+          "section_file": "files/chapter_34_design_a_url_shortening_service_tinyurl/section_5146211836755968.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5753981720068096",
+          "section_title": "Design and Deployment of TinyURL",
+          "section_slug": "design-and-deployment-of-tinyurl",
+          "section_file": "files/chapter_34_design_a_url_shortening_service_tinyurl/section_5753981720068096.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5084162431647744",
+          "section_title": "Encoder for TinyURL",
+          "section_slug": "encoder-for-tinyurl",
+          "section_file": "files/chapter_34_design_a_url_shortening_service_tinyurl/section_5084162431647744.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6451282881019904",
+          "section_title": "Evaluation of TinyURL's Design",
+          "section_slug": "evaluation-of-tinyurls-design",
+          "section_file": "files/chapter_34_design_a_url_shortening_service_tinyurl/section_6451282881019904.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6050864745152512",
+          "section_title": "Quiz on TinyURL's Design",
+          "section_slug": "quiz-on-tinyurls-design",
+          "section_file": "files/chapter_34_design_a_url_shortening_service_tinyurl/section_6050864745152512.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 35,
+      "chapter_title": "Design a Web Crawler",
+      "chapter_slug": "design_a_web_crawler",
+      "chapter_file": "files/chapter_35_design_a_web_crawler.tex",
+      "sections": [
+        {
+          "section_id": "4695113376989184",
+          "section_title": "System Design: Web Crawler",
+          "section_slug": "system-design-web-crawler",
+          "section_file": "files/chapter_35_design_a_web_crawler/section_4695113376989184.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6454882160082944",
+          "section_title": "Requirements of a Web Crawler's Design",
+          "section_slug": "requirements-of-a-web-crawlers-design",
+          "section_file": "files/chapter_35_design_a_web_crawler/section_6454882160082944.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6632099624255488",
+          "section_title": "Design of a Web Crawler",
+          "section_slug": "design-of-a-web-crawler",
+          "section_file": "files/chapter_35_design_a_web_crawler/section_6632099624255488.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5983505204379648",
+          "section_title": "Design Improvements of a Web Crawler",
+          "section_slug": "design-improvements-of-a-web-crawler",
+          "section_file": "files/chapter_35_design_a_web_crawler/section_5983505204379648.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6142975511363584",
+          "section_title": "Evaluation of  Web Crawler's Design",
+          "section_slug": "evaluation-of-web-crawlers-design",
+          "section_file": "files/chapter_35_design_a_web_crawler/section_6142975511363584.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 36,
+      "chapter_title": "Design WhatsApp",
+      "chapter_slug": "design_whatsapp",
+      "chapter_file": "files/chapter_36_design_whatsapp.tex",
+      "sections": [
+        {
+          "section_id": "6538438514049024",
+          "section_title": "System Design: WhatsApp",
+          "section_slug": "system-design-whatsapp",
+          "section_file": "files/chapter_36_design_whatsapp/section_6538438514049024.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5023065490063360",
+          "section_title": "Requirements of WhatsApp\u2019s Design",
+          "section_slug": "requirements-of-whatsapps-design",
+          "section_file": "files/chapter_36_design_whatsapp/section_5023065490063360.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6728651831246848",
+          "section_title": "High-level Design of WhatsApp",
+          "section_slug": "high-level-design-of-whatsapp",
+          "section_file": "files/chapter_36_design_whatsapp/section_6728651831246848.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6731604231192576",
+          "section_title": "Detailed Design of WhatsApp",
+          "section_slug": "detailed-design-of-whatsapp",
+          "section_file": "files/chapter_36_design_whatsapp/section_6731604231192576.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "4861549654573056",
+          "section_title": "Evaluation of WhatsApp\u2019s Design",
+          "section_slug": "evaluation-of-whatsapps-design",
+          "section_file": "files/chapter_36_design_whatsapp/section_4861549654573056.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "4877609447456768",
+          "section_title": "Quiz on WhatsApp\u2019s Design",
+          "section_slug": "quiz-on-whatsapps-design",
+          "section_file": "files/chapter_36_design_whatsapp/section_4877609447456768.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 37,
+      "chapter_title": "Design Typeahead Suggestion",
+      "chapter_slug": "design_typeahead_suggestion",
+      "chapter_file": "files/chapter_37_design_typeahead_suggestion.tex",
+      "sections": [
+        {
+          "section_id": "4981044919140352",
+          "section_title": "System Design: The Typeahead Suggestion System",
+          "section_slug": "system-design-the-typeahead-suggestion-system",
+          "section_file": "files/chapter_37_design_typeahead_suggestion/section_4981044919140352.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6369391511339008",
+          "section_title": "Requirements of the Typeahead Suggestion System\u2019s Design",
+          "section_slug": "requirements-of-the-typeahead-suggestion-systems-design",
+          "section_file": "files/chapter_37_design_typeahead_suggestion/section_6369391511339008.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6376843531255808",
+          "section_title": "High-level Design of the Typeahead Suggestion System",
+          "section_slug": "high-level-design-of-the-typeahead-suggestion-system",
+          "section_file": "files/chapter_37_design_typeahead_suggestion/section_6376843531255808.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6110217372172288",
+          "section_title": "Data Structure for Storing Prefixes",
+          "section_slug": "data-structure-for-storing-prefixes",
+          "section_file": "files/chapter_37_design_typeahead_suggestion/section_6110217372172288.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5464491722801152",
+          "section_title": "Detailed Design of the Typeahead Suggestion System",
+          "section_slug": "detailed-design-of-the-typeahead-suggestion-system",
+          "section_file": "files/chapter_37_design_typeahead_suggestion/section_5464491722801152.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6626894497185792",
+          "section_title": "Evaluation of the Typeahead Suggestion System\u2019s Design",
+          "section_slug": "evaluation-of-the-typeahead-suggestion-systems-design",
+          "section_file": "files/chapter_37_design_typeahead_suggestion/section_6626894497185792.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5201949791617024",
+          "section_title": "Quiz on the Typeahead Suggestion System\u2019s Design",
+          "section_slug": "quiz-on-the-typeahead-suggestion-systems-design",
+          "section_file": "files/chapter_37_design_typeahead_suggestion/section_5201949791617024.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 38,
+      "chapter_title": "Design a Collaborative Document Editing Service / Google Docs",
+      "chapter_slug": "design_a_collaborative_document_editing_service_google_docs",
+      "chapter_file": "files/chapter_38_design_a_collaborative_document_editing_service_google_docs.tex",
+      "sections": [
+        {
+          "section_id": "5540995072000000",
+          "section_title": "System Design: Google Docs",
+          "section_slug": "system-design-google-docs",
+          "section_file": "files/chapter_38_design_a_collaborative_document_editing_service_google_docs/section_5540995072000000.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5975395656007680",
+          "section_title": "Requirements of Google Docs\u2019 Design",
+          "section_slug": "requirements-of-google-docs-design",
+          "section_file": "files/chapter_38_design_a_collaborative_document_editing_service_google_docs/section_5975395656007680.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5921693154934784",
+          "section_title": "Design of Google Docs",
+          "section_slug": "design-of-google-docs",
+          "section_file": "files/chapter_38_design_a_collaborative_document_editing_service_google_docs/section_5921693154934784.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6200295243120640",
+          "section_title": "Concurrency in Collaborative Editing",
+          "section_slug": "concurrency-in-collaborative-editing",
+          "section_file": "files/chapter_38_design_a_collaborative_document_editing_service_google_docs/section_6200295243120640.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5489039691481088",
+          "section_title": "Evaluation of Google Docs\u2019 Design",
+          "section_slug": "evaluation-of-google-docs-design",
+          "section_file": "files/chapter_38_design_a_collaborative_document_editing_service_google_docs/section_5489039691481088.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 39,
+      "chapter_title": "Spectacular Failures",
+      "chapter_slug": "spectacular_failures",
+      "chapter_file": "files/chapter_39_spectacular_failures.tex",
+      "sections": [
+        {
+          "section_id": "6503055815606272",
+          "section_title": "Introduction to Distributed System Failures",
+          "section_slug": "introduction-to-distributed-system-failures",
+          "section_file": "files/chapter_39_spectacular_failures/section_6503055815606272.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5214324309622784",
+          "section_title": "Facebook, WhatsApp, Instagram, Oculus Outage",
+          "section_slug": "facebook-whatsapp-instagram-oculus-outage",
+          "section_file": "files/chapter_39_spectacular_failures/section_5214324309622784.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5243362298298368",
+          "section_title": "AWS Kinesis Outage Affecting Many Organizations",
+          "section_slug": "aws-kinesis-outage-affecting-many-organizations",
+          "section_file": "files/chapter_39_spectacular_failures/section_5243362298298368.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6672582694141952",
+          "section_title": "AWS Wide Spread Outage",
+          "section_slug": "aws-wide-spread-outage",
+          "section_file": "files/chapter_39_spectacular_failures/section_6672582694141952.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 40,
+      "chapter_title": "Concluding Remarks",
+      "chapter_slug": "concluding_remarks",
+      "chapter_file": "files/chapter_40_concluding_remarks.tex",
+      "sections": [
+        {
+          "section_id": "5067216508157952",
+          "section_title": "Conclusions",
+          "section_slug": "conclusions",
+          "section_file": "files/chapter_40_concluding_remarks/section_5067216508157952.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 41,
+      "chapter_title": "Recovered Lessons",
+      "chapter_slug": "recovered_lessons",
+      "chapter_file": "files/chapter_41_recovered_lessons.tex",
+      "sections": []
+    }
+  ]
+}

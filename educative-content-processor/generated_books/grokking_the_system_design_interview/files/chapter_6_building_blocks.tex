@@ -1,0 +1,34 @@
+% Chapter template for Educative course content with dynamic section inclusion
+\documentclass[../Main.tex]{subfiles}
+
+\begin{document}
+\chapter{ Building Blocks }
+
+\intro{
+Explore the essential building blocks required for modern System Design, which will form the foundation for scalable systems later in the course.
+}
+
+\section{ Introduction to Building Blocks for Modern System Design }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_6_building_blocks/section_6061247618875392.tex
+\IfFileExists{chapter_6_building_blocks/section_6061247618875392.tex}{
+    \input{chapter_6_building_blocks/section_6061247618875392.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "Introduction to Building Blocks for Modern System Design" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 6061247618875392
+        \item Section Slug: introduction-to-building-blocks-for-modern-system-design
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+
+
+\end{document}

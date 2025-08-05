@@ -1,0 +1,57 @@
+% Chapter template for Educative course content with dynamic section inclusion
+\documentclass[../Main.tex]{subfiles}
+
+\begin{document}
+\chapter{ Monitor Client-side Errors }
+
+\intro{
+Discover how to design a system to monitor client-side errors, ensuring robust and reliable applications.
+}
+
+\section{ Focus on Client-side Errors in a Monitoring System }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_15_monitor_client_side_errors/section_4768611427680256.tex
+\IfFileExists{chapter_15_monitor_client_side_errors/section_4768611427680256.tex}{
+    \input{chapter_15_monitor_client_side_errors/section_4768611427680256.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "Focus on Client-side Errors in a Monitoring System" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 4768611427680256
+        \item Section Slug: focus-on-client-side-errors-in-a-monitoring-system
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+\vspace{1cm}
+
+\section{ Design of a Client-side Monitoring System }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_15_monitor_client_side_errors/section_4769741293486080.tex
+\IfFileExists{chapter_15_monitor_client_side_errors/section_4769741293486080.tex}{
+    \input{chapter_15_monitor_client_side_errors/section_4769741293486080.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "Design of a Client-side Monitoring System" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 4769741293486080
+        \item Section Slug: design-of-a-client-side-monitoring-system
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+
+
+\end{document}

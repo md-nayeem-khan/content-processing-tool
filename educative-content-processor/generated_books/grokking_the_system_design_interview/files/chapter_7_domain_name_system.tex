@@ -1,0 +1,57 @@
+% Chapter template for Educative course content with dynamic section inclusion
+\documentclass[../Main.tex]{subfiles}
+
+\begin{document}
+\chapter{ Domain Name System }
+
+\intro{
+Discover how DNS works and its role in System Design, including detailed insights into its design and functionality.
+}
+
+\section{ Introduction to Domain Name System (DNS) }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_7_domain_name_system/section_5728619204182016.tex
+\IfFileExists{chapter_7_domain_name_system/section_5728619204182016.tex}{
+    \input{chapter_7_domain_name_system/section_5728619204182016.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "Introduction to Domain Name System (DNS)" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 5728619204182016
+        \item Section Slug: introduction-to-domain-name-system-dns
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+\vspace{1cm}
+
+\section{ How the Domain Name System Works }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_7_domain_name_system/section_4570386150981632.tex
+\IfFileExists{chapter_7_domain_name_system/section_4570386150981632.tex}{
+    \input{chapter_7_domain_name_system/section_4570386150981632.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "How the Domain Name System Works" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 4570386150981632
+        \item Section Slug: how-the-domain-name-system-works
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+
+
+\end{document}

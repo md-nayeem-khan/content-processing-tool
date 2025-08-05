@@ -1,0 +1,43 @@
+% Custom preface template for Educative books
+\documentclass[../Main.tex]{subfiles}
+
+\begin{document}
+\chapter*{Preface}
+
+This book was automatically generated from the Educative course: \textbf{ {{book_title | escape_latex}} }.
+
+{% if book_brief_summary %}
+\section*{Course Overview}
+{{book_brief_summary | escape_latex}}
+{% endif %}
+
+{% if book_summary %}
+\section*{What You'll Learn}
+{{book_summary | escape_latex}}
+{% endif %}
+
+\section*{About This Generated Book}
+This content has been automatically processed and formatted from the original Educative interactive course. 
+
+\begin{itemize}
+    \item Total Chapters: {{total_chapters | default(0)}}
+    \item Total Sections: {{total_sections | default(0)}}
+    \item Generated on: \today
+    \item Source: Educative.io
+\end{itemize}
+
+\section*{How to Use This Book}
+This book is structured to follow the original course progression. Each chapter corresponds to a major section of the course, with individual lessons presented as sections within each chapter.
+
+For the best learning experience, consider accessing the original interactive course on Educative.io, which includes:
+\begin{itemize}
+    \item Interactive coding environments
+    \item Hands-on exercises and quizzes
+    \item Real-time feedback and hints
+    \item Practical projects and assessments
+\end{itemize}
+
+\vspace{2cm}
+\textit{Happy Learning!}
+
+\end{document}

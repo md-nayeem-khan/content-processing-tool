@@ -1,0 +1,80 @@
+% Chapter template for Educative course content with dynamic section inclusion
+\documentclass[../Main.tex]{subfiles}
+
+\begin{document}
+\chapter{ Distributed  Monitoring }
+
+\intro{
+Explore a distributed monitoring system’s basics, types, and metrics for effective monitoring.
+}
+
+\section{ System Design: Distributed Monitoring }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_13_distributed_monitoring/section_6310983387840512.tex
+\IfFileExists{chapter_13_distributed_monitoring/section_6310983387840512.tex}{
+    \input{chapter_13_distributed_monitoring/section_6310983387840512.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "System Design: Distributed Monitoring" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 6310983387840512
+        \item Section Slug: system-design-distributed-monitoring
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+\vspace{1cm}
+
+\section{ Introduction to Distributed Monitoring }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_13_distributed_monitoring/section_4721220683038720.tex
+\IfFileExists{chapter_13_distributed_monitoring/section_4721220683038720.tex}{
+    \input{chapter_13_distributed_monitoring/section_4721220683038720.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "Introduction to Distributed Monitoring" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 4721220683038720
+        \item Section Slug: introduction-to-distributed-monitoring
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+\vspace{1cm}
+
+\section{ Prerequisites of a Monitoring System }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_13_distributed_monitoring/section_6071737539624960.tex
+\IfFileExists{chapter_13_distributed_monitoring/section_6071737539624960.tex}{
+    \input{chapter_13_distributed_monitoring/section_6071737539624960.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "Prerequisites of a Monitoring System" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 6071737539624960
+        \item Section Slug: prerequisites-of-a-monitoring-system
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+
+
+\end{document}

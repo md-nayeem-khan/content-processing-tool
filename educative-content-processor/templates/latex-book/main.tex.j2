@@ -1,0 +1,38 @@
+% Main LaTeX document template for Educative books
+\documentclass[A4,12pt,twoside]{book}
+\usepackage{amd}
+
+% Book Information from Educative data
+\newcommand{\BigTitle}{
+    {{book_title | default("Untitled Course", true) | escape_latex}}
+}
+
+\newcommand{\LittleTitle}{
+    {{book_summary | default("A comprehensive guide from Educative", true) | escape_latex}}
+}
+
+\begin{document}
+
+% Front matter
+\newgeometry{top=8cm,bottom=.5in,left=2cm,right=2cm}
+\subfile{files/0.0.0.titlepage}
+\restoregeometry
+\subfile{files/0.Preface}
+\subfile{files/0.zommaire}
+
+% Main content - dynamically generated chapters with consistent naming
+{% if chapters %}
+{% for chapter in chapters %}
+\subfile{files/chapter_{{loop.index}}_{{chapter.chapter_slug}}}
+{% endfor %}
+{% else %}
+% No chapters available
+\chapter{No Content Available}
+This book template was generated but no course content was available.
+{% endif %}
+
+% Bibliography
+\nocite{*}
+\printbibliography
+
+\end{document}

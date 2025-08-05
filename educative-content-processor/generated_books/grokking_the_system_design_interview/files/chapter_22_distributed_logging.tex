@@ -1,0 +1,80 @@
+% Chapter template for Educative course content with dynamic section inclusion
+\documentclass[../Main.tex]{subfiles}
+
+\begin{document}
+\chapter{ Distributed Logging }
+
+\intro{
+Understand the importance and design of a distributed logging service, emphasizing capturing and analyzing logs across distributed systems.
+}
+
+\section{ System Design: Distributed Logging }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_22_distributed_logging/section_6747547922333696.tex
+\IfFileExists{chapter_22_distributed_logging/section_6747547922333696.tex}{
+    \input{chapter_22_distributed_logging/section_6747547922333696.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "System Design: Distributed Logging" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 6747547922333696
+        \item Section Slug: system-design-distributed-logging
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+\vspace{1cm}
+
+\section{ Introduction to Distributed Logging }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_22_distributed_logging/section_5621964999229440.tex
+\IfFileExists{chapter_22_distributed_logging/section_5621964999229440.tex}{
+    \input{chapter_22_distributed_logging/section_5621964999229440.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "Introduction to Distributed Logging" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 5621964999229440
+        \item Section Slug: introduction-to-distributed-logging
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+\vspace{1cm}
+
+\section{ Design of a Distributed Logging Service }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_22_distributed_logging/section_4835612456124416.tex
+\IfFileExists{chapter_22_distributed_logging/section_4835612456124416.tex}{
+    \input{chapter_22_distributed_logging/section_4835612456124416.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "Design of a Distributed Logging Service" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 4835612456124416
+        \item Section Slug: design-of-a-distributed-logging-service
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+
+
+\end{document}

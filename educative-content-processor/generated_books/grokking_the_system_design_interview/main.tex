@@ -1,0 +1,72 @@
+% Main LaTeX document template for Educative books
+\documentclass[A4,10pt,twoside]{book}
+\usepackage{amd}
+
+% Book Information from Educative data
+\newcommand{\BigTitle}{
+    Grokking the Modern System Design Interview
+}
+
+\newcommand{\LittleTitle}{
+    System Design interviews now determine the seniority level at which you’re hired across Engineering and Product Management roles. Interviewers expect you to demonstrate technical depth, justify design choices, and build for scale. This course helps you do exactly that. Tackle carefully selected design problems, apply proven solutions, and navigate complex scalability challenges—whether in interviews or real-world product design.
+
+Start by mastering a bottom-up approach: break down modern systems, with each component modeled as a scalable service. Then, apply the RESHADED framework to define requirements, surface constraints, and drive structured design decisions. Finally, design popular architectures using modular building blocks, and critique your solutions to improve under real interview conditions.
+}
+
+\begin{document}
+
+% Front matter
+\newgeometry{top=8cm,bottom=.5in,left=2cm,right=2cm}
+\subfile{files/0.0.0.titlepage}
+\restoregeometry
+\subfile{files/0.Preface}
+\subfile{files/0.zommaire}
+
+% Main content - dynamically generated chapters with consistent naming
+\subfile{files/chapter_1_system_design_interviews}
+\subfile{files/chapter_2_introduction}
+\subfile{files/chapter_3_abstractions}
+\subfile{files/chapter_4_non_functional_system_characteristics}
+\subfile{files/chapter_5_back_of_the_envelope_calculations}
+\subfile{files/chapter_6_building_blocks}
+\subfile{files/chapter_7_domain_name_system}
+\subfile{files/chapter_8_load_balancers}
+\subfile{files/chapter_9_databases}
+\subfile{files/chapter_10_key_value_store}
+\subfile{files/chapter_11_content_delivery_network_cdn}
+\subfile{files/chapter_12_sequencer}
+\subfile{files/chapter_13_distributed_monitoring}
+\subfile{files/chapter_14_monitor_server_side_errors}
+\subfile{files/chapter_15_monitor_client_side_errors}
+\subfile{files/chapter_16_distributed_cache}
+\subfile{files/chapter_17_distributed_messaging_queue}
+\subfile{files/chapter_18_pub_sub}
+\subfile{files/chapter_19_rate_limiter}
+\subfile{files/chapter_20_blob_store}
+\subfile{files/chapter_21_distributed_search}
+\subfile{files/chapter_22_distributed_logging}
+\subfile{files/chapter_23_distributed_task_scheduler}
+\subfile{files/chapter_24_sharded_counters}
+\subfile{files/chapter_25_concluding_the_building_blocks_discussion}
+\subfile{files/chapter_26_design_youtube}
+\subfile{files/chapter_27_design_quora}
+\subfile{files/chapter_28_design_google_maps}
+\subfile{files/chapter_29_design_a_proximity_service_yelp}
+\subfile{files/chapter_30_design_uber}
+\subfile{files/chapter_31_design_twitter}
+\subfile{files/chapter_32_design_newsfeed_system}
+\subfile{files/chapter_33_design_instagram}
+\subfile{files/chapter_34_design_a_url_shortening_service_tinyurl}
+\subfile{files/chapter_35_design_a_web_crawler}
+\subfile{files/chapter_36_design_whatsapp}
+\subfile{files/chapter_37_design_typeahead_suggestion}
+\subfile{files/chapter_38_design_a_collaborative_document_editing_service_google_docs}
+\subfile{files/chapter_39_spectacular_failures}
+\subfile{files/chapter_40_concluding_remarks}
+\subfile{files/chapter_41_recovered_lessons}
+
+% Bibliography
+\nocite{*}
+\printbibliography
+
+\end{document}

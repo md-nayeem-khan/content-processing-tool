@@ -1,0 +1,80 @@
+% Chapter template for Educative course content with dynamic section inclusion
+\documentclass[../Main.tex]{subfiles}
+
+\begin{document}
+\chapter{ Load Balancers }
+
+\intro{
+Take a closer look at load balancers, their placement, and algorithms, including local and global load balancers and different tiers of load balancers.
+}
+
+\section{ Introduction to Load Balancers }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_8_load_balancers/section_4521972679049216.tex
+\IfFileExists{chapter_8_load_balancers/section_4521972679049216.tex}{
+    \input{chapter_8_load_balancers/section_4521972679049216.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "Introduction to Load Balancers" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 4521972679049216
+        \item Section Slug: introduction-to-load-balancers
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+\vspace{1cm}
+
+\section{ Global and Local Load Balancing }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_8_load_balancers/section_5238392749293568.tex
+\IfFileExists{chapter_8_load_balancers/section_5238392749293568.tex}{
+    \input{chapter_8_load_balancers/section_5238392749293568.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "Global and Local Load Balancing" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 5238392749293568
+        \item Section Slug: global-and-local-load-balancing
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+\vspace{1cm}
+
+\section{ Advanced Details of Load Balancers }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_8_load_balancers/section_6596709789990912.tex
+\IfFileExists{chapter_8_load_balancers/section_6596709789990912.tex}{
+    \input{chapter_8_load_balancers/section_6596709789990912.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "Advanced Details of Load Balancers" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 6596709789990912
+        \item Section Slug: advanced-details-of-load-balancers
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+
+
+\end{document}

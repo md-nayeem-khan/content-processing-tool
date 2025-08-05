@@ -1,0 +1,57 @@
+% Chapter template for Educative course content with dynamic section inclusion
+\documentclass[../Main.tex]{subfiles}
+
+\begin{document}
+\chapter{ Back-of-the-envelope Calculations }
+
+\intro{
+Learn how to estimate resource needs like servers, storage, and bandwidth using back-of-the-envelope calculations for System Design.
+}
+
+\section{ Put Back-of-the-envelope Numbers in Perspective }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_5_back_of_the_envelope_calculations/section_5711642666467328.tex
+\IfFileExists{chapter_5_back_of_the_envelope_calculations/section_5711642666467328.tex}{
+    \input{chapter_5_back_of_the_envelope_calculations/section_5711642666467328.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "Put Back-of-the-envelope Numbers in Perspective" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 5711642666467328
+        \item Section Slug: put-back-of-the-envelope-numbers-in-perspective
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+\vspace{1cm}
+
+\section{ Examples of Resource Estimation }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_5_back_of_the_envelope_calculations/section_4766860129599488.tex
+\IfFileExists{chapter_5_back_of_the_envelope_calculations/section_4766860129599488.tex}{
+    \input{chapter_5_back_of_the_envelope_calculations/section_4766860129599488.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "Examples of Resource Estimation" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 4766860129599488
+        \item Section Slug: examples-of-resource-estimation
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+
+
+\end{document}

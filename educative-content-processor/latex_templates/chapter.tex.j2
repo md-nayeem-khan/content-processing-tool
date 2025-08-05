@@ -1,0 +1,24 @@
+% Chapter template
+\documentclass[../Main.tex]{subfiles}
+
+\begin{document}
+\chapter{ {{chapter.title | escape_latex}} }
+
+{% if chapter.summary %}
+\intro{
+{{chapter.summary | escape_latex}}
+}
+{% endif %}
+
+{% for section in chapter.sections %}
+\section{ {{section.title | escape_latex}} }
+
+% Placeholder for section content
+% TODO: Fetch actual content for section ID: {{section.id}}
+% Slug: {{section.slug}}
+
+\lipsum[1-2] % Temporary placeholder content
+
+{% endfor %}
+
+\end{document}

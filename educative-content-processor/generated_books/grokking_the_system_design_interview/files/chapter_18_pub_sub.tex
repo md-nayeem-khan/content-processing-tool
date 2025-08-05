@@ -1,0 +1,80 @@
+% Chapter template for Educative course content with dynamic section inclusion
+\documentclass[../Main.tex]{subfiles}
+
+\begin{document}
+\chapter{ Pub-sub }
+
+\intro{
+Learn the design of a pub-sub system, focusing on how to implement and optimize this communication pattern in distributed systems.
+}
+
+\section{ System Design: The Pub-sub Abstraction }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_18_pub_sub/section_4996814243889152.tex
+\IfFileExists{chapter_18_pub_sub/section_4996814243889152.tex}{
+    \input{chapter_18_pub_sub/section_4996814243889152.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "System Design: The Pub-sub Abstraction" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 4996814243889152
+        \item Section Slug: system-design-the-pub-sub-abstraction
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+\vspace{1cm}
+
+\section{ Introduction to Pub-sub }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_18_pub_sub/section_5155663642099712.tex
+\IfFileExists{chapter_18_pub_sub/section_5155663642099712.tex}{
+    \input{chapter_18_pub_sub/section_5155663642099712.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "Introduction to Pub-sub" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 5155663642099712
+        \item Section Slug: introduction-to-pub-sub
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+\vspace{1cm}
+
+\section{ Design of a Pub-sub System }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_18_pub_sub/section_5367894619193344.tex
+\IfFileExists{chapter_18_pub_sub/section_5367894619193344.tex}{
+    \input{chapter_18_pub_sub/section_5367894619193344.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "Design of a Pub-sub System" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 5367894619193344
+        \item Section Slug: design-of-a-pub-sub-system
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+
+
+\end{document}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Debug Page</title>
+</head>
+<body>
+    <h1>Book Debug Test</h1>
+    <div id="output">Loading...</div>
+
+    <script>
+        console.log('Book debug page loaded');
+        
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log('DOMContentLoaded fired');
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            const bookId = urlParams.get('id');
+            
+            console.log('Book ID from URL:', bookId);
+            
+            if (!bookId) {
+                document.getElementById('output').innerHTML = 'No book ID provided';
+                return;
+            }
+            
+            try {
+                console.log('Making API call to:', `/api/books/${bookId}`);
+                const response = await fetch(`/api/books/${bookId}`);
+                console.log('Response status:', response.status);
+                
+                if (!response.ok) {
+                    throw new Error(`API returned ${response.status}`);
+                }
+                
+                const bookData = await response.json();
+                console.log('Book data received:', bookData);
+                
+                document.getElementById('output').innerHTML = `
+                    <h2>${bookData.name}</h2>
+                    <p>Chapters: ${bookData.chapters ? bookData.chapters.length : 0}</p>
+                    <pre>${JSON.stringify(bookData, null, 2)}</pre>
+                `;
+                
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('output').innerHTML = `Error: ${error.message}`;
+            }
+        });
+    </script>
+</body>
+</html>

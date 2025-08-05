@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Book API</title>
+</head>
+<body>
+    <h1>Testing Book API</h1>
+    <div id="result"></div>
+    
+    <script>
+        console.log('Test page loaded');
+        
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log('DOM loaded, testing API...');
+            
+            try {
+                const response = await fetch('/api/books/grokking_the_system_design_interview');
+                console.log('Response status:', response.status);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('API data:', data);
+                    document.getElementById('result').innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+                } else {
+                    console.error('API error:', response.status);
+                    document.getElementById('result').innerHTML = 'API Error: ' + response.status;
+                }
+            } catch (error) {
+                console.error('Fetch error:', error);
+                document.getElementById('result').innerHTML = 'Error: ' + error.message;
+            }
+        });
+    </script>
+</body>
+</html>

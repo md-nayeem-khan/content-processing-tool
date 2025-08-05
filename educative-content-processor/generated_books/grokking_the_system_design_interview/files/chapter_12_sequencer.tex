@@ -1,0 +1,80 @@
+% Chapter template for Educative course content with dynamic section inclusion
+\documentclass[../Main.tex]{subfiles}
+
+\begin{document}
+\chapter{ Sequencer }
+
+\intro{
+Learn how to design a sequencer for generating unique IDs, focusing on causality and consistency in distributed systems.
+}
+
+\section{ System Design: Sequencer }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_12_sequencer/section_6499939719053312.tex
+\IfFileExists{chapter_12_sequencer/section_6499939719053312.tex}{
+    \input{chapter_12_sequencer/section_6499939719053312.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "System Design: Sequencer" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 6499939719053312
+        \item Section Slug: system-design-sequencer
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+\vspace{1cm}
+
+\section{ Design of a Unique ID Generator }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_12_sequencer/section_5216880444309504.tex
+\IfFileExists{chapter_12_sequencer/section_5216880444309504.tex}{
+    \input{chapter_12_sequencer/section_5216880444309504.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "Design of a Unique ID Generator" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 5216880444309504
+        \item Section Slug: design-of-a-unique-id-generator
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+\vspace{1cm}
+
+\section{ Unique IDs with Causality }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_12_sequencer/section_5836711686307840.tex
+\IfFileExists{chapter_12_sequencer/section_5836711686307840.tex}{
+    \input{chapter_12_sequencer/section_5836711686307840.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "Unique IDs with Causality" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 5836711686307840
+        \item Section Slug: unique-ids-with-causality
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+
+
+\end{document}
