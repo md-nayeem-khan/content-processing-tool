@@ -1,0 +1,19 @@
+\subsection{Problem Statement}\label{problem-statement}
+
+Design a distributed key-value store that can handle high throughput.
+
+\textbf{Solution Approach:}
+
+We can use consistent hashing to distribute keys across multiple nodes. This ensures:
+
+\begin{itemize}
+\tightlist
+\item
+Scalability
+\item
+Load balancing
+\item
+Fault tolerance
+\end{itemize}
+
+This approach is used by systems like Amazon DynamoDB and Apache Cassandra.

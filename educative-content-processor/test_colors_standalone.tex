@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{listings}
+
+% Define colors for syntax highlighting
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{codeblue}{rgb}{0.13,0.29,0.53}
+\definecolor{codeorange}{rgb}{0.8,0.4,0}
+\definecolor{backcolour}{rgb}{0.97,0.97,0.97}
+
+% Configure listings package
+\lstset{
+    basicstyle=\ttfamily\small\color{black},
+    breaklines=true,
+    frame=single,
+    rulecolor=\color{black!30},
+    numbers=left,
+    numberstyle=\tiny\color{codegray},
+    backgroundcolor=\color{backcolour},
+    showspaces=false,
+    showstringspaces=false,
+    tabsize=4,
+    % Syntax highlighting colors
+    keywordstyle=\color{codeblue}\bfseries,
+    commentstyle=\color{codegreen}\itshape,
+    stringstyle=\color{codeorange},
+    morecomment=[l][\color{codegreen}]{\#},
+    morestring=[b]',
+    morestring=[b]"
+}
+
+\begin{document}
+
+\section*{Python Code with Syntax Highlighting}
+
+\textbf{Distributed Logging}
+
+\begin{lstlisting}[language=Python]
+import logging as log # set the logging level to DEBUG
+log.basicConfig(level=log.DEBUG)
+for i in range(6):
+    if i == 0:
+        log.debug('Debug level')
+    elif i == 1:
+        log.info('Info level')
+    elif i == 2:
+        log.warning('Warning level')
+    elif i == 3:
+        log.error('Error level')
+    elif i == 4:
+        log.critical('Critical level')
+    elif i == 5:
+        print('Uncomment the following to view a system generated error:')
+        #print(3/0)
+\end{lstlisting}
+
+\textbf{Expected Colors:}
+\begin{itemize}
+    \item \textcolor{codeblue}{\textbf{import, as, for, in, if, elif}} - Blue bold keywords
+    \item \textcolor{codeorange}{'Debug level', 'Info level', etc.} - Orange strings
+    \item \textcolor{codegreen}{\textit{\# set the logging level to DEBUG}} - Green italic comments
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,12 @@
+\textbf{Distributed Logging}
+
+\begin{lstlisting}[language=Python]
+import logging as log # set the logging level to DEBUG log.basicConfig(level=log. DEBUG) for i in range(6):
+ if i == 0:
+ log.debug('Debug level') elif i == 1:
+ log.info('Info level') elif i == 2:
+ log.warning('Warning level') elif i == 3:
+ log.error('Error level') elif i == 4:
+ log.critical('Critical level') elif i == 5:
+ print('Uncomment the following to view a system generated error:') #print(3/0)
+\end{lstlisting}

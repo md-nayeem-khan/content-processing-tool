@@ -1,0 +1,43 @@
+% Chapter template for Markdown Content Processor with dynamic section inclusion
+\documentclass[../Main.tex]{subfiles}
+
+\begin{document}
+\chapter{ {{chapter.title | escape_latex}} }
+
+{% if chapter.summary %}
+\intro{
+{{chapter.summary | escape_latex}}
+}
+{% endif %}
+
+{% if chapter.sections %}
+{% for section in chapter.sections %}
+\section{ {{section.title | escape_latex}} }
+
+% Dynamic section content inclusion
+% Section file: chapter_{{chapter.chapter_number}}_{{chapter.chapter_slug}}/section_{{section.id}}.tex
+\IfFileExists{chapter_{{chapter.chapter_number}}_{{chapter.chapter_slug}}/section_{{section.id}}.tex}{
+    \input{chapter_{{chapter.chapter_number}}_{{chapter.chapter_slug}}/section_{{section.id}}.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "{{section.title | escape_latex}}" is pending.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: {{section.id}}
+        \item Section Slug: {{section.slug}}
+        \item Status: {{section.content_status}}
+    \end{itemize}
+    
+    \textit{Add content to this section using the section editor.}
+}
+
+\vspace{1cm}
+
+{% endfor %}
+{% else %}
+% No sections added yet - chapter created but empty
+{% endif %}
+
+\end{document}

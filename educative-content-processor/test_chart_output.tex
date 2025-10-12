@@ -1,0 +1,107 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{Chart Component Test}
+\author{Content Processing Tool}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Introduction}
+
+This document demonstrates how Chart components from the Educative platform are converted to LaTeX table format for PDF generation.
+
+\section{Chart Examples}\label{chart-examples}
+
+This section demonstrates how charts are converted to tables in LaTeX format.
+
+\textbf{YouTube's Yearly User Growth}
+
+\textit{\small [Chart data presented in table format]}
+
+\begin{table}[htbp]
+\centering
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{|p{0.475\textwidth}|p{0.475\textwidth}|}
+\hline
+\textbf{Year} & \textbf{Monthly Active Users} \\
+\hline
+\hline
+2012 & 0.8 \\
+\hline
+2013 & 1 \\
+\hline
+2014 & 1.1 \\
+\hline
+2015 & 1.2 \\
+\hline
+2016 & 1.4 \\
+\hline
+2017 & 1.5 \\
+\hline
+2018 & 1.8 \\
+\hline
+2019 & 2 \\
+\hline
+2020 & 2.3 \\
+\hline
+2021 & 2.6 \\
+\hline
+\end{tabular}
+}
+\caption{Increase in monthly active users of YouTube per year}
+\label{tab:chart}
+
+\textit{\small Note: Values are in Billion}
+\end{table}
+
+The chart above shows the growth of YouTube's user base over a decade.
+
+\textbf{Quarterly Revenue Comparison}
+
+\textit{\small [Chart data presented in table format]}
+
+\begin{table}[htbp]
+\centering
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{|p{0.317\textwidth}|p{0.317\textwidth}|p{0.317\textwidth}|}
+\hline
+\textbf{Quarter} & \textbf{Revenue 2023} & \textbf{Revenue 2024} \\
+\hline
+\hline
+Q1 & 100 & 110 \\
+\hline
+Q2 & 120 & 135 \\
+\hline
+Q3 & 115 & 130 \\
+\hline
+Q4 & 140 & 160 \\
+\hline
+\end{tabular}
+}
+\caption{Revenue comparison between 2023 and 2024}
+\label{tab:chart}
+
+\textit{\small Note: Values are in Million USD}
+\end{table}
+
+The second chart compares revenue across multiple years.
+
+\section*{Conclusion}
+
+Charts are successfully converted to tabular format, preserving all data while making it suitable for PDF output.
+
+\end{document}

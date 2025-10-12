@@ -1,0 +1,113 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Network Abstractions: Remote Procedure Calls
+% Section ID: 6670339758620672
+% Section Slug: network-abstractions-remote-procedure-calls
+% Generated: 2025-10-12T18:09:51.704261
+
+\textbf{Remote procedure calls} (\textbf{RPCs}) provide an abstraction of a local procedure call to the developers by hiding the complexities of packing and sending function arguments to the remote server, receiving the return values, and managing any network retries.
+
+\subsection{What is an RPC?}\label{wTzjSK9R0TFpU7ar6zf-M}
+
+\textbf{RPC} is an interprocess communication protocol that's widely used in distributed systems. In the OSI model of network communication, RPC spans the transport and application layers.
+
+RPC mechanisms are employed when a computer program causes a procedure or subroutine to execute in a separate address space.
+\begin{quote}
+\textbf{Note:} The procedure or subroutine is coded as a regular/local procedure call without the programmer explicitly coding the details for the remote interaction.
+\end{quote}
+\subsection{How does RPC work?}\label{z56C-kzj7lQRgBQXzQwXc}
+
+When we make a remote procedure call, the calling environment is paused and the procedure parameters are sent over the network to the environment where the procedure is to be executed.
+
+When the procedure execution finishes, the results are returned to the calling environment where execution restarts as a regular procedure call.
+
+To see how it works, let's take an example of a client-server program. There are five main components involved in the RPC program, as shown in the following illustration:
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.8\textwidth]{Images/chapter_3/section_6670339758620672/4542338227765248.png}
+ \caption{The components of an RPC system}
+\end{figure}
+
+The client, the client stub, and one instance of RPC runtime are running on the client machine. The server, the server stub, and one instance of RPC runtime are running on the server machine.
+
+During the RPC process, the following steps occur:
+
+\begin{enumerate}
+\item
+\phantomsection\label{Wn2P3sDtnlW1pUCitL1W1}
+A client initiates a client stub process by giving parameters as normal. The client stub is stored in the address space of the client.
+\item
+\phantomsection\label{xeetZNbul67atr0GPYZ-3}
+The client stub converts the parameters into a standardized format and packs them into a message. After packing the parameter into a message, the client stub requests the local RPC runtime to deliver the message to the server.
+\item
+\phantomsection\label{XDpw_c5UfiIm0qdQK3ZRj}
+The RPC runtime at the client delivers the message to the server over the network. After sending a message to the server, it waits for the message result from the server.
+\item
+\phantomsection\label{mXVR-PTbOyGk7cFPcRTJg}
+RPC runtime at the server receives the message and passes it to the server stub.
+\end{enumerate}
+\begin{quote}
+\textbf{Note:} The RPC runtime is responsible for transmitting messages between client and server via the network. The responsibilities of RPC runtime also include retransmission, acknowledgment, and encryption.
+\end{quote}
+\begin{enumerate}
+\setcounter{enumi}{4}
+\item
+\phantomsection\label{OyDsNRBBRSWabAvHvQvPu}
+The server stub unpacks the message, takes the parameters out of it, and calls the desired server routine, using a local procedure call, to do the required execution.
+\end{enumerate}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.8\textwidth]{Images/chapter_3/section_6670339758620672/6384782535819264.png}
+ \caption{The workflow of an RPC}
+\end{figure}
+
+\begin{enumerate}
+\setcounter{enumi}{5}
+\item
+\phantomsection\label{ZkMOeso2xfDX4wBvC_sM1}
+After the server routine has been executed with the given parameters, the result is returned to the server stub.
+\item
+\phantomsection\label{UaYRypwZMII_rUFTBgTUQ}
+The server stub packs the returned result into a message and sends it to the RPC runtime at the server on the transport layer.
+\item
+\phantomsection\label{ghHcdhdUeGxYn4Ti2jGHw}
+The server's RPC runtime returns the packed result to the client's RPC runtime over the network.
+\item
+\phantomsection\label{HQ_aijTDQe7w5VUC9xoPf}
+The client's RPC runtime that was waiting for the result now receives the result and sends it to the client stub.
+\item
+\phantomsection\label{vi60CUC9NzNv5lhktCVtO}
+The client stub unpacks the result, and the execution process returns to the caller at this point.
+\end{enumerate}
+\begin{quote}
+\textbf{Note:} Back-end services use RPC as a communication mechanism of choice due to its high performance and simple abstraction of calling remote code as local functions.
+\end{quote}
+\subsubsection{Real-world usage}\label{l5Gd_jSOQ_k5FTxkBvBup}
+
+RPCs are used in many real-world services. Take a look at the examples given below:
+
+\begin{itemize}
+\item
+\phantomsection\label{7FnVPQSX2do4wtAumy6MX}
+\textbf{Google:} Google uses RPC in various parts of its distributed infrastructure. They have developed gRPC, an open-source framework that uses RPC to build efficient and highly performant distributed systems. It's employed for services like Google Search, YouTube, etc., where it allows Google to maintain communication and data exchange between different components of their services, which is essential for achieving real-time performance.
+\item
+\phantomsection\label{hHrzLIUTUx9kgbj8ZZJnc}
+\textbf{Uber:} Uber uses RPC for various functions, including real-time location tracking, ride matching, and communication between drivers and riders. RPC allows Uber to provide fast and responsive services by facilitating data exchange between the user's app and the server.
+\item
+\phantomsection\label{Xn_EcIZp2s9G1DABTpR5t}
+\textbf{Facebook:} Most services at Facebook are written using Thrift for RPC, and some storage systems use Thrift for serializing records on disk. This provides several benefits to Facebook. For example, it enables interoperability between different languages, such as a Python client communicating with a C++ server.
+\end{itemize}
+
+\subsection{Summary}\label{mjsgWV3R9-YDUsFkgHa90}
+
+\hfill\break
+The RPC method is similar to calling a local procedure, except that the called procedure is usually executed in a different process and on a different computer.\\
+\strut \\
+RPC allows developers to build applications on top of distributed systems. Developers can use the RPC method without knowing the network communication details. As a result, they can concentrate on the design aspects, rather than the machine and communication-level specifics.\\
+\strut \\
+
+% End of section content

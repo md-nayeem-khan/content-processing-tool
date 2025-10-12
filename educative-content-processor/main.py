@@ -862,7 +862,15 @@ async def generate_section_content(request: GenerateSectionContentRequest):
                 
                 # Initialize section processor with hierarchical context
                 processor = SectionContentProcessor()
-                processor.set_book_context(request.book_name, request.chapter_number, section_id)
+                processor.set_book_context(
+                    request.book_name, 
+                    request.chapter_number, 
+                    section_id,
+                    author_id=author_id,
+                    collection_id=collection_id,
+                    token=token,
+                    cookie=cookie
+                )
                 
                 # Fetch section content from Educative API
                 # Handle different API patterns based on content type

@@ -1,0 +1,5 @@
+\textbf{HAProxy sample configuration for layer 7 load balancers}
+
+\begin{lstlisting}[language=bash]
+mode HTTP //define which mode the LB will work on, TCP for tier-2 LBs acl slidesApp path_end -i /presentation //define a category of applications if the path ends in /presentation use_backend slidesServers if slidesApp // use a set of backend servers if the request arrives for slidesApp backend slidesServers // listing servers serving slidesApp server slides1 192.168.12.1:80 //using slides1 server to serve slidesApp.
+\end{lstlisting}

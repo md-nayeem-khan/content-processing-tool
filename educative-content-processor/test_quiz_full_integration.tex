@@ -1,0 +1,80 @@
+\documentclass[12pt,a4paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\title{Database Selection Guide}
+\author{Integration Test}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\chapter{Database Fundamentals}
+
+\section{Database Selection}
+
+\subsection{Database Selection Guide}\label{database-selection-guide}
+
+This section covers how to choose the right database for your application.
+
+\subsection{Key Considerations}\label{key-considerations}
+
+When selecting a database, consider:
+
+\begin{itemize}
+\tightlist
+\item
+\textbf{Data structure}: Structured vs unstructured
+\item
+\textbf{Consistency requirements}: ACID vs eventual consistency
+\item
+\textbf{Scale}: Read/write patterns and volume
+\item
+\textbf{Performance}: Latency and throughput needs
+\end{itemize}
+
+\subsection*{Database Selection Quiz}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 1:} Which database should we use when we have unstructured data and there\textquotesingle s a need for high performance?
+\\[0.2cm]
+\begin{itemize}
+ \item \textbf{[CORRECT]} MongoDB
+\\[0.1cm]
+\textit{Explanation:} 
+MongoDB is a database that stores unstructured data and provides high performance in data-relevant operations.
+ \item MySQL
+ \item Oracle
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 2:} \textbf{(Select all that apply.)} We should use a key-value database for which scenarios?
+\\
+\textit{(Select all that apply.)}
+\\[0.2cm]
+\begin{itemize}
+ \item When we create a social network like Facebook with a lot of complex relationships
+\\[0.1cm]
+\textit{Explanation:} 
+A graph database is a suitable option to store a social network with many complex relationships.
+ \item \textbf{[CORRECT]} When we need to persist user state in our application
+\\[0.1cm]
+\textit{Explanation:} 
+User states are stored using a key-value database. A user ID can be considered key, and states can be assumed as values.
+ \item \textbf{[CORRECT]} When we implement caching in our application
+\\[0.1cm]
+\textit{Explanation:} 
+A cache like Memcached and Redis are key-value stores used for caching in different use-cases.
+\end{itemize}
+
+\subsection{Summary}\label{summary}
+
+Choosing the right database is crucial for application success. Consider your data structure, consistency needs, and performance requirements when making your decision.
+
+\end{document}

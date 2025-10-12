@@ -72,8 +72,13 @@ class SectionContentProcessor:
         self.images_dir = None  # Will be set per book
         self.current_chapter_number = None
         self.current_section_id = None
+        self.author_id = None  # For LazyLoadPlaceholder API calls
+        self.collection_id = None  # For LazyLoadPlaceholder API calls
+        self.token = None  # Authentication token
+        self.cookie = None  # Authentication cookie
         
-    def set_book_context(self, book_name: str, chapter_number: int = None, section_id: str = None):
+    def set_book_context(self, book_name: str, chapter_number: int = None, section_id: str = None,
+                        author_id: str = None, collection_id: str = None, token: str = None, cookie: str = None):
         """Set the context for a specific book, chapter, and section"""
         book_path = self.output_dir / book_name
         self.images_dir = book_path / "Images"  # Capital I to match existing structure
@@ -82,6 +87,12 @@ class SectionContentProcessor:
         # Set current chapter and section for hierarchical organization
         self.current_chapter_number = chapter_number
         self.current_section_id = section_id
+        
+        # Set course IDs and credentials for API calls (e.g., LazyLoadPlaceholder)
+        self.author_id = author_id
+        self.collection_id = collection_id
+        self.token = token
+        self.cookie = cookie
         
     async def fetch_section_content(self, content_type: str, course_slug: str = None, 
                                   section_slug: str = None, author_id: str = None, 
@@ -168,6 +179,10 @@ class SectionContentProcessor:
                     latex_content = self._process_structured_quiz(component)
                     latex_parts.append(latex_content)
                     
+                elif component_type == "Quiz":
+                    latex_content = self._process_quiz(component)
+                    latex_parts.append(latex_content)
+                    
                 elif component_type == "Columns":
                     latex_content, images = await self._process_columns_async(component)
                     latex_parts.append(latex_content)
@@ -176,6 +191,35 @@ class SectionContentProcessor:
                 elif component_type == "MarkMap":
                     latex_content = self._process_markmap(component)
                     latex_parts.append(latex_content)
+                    
+                elif component_type == "SpoilerEditor":
+                    latex_content = self._process_spoiler_editor(component)
+                    latex_parts.append(latex_content)
+                    
+                elif component_type == "Notepad":
+                    latex_content = self._process_notepad(component)
+                    latex_parts.append(latex_content)
+                    
+                elif component_type == "Table":
+                    latex_content = self._process_table(component)
+                    latex_parts.append(latex_content)
+                    
+                elif component_type == "Chart":
+                    latex_content = self._process_chart(component)
+                    latex_parts.append(latex_content)
+                    
+                elif component_type == "Latex":
+                    latex_content = self._process_latex(component)
+                    latex_parts.append(latex_content)
+                    
+                elif component_type == "Code":
+                    latex_content = self._process_code(component)
+                    latex_parts.append(latex_content)
+                    
+                elif component_type == "LazyLoadPlaceholder":
+                    latex_content, images = await self._process_lazy_load_placeholder_async(component)
+                    latex_parts.append(latex_content)
+                    generated_images.extend(images)
                     
                 else:
                     # Handle unknown component types
@@ -229,6 +273,10 @@ class SectionContentProcessor:
                     latex_content = self._process_structured_quiz(component)
                     latex_parts.append(latex_content)
                     
+                elif component_type == "Quiz":
+                    latex_content = self._process_quiz(component)
+                    latex_parts.append(latex_content)
+                    
                 elif component_type == "Columns":
                     latex_content, images = self._process_columns(component)
                     latex_parts.append(latex_content)
@@ -236,6 +284,30 @@ class SectionContentProcessor:
                     
                 elif component_type == "MarkMap":
                     latex_content = self._process_markmap(component)
+                    latex_parts.append(latex_content)
+                    
+                elif component_type == "SpoilerEditor":
+                    latex_content = self._process_spoiler_editor(component)
+                    latex_parts.append(latex_content)
+                    
+                elif component_type == "Notepad":
+                    latex_content = self._process_notepad(component)
+                    latex_parts.append(latex_content)
+                    
+                elif component_type == "Table":
+                    latex_content = self._process_table(component)
+                    latex_parts.append(latex_content)
+                    
+                elif component_type == "Chart":
+                    latex_content = self._process_chart(component)
+                    latex_parts.append(latex_content)
+                    
+                elif component_type == "Latex":
+                    latex_content = self._process_latex(component)
+                    latex_parts.append(latex_content)
+                    
+                elif component_type == "Code":
+                    latex_content = self._process_code(component)
                     latex_parts.append(latex_content)
                     
                 else:
@@ -562,6 +634,328 @@ class SectionContentProcessor:
         
         return "\\textit{Image content not available}", generated_images
     
+    async def _process_lazy_load_placeholder_async(self, component: Dict[str, Any]) -> Tuple[str, List[str]]:
+        """Process LazyLoadPlaceholder components (e.g., MxGraphWidget, CanvasAnimation)"""
+        content = component.get("content", {})
+        actual_type = content.get("actualType", "")
+        
+        print(f"DEBUG: Processing LazyLoadPlaceholder with actualType: {actual_type}")
+        
+        # Route to appropriate handler based on actualType
+        if actual_type == "MxGraphWidget":
+            return await self._process_mx_graph_widget_async(content)
+        elif actual_type == "CanvasAnimation":
+            return await self._process_canvas_animation_async(content)
+        else:
+            print(f"INFO: LazyLoadPlaceholder actualType '{actual_type}' not yet supported")
+            return f"\\textit{{LazyLoadPlaceholder type '{actual_type}' not yet supported}}", []
+    
+    async def _process_mx_graph_widget_async(self, content: Dict[str, Any]) -> Tuple[str, List[str]]:
+        """Process MxGraphWidget from LazyLoadPlaceholder"""
+        # Extract required parameters for API call
+        page_id = content.get("pageId")
+        content_revision = content.get("contentRevision")
+        widget_index = content.get("widgetIndex")
+        
+        if not all([page_id, content_revision, widget_index]):
+            print(f"ERROR: Missing required parameters for LazyLoadPlaceholder")
+            return "\\textit{LazyLoadPlaceholder missing required parameters}", []
+        
+        # Check if we have the required course IDs and credentials
+        if not self.author_id or not self.collection_id:
+            print(f"ERROR: author_id and collection_id not set in processor context")
+            return "\\textit{LazyLoadPlaceholder requires course context}", []
+        
+        try:
+            # Construct API URL for fetching MxGraphWidget data
+            # Format: /api/collection/{author_id}/{collection_id}/page/{page_id}/{content_revision}/{widget_index}?work_type=collection
+            url = f"https://www.educative.io/api/collection/{self.author_id}/{self.collection_id}/page/{page_id}/{content_revision}/{widget_index}?work_type=collection"
+            
+            print(f"DEBUG: Fetching MxGraphWidget from: {url}")
+            
+            # Prepare headers with authentication
+            headers = {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+                "Accept": "application/json",
+                "Accept-Language": "en-US,en;q=0.9,bn;q=0.8",
+                "Referer": "https://www.educative.io/"
+            }
+            
+            if self.token:
+                headers["Authorization"] = f"Bearer {self.token}"
+            if self.cookie:
+                headers["Cookie"] = self.cookie
+            
+            # Fetch the MxGraphWidget data
+            async with httpx.AsyncClient(timeout=30.0) as client:
+                response = await client.get(url, headers=headers)
+                response.raise_for_status()
+                widget_data = response.json()
+            
+            print(f"DEBUG: Successfully fetched MxGraphWidget data")
+            
+            # Extract the MxGraphWidget component from the response
+            components = widget_data.get("components", [])
+            if not components:
+                print(f"WARNING: No components found in MxGraphWidget response")
+                return "\\textit{MxGraphWidget data not available}", []
+            
+            # Get the first component (should be MxGraphWidget)
+            mx_graph_component = components[0]
+            mx_graph_type = mx_graph_component.get("type", "")
+            
+            if mx_graph_type != "MxGraphWidget":
+                print(f"WARNING: Expected MxGraphWidget but got {mx_graph_type}")
+                return f"\\textit{{Unexpected widget type: {mx_graph_type}}}", []
+            
+            # Extract image path and caption from MxGraphWidget content
+            mx_content = mx_graph_component.get("content", {})
+            image_path = mx_content.get("path", "")
+            caption = mx_content.get("caption", "")
+            
+            if not image_path:
+                print(f"WARNING: No image path found in MxGraphWidget")
+                return "\\textit{MxGraphWidget image path not found}", []
+            
+            print(f"DEBUG: Found MxGraphWidget image path: {image_path}")
+            
+            # Download and process the image using existing infrastructure
+            generated_images = []
+            
+            try:
+                image_relative_path = await self._download_image_async(image_path)
+                
+                if image_relative_path:
+                    generated_images.append(image_relative_path)
+                    
+                    # Convert to PNG if needed
+                    converted_path = await self._convert_image_to_png(image_relative_path)
+                    
+                    if converted_path and converted_path != image_relative_path:
+                        # Successfully converted to PNG
+                        latex_content = f"""
+\\begin{{figure}}[htbp]
+    \\centering
+    \\includegraphics[width=0.8\\textwidth]{{{converted_path}}}
+    {f"\\caption{{{self._escape_latex(caption)}}}" if caption else ""}
+\\end{{figure}}
+"""
+                        print(f"✅ Using converted PNG image for MxGraphWidget: {converted_path}")
+                        return latex_content.strip(), [converted_path]
+                    else:
+                        # Use original image (PNG/JPG or conversion failed)
+                        file_ext = os.path.splitext(image_relative_path)[1].lower()
+                        if file_ext in ['.png', '.jpg', '.jpeg']:
+                            latex_content = f"""
+\\begin{{figure}}[htbp]
+    \\centering
+    \\includegraphics[width=0.8\\textwidth]{{{image_relative_path}}}
+    {f"\\caption{{{self._escape_latex(caption)}}}" if caption else ""}
+\\end{{figure}}
+"""
+                        else:
+                            # Unsupported format, show placeholder
+                            latex_content = f"""
+\\begin{{figure}}[htbp]
+    \\centering
+    % Unsupported image format: {file_ext}
+    % Original file: {image_relative_path}
+    \\textit{{[MxGraphWidget: {self._escape_latex(caption) if caption else 'Diagram'} - Format: {file_ext}]}}
+    {f"\\caption{{{self._escape_latex(caption)}}}" if caption else ""}
+\\end{{figure}}
+"""
+                            print(f"⚠️  Warning: Unsupported image format {file_ext} for LaTeX")
+                        
+                        return latex_content.strip(), generated_images
+                        
+            except Exception as e:
+                print(f"Error processing MxGraphWidget image: {e}")
+                return f"\\textit{{Error loading MxGraphWidget image: {str(e)}}}", []
+        
+        except httpx.HTTPError as e:
+            print(f"HTTP error fetching MxGraphWidget: {e}")
+            return f"\\textit{{Error fetching MxGraphWidget: {str(e)}}}", []
+        except Exception as e:
+            print(f"Error processing LazyLoadPlaceholder: {e}")
+            return f"\\textit{{Error processing LazyLoadPlaceholder: {str(e)}}}", []
+        
+        return "\\textit{MxGraphWidget content not available}", []
+    
+    async def _process_canvas_animation_async(self, content: Dict[str, Any]) -> Tuple[str, List[str]]:
+        """Process CanvasAnimation from LazyLoadPlaceholder (multi-image slider)"""
+        # Extract required parameters for API call
+        page_id = content.get("pageId")
+        content_revision = content.get("contentRevision")
+        widget_index = content.get("widgetIndex")
+        slides_count = content.get("slidesCount", 0)
+        
+        if not all([page_id, content_revision, widget_index]):
+            print(f"ERROR: Missing required parameters for CanvasAnimation")
+            return "\\textit{CanvasAnimation missing required parameters}", []
+        
+        # Check if we have the required course IDs and credentials
+        if not self.author_id or not self.collection_id:
+            print(f"ERROR: author_id and collection_id not set in processor context")
+            return "\\textit{CanvasAnimation requires course context}", []
+        
+        try:
+            # Construct API URL for fetching CanvasAnimation data
+            url = f"https://www.educative.io/api/collection/{self.author_id}/{self.collection_id}/page/{page_id}/{content_revision}/{widget_index}?work_type=collection"
+            
+            print(f"DEBUG: Fetching CanvasAnimation from: {url}")
+            print(f"DEBUG: Expected slides count: {slides_count}")
+            
+            # Prepare headers with authentication
+            headers = {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+                "Accept": "application/json",
+                "Accept-Language": "en-US,en;q=0.9,bn;q=0.8",
+                "Referer": "https://www.educative.io/"
+            }
+            
+            if self.token:
+                headers["Authorization"] = f"Bearer {self.token}"
+            if self.cookie:
+                headers["Cookie"] = self.cookie
+            
+            # Fetch the CanvasAnimation data
+            async with httpx.AsyncClient(timeout=30.0) as client:
+                response = await client.get(url, headers=headers)
+                response.raise_for_status()
+                widget_data = response.json()
+            
+            print(f"DEBUG: Successfully fetched CanvasAnimation data")
+            
+            # Extract the CanvasAnimation component from the response
+            components = widget_data.get("components", [])
+            if not components:
+                print(f"WARNING: No components found in CanvasAnimation response")
+                return "\\textit{CanvasAnimation data not available}", []
+            
+            # Get the first component (should be CanvasAnimation)
+            canvas_component = components[0]
+            canvas_type = canvas_component.get("type", "")
+            
+            if canvas_type != "CanvasAnimation":
+                print(f"WARNING: Expected CanvasAnimation but got {canvas_type}")
+                return f"\\textit{{Unexpected widget type: {canvas_type}}}", []
+            
+            # Extract canvas objects from CanvasAnimation content
+            canvas_content = canvas_component.get("content", {})
+            canvas_objects = canvas_content.get("canvasObjects", [])
+            
+            if not canvas_objects:
+                print(f"WARNING: No canvas objects found in CanvasAnimation")
+                return "\\textit{CanvasAnimation has no canvas objects}", []
+            
+            print(f"DEBUG: Found {len(canvas_objects)} canvas objects")
+            
+            # Extract image paths from all canvas objects
+            image_paths = []
+            captions = []
+            
+            for idx, canvas_obj in enumerate(canvas_objects):
+                objects_dict = canvas_obj.get("objectsDict", {})
+                caption = canvas_obj.get("caption", "")
+                
+                # Look for the educativeObjContent with MxGraph type
+                for key, obj_data in objects_dict.items():
+                    educative_content = obj_data.get("educativeObjContent", {})
+                    if educative_content.get("type") == "MxGraph":
+                        mx_content = educative_content.get("content", {})
+                        image_path = mx_content.get("path", "")
+                        
+                        if image_path:
+                            image_paths.append(image_path)
+                            captions.append(caption)
+                            print(f"DEBUG: Canvas object {idx + 1}: Found image path: {image_path}")
+                            break
+            
+            if not image_paths:
+                print(f"WARNING: No image paths found in CanvasAnimation canvas objects")
+                return "\\textit{CanvasAnimation has no extractable images}", []
+            
+            print(f"DEBUG: Extracted {len(image_paths)} image paths from CanvasAnimation")
+            
+            # Download and process all images
+            generated_images = []
+            processed_images = []
+            
+            for idx, image_path in enumerate(image_paths):
+                try:
+                    print(f"DEBUG: Downloading canvas image {idx + 1}/{len(image_paths)}: {image_path}")
+                    image_relative_path = await self._download_image_async(image_path)
+                    
+                    if image_relative_path:
+                        generated_images.append(image_relative_path)
+                        
+                        # Convert to PNG if needed
+                        converted_path = await self._convert_image_to_png(image_relative_path)
+                        
+                        if converted_path:
+                            processed_images.append(converted_path)
+                            print(f"✅ Canvas image {idx + 1} processed: {converted_path}")
+                        else:
+                            processed_images.append(image_relative_path)
+                            print(f"✅ Canvas image {idx + 1} using original: {image_relative_path}")
+                    else:
+                        print(f"⚠️  Failed to download canvas image {idx + 1}")
+                        
+                except Exception as e:
+                    print(f"Error processing canvas image {idx + 1}: {e}")
+                    continue
+            
+            if not processed_images:
+                return "\\textit{Failed to process CanvasAnimation images}", []
+            
+            # Generate LaTeX with subfigures (2 images per row)
+            latex_parts = []
+            
+            for i in range(0, len(processed_images), 2):
+                latex_parts.append("\\begin{figure}[htbp]")
+                latex_parts.append("    \\centering")
+                
+                # First image in the row
+                img1 = processed_images[i]
+                caption1 = captions[i] if i < len(captions) else ""
+                
+                latex_parts.append("    \\begin{subfigure}[b]{0.48\\textwidth}")
+                latex_parts.append("        \\centering")
+                latex_parts.append(f"        \\includegraphics[width=\\textwidth]{{{img1}}}")
+                if caption1:
+                    latex_parts.append(f"        \\caption{{{self._escape_latex(caption1)}}}")
+                latex_parts.append("    \\end{subfigure}")
+                
+                # Second image in the row (if exists)
+                if i + 1 < len(processed_images):
+                    latex_parts.append("    \\hfill")
+                    img2 = processed_images[i + 1]
+                    caption2 = captions[i + 1] if i + 1 < len(captions) else ""
+                    
+                    latex_parts.append("    \\begin{subfigure}[b]{0.48\\textwidth}")
+                    latex_parts.append("        \\centering")
+                    latex_parts.append(f"        \\includegraphics[width=\\textwidth]{{{img2}}}")
+                    if caption2:
+                        latex_parts.append(f"        \\caption{{{self._escape_latex(caption2)}}}")
+                    latex_parts.append("    \\end{subfigure}")
+                
+                latex_parts.append("\\end{figure}")
+                latex_parts.append("")  # Empty line between figures
+            
+            latex_content = "\n".join(latex_parts)
+            
+            print(f"✅ Generated LaTeX for CanvasAnimation with {len(processed_images)} images")
+            return latex_content.strip(), processed_images
+            
+        except httpx.HTTPError as e:
+            print(f"HTTP error fetching CanvasAnimation: {e}")
+            return f"\\textit{{Error fetching CanvasAnimation: {str(e)}}}", []
+        except Exception as e:
+            print(f"Error processing CanvasAnimation: {e}")
+            import traceback
+            traceback.print_exc()
+            return f"\\textit{{Error processing CanvasAnimation: {str(e)}}}", []
+    
     def _process_structured_quiz(self, component: Dict[str, Any]) -> str:
         """Process StructuredQuiz components"""
         content = component.get("content", {})
@@ -601,6 +995,88 @@ class SectionContentProcessor:
                     latex_parts.append(f"\\textbf{{Answer:}} {self._escape_latex(answer_text)}")
                 
         latex_parts.append("\\end{quote}")
+        
+        return "\n".join(latex_parts)
+    
+    def _process_quiz(self, component: Dict[str, Any]) -> str:
+        """Process Quiz components with multiple-choice questions"""
+        content = component.get("content", {})
+        questions = content.get("questions", [])
+        title = content.get("title", "").strip()
+        
+        if not questions:
+            return ""
+        
+        latex_parts = []
+        
+        # Add quiz title if present
+        if title:
+            latex_parts.append(f"\\subsection*{{{self._escape_latex(title)}}}")
+        else:
+            latex_parts.append("\\subsection*{Quiz}")
+        
+        # Process each question
+        for q_idx, question in enumerate(questions, 1):
+            question_text_html = question.get("questionTextHtml", "").strip()
+            question_text = question.get("questionText", "").strip()
+            question_options = question.get("questionOptions", [])
+            multiple_answers = question.get("multipleAnswers", False)
+            
+            if not question_text_html and not question_text:
+                continue
+            
+            # Start question block
+            latex_parts.append("\\vspace{0.3cm}")
+            latex_parts.append("\\noindent")
+            
+            # Convert question text from HTML to LaTeX
+            if question_text_html:
+                q_latex = self._html_to_latex_pandoc(question_text_html)
+                latex_parts.append(f"\\textbf{{Question {q_idx}:}} {q_latex.strip()}")
+            else:
+                latex_parts.append(f"\\textbf{{Question {q_idx}:}} {self._escape_latex(question_text)}")
+            
+            # Add hint for multiple answers
+            if multiple_answers:
+                latex_parts.append("\\\\")
+                latex_parts.append("\\textit{(Select all that apply.)}")
+            
+            # Process answer options
+            if question_options:
+                latex_parts.append("\\\\[0.2cm]")
+                latex_parts.append("\\begin{itemize}")
+                
+                for opt_idx, option in enumerate(question_options):
+                    option_text_html = option.get("mdHtml", "").strip()
+                    option_text = option.get("text", "").strip()
+                    is_correct = option.get("correct", False)
+                    explanation = option.get("explanation", {})
+                    explanation_html = explanation.get("mdHtml", "").strip() if isinstance(explanation, dict) else ""
+                    explanation_text = explanation.get("mdText", "").strip() if isinstance(explanation, dict) else ""
+                    
+                    # Convert option text from HTML to LaTeX
+                    if option_text_html:
+                        opt_latex = self._html_to_latex_pandoc(option_text_html)
+                    else:
+                        opt_latex = self._escape_latex(option_text)
+                    
+                    # Mark correct answers
+                    if is_correct:
+                        latex_parts.append(f"    \\item \\textbf{{[CORRECT]}} {opt_latex.strip()}")
+                    else:
+                        latex_parts.append(f"    \\item {opt_latex.strip()}")
+                    
+                    # Add explanation if present
+                    if explanation_html or explanation_text:
+                        latex_parts.append("\\\\[0.1cm]")
+                        latex_parts.append("\\textit{Explanation:} ")
+                        if explanation_html:
+                            exp_latex = self._html_to_latex_pandoc(explanation_html)
+                            latex_parts.append(exp_latex.strip())
+                        else:
+                            latex_parts.append(self._escape_latex(explanation_text))
+                
+                latex_parts.append("\\end{itemize}")
         
         return "\n".join(latex_parts)
     
@@ -807,85 +1283,786 @@ class SectionContentProcessor:
         return cleaned_content.strip()
     
     def _process_markmap(self, component: Dict[str, Any]) -> str:
-        """Process MarkMap components - converts mind map text to LaTeX structured outline"""
+        """
+        Process MarkMap components - creates a placeholder with content summary
+        
+        MarkMaps are interactive JavaScript-based visualizations that cannot be directly
+        converted to static LaTeX/PDF. This method creates a placeholder box followed by
+        a structured text representation of the mind map content.
+        """
         content = component.get("content", {})
         
         # Extract text content and caption
         text = content.get("text", "")
         caption = content.get("caption", "")
         
-        if not text:
-            return f"\\textit{{MarkMap: {self._escape_latex(caption) if caption else 'Mind Map'}}}"
+        result = []
         
-        # Convert the markdown-style mind map text to LaTeX
-        latex_content = self._markmap_text_to_latex(text)
+        # Create a framed box placeholder for the mind map
+        result.append("\\begin{center}")
+        result.append("\\fbox{\\begin{minipage}{0.9\\textwidth}")
+        result.append("\\centering")
+        result.append("\\vspace{0.2cm}")
         
-        # Wrap in a figure-like environment with caption if provided
         if caption:
-            result = f"""\\begin{{quote}}
-\\textbf{{{self._escape_latex(caption)}}}
-
-{latex_content}
-\\end{{quote}}"""
-        else:
-            result = latex_content
+            result.append(f"\\textbf{{\\large {self._escape_latex(caption)}}}")
+            result.append("\\\\[0.2cm]")
         
-        return result.strip()
+        result.append("\\textit{[Interactive Mind Map - See online version for interactive visualization]}")
+        result.append("\\vspace{0.2cm}")
+        result.append("\\end{minipage}}")
+        result.append("\\end{center}")
+        result.append("")
+        
+        # If there's text content, add a structured representation below the placeholder
+        if text and text.strip():
+            result.append("\\vspace{0.3cm}")
+            content_latex = self._markmap_text_to_latex(text)
+            result.append(content_latex)
+        
+        return '\n'.join(result)
+    
+    def _process_spoiler_editor(self, component: Dict[str, Any]) -> str:
+        """
+        Process SpoilerEditor components - renders as a simple text block
+        
+        SpoilerEditor is used for collapsible content (like solutions or hints).
+        In LaTeX, we simply render the text content directly without special formatting.
+        """
+        content = component.get("content", {})
+        text = content.get("text", "")
+        
+        if not text or not text.strip():
+            return ""
+        
+        # Convert the text to LaTeX using Pandoc
+        latex_content = self._markdown_to_latex_pandoc(text)
+        
+        return latex_content
+    
+    def _process_notepad(self, component: Dict[str, Any]) -> str:
+        """
+        Process Notepad components - extracts question from title and answer from systemPrompt
+        
+        Notepad is used for AI-assisted learning exercises where:
+        - title contains the question/prompt
+        - systemPrompt contains the REFERENCE ANSWER section
+        """
+        content = component.get("content", {})
+        title = content.get("title", "")
+        system_prompt = content.get("systemPrompt", "")
+        
+        result = []
+        
+        # Extract and format the question from title
+        if title and title.strip():
+            result.append("\\textbf{Question:}")
+            result.append("")
+            # Convert title to LaTeX (escape special characters)
+            result.append(self._escape_latex(title))
+            result.append("")
+        
+        # Extract REFERENCE ANSWER from systemPrompt
+        if system_prompt:
+            # Look for the REFERENCE ANSWER section
+            answer_match = re.search(r'#\s*REFERENCE\s+ANSWER\s*\n(.+?)(?=\n#|$)', 
+                                    system_prompt, 
+                                    re.DOTALL | re.IGNORECASE)
+            
+            if answer_match:
+                answer_text = answer_match.group(1).strip()
+                
+                if answer_text:
+                    result.append("\\textbf{Reference Answer:}")
+                    result.append("")
+                    
+                    # Fix markdown formatting: ensure blank line before numbered/bulleted lists
+                    # This is required for Pandoc to recognize them as proper lists
+                    # Only add blank line before the FIRST item (1. or * or -)
+                    answer_text = re.sub(r'([^\n])\n(1\.\s)', r'\1\n\n\2', answer_text)
+                    answer_text = re.sub(r'([^\n])\n([*-]\s[^\n])', r'\1\n\n\2', answer_text, count=1)
+                    
+                    # Convert markdown answer to LaTeX using Pandoc
+                    # Pandoc will properly format numbered lists as enumerate environments
+                    latex_answer = self._markdown_to_latex_pandoc(answer_text)
+                    
+                    # Ensure proper spacing around list environments
+                    # Add blank line before enumerate/itemize if not present
+                    latex_answer = re.sub(r'([^\n])\n(\\begin\{enumerate\}|\\begin\{itemize\})', 
+                                         r'\1\n\n\2', latex_answer)
+                    # Add blank line after enumerate/itemize if not present
+                    latex_answer = re.sub(r'(\\end\{enumerate\}|\\end\{itemize\})\n([^\n])', 
+                                         r'\1\n\n\2', latex_answer)
+                    
+                    result.append(latex_answer)
+        
+        # If no content was extracted, return empty
+        if not result:
+            return ""
+        
+        return '\n'.join(result)
+    
+    def _process_table(self, component: Dict[str, Any]) -> str:
+        """
+        Process Table components - converts Educative table data to LaTeX tabular format
+        
+        Table structure from backend:
+        - numberOfRows, numberOfColumns: dimensions
+        - columnWidths: array of column widths (for reference)
+        - data: 2D array where each cell contains HTML content
+        - template: table style template (1 = header row style)
+        - title: optional table title
+        """
+        content = component.get("content", {})
+        
+        # Extract table metadata
+        num_rows = content.get("numberOfRows", 0)
+        num_cols = content.get("numberOfColumns", 0)
+        data = content.get("data", [])
+        title = content.get("title", "")
+        template = content.get("template", 0)
+        column_widths = content.get("columnWidths", [])
+        
+        if not data or num_rows == 0 or num_cols == 0:
+            return "\\textit{Empty table}"
+        
+        result = []
+        
+        # Add title if present
+        if title and title.strip():
+            result.append(f"\\textbf{{{self._escape_latex(title)}}}")
+            result.append("")
+        
+        # Calculate column widths as proportions of text width
+        # Use columnWidths from backend if available, otherwise distribute equally
+        if column_widths and len(column_widths) == num_cols:
+            total_width = sum(column_widths)
+            # Convert to proportions of \textwidth (leave some margin)
+            col_proportions = [w / total_width * 0.95 for w in column_widths]
+        else:
+            # Equal distribution
+            col_proportions = [0.95 / num_cols] * num_cols
+        
+        # Use p{width} columns for automatic text wrapping
+        # This prevents tables from exceeding page width
+        col_spec = "|" + "|".join([f"p{{{prop:.3f}\\textwidth}}" for prop in col_proportions]) + "|"
+        
+        # Start table environment with adjustbox for additional safety
+        result.append("\\begin{table}[htbp]")
+        result.append("\\centering")
+        result.append("\\small")  # Use smaller font for better fit
+        # Use adjustbox to scale down if still too wide
+        result.append("\\adjustbox{max width=\\textwidth}{")
+        result.append(f"\\begin{{tabular}}{{{col_spec}}}")
+        result.append("\\hline")
+        
+        # Process each row
+        for row_idx, row in enumerate(data):
+            if row_idx >= num_rows:
+                break
+            
+            # Process each cell in the row
+            processed_cells = []
+            for col_idx, cell_html in enumerate(row):
+                if col_idx >= num_cols:
+                    break
+                
+                # Convert HTML cell content to LaTeX
+                cell_latex = self._process_table_cell(cell_html)
+                processed_cells.append(cell_latex)
+            
+            # Join cells with & separator
+            row_latex = " & ".join(processed_cells)
+            result.append(row_latex + " \\\\")
+            
+            # Add horizontal line after each row
+            # For template=1, add thicker line after first row (header)
+            if row_idx == 0 and template == 1:
+                result.append("\\hline")
+                result.append("\\hline")  # Double line after header
+            else:
+                result.append("\\hline")
+        
+        # End table environment
+        result.append("\\end{tabular}")
+        result.append("}")  # Close adjustbox
+        
+        # Add caption if title exists
+        if title and title.strip():
+            result.append(f"\\caption{{{self._escape_latex(title)}}}")
+        
+        result.append("\\end{table}")
+        
+        return '\n'.join(result)
+    
+    def _process_chart(self, component: Dict[str, Any]) -> str:
+        """
+        Process Chart components - converts chart data to LaTeX table format
+        
+        Since LaTeX PDFs don't easily support interactive charts without complex plotting libraries,
+        we convert the chart data into a table representation that shows the data clearly.
+        
+        Chart structure from backend:
+        - content.config: JSON string containing chart.js configuration
+        - content.type: Chart type (e.g., 'line', 'bar', 'area')
+        - content.caption: Chart caption/description
+        
+        The config contains:
+        - type: Chart type (line, bar, pie, etc.)
+        - data.labels: X-axis labels
+        - data.datasets: Array of datasets with label, data, and styling
+        - options.title.text: Chart title
+        - options.scales: Axis configuration
+        """
+        content = component.get("content", {})
+        config_str = content.get("config", "{}")
+        caption = content.get("caption", "")
+        chart_type = content.get("type", "")
+        
+        # Parse the chart configuration JSON
+        try:
+            config = json.loads(config_str)
+        except json.JSONDecodeError as e:
+            return f"\\textit{{Error parsing chart configuration: {str(e)}}}"
+        
+        # Extract chart data
+        chart_data = config.get("data", {})
+        labels = chart_data.get("labels", [])
+        datasets = chart_data.get("datasets", [])
+        
+        # Extract chart options
+        options = config.get("options", {})
+        title_config = options.get("title", {})
+        chart_title = title_config.get("text", "")
+        
+        # Extract axis labels
+        scales = options.get("scales", {})
+        x_axes = scales.get("xAxes", [{}])
+        y_axes = scales.get("yAxes", [{}])
+        x_label = x_axes[0].get("scaleLabel", {}).get("labelString", "") if x_axes else ""
+        y_label = y_axes[0].get("scaleLabel", {}).get("labelString", "") if y_axes else ""
+        
+        if not labels or not datasets:
+            return "\\textit{Chart data not available}"
+        
+        result = []
+        
+        # Add chart title if present
+        if chart_title and chart_title.strip():
+            result.append(f"\\textbf{{{self._escape_latex(chart_title)}}}")
+            result.append("")
+        
+        # Add note about chart conversion
+        result.append("\\textit{\\small [Chart data presented in table format]}")
+        result.append("")
+        
+        # Calculate number of columns: 1 for labels + 1 per dataset
+        num_cols = 1 + len(datasets)
+        num_rows = len(labels)
+        
+        # Calculate column widths
+        col_proportions = [0.95 / num_cols] * num_cols
+        col_spec = "|" + "|".join([f"p{{{prop:.3f}\\textwidth}}" for prop in col_proportions]) + "|"
+        
+        # Start table environment
+        result.append("\\begin{table}[htbp]")
+        result.append("\\centering")
+        result.append("\\small")
+        result.append("\\adjustbox{max width=\\textwidth}{")
+        result.append(f"\\begin{{tabular}}{{{col_spec}}}")
+        result.append("\\hline")
+        
+        # Create header row
+        header_cells = []
+        
+        # First column header (X-axis label or generic label)
+        if x_label:
+            header_cells.append(f"\\textbf{{{self._escape_latex(x_label)}}}")
+        else:
+            header_cells.append("\\textbf{Label}")
+        
+        # Add dataset labels as column headers
+        for dataset in datasets:
+            dataset_label = dataset.get("label", "Data")
+            header_cells.append(f"\\textbf{{{self._escape_latex(dataset_label)}}}")
+        
+        result.append(" & ".join(header_cells) + " \\\\")
+        result.append("\\hline")
+        result.append("\\hline")  # Double line after header
+        
+        # Create data rows
+        for i, label in enumerate(labels):
+            row_cells = [self._escape_latex(str(label))]
+            
+            # Add data from each dataset
+            for dataset in datasets:
+                dataset_data = dataset.get("data", [])
+                if i < len(dataset_data):
+                    value = dataset_data[i]
+                    row_cells.append(self._escape_latex(str(value)))
+                else:
+                    row_cells.append("-")
+            
+            result.append(" & ".join(row_cells) + " \\\\")
+            result.append("\\hline")
+        
+        # End table environment
+        result.append("\\end{tabular}")
+        result.append("}")  # Close adjustbox
+        
+        # Add caption
+        if caption and caption.strip():
+            result.append(f"\\caption{{{self._escape_latex(caption)}}}")
+        elif chart_title and chart_title.strip():
+            result.append(f"\\caption{{{self._escape_latex(chart_title)}}}")
+        
+        # Add Y-axis label as a note if present
+        if y_label:
+            result.append(f"\\label{{tab:chart}}")
+            result.append("")
+            result.append(f"\\textit{{\\small Note: Values are in {self._escape_latex(y_label)}}}")
+        
+        result.append("\\end{table}")
+        
+        return '\n'.join(result)
+    
+    def _process_latex(self, component: Dict[str, Any]) -> str:
+        """
+        Process Latex components - renders mathematical equations
+        
+        The backend provides:
+        - content.text: Raw LaTeX equation text
+        - content.mdhtml: HTML rendering (not used for LaTeX output)
+        - content.mode: 'edit' or 'display' mode
+        
+        Returns:
+            LaTeX equation wrapped in appropriate math environment
+        """
+        content = component.get("content", {})
+        latex_text = content.get("text", "").strip()
+        mode = content.get("mode", "edit")
+        
+        if not latex_text:
+            return ""
+        
+        # Check if the equation is already wrapped in math delimiters
+        has_display_math = latex_text.startswith("$$") or latex_text.startswith("\\[")
+        has_inline_math = latex_text.startswith("$") and not has_display_math
+        
+        # If already wrapped, return as-is
+        if has_display_math or has_inline_math:
+            return latex_text
+        
+        # Otherwise, wrap in display math environment (equation block)
+        # Use \[ \] for unnumbered display equations
+        return f"\\[\n{latex_text}\n\\]"
+    
+    def _process_code(self, component: Dict[str, Any]) -> str:
+        """
+        Process Code components - renders code blocks with syntax highlighting
+        
+        The backend provides:
+        - content.caption: Description/title of the code
+        - content.language: Programming language (e.g., 'python', 'javascript', 'shell')
+        - content.content: The actual code content
+        - content.mode: 'edit' or 'view' mode
+        - content.runnable: Whether code is executable
+        - content.showSolution: Whether to show solution
+        
+        Returns:
+            LaTeX code listing with proper formatting
+        """
+        content = component.get("content", {})
+        code_text = content.get("content", "").strip()
+        language = content.get("language", "").lower()
+        caption = content.get("caption", "").strip()
+        title = content.get("title", "").strip()
+        
+        if not code_text:
+            return ""
+        
+        # Map Educative language names to listings package language names
+        language_map = {
+            'javascript': 'JavaScript',
+            'python': 'Python',
+            'python3': 'Python',  # Python 3 uses same highlighting as Python
+            'python2': 'Python',  # Python 2 uses same highlighting as Python
+            'java': 'Java',
+            'cpp': 'C++',
+            'c++': 'C++',
+            'c': 'C',
+            'csharp': 'C',  # listings doesn't have C# directly, use C
+            'c#': 'C',
+            'ruby': 'Ruby',
+            'go': 'Go',
+            'rust': 'Rust',
+            'php': 'PHP',
+            'swift': 'Swift',
+            'kotlin': 'Kotlin',
+            'typescript': 'JavaScript',  # Use JavaScript for TypeScript
+            'shell': 'bash',
+            'bash': 'bash',
+            'sql': 'SQL',
+            'html': 'HTML',
+            'css': 'CSS',
+            'xml': 'XML',
+            'json': 'JavaScript',  # Use JavaScript for JSON
+            'yaml': 'Python',  # Use Python for YAML
+            'dockerfile': 'bash',
+            'markdown': 'TeX',
+        }
+        
+        # Get the listings language name
+        listings_language = language_map.get(language, language)
+        
+        # Build the caption text
+        caption_text = ""
+        if caption:
+            caption_text = caption
+        elif title:
+            caption_text = title
+        
+        # Escape special LaTeX characters in the code
+        # For listings, we need to be careful with backslashes and braces
+        # Use lstlisting with escapechar to handle special cases
+        
+        result = []
+        
+        # Add caption as a separate line if present
+        if caption_text:
+            result.append(f"\\textbf{{{self._escape_latex(caption_text)}}}")
+            result.append("")
+        
+        # Create the code listing
+        # Use lstlisting environment from listings package
+        if listings_language:
+            result.append(f"\\begin{{lstlisting}}[language={listings_language}]")
+        else:
+            result.append("\\begin{lstlisting}")
+        
+        result.append(code_text)
+        result.append("\\end{lstlisting}")
+        
+        return '\n'.join(result)
+    
+    def _process_table_cell(self, cell_html: str) -> str:
+        """
+        Process individual table cell HTML content to LaTeX
+        
+        Handles:
+        - HTML paragraph tags with alignment classes
+        - Basic text formatting (bold, italic)
+        - Nested HTML structures
+        """
+        if not cell_html or not cell_html.strip():
+            return ""
+        
+        # Use pandoc to convert HTML to LaTeX if available
+        if _lazy_import_pypandoc():
+            try:
+                import pypandoc
+                # Convert HTML to LaTeX
+                latex = pypandoc.convert_text(
+                    cell_html,
+                    'latex',
+                    format='html',
+                    extra_args=['--wrap=none']
+                )
+                
+                # Clean up the output
+                latex = latex.strip()
+                
+                # Remove paragraph breaks within cells (tables don't support \n\n)
+                latex = latex.replace('\n\n', ' ')
+                latex = latex.replace('\n', ' ')
+                
+                # Remove any stray paragraph commands
+                latex = re.sub(r'\\par\s*', ' ', latex)
+                
+                # Clean up excessive spaces
+                latex = re.sub(r'\s+', ' ', latex)
+                
+                return latex.strip()
+                
+            except Exception as e:
+                print(f"Warning: Pandoc table cell conversion failed: {e}, using fallback")
+        
+        # Fallback: manual HTML processing
+        cell_text = cell_html
+        
+        # Remove paragraph tags and extract text
+        cell_text = re.sub(r'<p[^>]*class="ql-align-center"[^>]*>(.*?)</p>', r'\\centering \1', cell_text, flags=re.DOTALL)
+        cell_text = re.sub(r'<p[^>]*class="ql-align-right"[^>]*>(.*?)</p>', r'\\raggedleft \1', cell_text, flags=re.DOTALL)
+        cell_text = re.sub(r'<p[^>]*>(.*?)</p>', r'\1', cell_text, flags=re.DOTALL)
+        
+        # Convert basic formatting
+        cell_text = re.sub(r'<strong[^>]*>(.*?)</strong>', r'\\textbf{\1}', cell_text, flags=re.DOTALL)
+        cell_text = re.sub(r'<b[^>]*>(.*?)</b>', r'\\textbf{\1}', cell_text, flags=re.DOTALL)
+        cell_text = re.sub(r'<em[^>]*>(.*?)</em>', r'\\textit{\1}', cell_text, flags=re.DOTALL)
+        cell_text = re.sub(r'<i[^>]*>(.*?)</i>', r'\\textit{\1}', cell_text, flags=re.DOTALL)
+        cell_text = re.sub(r'<code[^>]*>(.*?)</code>', r'\\texttt{\1}', cell_text, flags=re.DOTALL)
+        
+        # Remove remaining HTML tags
+        cell_text = re.sub(r'<[^>]+>', '', cell_text)
+        
+        # Clean up whitespace
+        cell_text = re.sub(r'\s+', ' ', cell_text)
+        cell_text = cell_text.strip()
+        
+        # Escape LaTeX special characters (but preserve LaTeX commands we just added)
+        # This is tricky - we need to escape user content but not our LaTeX commands
+        # Simple approach: only escape if not part of a LaTeX command
+        cell_text = self._escape_latex_in_text(cell_text)
+        
+        return cell_text
+    
+    def _escape_latex_in_text(self, text: str) -> str:
+        """
+        Escape LaTeX special characters in text while preserving LaTeX commands
+        This is a smart escape that doesn't break existing LaTeX commands
+        """
+        if not text:
+            return ""
+        
+        # Split by LaTeX commands to preserve them
+        parts = re.split(r'(\\[a-zA-Z]+\{[^}]*\}|\\[a-zA-Z]+)', text)
+        
+        escaped_parts = []
+        for i, part in enumerate(parts):
+            # If this is a LaTeX command (odd indices after split), keep it as-is
+            if i % 2 == 1 or part.startswith('\\'):
+                escaped_parts.append(part)
+            else:
+                # This is regular text, escape it
+                escaped_part = part
+                # Only escape characters that aren't already escaped
+                escaped_part = escaped_part.replace('&', r'\&')
+                escaped_part = escaped_part.replace('%', r'\%')
+                escaped_part = escaped_part.replace('$', r'\$')
+                escaped_part = escaped_part.replace('#', r'\#')
+                escaped_part = escaped_part.replace('_', r'\_')
+                # Note: We don't escape { } here as they might be part of LaTeX commands
+                escaped_parts.append(escaped_part)
+        
+        return ''.join(escaped_parts)
+    
+    def _markmap_to_simple_tree(self, text: str, caption: str = "") -> str:
+        """
+        Convert MarkMap markdown to a simple indented tree structure
+        This provides a text-based representation of the mind map hierarchy
+        """
+        lines = text.strip().split('\n')
+        result = []
+        
+        # Add caption if provided
+        if caption:
+            result.append(f"\\textbf{{{self._escape_latex(caption)}}}")
+            result.append("")
+        
+        result.append("\\begin{quote}")
+        result.append("\\textit{[Interactive Mind Map - Text Representation]}")
+        result.append("")
+        
+        current_indent = 0
+        in_list = False
+        
+        for line in lines:
+            stripped = line.strip()
+            if not stripped:
+                continue
+            
+            # Handle headings
+            if stripped.startswith('#'):
+                if in_list:
+                    result.append("\\end{itemize}")
+                    in_list = False
+                
+                # Count heading level
+                level = 0
+                while level < len(stripped) and stripped[level] == '#':
+                    level += 1
+                
+                heading_text = stripped[level:].strip()
+                
+                # Add appropriate spacing and formatting based on level
+                if level == 1:
+                    result.append("")
+                    result.append(f"\\textbf{{{self._escape_latex(heading_text)}}}")
+                elif level == 2:
+                    result.append("")
+                    result.append(f"\\quad \\textbullet\\ \\textit{{{self._escape_latex(heading_text)}}}")
+                else:
+                    result.append(f"\\quad\\quad \\textendash\\ {self._escape_latex(heading_text)}")
+                
+                current_indent = level
+            
+            # Handle list items
+            elif stripped.startswith('-'):
+                if not in_list:
+                    result.append("\\begin{itemize}")
+                    in_list = True
+                
+                item_text = stripped[1:].strip()
+                # Add extra indentation for nested items
+                indent = "\\quad" * (current_indent - 1) if current_indent > 1 else ""
+                result.append(f"{indent}\\item {self._escape_latex(item_text)}")
+        
+        if in_list:
+            result.append("\\end{itemize}")
+        
+        result.append("\\end{quote}")
+        result.append("")
+        result.append("\\textit{\\small Note: This is a text representation of an interactive mind map visualization.}")
+        
+        return '\n'.join(result)
+    
+    def _process_markmap_children(self, children: List[Dict[str, Any]], root_text: str = "") -> str:
+        """Process hierarchical MarkMap children nodes into LaTeX structure"""
+        if not children:
+            return ""
+        
+        latex_lines = []
+        
+        # If there's root text from the main content, use it as a subsection
+        if root_text and root_text.strip():
+            # Parse the root text to extract the main title
+            root_lines = root_text.strip().split('\n')
+            if root_lines:
+                first_line = root_lines[0].strip()
+                # Remove markdown heading markers if present
+                if first_line.startswith('#'):
+                    first_line = first_line.lstrip('#').strip()
+                if first_line:
+                    latex_lines.append(f"\\subsection{{{self._escape_latex(first_line)}}}")
+                    latex_lines.append("")
+        
+        # Process each child node
+        for child in children:
+            if not isinstance(child, dict):
+                continue
+            
+            child_text = child.get("text", "").strip()
+            child_children = child.get("children", [])
+            
+            if not child_text:
+                continue
+            
+            # Determine the heading level based on whether it has children
+            if child_children and isinstance(child_children, list) and len(child_children) > 0:
+                # This is a parent node - use subsubsection
+                latex_lines.append(f"\\subsubsection{{{self._escape_latex(child_text)}}}")
+                latex_lines.append("")
+                
+                # Process children as list items
+                has_valid_children = any(
+                    isinstance(gc, dict) and gc.get("text", "").strip() 
+                    for gc in child_children
+                )
+                
+                if has_valid_children:
+                    latex_lines.append("\\begin{itemize}")
+                    for grandchild in child_children:
+                        if isinstance(grandchild, dict):
+                            gc_text = grandchild.get("text", "").strip()
+                            if gc_text:
+                                latex_lines.append(f"\\item {self._escape_latex(gc_text)}")
+                    latex_lines.append("\\end{itemize}")
+                    latex_lines.append("")
+            else:
+                # This is a leaf node - add as a paragraph or list item
+                # For now, treat top-level leaf nodes as subsubsections
+                latex_lines.append(f"\\paragraph{{{self._escape_latex(child_text)}}}")
+                latex_lines.append("")
+        
+        return '\n'.join(latex_lines)
     
     def _markmap_text_to_latex(self, text: str) -> str:
-        """Convert MarkMap markdown text to LaTeX structured format"""
+        """
+        Convert MarkMap markdown text to nested itemize lists
+        Automatically determines hierarchy levels and creates proper nesting
+        """
         if not text:
             return ""
         
         import re
         
-        # Split into lines and process each line
+        # Parse the markdown structure into a hierarchy
         lines = text.strip().split('\n')
-        latex_lines = []
-        in_itemize = False
+        items = []
         
         for line in lines:
             stripped_line = line.strip()
             if not stripped_line:
                 continue
             
-            # Count the number of '#' characters to determine heading level
+            # Check if it's a heading (starts with #)
             if stripped_line.startswith('#'):
-                # Close any open itemize environment before heading
-                if in_itemize:
-                    latex_lines.append("\\end{itemize}")
-                    in_itemize = False
-                
-                # Extract heading level and text
                 heading_match = re.match(r'^(#+)\s*(.+)$', stripped_line)
                 if heading_match:
                     level = len(heading_match.group(1))
-                    heading_text = heading_match.group(2).strip()
-                    
-                    # Convert to appropriate LaTeX heading
-                    if level == 1:
-                        latex_lines.append(f"\\subsection{{{self._escape_latex(heading_text)}}}")
-                    elif level == 2:
-                        latex_lines.append(f"\\subsubsection{{{self._escape_latex(heading_text)}}}")
-                    elif level >= 3:
-                        latex_lines.append(f"\\paragraph{{{self._escape_latex(heading_text)}}}")
-                    
-                    latex_lines.append("")  # Add spacing after headings
-            
-            # Handle list items (lines starting with -)
+                    text_content = heading_match.group(2).strip()
+                    items.append({
+                        'type': 'heading',
+                        'level': level,
+                        'text': text_content
+                    })
+            # Check if it's a list item (starts with -)
             elif stripped_line.startswith('-'):
-                # Start itemize environment if not already started
-                if not in_itemize:
-                    latex_lines.append("\\begin{itemize}")
-                    in_itemize = True
-                
-                # Extract the list item text
-                item_text = stripped_line[1:].strip()
-                latex_lines.append(f"\\item {self._escape_latex(item_text)}")
+                text_content = stripped_line[1:].strip()
+                # List items are children of the last heading, so we use a marker level
+                items.append({
+                    'type': 'list_item',
+                    'level': None,  # Will be determined by parent heading
+                    'text': text_content
+                })
         
-        # Close any open itemize environment at the end
-        if in_itemize:
+        # Build the nested LaTeX structure
+        latex_lines = []
+        level_stack = []  # Track open itemize environments by level
+        last_heading_level = 0
+        
+        for i, item in enumerate(items):
+            if item['type'] == 'heading':
+                current_level = item['level']
+                
+                # Close deeper levels
+                while level_stack and level_stack[-1] >= current_level:
+                    latex_lines.append("\\end{itemize}")
+                    level_stack.pop()
+                
+                # Open new level if needed
+                if not level_stack or level_stack[-1] < current_level:
+                    latex_lines.append("\\begin{itemize}")
+                    level_stack.append(current_level)
+                
+                # Add the heading as a bold item
+                latex_lines.append(f"\\item \\textbf{{{self._escape_latex(item['text'])}}}")
+                last_heading_level = current_level
+                
+            elif item['type'] == 'list_item':
+                # List items are nested under their parent heading
+                # Check if we need to open a nested itemize for list items
+                list_level = last_heading_level + 1
+                
+                # If the last item was a heading, we need to open a nested list
+                if i > 0 and items[i-1]['type'] == 'heading':
+                    latex_lines.append("\\begin{itemize}")
+                    level_stack.append(list_level)
+                # If the previous item was also a list item, we're already in the list
+                
+                # Add the list item
+                latex_lines.append(f"\\item {self._escape_latex(item['text'])}")
+                
+                # Check if next item is not a list item - close the list
+                if i + 1 >= len(items) or items[i + 1]['type'] != 'list_item':
+                    if level_stack and level_stack[-1] == list_level:
+                        latex_lines.append("\\end{itemize}")
+                        level_stack.pop()
+        
+        # Close all remaining open itemize environments
+        while level_stack:
             latex_lines.append("\\end{itemize}")
+            level_stack.pop()
         
         return '\n'.join(latex_lines)
     

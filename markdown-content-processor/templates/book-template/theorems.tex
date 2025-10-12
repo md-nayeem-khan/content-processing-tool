@@ -1,0 +1,98 @@
+% Theorem System for Markdown Content Processor
+% Simplified theorem environments
+
+\usepackage{xcolor}
+
+% Define custom colors
+\definecolor{defscol}{HTML}{ecd8d7} %For definitions
+\definecolor{rmkscol}{HTML}{313160} %For remarks
+\definecolor{exmscol}{HTML}{e04b52} %For examples
+\definecolor{thmscol}{HTML}{595765} %For Theorems
+
+% ============================
+% Definition
+% ============================
+\newtcbtheorem[number within=section]{mydefinition}{Definition}
+{
+    enhanced,
+    frame hidden,
+    titlerule=0mm,
+    toptitle=1mm,
+    bottomtitle=1mm,
+    fonttitle=\bfseries\large,
+    coltitle=black,
+    colbacktitle=defscol!40!white,
+    colback=defscol!20!white,
+}{defn}
+
+\NewDocumentCommand{\defn}{m+m}{
+    \begin{mydefinition}{#1}{}
+        #2
+    \end{mydefinition}
+}
+
+% ============================
+% Theorem
+% ============================
+\newtcbtheorem[number within=section]{mytheorem}{Theorem}
+{
+    enhanced,
+    frame hidden,
+    titlerule=0mm,
+    toptitle=1mm,
+    bottomtitle=1mm,
+    fonttitle=\bfseries\large,
+    coltitle=white,
+    colbacktitle=thmscol,
+    colback=thmscol!10!white,
+}{thm}
+
+\NewDocumentCommand{\thm}{m+m}{
+    \begin{mytheorem}{#1}{}
+        #2
+    \end{mytheorem}
+}
+
+% ============================
+% Example
+% ============================
+\newtcbtheorem[number within=section]{myexample}{Example}
+{
+    enhanced,
+    frame hidden,
+    titlerule=0mm,
+    toptitle=1mm,
+    bottomtitle=1mm,
+    fonttitle=\bfseries\large,
+    coltitle=white,
+    colbacktitle=exmscol,
+    colback=exmscol!10!white,
+}{ex}
+
+\NewDocumentCommand{\ex}{+m}{
+    \begin{myexample}{}{}
+        #1
+    \end{myexample}
+}
+
+% ============================
+% Remark
+% ============================
+\newtcbtheorem[number within=section]{myremark}{Remark}
+{
+    enhanced,
+    frame hidden,
+    titlerule=0mm,
+    toptitle=1mm,
+    bottomtitle=1mm,
+    fonttitle=\bfseries\large,
+    coltitle=white,
+    colbacktitle=rmkscol,
+    colback=rmkscol!10!white,
+}{rmk}
+
+\NewDocumentCommand{\rmk}{+m}{
+    \begin{myremark}{}{}
+        #1
+    \end{myremark}
+}

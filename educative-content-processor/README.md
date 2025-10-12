@@ -153,6 +153,65 @@ curl -X POST "http://localhost:8000/items" \
      -d '{"name": "Test Item", "description": "A test item", "price": 29.99}'
 ```
 
+## Supported Content Components
+
+The system supports the following Educative content component types:
+
+- ✅ **SlateHTML** - Rich text content with HTML formatting
+- ✅ **MarkdownEditor** - Markdown-formatted text content
+- ✅ **DrawIOWidget** - Diagrams and images (with automatic format conversion)
+- ✅ **LazyLoadPlaceholder** - Lazy-loaded widgets (MxGraphWidget support) **[NEW!]**
+- ✅ **Quiz** - Multiple-choice quiz questions with explanations
+- ✅ **StructuredQuiz** - Legacy quiz format (simple Q&A)
+- ✅ **Columns** - Multi-column layouts
+- ✅ **MarkMap** - Interactive mind maps (rendered as structured lists)
+- ✅ **SpoilerEditor** - Collapsible content sections
+- ✅ **Notepad** - AI-assisted learning exercises
+- ✅ **Table** - Tabular data with automatic width adjustment
+- ✅ **Latex** - Mathematical equations and formulas
+- ✅ **Code** - Syntax-highlighted code blocks (20+ languages)
+
+### LazyLoadPlaceholder Component Features
+
+The LazyLoadPlaceholder component handles dynamically loaded widgets:
+- **MxGraphWidget** - Interactive graph diagrams with automatic image extraction
+- **CanvasAnimation** - Multi-image animation sliders with subfigure layout **[NEW!]**
+- **API-based loading** - Fetches widget data from Educative API on-demand
+- **Image processing** - Automatic download and format conversion
+- **Multi-image support** - Handles animations with multiple slides
+
+The system automatically:
+1. Detects the widget type (MxGraphWidget, CanvasAnimation, etc.)
+2. Fetches widget data from Educative API using course credentials
+3. Extracts image paths from the widget content (single or multiple)
+4. Downloads and converts images to LaTeX-compatible formats
+5. Generates proper LaTeX figure environments:
+   - Single images: Standard figure with caption
+   - Multiple images (CanvasAnimation): Subfigure layout (2 per row) with individual captions
+
+### Quiz Component Features
+
+The Quiz component provides comprehensive quiz support:
+- **Multiple-choice questions** - Single or multiple correct answers
+- **Explanations** - Detailed explanations for correct answers
+- **Answer marking** - Clear [CORRECT] markers in output
+- **HTML conversion** - Automatic HTML to LaTeX conversion
+- **Custom titles** - Support for quiz titles and headings
+
+See `QUIZ_COMPONENT_DOCUMENTATION.md` for detailed information.
+
+### Code Component Features
+
+The Code component supports syntax highlighting for 20+ programming languages:
+- **Web**: JavaScript, TypeScript, HTML, CSS, JSON
+- **Backend**: Python, Java, C++, C, C#, Go, Rust, PHP, Ruby, Swift, Kotlin
+- **Database**: SQL
+- **Shell**: Bash, Shell
+- **Config**: YAML, XML, Dockerfile
+- **Docs**: Markdown
+
+See `CODE_COMPONENT_QUICK_REFERENCE.md` for detailed information.
+
 ## Security Notes
 
 - Never commit your `.env` file to version control

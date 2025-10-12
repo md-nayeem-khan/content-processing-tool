@@ -12,75 +12,15 @@
 %-------		PACKAGES		-------	
 
 \RequirePackage{graphicx}
-\RequirePackage{xcolor} % Load xcolor FIRST for color support
 \RequirePackage{tikz}
 \RequirePackage{tkz-tab}
 \usetikzlibrary{positioning}
 \usetikzlibrary{shapes.geometric, arrows}
 \RequirePackage{varwidth}
-\RequirePackage{listings} % Code listings support
 \RequirePackage[most]{tcolorbox}
 \tcbuselibrary{listings}
 \usetikzlibrary{shadows,shadows.blur,shapes.misc, positioning}
 
-% Define colors for syntax highlighting
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{codeblue}{rgb}{0.13,0.29,0.53}
-\definecolor{codeorange}{rgb}{0.8,0.4,0}
-\definecolor{backcolour}{rgb}{0.97,0.97,0.97}
-
-% Configure listings package for code blocks with syntax highlighting
-\lstset{
-    basicstyle=\ttfamily\small\color{black},
-    breaklines=true,
-    breakatwhitespace=true,
-    frame=single,
-    rulecolor=\color{black!30},
-    numbers=left,
-    numberstyle=\tiny\color{codegray},
-    stepnumber=1,
-    numbersep=5pt,
-    backgroundcolor=\color{backcolour},
-    showspaces=false,
-    showstringspaces=false,
-    showtabs=false,
-    tabsize=2,
-    captionpos=b,
-    breaklines=true,
-    breakatwhitespace=false,
-    escapeinside={(*@}{@*)},
-    xleftmargin=2em,
-    framexleftmargin=1.5em,
-    aboveskip=1em,
-    belowskip=1em,
-    % Syntax highlighting colors
-    keywordstyle=\color{codeblue}\bfseries,
-    keywordstyle=[2]\color{codepurple}\bfseries,
-    keywordstyle=[3]\color{codeblue}\bfseries,
-    commentstyle=\color{codegreen}\itshape,
-    stringstyle=\color{codeorange},
-    identifierstyle=\color{black},
-    emphstyle=\color{codepurple}\bfseries,
-    morecomment=[l][\color{codegreen}]{\#},
-    morecomment=[s][\color{codegreen}]{/*}{*/},
-    morestring=[b]',
-    morestring=[b]",
-    sensitive=true
-}
-
-% Define Python-specific highlighting
-\lstdefinestyle{python}{
-    language=Python,
-    morekeywords={as,assert,break,class,continue,def,del,elif,else,except,exec,finally,for,from,global,if,import,in,is,lambda,not,or,pass,print,raise,return,try,while,with,yield,True,False,None},
-    keywordstyle=\color{codeblue}\bfseries,
-    stringstyle=\color{codeorange},
-    commentstyle=\color{codegreen}\itshape,
-    morecomment=[l][\color{codegreen}]{\#},
-    morestring=[b]',
-    morestring=[b]"
-}
 
 %--------------------------------------------------------------------------
 % 		WRITING PACKAGES & COMMANDS 
@@ -164,7 +104,7 @@
 %--------------------------------------------------------------------------
 % 		COLORS & LINKS
 %--------------------------------------------------------------------------
-% xcolor already loaded earlier for listings package
+\RequirePackage{xcolor}
 \definecolor{mycolor}{RGB}{38,168,148}
 
 \definecolor{linkscolor}{RGB}{4,36,58}
