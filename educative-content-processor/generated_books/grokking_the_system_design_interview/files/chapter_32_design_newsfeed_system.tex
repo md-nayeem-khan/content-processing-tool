@@ -1,0 +1,34 @@
+% Chapter template for Educative course content with dynamic section inclusion
+\documentclass[../Main.tex]{subfiles}
+
+\begin{document}
+\chapter{ Design Newsfeed System }
+
+\intro{
+Master newsfeed System Design, covering aspects like functional and non-functional requirements, storage schemas, newsfeed generation, and publishing.
+}
+
+\section{ System Design: Newsfeed System }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_32_design_newsfeed_system/section_4943636425080832.tex
+\IfFileExists{chapter_32_design_newsfeed_system/section_4943636425080832.tex}{
+    \input{chapter_32_design_newsfeed_system/section_4943636425080832.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "System Design: Newsfeed System" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 4943636425080832
+        \item Section Slug: system-design-newsfeed-system
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+
+
+\end{document}

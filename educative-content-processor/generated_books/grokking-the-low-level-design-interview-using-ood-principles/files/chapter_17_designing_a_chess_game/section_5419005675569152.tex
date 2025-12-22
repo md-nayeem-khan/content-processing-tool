@@ -1,0 +1,439 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Code for the Chess Game
+% Section ID: 5419005675569152
+% Section Slug: code-for-the-chess-game
+% Generated: 2025-12-12T16:11:23.967379
+
+Using various UML diagrams, we've covered different aspects of the chess game and observed the attributes of the problem. Let 's now explore the more practical side of things, where we will work on implementing the chess game using multiple languages. This is usually the last step in an object-oriented design interview process.
+\\
+We have chosen the following languages to write the skeleton code of the different classes present in the chess game:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{KEYBKkvMNI2l1YE2fDR61}
+Java
+\item
+\protect\phantomsection\label{b9NqThYAs8XiJ_xj7w11d}
+C\#
+\item
+\protect\phantomsection\label{IL_1Ff7sOzTQAm9eF8u8m}
+Python
+\item
+\protect\phantomsection\label{qvMvcH4iA0DIweO60RNVS}
+C++
+\item
+\protect\phantomsection\label{OeTtC7lCIFVUKKpxEFted}
+JavaScript
+\end{itemize}
+\\
+If you want to skip directly to the implementation and see the complete workflow, simply scroll down or click~\hyperref[Executable-code-Chess-game]{\textbf{Executable Code: Chess Game}}.
+
+\subsection{Chess game classes}\label{yRMUPVQ6qWoy4a0V20hKk}
+\\
+This section will provide the skeleton code of the classes designed in the class diagram lesson.
+\begin{quote}
+\textbf{Note:} For simplicity, we are not defining getter and setter functions. The reader can assume that all class attributes are private, accessed through their respective public getter methods, and modified only through their public method functions.
+\end{quote}
+\subsubsection{Enumerations and custom data type}\label{kMNxEsllavU8i0FTWZd4w}
+\\
+The following code defines the main enumerations used in the chess game:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{VyaPELwvkSUb04qDYADcq}
+\texttt{GameStatus}\textbf{:} Tracks the current state of the game (active, win, draw, resignation, etc.).
+\item
+\protect\phantomsection\label{5__ZXldyNyaC_r9HLR2t8}
+\texttt{MoveType}\textbf{:} Represents the type of move (normal, castling, en passant, promotion).
+\end{itemize}
+\begin{quote}
+\textbf{Note:} JavaScript does not support enumerations, so we will use the \texttt{Object.freeze()} method as an alternative that freezes an object and prevents further modifications.
+\end{quote}
+
+\textbf{Definition of enums and custom data types}
+
+\begin{lstlisting}[language=Java]
+public enum GameStatus {
+    ACTIVE,
+    WHITE_WIN,
+    BLACK_WIN,
+    DRAW,
+    STALEMATE,
+    RESIGNATION,
+    FORFEIT
+}
+
+public enum MoveType {
+    NORMAL,
+    CASTLING,
+    EN_PASSANT,
+    PROMOTION
+}
+
+public enum AccountStatus {
+    ACTIVE,
+    CLOSED,
+    CANCELED,
+    BLACKLISTED,
+    NONE
+}
+\end{lstlisting}
+
+\subsubsection{Box and chessboard}\label{mn3zfNeJYir-RBT9xIj9B}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{7brokEn5QxoZm72rRxoW-}
+\textbf{\texttt{Box}:} Represents a square on the board and may hold a reference to a \texttt{Piece}.
+\item
+\protect\phantomsection\label{75aGrxwCCQHq2cI0xZ2yu}
+\textbf{\texttt{Chessboard}:} Contains the 8x8 array of boxes.
+\end{itemize}
+\\
+The definitions of these classes are provided below:
+
+\textbf{The Box and Chessboard classes}
+
+\begin{lstlisting}[language=Java]
+public class Box {
+    private int x, y;
+    private Piece piece;
+
+    public Box(int x, int y, Piece piece) {
+        this.x = x;
+        this.y = y;
+        this.piece = piece;
+    }
+
+    public int getX() { return x; }
+    public int getY() { return y; }
+    public Piece getPiece() { return piece; }
+    public void setPiece(Piece piece) { this.piece = piece; }
+}
+
+public class Chessboard {
+    private Box[][] boxes = new Box[8][8];
+
+    public Chessboard() {
+        for (int i = 0; i < 8; i++)
+            for (int j = 0; j < 8; j++)
+                boxes[i][j] = new Box(i, j, null);
+    }
+
+    public Box getBox(int x, int y) { return boxes[x][y]; }
+    public Box[][] getBoxes() { return boxes; }
+}
+\end{lstlisting}
+
+\subsubsection{Piece}\label{fo0QW0AP9F6kvtt05s4PP}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{6IS5oP-HIq6Aow8hE6fMR}
+\textbf{\texttt{Piece}:} An abstract class representing a chess piece.
+\item
+\protect\phantomsection\label{mdYEbc1fTOu9qkJ8EDRCt}
+\textbf{\texttt{King},} \textbf{\texttt{Queen},} \textbf{\texttt{Rook},} \textbf{\texttt{Bishop},} \textbf{\texttt{Knight},} \textbf{\texttt{Pawn}:} Subclasses of \texttt{Piece}.
+\end{itemize}
+\\
+The definitions of these classes are provided below:
+
+\textbf{The Piece class and its derived classes}
+
+\begin{lstlisting}[language=Java]
+public abstract class Piece {
+    private boolean white;
+    private boolean killed = false;
+
+    public Piece(boolean white) {
+        this.white = white;
+    }
+
+    public boolean isWhite() { return white; }
+    public boolean isKilled() { return killed; }
+    public void setKilled(boolean killed) { this.killed = killed; }
+}
+
+public class King extends Piece {
+    public King(boolean white) { super(white); }
+}
+
+public class Queen extends Piece {
+    public Queen(boolean white) { super(white); }
+}
+
+public class Rook extends Piece {
+    public Rook(boolean white) { super(white); }
+}
+
+public class Bishop extends Piece {
+    public Bishop(boolean white) { super(white); }
+}
+
+public class Knight extends Piece {
+    public Knight(boolean white) { super(white); }
+}
+
+public class Pawn extends Piece {
+    public Pawn(boolean white) { super(white); }
+}
+\end{lstlisting}
+
+\subsubsection{Move}\label{EhI6uvkv21v8fh-6tD8IL}
+\\
+\textbf{\texttt{Move}:} Represents a player's move, including the start and end boxes, the piece moved, the captured piece (if any), and the player who made the move.
+\\
+The definitions of these classes are provided below:
+
+\textbf{The Move class}
+
+\begin{lstlisting}[language=Java]
+public class Move {
+    private Box start;
+    private Box end;
+    private Piece pieceMoved;
+    private Piece pieceKilled;
+    private Player player;
+    private MoveType moveType;
+
+    public Move(Box start, Box end, Piece pieceMoved, Piece pieceKilled, Player player, MoveType moveType) {
+        this.start = start;
+        this.end = end;
+        this.pieceMoved = pieceMoved;
+        this.pieceKilled = pieceKilled;
+        this.player = player;
+        this.moveType = moveType;
+    }
+
+    public Box getStart() { return start; }
+    public Box getEnd() { return end; }
+    public Piece getPieceMoved() { return pieceMoved; }
+    public Piece getPieceKilled() { return pieceKilled; }
+    public Player getPlayer() { return player; }
+    public MoveType getMoveType() { return moveType; }
+}
+\end{lstlisting}
+
+\subsubsection{Player}\label{89rX_hNCdqtSKCXBYda8T}
+\\
+\textbf{\texttt{Player}:} Represents a player, with name and side (white or black).
+\\
+The definitions of these classes are provided below:
+
+\textbf{The Account class and its derived classes}
+
+\begin{lstlisting}[language=Java]
+public class Player {
+    private String name;
+    private boolean whiteSide;
+
+    public Player(String name, boolean whiteSide) {
+        this.name = name;
+        this.whiteSide = whiteSide;
+    }
+
+    public String getName() { return name; }
+    public boolean isWhiteSide() { return whiteSide; }
+}
+\end{lstlisting}
+
+\subsubsection{Chess move controller and the game view}\label{oSpv565bGtSL7OCoKOOyo}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{904e65pdDtuWIgkUpHMMg}
+\textbf{\texttt{ChessMoveController}:} Responsible for validating moves.
+\item
+\protect\phantomsection\label{lMcZFcsLgblDEQ3hXxiGw}
+\textbf{\texttt{ChessGameView}:} Handles display and visualization of the game board and moves.
+\end{itemize}
+\\
+The definitions of these classes are provided below:
+
+\textbf{The ChessMoveController and ChessGameView classes}
+
+\begin{lstlisting}[language=Java]
+public class ChessMoveController {
+    public ChessMoveController() {}
+
+    // Future: add methods for move validation, etc.
+}
+
+public class ChessGameView {
+    public ChessGameView() {}
+
+    // Future: add methods for displaying the board/moves
+}
+\end{lstlisting}
+
+\subsubsection{Chess game}\label{xN5qmh24KApyG3F04RACt}
+\\
+\textbf{\texttt{ChessGame}:} Orchestrates gameplay, manages the board, players, move history, and game status.
+\\
+The definition of this class is provided below:
+
+\textbf{The ChessGame class}
+
+\begin{lstlisting}[language=Java]
+import java.util.*;
+
+public class ChessGame {
+    private Player[] players;
+    private Chessboard board;
+    private Player currentTurn;
+    private GameStatus status;
+    private List<Move> moveHistory;
+    private ChessMoveController controller;
+    private ChessGameView view;
+
+    public ChessGame(Player white, Player black) {
+        this.players = new Player[] { white, black };
+        this.board = new Chessboard();
+        this.currentTurn = white;
+        this.status = GameStatus.ACTIVE;
+        this.moveHistory = new ArrayList<>();
+        this.controller = new ChessMoveController();
+        this.view = new ChessGameView();
+    }
+
+    public Player[] getPlayers() { return players; }
+    public Chessboard getBoard() { return board; }
+    public Player getCurrentTurn() { return currentTurn; }
+    public GameStatus getStatus() { return status; }
+    public List<Move> getMoveHistory() { return moveHistory; }
+    public ChessMoveController getController() { return controller; }
+    public ChessGameView getView() { return view; }
+
+    public void setCurrentTurn(Player player) { this.currentTurn = player; }
+    public void setStatus(GameStatus status) { this.status = status; }
+}
+\end{lstlisting}
+
+\subsection{Executable code: Chess game}\label{9v234_xugqc_OrqXdecZZ}
+\\
+Below is a fully self-contained, runnable program in Java, C\#, C++, Python, and JavaScript that demonstrates the core workflows of the Chess game. The system's main driver code resides in the~\texttt{Driver.java},~\texttt{Driver.cs},~\texttt{Driver.py},~\texttt{Driver.cpp}, and~\texttt{Driver.js}~for all respective languages. You can click the ``Run'' button to execute the codes.
+
+\subsubsection{What this code shows}\label{ASlJlMd121cNtdX1SkcSj}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{luJS266p8I67Y6So6z68I}
+\textbf{System initialization:} Sets up a chessboard, two players, and starts the game.
+\item
+\protect\phantomsection\label{tGkpQVuVFZ0pnf-F15b3c}
+\textbf{Scenario-based play:} Demonstrates moves for both players, including normal moves, captures, illegal move handling, and resignation.
+\item
+\protect\phantomsection\label{H6wA__sbWykH_E-VBktpu}
+\textbf{Move log:} Prints a full record of all valid moves made during the demonstration.
+\end{itemize}
+\\
+\textbf{Hint: Try customizing the code!}
+\\
+This code is designed for experimentation, not just reading. You can edit, extend, or modify any part of the example.
+
+\textbf{Executable code: Chess game}
+
+\begin{lstlisting}[language=Java]
+import java.util.*;
+
+public class Driver {
+    public static void main(String[] args) {
+        Player white = new Player("Alice", true);
+        Player black = new Player("Bob", false);
+        ChessGame game = new ChessGame(white, black);
+        
+        // Sample game id
+        System.out.println("Game ID: " + game.getGameId());
+
+        game.getBoard().resetBoard();
+        game.getView().showBoard(game.getBoard());
+
+        // Scenario 1: White moves pawn e2 to e4
+        playMove(game, white, "e2", "e4");
+
+        // Scenario 2: Black moves pawn e7 to e5
+        playMove(game, black, "e7", "e5");
+
+        // Scenario 3: White moves Queen d1 to h5
+        playMove(game, white, "d1", "h5");
+
+        // Scenario 4: Black moves Knight b8 to c6
+        playMove(game, black, "b8", "c6");
+
+        // Scenario 5: White moves Bishop f1 to c4
+        playMove(game, white, "f1", "c4");
+
+        // Scenario 6: Black moves Knight g8 to f6
+        playMove(game, black, "g8", "f6");
+
+        // Scenario 7: White moves Queen h5 to f7 (Fool's Mate checkmate, if black played g7-g6 earlier)
+        playMove(game, white, "h5", "f7");
+
+        // Scenario 8: White tries an illegal move (move pawn e4 to e5 - but e4 is now empty)
+        playMove(game, white, "e4", "e5");
+
+        // Scenario 9: Black resigns
+        game.setStatus(GameStatus.WHITE_WIN);
+        System.out.println("
+Bob (Black) resigns! Alice (White) wins!");
+
+        // Print move log
+        System.out.println("
+Move log:");
+        for (Move m : game.getMoveHistory()) {
+            System.out.println("  " + m);
+        }
+    }
+
+    // Helper to parse and play a move
+    static void playMove(ChessGame game, Player player, String from, String to) {
+        int sx = from.charAt(1) - '1', sy = from.charAt(0) - 'a';
+        int ex = to.charAt(1) - '1', ey = to.charAt(0) - 'a';
+        Box start = game.getBoard().getBox(sx, sy);
+        Box end = game.getBoard().getBox(ex, ey);
+        Piece piece = start.getPiece();
+        if (piece == null) {
+            System.out.println("
+No piece at source (" + from + ") for " + player + "!");
+            return;
+        }
+        if (piece.isWhite() != player.isWhiteSide()) {
+            System.out.println("
+Not your piece (" + from + ") for " + player + "!");
+            return;
+        }
+        if (!game.getController().validateMove(piece, game.getBoard(), start, end)) {
+            System.out.println("
+Invalid move for " + piece.getSymbol() + " from " + from + " to " + to + "!");
+            return;
+        }
+        if (piece instanceof Pawn) {
+            int promotionRow = piece.isWhite() ? 7 : 0;
+            if (end.getX() == promotionRow) {
+                // For demo: auto-promote to Queen
+                end.setPiece(new Queen(piece.isWhite()));
+                System.out.println(piece.isWhite() ? "White" : "Black" + " pawn promoted to Queen at " +
+                                   (char)('a' + end.getY()) + (end.getX() + 1));
+            }
+        }
+        Piece captured = end.getPiece();
+        end.setPiece(piece);
+        start.setPiece(null);
+        Move move = new Move(start, end, piece, captured, player, MoveType.NORMAL);
+        game.getMoveHistory().add(move);
+        System.out.println("
+" + player + " moves " + piece.getSymbol() + " from " + from + " to " + to +
+            (captured != null ? " capturing " + captured.getSymbol() : ""));
+        game.getView().showBoard(game.getBoard());
+    }
+}
+\end{lstlisting}
+
+\subsection{Wrapping up}\label{oduvT-U5GDbYO8Cu-X2TP}
+\\
+In this chapter, we've explored the complete design of the chess game. We 've also looked at how a basic chess game can be visualized using various UML diagrams and designed using object-oriented principles and design patterns.
+
+% End of section content

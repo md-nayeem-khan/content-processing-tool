@@ -1,0 +1,83 @@
+\contentsline {chapter}{\numberline {1} System Design Case Studies }{1}{chapter.0.1}%
+\ttl@starttoc {chapters@1}
+\contentsline {section}{\numberline {1} How Spotify Wrapped Scales for 7M Users }{2}{section.0.1.1}%
+\contentsline {subsection}{\numberline {1.1}Getting to know Spotify Wrapped}{2}{subsection.0.1.1.1}%
+\contentsline {subsubsection}{Wrapped over the years}{2}{subsection.0.1.1.1}%
+\contentsline {subsubsection}{Estimating Wrapped users}{2}{table.caption.7}%
+\contentsline {subsubsection}{Wrapped data}{4}{section*.9}%
+\contentsline {subsection}{\numberline {1.2}Challenges of scaling Spotify Wrapped}{4}{subsection.0.1.1.2}%
+\contentsline {subsubsection}{Scalability and resource management}{4}{subsection.0.1.1.2}%
+\contentsline {subsubsection}{Data volume and processing}{4}{subsection.0.1.1.2}%
+\contentsline {subsubsection}{Personalization complexity}{4}{subsection.0.1.1.2}%
+\contentsline {subsubsection}{Cost management}{4}{subsection.0.1.1.2}%
+\contentsline {subsubsection}{Data compliance}{4}{subsection.0.1.1.2}%
+\contentsline {subsection}{\numberline {1.3}Scalability techniques for Spotify Wrapped}{4}{subsection.0.1.1.3}%
+\contentsline {subsection}{\numberline {1.4}Spotify System Design and workflow}{6}{subsection.0.1.1.4}%
+\contentsline {subsubsection}{Key system components and services}{6}{figure.caption.14}%
+\contentsline {subsubsection}{Distributed databases}{6}{section*.24}%
+\contentsline {subsubsection}{System Design for Spotify Wrapped}{6}{section*.27}%
+\contentsline {paragraph}{Data collection or ingestion (Extract)}{7}{section*.27}%
+\contentsline {paragraph}{Data processing (Transform)}{7}{section*.27}%
+\contentsline {paragraph}{Data warehousing (Load)}{7}{figure.caption.28}%
+\contentsline {paragraph}{Wrapped creation and personalization (Reverse ETL)}{7}{figure.caption.28}%
+\contentsline {subsubsection}{Front-end animations in Spotify Wrapped}{8}{figure.caption.29}%
+\contentsline {paragraph}{Visual and interactive features}{8}{figure.caption.29}%
+\contentsline {paragraph}{Feature highlights}{8}{section*.31}%
+\contentsline {subsection}{\numberline {1.5}What we can learn from Spotify~}{8}{subsection.0.1.1.5}%
+\contentsline {subsection}{\numberline {1.6}What's next for Spotify Wrapped?}{9}{subsection.0.1.1.6}%
+\contentsline {section}{\numberline {2} How Amazon Scales for Prime Day }{9}{section.0.1.2}%
+\contentsline {subsection}{\numberline {2.1}Amazon Prime Day outage}{9}{subsection.0.1.2.1}%
+\contentsline {subsubsection}{Causes of the outage}{9}{figure.caption.42}%
+\contentsline {subsection}{\numberline {2.2}Importance of scalability and availability}{10}{subsection.0.1.2.2}%
+\contentsline {subsubsection}{What are the optimal 9s of availability?}{11}{section*.47}%
+\contentsline {subsubsection}{Isn't Amazon Web Services (AWS) good enough?}{12}{table.caption.51}%
+\contentsline {subsection}{\numberline {2.3}An overview of Amazon's e-commerce infrastructure}{12}{subsection.0.1.2.3}%
+\contentsline {subsection}{\numberline {2.4}Techniques to ensure scalability and availability}{13}{subsection.0.1.2.4}%
+\contentsline {subsubsection}{Key takeaways from the Amazon outage}{14}{table.caption.59}%
+\contentsline {subsubsection}{Conclusion}{14}{section*.62}%
+\contentsline {section}{\numberline {3} 6 Tips from a System Design Expert: How Twilio Builds for Scale }{16}{section.0.1.3}%
+\contentsline {subsection}{\numberline {3.1}Twilio and its systems}{16}{subsection.0.1.3.1}%
+\contentsline {subsection}{\numberline {3.2}Six takeaways about System Design and architecting for scale}{16}{subsection.0.1.3.2}%
+\contentsline {subsubsection}{1. Add capabilities to existing architectures when possible}{16}{subsection.0.1.3.2}%
+\contentsline {subsubsection}{2. Sometimes adding servers is not the solution}{17}{figure.caption.64}%
+\contentsline {subsubsection}{3. Optimize the number and size of microservices}{17}{figure.caption.65}%
+\contentsline {subsubsection}{4. Plan around services' expected lifespans}{18}{section*.67}%
+\contentsline {subsubsection}{5. Companies will increasingly build more flexible systems}{18}{figure.caption.70}%
+\contentsline {subsubsection}{6. In technical interviews, give real examples and explain the thinking}{19}{figure.caption.71}%
+\contentsline {subsection}{\numberline {3.3}Conclusion}{19}{subsection.0.1.3.3}%
+\contentsline {section}{\numberline {4} Dropbox System Design }{19}{section.0.1.4}%
+\contentsline {subsection}{\numberline {4.1}Requirements}{20}{subsection.0.1.4.1}%
+\contentsline {subsection}{\numberline {4.2}Resource estimation for Dropbox architecture}{20}{subsection.0.1.4.2}%
+\contentsline {subsubsection}{Storage estimation}{21}{subsection.0.1.4.2}%
+\contentsline {subsubsection}{Bandwidth estimation}{21}{subsection.0.1.4.2}%
+\contentsline {subsubsection}{Server estimation}{21}{subsection.0.1.4.2}%
+\contentsline {subsection}{\numberline {4.3}High-level design of Dropbox}{22}{subsection.0.1.4.3}%
+\contentsline {subsection}{\numberline {4.4}Detailed design of Dropbox}{22}{subsection.0.1.4.4}%
+\contentsline {subsubsection}{File upload and download}{22}{subsection.0.1.4.4}%
+\contentsline {subsubsection}{File sharing}{23}{section*.102}%
+\contentsline {subsubsection}{User authentication and access control}{24}{section*.102}%
+\contentsline {subsubsection}{File synchronization}{24}{figure.caption.105}%
+\contentsline {subsubsection}{Data storage and replication}{25}{figure.caption.106}%
+\contentsline {subsubsection}{Version control and conflict resolution}{25}{figure.caption.106}%
+\contentsline {subsubsection}{Security mechanisms}{26}{figure.caption.106}%
+\contentsline {subsection}{\numberline {4.5}Putting everything together}{26}{subsection.0.1.4.5}%
+\contentsline {subsection}{\numberline {4.6}Performance optimization}{27}{subsection.0.1.4.6}%
+\contentsline {subsection}{\numberline {4.7}Conclusion}{27}{subsection.0.1.4.7}%
+\contentsline {section}{\numberline {5} Ticketmaster System Design }{27}{section.0.1.5}%
+\contentsline {subsection}{\numberline {5.1}Requirements for Ticketmaster}{28}{subsection.0.1.5.1}%
+\contentsline {subsubsection}{Functional requirements}{28}{subsection.0.1.5.1}%
+\contentsline {subsubsection}{Nonfunctional requirements}{28}{section*.131}%
+\contentsline {subsection}{\numberline {5.2}Estimating resources for Ticketmaster}{29}{subsection.0.1.5.2}%
+\contentsline {subsubsection}{Servers estimation for Ticketmaster}{29}{subsection.0.1.5.2}%
+\contentsline {subsubsection}{Storage estimation for Ticketmaster}{29}{section*.140}%
+\contentsline {subsection}{\numberline {5.3}API design for Ticketmaster}{30}{subsection.0.1.5.3}%
+\contentsline {subsection}{\numberline {5.4}Building blocks}{31}{subsection.0.1.5.4}%
+\contentsline {subsection}{\numberline {5.5}Design of Ticketmaster}{32}{subsection.0.1.5.5}%
+\contentsline {subsubsection}{Detailed System Design of Ticketmaster}{32}{figure.caption.158}%
+\contentsline {subsection}{\numberline {5.6}Unique aspects of Ticketmaster's design}{33}{subsection.0.1.5.6}%
+\contentsline {subsubsection}{Concurrency handling}{33}{section*.167}%
+\contentsline {subsubsection}{High availability}{34}{figure.caption.171}%
+\contentsline {subsubsection}{Security}{34}{section*.174}%
+\contentsline {paragraph}{Solutions}{35}{section*.174}%
+\contentsline {subsection}{\numberline {5.7}Conclusion}{35}{subsection.0.1.5.7}%
+\contentsfinish 

@@ -1,0 +1,57 @@
+% Chapter template for Educative course content with dynamic section inclusion
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{ Introduction }
+
+\intro{
+This chapter introduces the course, including its prerequisites, structure, strengths, and the target audience.
+}
+
+\section{ Overview }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_1_introduction/section_5960523739037696.tex
+\IfFileExists{files/chapter_1_introduction/section_5960523739037696.tex}{
+    \input{files/chapter_1_introduction/section_5960523739037696.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "Overview" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 5960523739037696
+        \item Section Slug: overview
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+\vspace{1cm}
+
+\section{ Introduction to the Course }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_1_introduction/section_6156041320660992.tex
+\IfFileExists{files/chapter_1_introduction/section_6156041320660992.tex}{
+    \input{files/chapter_1_introduction/section_6156041320660992.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "Introduction to the Course" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 6156041320660992
+        \item Section Slug: introduction-to-the-course
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+
+
+\end{document}

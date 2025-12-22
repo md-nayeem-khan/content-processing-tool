@@ -1,0 +1,488 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Code of Restaurant Management System
+% Section ID: 5649412002152448
+% Section Slug: code-of-restaurant-management-system
+% Generated: 2025-12-14T12:24:16.339221
+
+Using various UML diagrams, we've covered different aspects of the restaurant management system and observed the attributes attached to the problem. Let us now explore the more practical side of things, where we will work on implementing the restaurant management system using multiple languages. This is usually the last step in an object-oriented design interview process.
+\\
+We have chosen the following languages to write the skeleton code of the different classes present in the RMS:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{9gbpbWMATvxhjjXl8Jmvo}
+Java
+\item
+\protect\phantomsection\label{OD8EWKb4P5zGnS1zZ6LIB}
+C\#
+\item
+\protect\phantomsection\label{Qti0acj3_tOqmeDJNahjW}
+Python
+\item
+\protect\phantomsection\label{D-5nimmGFlFaza0RVuS13}
+C++
+\item
+\protect\phantomsection\label{x2v9xv47mI6Pbnc-puY3h}
+JavaScript
+\end{itemize}
+\\
+If you want to skip directly to the implementation and see the complete workflow, simply scroll down or click~\hyperref[Executable-code-Restaurant-management-system]{\textbf{Executable Code: Restaurant Management System}}.
+
+\subsection{Restaurant management system classes}\label{POzloCZVxSWlBPGNIUA-K}
+\\
+This section will provide the skeleton code of the classes designed in the class diagram lesson.
+\begin{quote}
+\textbf{Note:} For simplicity, we are not defining getter and setter functions. The reader can assume that all class attributes are private, accessed through their respective public getter methods, and modified only through their public method functions.
+\end{quote}
+\subsubsection{Enumerations and custom data type}\label{7N-TAApAN8Vo6LANAlsO7}
+\\
+The following code defines the enumeration and custom data type used in the restaurant management system.
+\\
+\texttt{PaymentStatus}\textbf{:} This enumeration keeps track of an order's payment status by the customer.
+\\
+\texttt{TableStatus}\textbf{:} This enumeration keeps track of the table's status.
+\\
+\texttt{OrderStatus}\textbf{:} This enumeration keeps the customer's order status in check.
+\\
+\texttt{ReservationStatus}\textbf{:} This enumeration represents the reservation status of a table.
+\\
+\texttt{Address}\textbf{:} This custom data type represents the address of the restaurant's branch or a person.
+\begin{quote}
+\textbf{Note:} JavaScript does not support enumerations, so that we will use the \texttt{Object.freeze()} method as an alternative. This method freezes an object and prevents further modifications.
+\end{quote}
+
+\textbf{Definition of enums and custom data type}
+
+\begin{lstlisting}[language=Java]
+// Enumerations
+enum PaymentStatus {
+  Unpaid,
+  Declined,
+  Paid
+}
+
+enum TableStatus {
+  Free,
+  Reserved,
+  Occupied
+}
+
+enum OrderStatus {
+  Received,
+  Preparing,
+  Complete
+}
+
+enum ReservationStatus {
+  Requested,
+  Confirmed,
+  CheckedIn,
+  Canceled
+}
+
+// Custom Address data type class
+public class Address {
+  private int zipCode;
+  private String address;
+  private String city;
+  private String state;
+  private String country;
+}
+\end{lstlisting}
+
+\subsubsection{Person}\label{hm9guZSO9sy4mJX_nFXza}
+\\
+The \texttt{Person} class is an abstract class storing personal details such as \texttt{name}, \texttt{email}, \texttt{password}, \texttt{address}, and \texttt{phone}. The following classes extend it:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{CA7E9WFHWOcBKOkVdaoo9}
+\texttt{Customer}\textbf{:} Represents a restaurant customer. Customers can interact with the menu, reservations, orders, and payments.
+\item
+\protect\phantomsection\label{5YVMiADoJuan64iY9fa1A}
+\texttt{Receptionist}\textbf{:} Has a method \texttt{confirmAndSaveReservation(reservationDetails)} to handle table bookings on behalf of customers.
+\item
+\protect\phantomsection\label{bQXxse-30gKtOR0wq0Bo-}
+\texttt{Manager}\textbf{:} This role also manages the menu, table configuration.
+\item
+\protect\phantomsection\label{R41yEcrNoMoErOS7umeMU}
+\texttt{Waiter}\textbf{:} This class has a method called \texttt{placeOrder()} to record customer food orders. Additionally, waiters can fetch order lists, replace meal items, and generate bills.
+\end{itemize}
+\\
+The definitions of these classes are provided below:
+
+\textbf{Person and its derived classes}
+
+\begin{lstlisting}[language=Java]
+public abstract class Person {
+  private String name;
+  private String email;
+  private String password;
+  private Address address;
+  private String phone; 
+}
+
+public class Customer extends Person {
+  
+  public Table<list> searchAvailableTables(); 
+  public boolean makeReservation(time, date, table);
+  public Order placeOrder(selectedItems);
+  public boolean cancelReservation();
+  public bool payBill(paymentMethod);
+  public Bill requestBillDetails(); 
+}
+
+public class Receptionist extends Person {
+  public boolean confirmAndSaveReservation(reservationDetails);
+  public List<Table> searchAvailableTables(Date date, Time time);
+}
+
+public class Manager extends Person {
+  public TableConfiguration addTableConfig();
+  public Menu updateMenu();
+}
+
+
+public class Waiter extends Person {
+  public boolean addOrder(selectedItems);
+  public Menu viewMenu();
+  public List<Order> fetchOrderList(List<Order> allOrders);
+  public Bill generateBill(orderid);
+  public List<Table> searchAvailableTables(Date date);
+}
+\end{lstlisting}
+
+\subsubsection{Table}\label{erg35N71o_M8cbDkeUrIA}
+\\
+The \texttt{Table} class has a unique ID. It stores the table status, location identifier, and maximum capacity. Reservations can be added to a table using the \texttt{addReservation()} method. The definition of the class is provided below:
+
+\textbf{The Table class}
+
+\begin{lstlisting}[language=Java]
+public class Table {
+  private int tableID;
+  private TableStatus status;
+  private int maxCapacity;
+  private int locationIdentifier;
+  private int numberOfSeats;
+
+  public boolean isTableFree();
+  public boolean addReservation();
+  public static List<Table> search(int capacity, Date startTime);
+}
+\end{lstlisting}
+
+\subsubsection{Meal and meal item}\label{48LGpiNcUoLwvjvjON_b1}
+\\
+The \texttt{MealItem} class is identified by a unique ID and stores the quantity of a \texttt{MenuItem}. It allows updating the quantity using the \texttt{updateQuantity()} method. A \texttt{MealItem} can be associated with a \texttt{Meal}, representing the meal ordered for a specific seat at a table. A \texttt{Meal} maintains a list of \texttt{MenuItem} objects and allows adding items through the \texttt{addMealItem()} method. The definitions of these classes are provided below:
+
+\textbf{The Meal and MealItem classes}
+
+\begin{lstlisting}[language=Java]
+public class MealItem {
+  private int mealItemID;
+  private int quantity;
+  private MenuItem menuItem;
+
+  public boolean updateQuantity(int quantity);
+}
+
+public class Meal {
+  private int mealID;
+  private Table table;
+  private int seatNumber;
+  private List<MenuItem> menuItems;
+
+  public boolean addMealItem(MealItem mealItem);
+}
+\end{lstlisting}
+
+\subsubsection{Menu, menu section, and menu item}\label{Lsjlv7LQslHBLlSq8d2Ti}
+\\
+The \texttt{Menu} class represents the menu of a restaurant. A unique ID identifies it and maintains a list of \texttt{MenuSection}, where the \texttt{MenuSection} class represents a menu's different sections. A \texttt{MenuSection} lists \texttt{MenuItem} in which an item's price can be updated. The definitions of these classes are provided below:
+
+\textbf{The Menu, MenuSelection, and MenuItem classes}
+
+\begin{lstlisting}[language=Java]
+public class Menu {
+  private int menuID;
+  private String title;
+  private String description;
+  private double price;
+  private List<MenuSection> menuSections;
+
+  public boolean addMenuSection(MenuSection menuSection);
+}
+
+public class MenuSection {
+  private int menuSectionID;
+  private String title;
+  private String description;
+  private List<MenuItem> menuItems;
+
+  public boolean addMenuItem(MenuItem menuItem);
+}
+
+public class MenuItem {
+  private int menuItemID;
+  private String title;
+  private String description;
+  private double price;
+
+  public boolean updatePrice(double price);
+}
+\end{lstlisting}
+
+\subsubsection{Order and reservation}\label{MQ1UuWrB4BVQVlVT0bQaH}
+\\
+An \texttt{Order} has several meals and is assigned to a waiter for a specific table. Meals can be updated in an \texttt{Order} using the \texttt{addMeal()} and \texttt{removeMeal()} methods.
+\\
+The \texttt{Reservation} class represents a table reservation that stores the reservation time, people count, status, check-in time, and customer information. It also maintains a list of notifications for the customer.
+\\
+The definitions of these classes are provided below:
+
+\textbf{The Order, Kitchen, and Reservation classes}
+
+\begin{lstlisting}[language=Java]
+public class Order {
+  private int OrderID;
+  private OrderStatus status;
+  private Date creationTime;
+  private Meal[] meals;
+  private Table table;
+  private Waiter waiter;
+
+  public boolean addMeal(Meal meal);
+  public boolean removeMeal(Meal meal);
+  public boolean replaceMealItem(Meal oldItem, Meal newItem);
+}
+
+
+public class Reservation {
+  private int reservationID;
+  private Date timeOfReservation;
+  private int peopleCount;
+  private ReservationStatus status;
+  private String notes;
+  private Date checkInTime;
+  private Customer customer;
+  private Table[] tables;
+  private List<Notification> notifications;
+  
+  public boolean updatePeopleCount(int count);
+}
+\end{lstlisting}
+
+\subsubsection{Payment and bill}\label{aZS5GpgQyNYsi_sDFRbGF}
+\\
+The \texttt{Payment} class is an abstract class with the \texttt{Check} and \texttt{CreditCard} classes as its child classes. This takes the \texttt{PaymentStatus} enum to keep track of the payment status. The
+\texttt{Bill} class represents the bill for a customer's order. The definitions of these classes are provided below:
+
+\textbf{Payment and its derived classes}
+
+\begin{lstlisting}[language=Java]
+// Payment is an abstract class
+public abstract class Payment {
+    private int paymentID;
+    private Date creationDate;
+    private double amount;      
+    private PaymentStatus status;
+
+    public abstract void processPayment();
+    public abstract void updateTableStatus(Table table);
+}
+
+public class CreditCard extends Payment {
+    private String nameOnCard;
+    private int zipcode;
+
+    public void processPayment();
+    public void updateTableStatus(Table table);
+}
+
+public class Cash extends Payment {
+    private double cashTendered;
+
+    public void processPayment();
+    public void updateTableStatus(Table table);
+}
+
+public class Bill {
+    private int billId;
+    private float amount;
+    private float tax;
+    private boolean isPaid;
+}
+\end{lstlisting}
+
+\subsubsection{Notification}\label{gb1LOUft2fN9WQEmykreO}
+\\
+The \texttt{Notification} class is a class responsible for sending notifications. The implementation of this class is shown below:
+
+\textbf{The Notification class}
+
+\begin{lstlisting}[language=Java]
+public class Notification {
+    private int notificationId;
+    // The Date data type represents and deals with both date and time.
+    private Date createdOn;      
+    private String content;
+
+    public  void sendReminderNotification(Person person);
+}
+\end{lstlisting}
+
+\subsubsection{Table configuration and branch}\label{tAMFeJMXbhrUtGGosUpX0}
+\\
+The \texttt{TableConfiguration} class stores the seating plan for a \texttt{Branch} of the Restaurant. The
+\texttt{Branch} of a restaurant has a specific name, address, and table configuration. The definitions of these classes are provided below:
+
+\textbf{The SeatingChart, Branch, and Restaurant classes}
+
+\begin{lstlisting}[language=Java]
+public class TableConfiguration {
+  private int tableConfigID;
+  private byte[] tableConfigImage;
+}
+
+public class Branch {
+  private String name;
+  private Address location;
+  private Menu menu;
+  private TableConfiguration tableConfig;
+}
+\end{lstlisting}
+
+\subsection{Executable code: Restaurant management system}\label{FU1LuCUOzTR6yq7NPogHv}
+\\
+Below is a fully self-contained, runnable program in Java, C\#, C++, Python, and JavaScript that demonstrates the core workflows of a restaurant management system. The main driver code resides in \texttt{Driver.java}, \texttt{Driver.cs}, \texttt{Driver.py}, \texttt{Driver.cpp}, and \texttt{Driver.js} for all respective languages. You can click the ``Run'' button to execute the codes.
+
+\subsubsection{What does this code show}\label{e3I-15Ri4cgG6K0iV6u8u}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{dzotZIkAmyhMUtnijVbn8}
+\textbf{System initialization:} The simulation begins by creating the core components of the restaurant system: a customer named Alice, a waiter, a receptionist, and manager, a menu containing items like pizza and pasta, a table with availability, and the foundational reservation, order, bill, and payment structures. This setup creates a realistic baseline for simulating restaurant operations in sequence.
+\item
+\protect\phantomsection\label{9M1TR9AcricUzaXYVFHNN}
+\textbf{Scenario 1 (Customer makes a reservation):} The customer interacts with the receptionist to reserve a table. A reservation is created and confirmed, and the table status is updated to reflect the booking.
+\item
+\protect\phantomsection\label{1QG5Rau_heRinVYV1ery-}
+\textbf{Scenario 2 (Customer places an order):} After being seated, the customer orders pizza and pasta. The waiter wraps these items in a meal, adds them to the order, and serves them.
+\item
+\protect\phantomsection\label{jdWMnTyAq1LkGGb1m5iJK}
+\textbf{Scenario 3 (Bill generation and payment):} The waiter generates a bill, and the customer pays using a credit card. The system processes the payment and updates the table's status to ``Free.''
+\end{itemize}
+\begin{quote}
+\textbf{Hint: Try customizing the code!}
+\\
+This code is designed for experimentation, not just reading. You can edit, extend, or modify any part of the example.
+\end{quote}
+
+\textbf{Executable Code: Restaurant Management System}
+
+\begin{lstlisting}[language=Java]
+import java.util.*;
+
+public class Driver {
+    public static void main(String[] args) {
+        System.out.println("=== Restaurant Management System Simulation ===
+");
+
+        // SYSTEM SETUP
+        Address address = new Address(12345, "123 Main St", "Springfield", "IL", "USA");
+
+        Waiter waiter = new Waiter("John", "john@restaurant.com", "waiter123", address, "555-9876");
+        Receptionist receptionist = new Receptionist("Emma", "emma@restaurant.com", "rec123", address, "555-4567");
+        Manager manager = new Manager("Olivia", "olivia@restaurant.com", "mgr456", address, "555-8888");
+
+        Customer customer = new Customer("Alice", "alice@example.com", "cust001", address, "555-1122");
+        System.out.println("[1] Customer registered: " + customer.getName());
+
+        // MENU SETUP
+        MenuItem pizza = new MenuItem(1, "Pizza", "Cheesy pizza", 12.0);
+        MenuItem pasta = new MenuItem(2, "Pasta", "Creamy Alfredo pasta", 10.0);
+        MenuSection section = new MenuSection(1, "Main", "Main Course", new ArrayList<>(Arrays.asList(pizza, pasta)));
+        Menu menu = new Menu(1, "Dinner Menu", "Evening specials", 0.0, new ArrayList<>(Arrays.asList(section)));
+        System.out.println("[2] Menu and items initialized.");
+
+        // TABLE SETUP
+        Table table = new Table(101, TableStatus.Free, 4, 1, 4);
+        System.out.println("[3] Table created. ID: " + table.getTableID());
+
+        // ------------------------------------------
+        // SCENARIO 1: Reservation Flow (Customer â Receptionist â Table)
+        // ------------------------------------------
+        System.out.println("
+--- SCENARIO 1: Table Reservation ---");
+
+        Reservation reservation = new Reservation(
+                1,
+                new Date(),  // reservation time
+                2,
+                ReservationStatus.Requested,
+                "Near window",
+                null,
+                customer,
+                new Table[]{table},
+                new ArrayList<>()
+        );
+
+        boolean isConfirmed = receptionist.confirmAndSaveReservation(reservation);
+        if (isConfirmed) {
+            reservation.setStatus(ReservationStatus.Confirmed);
+            table.setStatus(TableStatus.Reserved);
+            System.out.println("Reservation confirmed by receptionist for table " + table.getTableID());
+        }
+
+        // ------------------------------------------
+        // SCENARIO 2: Order Flow (Customer â Waiter â Meal â Order)
+        // ------------------------------------------
+        System.out.println("
+--- SCENARIO 2: Placing an Order ---");
+
+        MealItem order1 = new MealItem(1, 1, pizza);
+        MealItem order2 = new MealItem(2, 1, pasta);
+
+        Meal meal = new Meal(1, table, 1, new ArrayList<>());
+        meal.addMealItem(order1);
+        meal.addMealItem(order2);
+
+        Meal[] meals = {meal};
+        Order order = new Order(1, OrderStatus.Received, new Date(), meals, table, waiter);
+        System.out.println("Order created for table " + table.getTableID() + " with items: Pizza and Pasta");
+
+        // ------------------------------------------
+        // SCENARIO 3: Billing and Payment (Waiter â Bill â Payment â Table Status)
+        // ------------------------------------------
+        System.out.println("
+--- SCENARIO 3: Billing & Payment ---");
+
+        float subtotal = (float)(pizza.getPrice() + pasta.getPrice());
+        float tax = subtotal * 0.1f;
+        Bill bill = waiter.generateBill(order.getOrderID());
+
+        float total = bill.getAmount() + bill.getTax();
+        CreditCard payment = new CreditCard(1, new Date(), total, PaymentStatus.Unpaid, "Alice", 12345);
+
+        // waiter.initiatePayment(bill, payment);
+        payment.processPayment();
+        payment.updateTableStatus(table);
+
+        System.out.println("Bill paid: $" + total + " | Status: " + payment.getStatus());
+        System.out.println("Table status after payment: " + table.getStatus());
+
+        System.out.println("
+=== Simulation Completed ===");
+    }
+}
+\end{lstlisting}
+
+\subsection{Wrapping up}\label{nte9FNRvo6gK13ixxVuCC}
+\\
+In this chapter, we've explored the complete design of the restaurant management system. We 've also looked at how a basic restaurant management system can be visualized using various UML diagrams and designed using object-oriented principles and design patterns.
+
+% End of section content

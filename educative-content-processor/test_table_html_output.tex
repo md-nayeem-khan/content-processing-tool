@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+\begin{document}
+
+\begin{center}
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+>{\centering\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+>{\centering\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\begin{minipage}[t]{\linewidth}\centering
+\textbf{Role/Level}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+\textbf{Key Focus Areas}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\textbf{Junior/Mid-level Software Engineer}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+\begin{itemize}
+\item
+Basic System Design components
+\item
+Trade-offs (e.g., between requirements such as latency and availability)
+\end{itemize}
+\end{minipage} \\
+\end{longtable}
+}
+\end{center}
+
+\end{document}

@@ -1,0 +1,598 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Code for the Movie Ticket Booking System
+% Section ID: 6523839966347264
+% Section Slug: code-for-the-movie-ticket-booking-system
+% Generated: 2025-12-12T14:19:54.379245
+
+We've reviewed different aspects of the movie ticket booking system and observed the attributes attached to the problem using various UML diagrams. Let 's explore the more practical side of things, where we will work on implementing the movie ticket booking system using multiple languages. This is usually the last step in an object-oriented design interview process.
+\\
+We have chosen the following languages to write the skeleton code of the different classes present in the movie ticket booking system:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{0UBDsZ1hgOUT7y7mcOZ74}
+Java
+\item
+\protect\phantomsection\label{uOC8oTmr5vKPwNLRA84DA}
+C\#
+\item
+\protect\phantomsection\label{MahD9kSXlplqbaSFRVTFA}
+Python
+\item
+\protect\phantomsection\label{-WfF88eepOApGpgAwpr1f}
+C++
+\item
+\protect\phantomsection\label{MMe733sMf97BZM7a4dKQn}
+JavaScript
+\end{itemize}
+\\
+If you want to skip directly to the implementation and see the complete workflow, simply scroll down or click \hyperref[Executable-code-Movie-ticket-booking-system]{Executable Code: Movie Ticket Booking System}.
+
+\subsection{Movie ticket booking system}\label{hYliXh_7tsdrZZgr_VdjF}
+\\
+This section will provide the skeleton code of the classes designed in the class diagram lesson.
+\begin{quote}
+\textbf{Note:} For simplicity, we are not defining getter and setter functions. The reader can assume that all class attributes are private, accessed through their respective public getter methods, and modified only through their public method functions.
+\end{quote}
+\subsubsection{Enumerations}\label{7Rswn2FJw0WkyRheazLGc}
+\\
+The following code defines the various enumerations used in the movie ticket booking system:
+\begin{quote}
+\textbf{Note:} JavaScript does not support enumerations, so we will use the \texttt{Object.freeze()} method as an alternative that freezes an object and prevents further modifications.
+\end{quote}
+
+\textbf{Enum definitions}
+
+\begin{lstlisting}[language=Java]
+public enum PaymentStatus {
+    PENDING, CONFIRMED, DECLINED, REFUNDED
+}
+
+public enum BookingStatus {
+    PENDING, CONFIRMED, CANCELLED, DENIED, REFUNDED
+}
+
+public enum SeatStatus {
+    AVAILABLE, BOOKED, RESERVED
+}
+\end{lstlisting}
+
+\subsubsection{Actors}\label{YsjLeBJqIJj24J8l0HnSo}
+\\
+This section contains the different people who will interact with our movie ticket systems, such as a \texttt{Customer}, \texttt{Admins}, and \texttt{TicketAgents}. All of these classes will inherit the properties of the \texttt{Person} class. The definition of these classes is given below:
+
+\textbf{Actors involved in the movie ticket booking system}
+
+\begin{lstlisting}[language=Java]
+// Person is an abstract class
+public abstract class Person {
+    public String name;
+    public String address;
+    public String phone;
+    public String email;
+}
+
+public class Customer extends Person {
+    public List<Booking> bookings = new ArrayList<>();
+
+    public boolean createBooking(Booking booking) {
+        return true;
+    }
+    public boolean updateBooking(Booking booking) {
+        return true;
+    }
+    public boolean deleteBooking(Booking booking) {
+        return true;
+    }
+}
+
+public class Admin extends Person {
+    public boolean addShow(ShowTime show) {
+        return true;
+    }
+    public boolean updateShow(ShowTime show) {
+        return true;
+    }
+    public boolean deleteShow(ShowTime show) {
+        return true;
+    }
+    public boolean addMovie(Movie movie) {
+        return true;
+    }
+    public boolean deleteMovie(Movie movie) {
+        return true;
+    }
+}
+
+
+public class TicketAgent extends Person {
+    public boolean createBooking(Booking booking) {
+        return true;
+    }
+}
+\end{lstlisting}
+
+\subsubsection{Seat}\label{xtCDzm3CjAYkbkCE3SoJG}
+\\
+The \texttt{Seat} will be an abstract class, which serves as a parent for three different types of seats: \texttt{Platinum}, \texttt{Gold}, and \texttt{Silver}. The definition of the \texttt{Seat} and its child classes is given below:
+
+\textbf{Seat and its derived classes}
+
+\begin{lstlisting}[language=Java]
+public abstract class Seat {
+    public String seatNo;
+    public SeatStatus status;
+
+    public boolean isAvailable() {
+        return status == SeatStatus.AVAILABLE;
+    }
+
+    public abstract void setSeat();
+    public abstract void setRate();
+}
+
+public class Platinum extends Seat {
+    public double rate;
+
+    public void setSeat() {  }
+    public void setRate() {  }
+}
+
+
+public class Gold extends Seat {
+    public double rate;
+
+    public void setSeat() {  }
+    public void setRate() {  }
+}
+
+public class Silver extends Seat {
+    public double rate;
+
+    public void setSeat() {  }
+    public void setRate() {  }
+}
+\end{lstlisting}
+
+\subsubsection{Movie, showtime, and movie ticket}\label{nieGCA-Z5d957gBzuNk9h}
+\\
+Next, we will explore the \texttt{ShowTime}, \texttt{Movie}, and \texttt{MovieTicket} classes that provide the details of the movie to the customer. The definition of these classes is given below:
+
+\textbf{The Movie, ShowTime, and MovieTicket classes}
+
+\begin{lstlisting}[language=Java]
+public class Movie {
+    public String title;
+    public String genre;
+    public Date releaseDate;
+    public String language;
+    public int duration;
+    public List<ShowTime> shows = new ArrayList<>();
+
+    public Movie(String title, String genre, Date releaseDate, String language, int duration, List<ShowTime> shows) {
+        this.title = title;
+        this.genre = genre;
+        this.releaseDate = releaseDate;
+        this.language = language;
+        this.duration = duration;
+        this.shows = shows;
+    }
+}
+
+public class ShowTime {
+    public int showId;
+    public Date startTime;
+    public Date date;
+    public int duration;
+    public List<Seat> seats = new ArrayList<>();
+
+    public ShowTime(int showId, Date startTime, Date date, int duration, List<Seat> seats) {
+        this.showId = showId;
+        this.startTime = startTime;
+        this.date = date;
+        this.duration = duration;
+        this.seats = seats;
+    }
+
+    public void showAvailableSeats() { }
+}
+
+public class MovieTicket {
+    public int ticketId;
+    public Seat seat;
+    public Movie movie;
+    public ShowTime show;
+
+    public MovieTicket(int ticketId, Seat seat, Movie movie, ShowTime show) {
+        this.ticketId = ticketId;
+        this.seat = seat;
+        this.movie = movie;
+        this.show = show;
+    }
+}
+\end{lstlisting}
+
+\subsubsection{City, cinema, and hall}\label{9ccGrUfU9mT_CDvdiqyhu}
+\\
+This section contains classes like \texttt{Hall}, \texttt{Cinema}, and \texttt{City} that make up the infrastructure of our movie ticket system. The definition of these classes is given below:
+
+\textbf{The City, Cinema, and Hall classes}
+
+\begin{lstlisting}[language=Java]
+public class City {
+    public String name;
+    public String state;
+    public int zipCode;
+    public List<Cinema> cinemas = new ArrayList<>();
+
+    public City(String name, String state, int zipCode, List<Cinema> cinemas) {
+        this.name = name;
+        this.state = state;
+        this.zipCode = zipCode;
+        this.cinemas = cinemas;
+    }
+}
+
+public class Cinema {
+    public int cinemaId;
+    public List<Hall> halls = new ArrayList<>();
+    public City city;
+
+    public Cinema(int cinemaId, List<Hall> halls, City city) {
+        this.cinemaId = cinemaId;
+        this.halls = halls;
+        this.city = city;
+    }
+}
+
+public class Hall {
+    public int hallId;
+    public List<ShowTime> shows = new ArrayList<>();
+
+    public Hall(int hallId, List<ShowTime> shows) {
+        this.hallId = hallId;
+        this.shows = shows;
+    }
+
+    public List<ShowTime> findCurrentShows() {
+        return shows;
+    }
+}
+\end{lstlisting}
+
+\subsubsection{Payment}\label{TlFFZ8nbyjqtfwo-juvwi}
+\\
+The \texttt{Payment} class is another abstract class, with the \texttt{Cash} and \texttt{CreditCard} classes as its child. This takes the \texttt{PaymentStatus} enum to keep track of the payment status. The definition of this class is given below:
+
+\textbf{Payment class and its child classes}
+
+\begin{lstlisting}[language=Java]
+public abstract class Payment {
+    public double amount;
+    public Date timestamp;
+    public PaymentStatus status;
+
+    public abstract boolean makePayment();
+}
+
+public class Cash extends Payment {
+    public boolean makePayment() {
+        return true;
+    }
+}
+
+public class CreditCard extends Payment {
+    public String nameOnCard;
+    public String cardNumber;
+    public String billingAddress;
+    public int code;
+
+    public boolean makePayment() {
+        return true;
+    }
+}
+\end{lstlisting}
+
+\subsubsection{Notification}\label{PhqUK9AAkB1Xj2Q1bh-0E}
+\\
+The \texttt{Notification} class is an abstract class that is responsible for sending notifications via email or phone/SMS after actions performed by either the admin or the customer. Its definition is given below:
+
+\textbf{Notification class and its child classes}
+
+\begin{lstlisting}[language=Java]
+public abstract class Notification {
+    public int notificationId;
+    public Date createdOn;
+    public String content;
+
+    public abstract void sendNotification(Person person);
+}
+
+public class EmailNotification extends Notification {
+    public void sendNotification(Person person) { }
+}
+
+public class PhoneNotification extends Notification {
+    public void sendNotification(Person person) { }
+}
+\end{lstlisting}
+
+\subsubsection{Booking}\label{jK_4484-AkLI9PDbAM9-g}
+\\
+The \texttt{Booking} class is the main class of our movie ticket booking system and will display the information relating to a particular customer's booking. The definition of this class is given below:
+
+\textbf{The Booking class}
+
+\begin{lstlisting}[language=Java]
+import java.util.*;
+
+public class Booking {
+    public int bookingId;
+    public int amount;
+    public int totalSeats;
+    public Date createdOn;
+    public BookingStatus status;
+    public Payment payment;
+    public List<MovieTicket> tickets;
+    public List<Seat> seats;
+
+    public Booking(int bookingId, int amount, int totalSeats, Date createdOn, BookingStatus status, Payment payment, List<MovieTicket> tickets, List<Seat> seats) {
+        this.bookingId = bookingId;
+        this.amount = amount;
+        this.totalSeats = totalSeats;
+        this.createdOn = createdOn;
+        this.status = status;
+        this.payment = payment;
+        this.tickets = tickets;
+        this.seats = seats;
+    }
+}
+\end{lstlisting}
+
+\subsubsection{Search and catalog}\label{EWweKaWZQhJxFZnaW0Coc}
+\\
+The \texttt{Catalog} class contains the movie information and implements the \texttt{Search} interface class to enable the search functionality based on the given criteria (title, language, genre, and release date). The definition of these two classes is given below:
+
+\textbf{The Search interface and Catalog class}
+
+\begin{lstlisting}[language=Java]
+public interface Search {
+    List<Movie> searchMovieTitle(String title);
+    List<Movie> searchMovieLanguage(String language);
+    List<Movie> searchMovieGenre(String genre);
+    List<Movie> searchMovieReleaseDate(Date date);
+}
+
+
+public class Catalog implements Search {
+    public HashMap<String, List<Movie>> movieTitles = new HashMap<>();
+    public HashMap<String, List<Movie>> movieLanguages = new HashMap<>();
+    public HashMap<String, List<Movie>> movieGenres = new HashMap<>();
+    public HashMap<Date, List<Movie>> movieReleaseDates = new HashMap<>();
+
+    public List<Movie> searchMovieTitle(String title) { }
+    public List<Movie> searchMovieLanguage(String language) { }
+    public List<Movie> searchMovieGenre(String genre) { }
+    public List<Movie> searchMovieReleaseDate(Date date) { }
+}
+\end{lstlisting}
+
+\subsection{Executable code: Movie ticket booking system}\label{nCcpIAdh4qbSRHwe3IpJs}
+\\
+Below is a fully self-contained, runnable program in Java, C\#, C++, Python, and JavaScript that demonstrates the core workflows of the Movie Ticket Booking system. The main driver code of the system resides in the~\texttt{Driver.java},~\texttt{Driver.cs},~\texttt{Driver.py},~\texttt{Driver.cpp}, and~\texttt{Driver.js}~for all respective languages. You can click the ``Run'' button to execute the code.
+
+\subsubsection{What does this code show}\label{lQ2nUay4Uc1t-WXuAV_a6}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{r1vGIRnM1Y3u2QaGqcOD_}
+\textbf{System initialization:} Sets up movies, a cinema with halls and seats, a customer, and an admin.
+\item
+\protect\phantomsection\label{DrOu71z244kRG22_T5EgR}
+\textbf{Scenario 1 (Customer searches and books a ticket):} The customer searches for a movie, selects a showtime and seats, creates a booking, and the system confirms the booking.
+\item
+\protect\phantomsection\label{jiK9pQa9HJy5Vd4mC3-OI}
+\textbf{Scenario 2 (Payment for a booking):} The customer pays for the booking; the payment is processed, and the system sends a confirmation notification.
+\item
+\protect\phantomsection\label{khckOKPY60f3NdvqBY8p4}
+\textbf{Scenario 3 (Customer cancels a booking):} The customer cancels a booking, the system updates statuses, handles a refund if eligible, and sends a cancellation notification.
+\end{itemize}
+\\
+\textbf{Hint: Try customizing the code!}
+\\
+This code is designed for experimentation, not just reading. You can edit, extend, or modify any part of the example.
+
+\textbf{Executable code: Movie Ticket Booking System}
+
+\begin{lstlisting}[language=Java]
+import java.util.*;
+import java.text.SimpleDateFormat;
+
+public class Driver {
+    public static void main(String[] args) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+        // ----- SETUP PHASE -----
+        System.out.println("=====================================================");
+        System.out.println("MOVIE TICKET BOOKING SYSTEM - SCENARIO DEMONSTRATION");
+        System.out.println("=====================================================");
+
+        // 1. Create city, cinema, hall, seats
+        City city = new City("Seattle", "WA", 98101, new ArrayList<>());
+        Cinema cinema = new Cinema(1, new ArrayList<>(), city);
+        city.cinemas.add(cinema);
+
+        Hall hall = new Hall(101, new ArrayList<>());
+        cinema.halls.add(hall);
+
+        // 2. Create movies
+        Movie inception = new Movie(
+            "Inception", "Sci-Fi",
+            parseDate("2010-07-16"), "English", 148, new ArrayList<>()
+        );
+        Movie interstellar = new Movie(
+            "Interstellar", "Sci-Fi",
+            parseDate("2014-11-07"), "English", 169, new ArrayList<>()
+        );
+
+        // 3. Create ShowTimes (each with seats)
+        List<Seat> seatsShow1 = Arrays.asList(new Platinum(), new Gold(), new Silver());
+        for (int i = 0; i < seatsShow1.size(); i++) {
+            seatsShow1.get(i).seatNo = "A" + (i+1);
+            seatsShow1.get(i).status = SeatStatus.AVAILABLE;
+            seatsShow1.get(i).setRate();
+        }
+        ShowTime show1 = new ShowTime(1001, new Date(), new Date(), 150, seatsShow1);
+        hall.shows.add(show1);
+        inception.shows.add(show1);
+
+        // 4. Create Catalog and add movies
+        Catalog catalog = new Catalog();
+        catalog.movieTitles = new HashMap<>();
+        catalog.movieTitles.put("Inception", Arrays.asList(inception));
+        catalog.movieTitles.put("Interstellar", Arrays.asList(interstellar));
+
+        // 5. Create admin, customer, ticket agent
+        Admin admin = new Admin();
+        admin.name = "Bob (Admin)";
+        admin.email = "bob.admin@cinema.com";
+
+        Customer customer = new Customer();
+        customer.name = "Alice (Customer)";
+        customer.email = "alice@example.com";
+        customer.bookings = new ArrayList<>();
+
+        TicketAgent agent = new TicketAgent();
+        agent.name = "Eve (Ticket Agent)";
+        agent.email = "eve.agent@cinema.com";
+
+        // ----- SCENARIO 1: CUSTOMER SEARCHES FOR A MOVIE -----
+        System.out.println("----- SCENARIO 1: Customer Searches For A Movie -----");
+        System.out.printf("%s is searching for the movie 'Inception':", customer.name);
+        List<Movie> found = catalog.searchMovieTitle("Inception");
+        for (Movie m : found) {
+            System.out.printf("  - Found: %s (%s, Released: %s)", m.title, m.genre, sdf.format(m.releaseDate));
+        }
+
+        // ----- SCENARIO 2: CUSTOMER BOOKS A TICKET -----
+        System.out.println("----- SCENARIO 2: Customer Books A Ticket -----");
+        Seat chosenSeat = show1.seats.get(0); // Platinum
+        if (chosenSeat.isAvailable()) {
+            chosenSeat.status = SeatStatus.BOOKED;
+
+            // Create ticket and booking
+            MovieTicket ticket = new MovieTicket(2001, chosenSeat, inception, show1);
+            List<MovieTicket> tickets = new ArrayList<>();
+            tickets.add(ticket);
+
+            // Payment
+            CreditCard payment = new CreditCard();
+            payment.amount = 15.0;
+            payment.nameOnCard = customer.name;
+            payment.cardNumber = "1234-5678-9012-3456";
+            payment.billingAddress = "123 1st Ave, Seattle, WA";
+            payment.code = 123;
+            payment.status = PaymentStatus.PENDING;
+            payment.timestamp = new Date();
+            payment.makePayment();
+            payment.status = PaymentStatus.CONFIRMED;
+
+            // Booking
+            Booking booking = new Booking(3001, 15, 1, new Date(), BookingStatus.CONFIRMED,
+                    payment, tickets, Arrays.asList(chosenSeat));
+            customer.bookings.add(booking);
+
+            // Notification
+            EmailNotification notification = new EmailNotification();
+            notification.content = String.format("Booking confirmed for %s!Seat: %s (%s)Show ID: %d",
+                inception.title, chosenSeat.seatNo, chosenSeat.getClass().getSimpleName(), show1.showId);
+            notification.sendNotification(customer);
+
+            System.out.printf("%s successfully booked a ticket for: %s", customer.name, inception.title);
+            System.out.printf("  - Seat: %s (%s), Show ID: %d", chosenSeat.seatNo, chosenSeat.getClass().getSimpleName(), show1.showId);
+            System.out.printf("  - Payment: $%.2f by Credit Card ending %s", payment.amount,  payment.cardNumber.substring(payment.cardNumber.length()-4));
+        } else {
+            System.out.println("Seat is not available!");
+        }
+
+        // ----- SCENARIO 3: ADMIN ADDS A NEW SHOW -----
+        System.out.println("----- SCENARIO 3: Admin Adds A New Show -----");
+        ShowTime newShow = new ShowTime(1002, new Date(), new Date(), 148, new ArrayList<>());
+        boolean showAdded = admin.addShow(newShow);
+        if (showAdded) {
+            hall.shows.add(newShow);
+            inception.shows.add(newShow);
+            System.out.printf("%s added a new show for: %s (Show ID: %d)", admin.name, inception.title, newShow.showId);
+        }
+
+        // ----- SCENARIO 4: TICKET AGENT CREATES A BOOKING FOR WALK-IN -----
+        System.out.println("----- SCENARIO 4: Ticket Agent Creates A Walk-In Booking -----");
+        ShowTime showInterstellar = new ShowTime(1003, new Date(), new Date(), 169, new ArrayList<>());
+        hall.shows.add(showInterstellar);
+        interstellar.shows.add(showInterstellar);
+
+        List<Seat> seatsShow2 = Arrays.asList(new Gold(), new Silver());
+        for (int i = 0; i < seatsShow2.size(); i++) {
+            seatsShow2.get(i).seatNo = "B" + (i+1);
+            seatsShow2.get(i).status = SeatStatus.AVAILABLE;
+            seatsShow2.get(i).setRate();
+        }
+        showInterstellar.seats = seatsShow2;
+
+        Seat walkInSeat = showInterstellar.seats.get(1); // Silver
+        if (walkInSeat.isAvailable()) {
+            walkInSeat.status = SeatStatus.BOOKED;
+
+            MovieTicket ticket = new MovieTicket(2002, walkInSeat, interstellar, showInterstellar);
+            List<MovieTicket> tickets = new ArrayList<>();
+            tickets.add(ticket);
+
+            Cash cashPayment = new Cash();
+            cashPayment.amount = 10.0;
+            cashPayment.status = PaymentStatus.PENDING;
+            cashPayment.timestamp = new Date();
+            cashPayment.makePayment();
+            cashPayment.status = PaymentStatus.CONFIRMED;
+
+            Booking agentBooking = new Booking(3002, 10, 1, new Date(), BookingStatus.CONFIRMED,
+                    cashPayment, tickets, Arrays.asList(walkInSeat));
+            boolean agentBooked = agent.createBooking(agentBooking);
+            if (agentBooked) {
+                System.out.printf("%s booked ticket for: %s (walk-in)", agent.name, interstellar.title);
+                System.out.printf("  - Seat: %s (%s), Show ID: %d", walkInSeat.seatNo, walkInSeat.getClass().getSimpleName(), showInterstellar.showId);
+                System.out.printf("  - Payment: $%.2f by Cash", cashPayment.amount);
+            }
+        }
+
+        // ----- SCENARIO 5: ADMIN DELETES A MOVIE -----
+        System.out.println("----- SCENARIO 5: Admin Deletes A Movie -----");
+        boolean movieDeleted = admin.deleteMovie(interstellar);
+        if (movieDeleted) {
+            catalog.movieTitles.remove("Interstellar");
+            System.out.printf("%s deleted movie: %s", admin.name, interstellar.title);
+        }
+
+        System.out.println("=====================================================");
+        System.out.println("       END OF MOVIE TICKET BOOKING DEMO RUN");
+        System.out.println("=====================================================");
+    }
+
+    // Helper to parse date without deprecated API
+    public static Date parseDate(String dateStr) {
+        try {
+            return new SimpleDateFormat("yyyy-MM-dd").parse(dateStr);
+        } catch (Exception ex) {
+            return new Date();
+        }
+    }
+}
+\end{lstlisting}
+
+\subsection{Wrapping up}\label{LeOYRvKy_XDXFf3OH0KaD}
+\\
+In this chapter, we've explored the complete design of a movie ticket booking system. Also , we've looked at how a basic system can be visualized using various UML diagrams and designed using object-oriented principles and design patterns.
+
+% End of section content

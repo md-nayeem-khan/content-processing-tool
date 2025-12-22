@@ -1,0 +1,227 @@
+\contentsline {chapter}{\numberline {1} Free System Design Lessons }{1}{chapter.0.1}%
+\ttl@starttoc {chapters@1}
+\contentsline {section}{\numberline {1} System Design Primer }{2}{section.0.1.1}%
+\contentsline {subsection}{\numberline {1.1}Operating systems fundamentals}{2}{subsection.0.1.1.1}%
+\contentsline {subsubsection}{Concurrency}{2}{subsection.0.1.1.1}%
+\contentsline {subsubsection}{Synchronization}{3}{section*.5}%
+\contentsline {subsection}{\numberline {1.2}Computer network essentials}{4}{subsection.0.1.1.2}%
+\contentsline {subsubsection}{Transport layer protocols}{5}{figure.caption.16}%
+\contentsline {subsubsection}{Application layer protocols}{5}{figure.caption.16}%
+\contentsline {subsubsection}{Web API architectures}{6}{figure.caption.17}%
+\contentsline {subsubsection}{Remote procedure call frameworks}{6}{figure.caption.17}%
+\contentsline {subsubsection}{Comparison of the network protocols}{7}{section*.21}%
+\contentsline {subsubsection}{Communication models}{8}{section*.21}%
+\contentsline {subsection}{\numberline {1.3}Distributed systems}{9}{subsection.0.1.1.3}%
+\contentsline {subsubsection}{Scalability}{9}{figure.caption.23}%
+\contentsline {subsubsection}{Availability}{10}{figure.caption.23}%
+\contentsline {subsubsection}{Replication and sharding}{10}{figure.caption.23}%
+\contentsline {subsubsection}{Consistency}{10}{figure.caption.23}%
+\contentsline {subsubsection}{Latency and performance}{10}{figure.caption.23}%
+\contentsline {subsubsection}{Concurrency and coordination}{10}{figure.caption.23}%
+\contentsline {subsubsection}{Security and privacy}{10}{figure.caption.23}%
+\contentsline {subsubsection}{Monitoring and observability}{10}{figure.caption.23}%
+\contentsline {subsubsection}{Resilience and error handling}{11}{figure.caption.24}%
+\contentsline {subsection}{\numberline {1.4}Defining system requirements}{11}{subsection.0.1.1.4}%
+\contentsline {subsubsection}{Identifying functional requirements}{11}{subsection.0.1.1.4}%
+\contentsline {subsubsection}{Identifying non-functional requirements}{11}{section*.28}%
+\contentsline {subsubsection}{Scoping requirements}{12}{section*.33}%
+\contentsline {subsubsection}{Trade-offs}{12}{section*.33}%
+\contentsline {subsection}{\numberline {1.5}Conclusion}{12}{subsection.0.1.1.5}%
+\contentsline {section}{\numberline {2} Distributed Systems Considerations and Trade-Offs }{13}{section.0.1.2}%
+\contentsline {subsection}{\numberline {2.1}What is a distributed system?}{13}{subsection.0.1.2.1}%
+\contentsline {subsubsection}{Decentralized vs. distributed}{13}{section*.37}%
+\contentsline {subsection}{\numberline {2.2}Benefits of a distributed system}{13}{subsection.0.1.2.2}%
+\contentsline {subsection}{\numberline {2.3}Design issues with distributed systems}{14}{subsection.0.1.2.3}%
+\contentsline {subsubsection}{Consistency models and the PACELC principle}{15}{section*.51}%
+\contentsline {subsection}{\numberline {2.4}Cloud vs. distributed systems}{15}{subsection.0.1.2.4}%
+\contentsline {subsubsection}{Partitioning, replication, and consensus}{16}{section*.57}%
+\contentsline {subsection}{\numberline {2.5}Examples of distributed systems}{16}{subsection.0.1.2.5}%
+\contentsline {subsubsection}{Architectural patterns in distributed systems}{16}{subsection.0.1.2.5}%
+\contentsline {subsubsection}{Observability and recovery in distributed systems}{17}{section*.66}%
+\contentsline {subsection}{\numberline {2.6}Conclusion}{17}{subsection.0.1.2.6}%
+\contentsline {section}{\numberline {3} Key Concepts to Prepare for the System Design Interview }{17}{section.0.1.3}%
+\contentsline {subsection}{\numberline {3.1}Why is it important to prepare strategically?}{18}{subsection.0.1.3.1}%
+\contentsline {subsection}{\numberline {3.2}Fundamental concepts in System Design interview}{18}{subsection.0.1.3.2}%
+\contentsline {subsubsection}{PACELC theorem}{18}{subsection.0.1.3.2}%
+\contentsline {subsubsection}{Heartbeat}{19}{figure.caption.79}%
+\contentsline {subsubsection}{AJAX polling}{19}{figure.caption.79}%
+\contentsline {subsubsection}{HTTP long-polling}{19}{figure.caption.80}%
+\contentsline {subsubsection}{WebSockets}{20}{figure.caption.81}%
+\contentsline {subsubsection}{Server-sent events (SSEs)}{20}{figure.caption.82}%
+\contentsline {subsubsection}{Fundamentals of distributed systems}{20}{figure.caption.83}%
+\contentsline {subsubsection}{The architecture of large-scale web applications}{21}{figure.caption.84}%
+\contentsline {paragraph}{N-tier applications}{21}{figure.caption.84}%
+\contentsline {paragraph}{HTTP and REST}{22}{figure.caption.84}%
+\contentsline {paragraph}{DNS and load balancing}{22}{figure.caption.84}%
+\contentsline {paragraph}{Caching}{22}{figure.caption.84}%
+\contentsline {paragraph}{Stream processing}{22}{figure.caption.84}%
+\contentsline {subsubsection}{Design of large-scale distributed systems}{22}{figure.caption.84}%
+\contentsline {subsection}{\numberline {3.3}Summary}{22}{subsection.0.1.3.3}%
+\contentsline {section}{\numberline {4} Scalable Systems 101 }{23}{section.0.1.4}%
+\contentsline {subsection}{\numberline {4.1}Scalability}{23}{subsection.0.1.4.1}%
+\contentsline {subsubsection}{Latency, bandwidth, and throughput}{23}{subsection.0.1.4.1}%
+\contentsline {subsubsection}{When scalability is essential}{23}{subsection.0.1.4.1}%
+\contentsline {subsection}{\numberline {4.2}Mechanisms to achieve scalability}{24}{subsection.0.1.4.2}%
+\contentsline {subsubsection}{Vertical scaling (scale up)}{24}{subsection.0.1.4.2}%
+\contentsline {subsubsection}{Horizontal scaling (scale out)}{25}{figure.caption.85}%
+\contentsline {subsection}{\numberline {4.3}Autoscaling best practices}{25}{subsection.0.1.4.3}%
+\contentsline {subsection}{\numberline {4.4}Dimensions of scalability}{26}{subsection.0.1.4.4}%
+\contentsline {subsection}{\numberline {4.5}Operating scalable systems with SLOs, SLIs, and tail latency}{26}{subsection.0.1.4.5}%
+\contentsline {subsection}{\numberline {4.6}Identifying performance bottlenecks}{27}{subsection.0.1.4.6}%
+\contentsline {subsubsection}{Monolithic databases}{27}{subsection.0.1.4.6}%
+\contentsline {subsubsection}{Database selection}{27}{subsection.0.1.4.6}%
+\contentsline {subsubsection}{Consistency}{27}{subsection.0.1.4.6}%
+\contentsline {subsubsection}{Architecture}{27}{section*.98}%
+\contentsline {subsubsection}{Caching}{28}{section*.98}%
+\contentsline {subsubsection}{Traffic management}{28}{section*.98}%
+\contentsline {subsubsection}{Load distribution}{28}{section*.103}%
+\contentsline {subsubsection}{Code and algorithms}{28}{section*.106}%
+\contentsline {subsection}{\numberline {4.7}Capacity planning and cost efficiency}{29}{subsection.0.1.4.7}%
+\contentsline {subsection}{\numberline {4.8}Testing performance and scalability}{29}{subsection.0.1.4.8}%
+\contentsline {subsection}{\numberline {4.9}Resilience and disaster recovery}{29}{subsection.0.1.4.9}%
+\contentsline {subsection}{\numberline {4.10}Conclusion}{30}{subsection.0.1.4.10}%
+\contentsline {section}{\numberline {5} Best Practices for Achieving Low Latency in System Design }{30}{section.0.1.5}%
+\contentsline {subsection}{\numberline {5.1}Understanding latency}{30}{subsection.0.1.5.1}%
+\contentsline {subsubsection}{Does latency matter to users?}{31}{figure.caption.117}%
+\contentsline {subsubsection}{How to determine the threshold of latency?}{31}{figure.caption.117}%
+\contentsline {subsection}{\numberline {5.2}Key principles of low-latency systems}{31}{subsection.0.1.5.2}%
+\contentsline {subsection}{\numberline {5.3}7 best practices to achieve low latency}{32}{subsection.0.1.5.3}%
+\contentsline {subsubsection}{1. System architecture}{32}{subsection.0.1.5.3}%
+\contentsline {subsubsection}{2. Data management and optimization}{33}{subsection.0.1.5.3}%
+\contentsline {subsubsection}{3. Network design}{33}{section*.133}%
+\contentsline {subsubsection}{4. Communication protocols}{34}{figure.caption.137}%
+\contentsline {subsubsection}{5. Code optimization}{34}{table.caption.138}%
+\contentsline {subsubsection}{6. Hardware and infrastructure}{36}{section*.146}%
+\contentsline {subsubsection}{7. Effective caching strategies}{37}{section*.148}%
+\contentsline {subsection}{\numberline {5.4}How Meta achieved low latency}{37}{subsection.0.1.5.4}%
+\contentsline {subsubsection}{How it works}{37}{subsection.0.1.5.4}%
+\contentsline {paragraph}{Outcome}{37}{subsection.0.1.5.4}%
+\contentsline {subsection}{\numberline {5.5}Designing for low latency}{38}{subsection.0.1.5.5}%
+\contentsline {section}{\numberline {6} Distributed System Design Patterns }{38}{section.0.1.6}%
+\contentsline {subsection}{\numberline {6.1}What is a distributed System Design pattern?}{38}{subsection.0.1.6.1}%
+\contentsline {subsubsection}{Types of distributed design patterns}{38}{section*.152}%
+\contentsline {subsection}{\numberline {6.2}1. Command and query responsibility segregation (CQRS)}{39}{subsection.0.1.6.2}%
+\contentsline {subsection}{\numberline {6.3}2. Two-phase commit (2PC)}{39}{subsection.0.1.6.3}%
+\contentsline {subsection}{\numberline {6.4}3. Saga}{40}{subsection.0.1.6.4}%
+\contentsline {subsection}{\numberline {6.5}4. Replicated load-balanced services (RLBS)}{40}{subsection.0.1.6.5}%
+\contentsline {subsection}{\numberline {6.6}5. Sharded services}{41}{subsection.0.1.6.6}%
+\contentsline {subsection}{\numberline {6.7}Additional distributed System Design patterns}{41}{subsection.0.1.6.7}%
+\contentsline {subsubsection}{Event Sourcing and Outbox}{41}{subsection.0.1.6.7}%
+\contentsline {subsubsection}{Idempotency and retries with backoff and jitter}{41}{section*.190}%
+\contentsline {subsubsection}{Circuit Breaker and Bulkhead}{42}{section*.193}%
+\contentsline {subsection}{\numberline {6.8}Pattern selection guidance}{42}{subsection.0.1.6.8}%
+\contentsline {subsection}{\numberline {6.9}Conclusion}{42}{subsection.0.1.6.9}%
+\contentsline {section}{\numberline {7} System Analysis vs. System Design }{42}{section.0.1.7}%
+\contentsline {subsection}{\numberline {7.1}What is System Design?}{43}{subsection.0.1.7.1}%
+\contentsline {subsection}{\numberline {7.2}System analysis vs. System Design}{43}{subsection.0.1.7.2}%
+\contentsline {subsubsection}{1. Deliverables at a glance (from discovery to blueprint)}{43}{subsection.0.1.7.2}%
+\contentsline {subsubsection}{2. Techniques and models (picking the right tool per phase)}{44}{subsection.0.1.7.2}%
+\contentsline {subsubsection}{3. System analysis precedes System Design}{45}{subsection.0.1.7.2}%
+\contentsline {subsubsection}{4. Focusing on what vs how}{45}{Item.12}%
+\contentsline {paragraph}{System analysis: The what}{45}{Item.12}%
+\contentsline {paragraph}{System Design: The how}{46}{Item.12}%
+\contentsline {subsubsection}{5. Completing different tasks}{46}{figure.caption.206}%
+\contentsline {paragraph}{Feasibility studies}{46}{figure.caption.206}%
+\contentsline {paragraph}{Requirements engineering}{47}{section*.213}%
+\contentsline {paragraph}{The RESHADED approach to System Design}{47}{section*.220}%
+\contentsline {subsection}{\numberline {7.3}Mini case study: Ticketing service in 8 decisions}{48}{subsection.0.1.7.3}%
+\contentsline {subsection}{\numberline {7.4}Conclusion}{48}{subsection.0.1.7.4}%
+\contentsline {section}{\numberline {8} API Design Interview vs. System Design Interview }{49}{section.0.1.8}%
+\contentsline {subsection}{\numberline {8.1}API Design Interviews vs. System Design Interviews}{49}{subsection.0.1.8.1}%
+\contentsline {subsubsection}{1) API Design: Leveraging the existing software system}{49}{figure.caption.239}%
+\contentsline {paragraph}{Roles requiring System Design knowledge}{51}{section*.245}%
+\contentsline {subsubsection}{2) System Design (building blocks of software systems)}{51}{figure.caption.250}%
+\contentsline {paragraph}{Understanding the System Design Interview}{52}{figure.caption.250}%
+\contentsline {paragraph}{Why we should level up our System Design knowledge}{52}{section*.254}%
+\contentsline {paragraph}{System Design as an accelerator for career progression}{52}{section*.257}%
+\contentsline {subparagraph}{Without System Design experience:}{52}{section*.257}%
+\contentsline {subparagraph}{With System Design experience:}{53}{section*.261}%
+\contentsline {subsection}{\numberline {8.2}Conclusion}{53}{subsection.0.1.8.2}%
+\contentsline {section}{\numberline {9} 5 System Design Fundamentals for Technical Product Managers }{53}{section.0.1.9}%
+\contentsline {subsection}{\numberline {9.1}What is System Design, and why should you care as a TPM?}{53}{subsection.0.1.9.1}%
+\contentsline {subsubsection}{1. Load balancing}{54}{subsection.0.1.9.1}%
+\contentsline {paragraph}{Advantages of load balancing}{54}{figure.caption.267}%
+\contentsline {paragraph}{Why should a TPM know about load balancing?}{54}{section*.270}%
+\contentsline {subsubsection}{2. Key-value storage}{54}{section*.270}%
+\contentsline {paragraph}{Advantages of key-value storage}{54}{figure.caption.271}%
+\contentsline {paragraph}{Why should a TPM know about key-value storage?}{55}{section*.274}%
+\contentsline {subsubsection}{3. Rate limiters}{55}{section*.274}%
+\contentsline {paragraph}{Advantages of rate limiters}{55}{figure.caption.275}%
+\contentsline {paragraph}{Why should a TPM know about rate limiters?}{56}{section*.278}%
+\contentsline {subsubsection}{4. Content delivery networks (CDNs)}{56}{section*.278}%
+\contentsline {paragraph}{Advantages of CDNs}{56}{section*.278}%
+\contentsline {paragraph}{Why should a TPM know about CDNs?}{56}{section*.281}%
+\contentsline {subsubsection}{5. Databases}{56}{figure.caption.282}%
+\contentsline {paragraph}{Advantages of databases}{57}{section*.285}%
+\contentsline {paragraph}{Why should a TPM know about databases?}{57}{section*.288}%
+\contentsline {subsection}{\numberline {9.2}Conclusion}{57}{subsection.0.1.9.2}%
+\contentsline {section}{\numberline {10} NeetCode Pro: Does It Hold Up for System Design Interviews? }{57}{section.0.1.10}%
+\contentsline {subsection}{\numberline {10.1}How to get the most out of NeetCode Pro's System Design content}{58}{subsection.0.1.10.1}%
+\contentsline {subsection}{\numberline {10.2}What NeetCode Pro is missing (and how to fill the gaps)}{58}{subsection.0.1.10.2}%
+\contentsline {subsection}{\numberline {10.3}Should you rely solely on NeetCode Pro?}{58}{subsection.0.1.10.3}%
+\contentsline {subsection}{\numberline {10.4}Common patterns to master in System Design}{59}{subsection.0.1.10.4}%
+\contentsline {subsection}{\numberline {10.5}How to practice System Design solo}{59}{subsection.0.1.10.5}%
+\contentsline {subsection}{\numberline {10.6}Transitioning from NeetCode Pro to advanced resources}{59}{subsection.0.1.10.6}%
+\contentsline {subsection}{\numberline {10.7}Incorporating System Design into real-world learning}{59}{subsection.0.1.10.7}%
+\contentsline {subsection}{\numberline {10.8}How to approach ambiguity in System Design interviews}{59}{subsection.0.1.10.8}%
+\contentsline {subsection}{\numberline {10.9}What top candidates do differently}{60}{subsection.0.1.10.9}%
+\contentsline {subsection}{\numberline {10.10}Creating a study plan around NeetCode Pro}{60}{subsection.0.1.10.10}%
+\contentsline {subsection}{\numberline {10.11}Tracking growth with feedback loops}{60}{subsection.0.1.10.11}%
+\contentsline {subsection}{\numberline {10.12}Using NeetCode Pro for behavioral storytelling}{60}{subsection.0.1.10.12}%
+\contentsline {subsection}{\numberline {10.13}Comparing NeetCode Pro to other System Design platforms}{60}{subsection.0.1.10.13}%
+\contentsline {subsection}{\numberline {10.14}When to move beyond NeetCode Pro}{61}{subsection.0.1.10.14}%
+\contentsline {subsection}{\numberline {10.15}Final thoughts}{61}{subsection.0.1.10.15}%
+\contentsline {section}{\numberline {11} Does Google Ask System Design Interview Questions for L4? }{61}{section.0.1.11}%
+\contentsline {subsection}{\numberline {11.1}Understanding the role of an L4 engineer}{61}{subsection.0.1.11.1}%
+\contentsline {subsection}{\numberline {11.2}When might System Design for L4 at Google be asked?}{61}{subsection.0.1.11.2}%
+\contentsline {subsection}{\numberline {11.3}What kind of System Design questions could we face?}{62}{subsection.0.1.11.3}%
+\contentsline {subsection}{\numberline {11.4}How to prepare for System Design as an L4 candidate}{62}{subsection.0.1.11.4}%
+\contentsline {subsection}{\numberline {11.5}Common pitfalls in System Design interviews}{62}{subsection.0.1.11.5}%
+\contentsline {subsection}{\numberline {11.6}How Google evaluates System Design skills at L4}{63}{subsection.0.1.11.6}%
+\contentsline {subsection}{\numberline {11.7}The role of System Design in Google's tech stack}{63}{subsection.0.1.11.7}%
+\contentsline {subsection}{\numberline {11.8}Real experiences from L4 candidates}{63}{subsection.0.1.11.8}%
+\contentsline {subsection}{\numberline {11.9}How to handle a design prompt under pressure}{63}{subsection.0.1.11.9}%
+\contentsline {subsection}{\numberline {11.10}What interviewers care about most in L4 design discussions}{64}{subsection.0.1.11.10}%
+\contentsline {subsection}{\numberline {11.11}How to incorporate System Design into DSA prep}{64}{subsection.0.1.11.11}%
+\contentsline {subsection}{\numberline {11.12}Why lightweight System Design is a strong L4 signal}{64}{subsection.0.1.11.12}%
+\contentsline {subsection}{\numberline {11.13}Should you focus on System Design for L4 interviews?}{64}{subsection.0.1.11.13}%
+\contentsline {subsection}{\numberline {11.14}Final thoughts}{64}{subsection.0.1.11.14}%
+\contentsline {section}{\numberline {12} Design Interview Guide: Low-level OOD to Advanced System Design }{65}{section.0.1.12}%
+\contentsline {subsection}{\numberline {12.1}Low-level OOD vs. ASD}{65}{subsection.0.1.12.1}%
+\contentsline {subsection}{\numberline {12.2}Quick differences: ASD vs. Low-level OOD}{66}{subsection.0.1.12.2}%
+\contentsline {subsubsection}{Advanced System Design}{66}{subsection.0.1.12.2}%
+\contentsline {subsubsection}{Low-level OOD}{66}{section*.381}%
+\contentsline {subsection}{\numberline {12.3}Who needs to know ASD vs. OOD?}{66}{subsection.0.1.12.3}%
+\contentsline {subsubsection}{Advanced System Design}{66}{subsection.0.1.12.3}%
+\contentsline {subsubsection}{Low-level object-oriented design}{67}{section*.389}%
+\contentsline {subsection}{\numberline {12.4}Low-level OOD: Leverage design patterns to build components}{67}{subsection.0.1.12.4}%
+\contentsline {subsection}{\numberline {12.5}Advanced System Design: Build on past designs}{68}{subsection.0.1.12.5}%
+\contentsline {subsection}{\numberline {12.6}Conclusion}{68}{subsection.0.1.12.6}%
+\contentsline {section}{\numberline {13} System Design Interview PDF }{68}{section.0.1.13}%
+\contentsline {subsection}{\numberline {13.1}Understanding the System Design Interview}{69}{subsection.0.1.13.1}%
+\contentsline {subsubsection}{What makes System Design Interviews unique?}{69}{section*.408}%
+\contentsline {subsection}{\numberline {13.2}How to prepare for the System Design Interview}{69}{subsection.0.1.13.2}%
+\contentsline {subsubsection}{8-week System Design Interview roadmap}{69}{subsection.0.1.13.2}%
+\contentsline {paragraph}{Week 1: Laying the foundation}{70}{subsection.0.1.13.2}%
+\contentsline {paragraph}{Week 2: Grokking distributed system concepts}{70}{section*.414}%
+\contentsline {paragraph}{Weeks 3-4: Learning building blocks}{70}{section*.416}%
+\contentsline {paragraph}{Weeks 5-6: Practice designing real-world systems}{71}{section*.419}%
+\contentsline {paragraph}{Week 7: Revising and deep diving into design problems}{71}{table.caption.422}%
+\contentsline {paragraph}{Week 8: Practice with mock interviews}{71}{section*.424}%
+\contentsline {subsubsection}{Short on time? Practice problems by category}{72}{section*.426}%
+\contentsline {subsubsection}{}{73}{section*.428}%
+\contentsline {section}{\numberline {14} The All-in-One System Design Master Template }{73}{section.0.1.14}%
+\contentsline {subsection}{\numberline {14.1}Case study of Twitter (now known as X)}{73}{subsection.0.1.14.1}%
+\contentsline {subsection}{\numberline {14.2}System Design template}{73}{subsection.0.1.14.2}%
+\contentsline {subsubsection}{Stage 1: The basic setup}{75}{subsection.0.1.14.2}%
+\contentsline {subsubsection}{Stage 2: Scaling for traffic}{75}{figure.caption.430}%
+\contentsline {subsubsection}{Stage 3: Ensuring high availability}{76}{figure.caption.434}%
+\contentsline {subsubsection}{Stage 4: Streamlining traffic and task management}{77}{figure.caption.438}%
+\contentsline {subsubsection}{Stage 5: Optimizing performance}{78}{figure.caption.444}%
+\contentsline {subsubsection}{Stage 6: Feature expansion}{78}{figure.caption.448}%
+\contentsline {subsubsection}{Stage 7: Personalization and intelligence}{79}{figure.caption.454}%
+\contentsline {subsubsection}{Stage 8: Compliance and system management}{80}{figure.caption.459}%
+\contentsline {subsubsection}{Stage 9: Security and monitoring}{81}{figure.caption.465}%
+\contentsline {subsubsection}{Stage 10: Designing YouTube with the master template}{81}{figure.caption.468}%
+\contentsline {subsection}{\numberline {14.3}Conclusion}{82}{subsection.0.1.14.3}%
+\contentsfinish 

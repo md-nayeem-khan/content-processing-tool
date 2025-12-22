@@ -1,0 +1,671 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Code for the Car Rental System
+% Section ID: 6317290968842240
+% Section Slug: code-for-the-car-rental-system
+% Generated: 2025-12-12T14:51:58.484396
+
+We've reviewed different aspects of the car rental system and observed the attributes attached to the problem using various UML diagrams. Let 's explore the more practical side of things, where we will work on implementing the car rental system using multiple languages. This is usually the last step in an object-oriented design interview process.
+\\
+We have chosen the following languages to write the skeleton code of the different classes present in the car rental system:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{YdTvYY7EKdRad8Ej7FkNC}
+Java
+\item
+\protect\phantomsection\label{2_XpY9UOynlIZ-hVKNkI9}
+C\#
+\item
+\protect\phantomsection\label{eRy5LLSmsP_ritkDXUDY-}
+Python
+\item
+\protect\phantomsection\label{8TpveWL2hRglzndNKZNTJ}
+C++
+\item
+\protect\phantomsection\label{y-qL5zQTYXW6F9nltLobr}
+JavaScript
+\end{itemize}
+\\
+If you want to skip directly to the implementation and see the complete workflow, simply scroll down or click~\hyperref[Executable-code-Car-rental-system]{Executable Code: Car Rental System}.
+
+\subsection{Car rental system classes}\label{87r9iR9Trfqn1ii52DsnS}
+\\
+This section will provide the skeleton code of the classes designed in the class diagram lesson.
+\begin{quote}
+\textbf{Note:} For simplicity, we are not defining getter and setter functions. The reader can assume that all class attributes are private, accessed through their respective public getter methods, and modified only through their public methods.
+\end{quote}
+\subsubsection{Enumerations}\label{_uFs8go_O0tEZR9Gcz7Cm}
+\\
+First, we will define all the enumerations(A special data type which contains a set of predefined constants.) required in the car rental system. According to the class diagram, seven enumerations are used in the system, i.e., \texttt{VehicleStatus}, \texttt{AccountStatus}, \texttt{ReservationStatus}, \texttt{PaymentStatus}, \texttt{VanType}, \texttt{CarType}, and \texttt{VehicleLogType}\emph{.} The code to implement these enumerations is as follows:
+\begin{quote}
+\textbf{Note:} JavaScript does not support enumerations, so we will use the Object.freeze()\ method as an alternative that freezes an object and prevents further modifications.
+\end{quote}
+
+\textbf{Enum definitions}
+
+\begin{lstlisting}[language=Java]
+public enum MotorcycleType {
+    STANDARD, CRUISER, TOURING, SPORTS, OFF_ROAD, DUAL_PURPOSE
+}
+
+public enum AccountStatus {
+    ACTIVE, CLOSED, CANCELED, BLACKLISTED, BLOCKED
+}
+
+public enum ReservationStatus {
+    ACTIVE, PENDING, CONFIRMED, COMPLETED, CANCELED
+}
+
+public enum PaymentStatus {
+    UNPAID, PENDING, COMPLETED, CANCELED, REFUNDED
+}
+
+public enum VanType {
+    PASSENGER, CARGO
+}
+
+public enum CarType {
+    ECONOMY, COMPACT, INTERMEDIATE, STANDARD, FULL_SIZE, PREMIUM, LUXURY
+}
+
+public enum MotorcycleType {
+    STANDARD, CRUISER, TOURING, SPORTS, OFF_ROAD, DUAL_PURPOSE
+}
+
+public enum TruckType {
+    LIGHT_DUTY, MEDIUM_DUTY, HEAVY_DUTY
+}
+
+public enum VehicleLogType {
+    ACCIDENT, FUELING, CLEANING_SERVICE, OIL_CHANGE, REPAIR, OTHER
+}
+\end{lstlisting}
+
+\subsubsection{Address, person, and driver}\label{RWXA6Mmrdlki4DsobSWvj}
+\\
+This section contains the \texttt{Address}, \texttt{Person}, and \texttt{Driver} classes, where the first two classes are used as a custom data type. The implementation of these classes is shown below:
+
+\textbf{The Address, Person, and Driver classes}
+
+\begin{lstlisting}[language=Java]
+public class Address {
+    private String streetAddress;
+    private String city;
+    private String state;
+    private int zipCode;
+    private String country;
+
+    public Address(String street, String city, String state, int zip, String country) {
+        this.streetAddress = street;
+        this.city = city;
+        this.state = state;
+        this.zipCode = zip;
+        this.country = country;
+    }
+    // Getters...
+}
+
+public abstract class Person {
+    private String name;
+    private Address address;
+    private String email;
+    private String phoneNumber;
+
+    // Setters & getters...
+}
+
+public class Driver extends Person {
+    private int driverId;
+    // Setters/getters...
+}
+\end{lstlisting}
+
+\subsubsection{Account}\label{tDLcPrXhBdyCmy-YQ43tL}
+\\
+\texttt{Account} is an abstract class that represents the various people or actors that can interact with the system. There are two types of accounts: receptionist and customer. The implementation of \texttt{Account} and its subclasses is shown below:
+
+\textbf{Account and its derived classes }
+
+\begin{lstlisting}[language=Java]
+public abstract class Account extends Person {
+    private String accountId;
+    private String password;
+    private AccountStatus status;
+
+    public Account() {}
+    // Optional: full constructor
+    // Setters/getters...
+    public abstract boolean resetPassword();
+}
+
+public class Customer extends Account {
+    private String licenseNumber;
+    private Date licenseExpiry;
+
+    // Setters/getters...
+    @Override
+    public boolean resetPassword() {
+        this.setPassword(java.util.UUID.randomUUID().toString());
+        return true;
+    }
+}
+
+public class Receptionist extends Account {
+    private Date dateJoined;
+    private List<Customer> customerList = new ArrayList<>();
+    // Add/search/remove customer methods...
+    @Override
+    public boolean resetPassword() {
+        this.setPassword(java.util.UUID.randomUUID().toString());
+        return true;
+    }
+}
+\end{lstlisting}
+
+\subsubsection{Vehicle}\label{c04oHcXQcgWECpLpjiv5I}
+\\
+\texttt{Vehicle} will be another abstract class, which serves as a parent for four different types of vehicles: \texttt{Car}, \texttt{Van}, \texttt{Truck}, and \texttt{MotorCycle}. The definition of the \texttt{Vehicle} and its child classes is given below:
+
+\textbf{Vehicle and its child classes}
+
+\begin{lstlisting}[language=Java]
+import java.util.*;
+public abstract class Vehicle {
+    private String vehicleId;
+    private String licensePlateNumber;
+    private int passengerCapacity;
+    private VehicleStatus status;
+    private String model;
+    private int manufacturingYear;
+    private List<VehicleLog> log = new ArrayList<>();
+    // Setters/getters, reserveVehicle, returnVehicle
+}
+
+public class Car extends Vehicle { private CarType carType; /* Setters/getters... */ }
+public class Van extends Vehicle { private VanType vanType; /* Setters/getters... */ }
+public class Truck extends Vehicle { private TruckType truckType; /* Setters/getters... */ }
+public class Motorcycle extends Vehicle { private MotorcycleType motorcycleType; /* Setters/getters... */ }
+\end{lstlisting}
+
+\subsubsection{Equipment}\label{LAMVTngPU8FxxoMdX-5bw-1}
+\\
+\texttt{Equipment} is an abstract class, and this section represents different equipment: \texttt{Navigation}, \texttt{ChildSeat}, and \texttt{SkiRack} added in the reservation. The code to implement these classes is shown below:
+
+\textbf{Equipment and its derived classes }
+
+\begin{lstlisting}[language=Java]
+public abstract class Equipment {
+    private int equipmentId;
+    private int price;
+    // Setters/getters...
+}
+
+public class Navigation extends Equipment { /* Extend if needed */ }
+public class ChildSeat extends Equipment { /* Extend if needed */ }
+public class SkiRack extends Equipment { /* Extend if needed */ }
+\end{lstlisting}
+
+\subsubsection{Service}\label{LAMVTngPU8FxxoMdX-5bw-2}
+\\
+\texttt{Service} is an abstract class, and this section represents different services: \texttt{DriverService}, \texttt{RoadsideAssistance}, and \texttt{Wi-Fi} added to the reservation. The code to implement these classes is shown below:
+
+\textbf{Service and its derived classes }
+
+\begin{lstlisting}[language=Java]
+public abstract class Service {
+    private int serviceId;
+    private int price;
+    // Setters/getters...
+}
+
+public class DriverService extends Service {
+    private int driverId;
+    // Setters/getters...
+}
+public class RoadsideAssistance extends Service { /* Extend if needed */ }
+public class WiFi extends Service { /* Extend if needed */ }
+\end{lstlisting}
+
+\subsubsection{Payment}\label{efo0r5b6Pt9PCMbjiMv23}
+\\
+The \texttt{Payment} class is another abstract class, with the \texttt{Cash} and \texttt{CreditCard} classes as its children. This takes in the \texttt{PaymentStatus} enum to keep track of the payment status. The definition of this class is provided below:
+
+\textbf{Payment and its child classes}
+
+\begin{lstlisting}[language=Java]
+import java.util.*;
+public abstract class Payment {
+    private double amount;
+    private Date timestamp;
+    private PaymentStatus status;
+    // Setters/getters...
+    public abstract boolean makePayment();
+}
+
+public class Cash extends Payment {
+    @Override
+    public boolean makePayment() { setStatus(PaymentStatus.COMPLETED); return true; }
+}
+
+public class CreditCard extends Payment {
+    private String nameOnCard;
+    private String cardNumber;
+    private String billingAddress;
+    private int code;
+    // Setters...
+    @Override
+    public boolean makePayment() { setStatus(PaymentStatus.COMPLETED); return true; }
+}
+\end{lstlisting}
+
+\subsubsection{Vehicle log and vehicle reservation}\label{SRSE9ivjxp87WdBSivLc7}
+\\
+\texttt{VehicleLog} is a class responsible for keeping track of all the events related to a vehicle. \texttt{VehicleReservation} is a class responsible for managing the reservation of vehicles. The implementation of this class is given below:
+
+\textbf{The VehicleLog and VehicleReservation classes}
+
+\begin{lstlisting}[language=Java]
+import java.util.*;
+public class VehicleLog {
+    private int logId;
+    private VehicleLogType logType;
+    private String description;
+    private Date creationDate;
+    // Constructor, getters...
+}
+
+public class VehicleReservation {
+    private int reservationId;
+    private String customerId;
+    private String vehicleId;
+    private Date creationDate;
+    private ReservationStatus status;
+    private Date dueDate;
+    private Date returnDate;
+    private String pickupLocation;
+    private String returnLocation;
+    private List<Equipment> equipments = new ArrayList<>();
+    private List<Service> services = new ArrayList<>();
+    // Setters/getters, addEquipment(), addService(), etc.
+}
+\end{lstlisting}
+
+\subsubsection{Notification}\label{DpNAhdkSnHg7DcMraAzeH}
+\\
+The \texttt{Notification} class is another abstract class responsible for sending notifications, with the \texttt{SMSNotification} and \texttt{EmailNotification} classes as its children. The implementation of this class is shown below:
+
+\textbf{Notification and its derived classes }
+
+\begin{lstlisting}[language=Java]
+import java.util.*;
+public abstract class Notification {
+    private int notificationId;
+    private Date createdOn;
+    private String content;
+    public void setContent(String c) { content = c; }
+    public String getContent() { return content; }
+    public abstract void sendNotification(Account account);
+}
+
+public class SmsNotification extends Notification {
+    @Override
+    public void sendNotification(Account account) {
+        System.out.println("SMS to " + account.getName() + ": " + getContent());
+    }
+}
+
+public class EmailNotification extends Notification {
+    @Override
+    public void sendNotification(Account account) {
+        System.out.println("Email to " + account.getName() + ": " + getContent());
+    }
+}
+\end{lstlisting}
+
+\subsubsection{Parking stall and fine}\label{-cJSnj7QfHPV_LjLhDCKH}
+\\
+\texttt{ParkingStall} is a class used to locate vehicles in the car rental branch, while the \texttt{Fine} class represents the fine applied for payment. The implementation of these classes is given below:
+
+\textbf{The Parking stall and fine classes}
+
+\begin{lstlisting}[language=Java]
+public class ParkingStall {
+    private int stallId;
+    private String locationIdentifier;
+    // Constructor, getters...
+}
+
+
+public class Fine {
+    private double amount;
+    private String reason;
+    public void setAmount(double a) { amount = a; }
+    public double getAmount() { return amount; }
+    public void setReason(String r) { reason = r; }
+    public String getReason() { return reason; }
+    public double calculateFine() { return amount; }
+}
+\end{lstlisting}
+
+\subsubsection{Search interface and vehicle catalog}\label{_FM1DBRLxFVNgQAcR3p2f-1}
+\\
+\texttt{Search} is an interface, and the \texttt{VehicleCatalog} class is used to implement the search interface to help in vehicle searching. The code to perform this function is presented below:
+
+\textbf{The Search interface and the VehicleCatalog class}
+
+\begin{lstlisting}[language=Java]
+import java.util.*;
+public interface Search {
+    List<Vehicle> searchByType(String type);
+    List<Vehicle> searchByModel(String model);
+}
+
+public class VehicleCatalog implements Search {
+    private HashMap<String, List<Vehicle>> vehicleTypes = new HashMap<>();
+    private HashMap<String, List<Vehicle>> vehicleModels = new HashMap<>();
+    // addVehicle(), searchByType(), searchByModel()
+}
+\end{lstlisting}
+
+\subsubsection{Car rental system and car rental branch}\label{tSGf5z-W4P90gYIxbJgl6}
+\\
+The \texttt{CarRentalSystem} class is the base class of the system that is used to represent the whole car rental system (or the top-level classes of the system). \texttt{CarRentalBranch} represents the single branch of the system. The implementation of these classes is given below:
+
+\textbf{The CarRentalSystem and CarRentalBranch classes}
+
+\begin{lstlisting}[language=Java]
+import java.util.*;
+public class CarRentalBranch {
+    private String name;
+    private Address address;
+    private List<ParkingStall> stalls;
+    // Constructor, getters...
+}
+
+public class CarRentalSystem {
+    // Singleton pattern
+    private String name;
+    private List<CarRentalBranch> branches = new ArrayList<>();
+    private static CarRentalSystem system = null;
+    private CarRentalSystem() {}
+    public static CarRentalSystem getInstance() {
+        if (system == null) system = new CarRentalSystem();
+        return system;
+    }
+    // addNewBranch(), getBranches()...
+}
+\end{lstlisting}
+
+\subsection{Executable code: Car rental system}\label{iHEAK17Bi-MBtTIqSmTqj}
+\\
+Below is a fully self-contained, runnable program in Java, C\#, C++, Python, and JavaScript that demonstrates the core workflows of the Car Rental system. The system's main driver code resides in \texttt{Driver.java},~\texttt{Driver.cs},~\texttt{Driver.py},~\texttt{Driver.cpp}, and~\texttt{Driver.js}~for all respective languages. You can click the ``Run'' button to execute the codes.
+
+\subsubsection{What this code shows}\label{umIWfwN0dGsL0XIZ2x5BG}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{-RmP4oRpNZCcygA4L33uw}
+\textbf{System Initialization:} Sets up branches, adds vehicles to the inventory, and registers a customer.
+\item
+\protect\phantomsection\label{m-w628LnnaqUyrkLq8yor}
+\textbf{Scenario 1 (Vehicle search):} The customer searches the inventory for available vehicles.
+\item
+\protect\phantomsection\label{CNjPKhgeF-M4D4AcaRuCK}
+\textbf{Scenario 2 (Reservation and add-ons):} The customer makes a reservation and adds equipment (Child Seat) and an extra service (Driver).
+\item
+\protect\phantomsection\label{UbXFpi73vyvvrZGe_hRRN}
+\textbf{Scenario 3 (Payment):} The customer completes payment for the reservation.
+\item
+\protect\phantomsection\label{Rg1ko2Io7TBJS8MURSnCC}
+\textbf{Scenario 4 (Notification):} The customer receives an email notification for reservation confirmation.
+\item
+\protect\phantomsection\label{qVOV1sRCQgqK90GncN8ui}
+\textbf{Scenario 5 (Pickup and return):} The customer picks up and returns the vehicle.
+\item
+\protect\phantomsection\label{PzNXDz0ZRZ-oTNykKD9r9}
+\textbf{Scenario 6 (Fine calculation):} The system checks for overdue returns and applies a fine if needed.
+\item
+\protect\phantomsection\label{80FfNAcR-g-NMbUJbES-t}
+\textbf{Scenario 7 (Reservation history):} Displays all reservations made by the customer.
+\end{itemize}
+\\
+\textbf{Hint: Try customizing the code!}
+\\
+This code is designed for experimentation, not just reading. You can edit, extend, or modify any part of the example.
+
+\textbf{Executable Code: Car Rental System}
+
+\begin{lstlisting}[language=Java]
+import java.util.*;
+
+public class CarRentalSystemDriver {
+    public static void main(String[] args) {
+        System.out.println("=============================================");
+        System.out.println("        CAR RENTAL SYSTEM DEMO");
+        System.out.println("=============================================
+");
+
+        // -------------------------------------------------
+        // 1. Branch Setup
+        // -------------------------------------------------
+        System.out.println("1. Branch Setup");
+        CarRentalSystem rentalSystem = CarRentalSystem.getInstance();
+        CarRentalBranch branch1 = new CarRentalBranch(
+                "Airport Branch",
+                new Address("123 Main St", "Seattle", "WA", 98101, "USA"),
+                new ArrayList<>());
+        rentalSystem.addNewBranch(branch1);
+        System.out.println("   -> Branch added: " + branch1.getName() + " (" + branch1.getLocation() + ")
+");
+
+        // -------------------------------------------------
+        // 2. Add Vehicles
+        // -------------------------------------------------
+        System.out.println("2. Adding Vehicles to Inventory");
+        Car car1 = new Car();
+        car1.setVehicleId("C1001");
+        car1.setModel("Toyota Corolla");
+        car1.setManufacturingYear(2022);
+        car1.setCarType(CarType.ECONOMY);
+        car1.setStatus(VehicleStatus.AVAILABLE);
+
+        Van van1 = new Van();
+        van1.setVehicleId("V1001");
+        van1.setModel("Ford Transit");
+        van1.setManufacturingYear(2021);
+        van1.setVanType(VanType.PASSENGER);
+        van1.setStatus(VehicleStatus.AVAILABLE);
+
+        VehicleCatalog catalog = new VehicleCatalog();
+        catalog.addVehicle(car1);
+        catalog.addVehicle(van1);
+
+        System.out.println("   -> Vehicles added: ");
+        System.out.println("      - " + car1.getModel() + " (ID: " + car1.getVehicleId() + ")");
+        System.out.println("      - " + van1.getModel() + " (ID: " + van1.getVehicleId() + ")
+");
+
+        // -------------------------------------------------
+        // 3. Customer Registration
+        // -------------------------------------------------
+        System.out.println("3. Customer Registration & Login");
+        Customer customer1 = new Customer();
+        customer1.setAccountId("U123");
+        customer1.setName("Alice Smith");
+        customer1.setEmail("alice@email.com");
+        customer1.setLicenseNumber("D1234567");
+
+        Calendar expiryCal = Calendar.getInstance();
+        expiryCal.set(2027, Calendar.FEBRUARY, 1);
+        customer1.setLicenseExpiry(expiryCal.getTime());
+        customer1.setStatus(AccountStatus.ACTIVE);
+
+        System.out.println("   -> [LOGIN] Customer: " + customer1.getName() + " (ID: " + customer1.getAccountId() + ")");
+        System.out.println("   -> Driver License #: " + customer1.getLicenseNumber() +
+                " (Expires: " + customer1.getLicenseExpiry() + ")
+");
+
+        // -------------------------------------------------
+        // 4. Vehicle Search by Customer
+        // -------------------------------------------------
+        System.out.println("4. Vehicle Search");
+        System.out.println("   == Vehicle Inventory Search Results ==");
+        List<Vehicle> cars = catalog.searchByType("CAR");
+        if (!cars.isEmpty()) {
+            System.out.println("   -> Found " + cars.size() + " car(s) in inventory:");
+            for (Vehicle v : cars) {
+                System.out.println("      -> Model: " + v.getModel() +
+                        " | ID: " + v.getVehicleId() +
+                        " | Year: " + v.getManufacturingYear() +
+                        " | Status: " + v.getStatus());
+            }
+        } else {
+            System.out.println("   -> No cars found in inventory.");
+        }
+        System.out.println();
+
+        // -------------------------------------------------
+        // 5. Make a Reservation
+        // -------------------------------------------------
+        System.out.println("5. Reservation");
+        VehicleReservation reservation = new VehicleReservation();
+        reservation.setReservationId(1);
+        reservation.setCustomerId(customer1.getAccountId());
+        reservation.setVehicleId(car1.getVehicleId());
+        reservation.setCreationDate(new Date());
+        reservation.setStatus(ReservationStatus.PENDING);
+        reservation.setPickupLocation("Airport Branch");
+        reservation.setReturnLocation("Airport Branch");
+
+        Calendar dueCal = Calendar.getInstance();
+        dueCal.add(Calendar.DAY_OF_MONTH, 3);
+        reservation.setDueDate(dueCal.getTime());
+
+        List<VehicleReservation> allReservations = new ArrayList<>();
+        allReservations.add(reservation);
+
+        car1.reserveVehicle();
+        System.out.println("   -> Reservation created for " + customer1.getName() +
+                " | Vehicle: " + car1.getModel() +
+                " | Pickup: " + reservation.getPickupLocation() +
+                " | Return: " + reservation.getReturnLocation() +
+                " | Due: " + reservation.getDueDate());
+
+        // -------------------------------------------------
+        // 6. Add Equipment and Services
+        // -------------------------------------------------
+        System.out.println("
+6. Add-ons: Equipment & Services");
+        ChildSeat seat = new ChildSeat();
+        seat.setEquipmentId(10);
+        seat.setPrice(15);
+        reservation.addEquipment(seat);
+
+        DriverService driverService = new DriverService();
+        driverService.setServiceId(20);
+        driverService.setPrice(50);
+        driverService.setDriverId(222);
+        reservation.addService(driverService);
+
+        System.out.println("   -> Equipment added: Child Seat (ID: " + seat.getEquipmentId() + ", Price: $" + seat.getPrice() + ")");
+        System.out.println("   -> Service added: Driver (Driver ID: " + driverService.getDriverId() + ", Price: $" + driverService.getPrice() + ")
+");
+
+        // -------------------------------------------------
+        // 7. Payment Processing
+        // -------------------------------------------------
+        System.out.println("7. Payment Processing");
+        reservation.setStatus(ReservationStatus.CONFIRMED);
+        Payment payment = new CreditCard();
+        payment.setAmount(200);
+        payment.setTimestamp(new Date());
+        payment.setStatus(PaymentStatus.PENDING);
+        System.out.println("   -> Processing payment of $" + payment.getAmount() + " ...");
+        boolean paymentSuccess = payment.makePayment();
+
+        if (paymentSuccess) {
+            System.out.println("   -> Payment completed successfully for reservation #" + reservation.getReservationId());
+        } else {
+            System.out.println("   -> Payment failed!");
+        }
+        System.out.println();
+
+        // -------------------------------------------------
+        // 8. Notification (Email)
+        // -------------------------------------------------
+        System.out.println("8. Notification");
+        Notification notify = new EmailNotification();
+        notify.setContent("Your reservation is confirmed!");
+        notify.sendNotification(customer1);
+        System.out.println();
+
+        // -------------------------------------------------
+        // 9. Vehicle Pickup
+        // -------------------------------------------------
+        System.out.println("9. Vehicle Pickup");
+        System.out.println("   -> " + customer1.getName() + " picked up the vehicle: " +
+                car1.getModel() + " (" + car1.getVehicleId() + ")
+");
+
+        // -------------------------------------------------
+        // 10. Vehicle Return
+        // -------------------------------------------------
+        System.out.println("10. Vehicle Return");
+        Calendar returnCal = Calendar.getInstance();
+        returnCal.add(Calendar.DAY_OF_MONTH, 3); // Returned on due date
+        car1.returnVehicle();
+        reservation.setReturnDate(returnCal.getTime());
+        reservation.setStatus(ReservationStatus.COMPLETED);
+
+        System.out.println("   -> Vehicle returned on: " + reservation.getReturnDate());
+        System.out.println("   -> Reservation status is now: " + reservation.getStatus() + "
+");
+
+        // -------------------------------------------------
+        // 11. Overdue Fine Check
+        // -------------------------------------------------
+        System.out.println("11. Fine Calculation");
+        Date expectedReturn = reservation.getDueDate();
+        Date actualReturn = reservation.getReturnDate();
+        if (actualReturn.after(expectedReturn)) {
+            Fine fine = new Fine();
+            fine.setAmount(100);
+            fine.setReason("Late return");
+            System.out.println("   -> [FINE] Fine imposed for late return: $" + fine.getAmount());
+            Notification fineNotify = new SmsNotification();
+            fineNotify.setContent("You have been fined for late return.");
+            fineNotify.sendNotification(customer1);
+        } else {
+            System.out.println("   -> [FINE] No fine. Vehicle was returned on time.");
+        }
+        System.out.println();
+
+        // -------------------------------------------------
+        // 12. Reservation History for Customer
+        // -------------------------------------------------
+        System.out.println("12. Reservation History for Customer: " + customer1.getName());
+        System.out.println("   -------------------------------------");
+        for (VehicleReservation r : allReservations) {
+            if (r.getCustomerId().equals(customer1.getAccountId())) {
+                System.out.println("   -> Reservation ID: " + r.getReservationId() +
+                        " | Vehicle: " + r.getVehicleId() +
+                        " | Status: " + r.getStatus() +
+                        " | Pickup: " + r.getPickupLocation() +
+                        " | Returned: " + r.getReturnDate());
+            }
+        }
+        System.out.println("=============================================");
+        System.out.println("             END OF DEMO");
+        System.out.println("=============================================");
+    }
+}
+\end{lstlisting}
+
+\subsection{Wrapping up}\label{_FM1DBRLxFVNgQAcR3p2f-2}
+\\
+In this chapter, we've explored the complete design of a car rental system. We 've also seen how a basic system can be visualized using various UML diagrams and designed using object-oriented principles and design patterns.
+
+% End of section content

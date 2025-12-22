@@ -1,0 +1,357 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Code for the Amazon Locker Service
+% Section ID: 5125081531678720
+% Section Slug: code-for-the-amazon-locker-service
+% Generated: 2025-12-11T15:17:28.569661
+
+We've reviewed the different aspects of the Amazon Locker service and observed the attributes attached to the problem using various UML diagrams. Now , let's explore the more practical side of things, where we will work on implementing the Amazon Locker service using multiple languages. This is usually the last step in an object-oriented design interview process.
+\\
+We have chosen the following languages to write the skeleton code of the different classes present in the Amazon Locker service:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{JNgGrbA9GirU9MozwFkJx}
+Java
+\item
+\protect\phantomsection\label{KRqux_dvybBrdjIBDYF1k}
+C\#
+\item
+\protect\phantomsection\label{BhuuCbHsW8jLamvgW3XHv}
+Python
+\item
+\protect\phantomsection\label{8PUncNirwI1FO1ZH7k4gD}
+C++
+\item
+\protect\phantomsection\label{qiA6WZ9TolofFERJcTfrS}
+JavaScript
+\end{itemize}
+\\
+If you want to skip directly to the implementation and see the complete workflow, simply scroll down or click \hyperref[Executable-Code-Amazon-Locker-Service]{Executable Code: Amazon Locker Service}.
+
+\subsection{Amazon Locker service classes}\label{EIKMqCCV3x96dU5SGxf6I}
+\\
+This section will provide the skeleton code of the classes designed in the class diagram lesson.
+\begin{quote}
+\textbf{Note:} For simplicity, we are not defining getter and setter functions. The reader can assume that all class attributes are private, accessed through their respective public getter methods, and modified only through their public method functions.
+\end{quote}
+\subsubsection{Enumerations}\label{yERaAxcq5bvhw3H8yUzgf}
+\\
+First, we will define all the \href{A\%20special\%20data\%20type\%20which\%20contains\%20a\%20set\%20of\%20predefined\%20constants.}{enumerations} used in the Amazon Locker service. According to the class diagram, the system has two enumerations, i.e., \texttt{LockerSize} and \texttt{LockerState}. The code to implement these enumerations is as follows:
+\begin{quote}
+\textbf{Note:} JavaScript does not support enumerations, so we will use the \texttt{Object.freeze()} method as an alternative that freezes an object and prevents further modifications.
+\end{quote}
+
+\textbf{Enumerations}
+
+\begin{lstlisting}[language=Java]
+// definition of enumerations used in the Amazon Locker service public enum LockerSize { EXTRA_SMALL,
+SMALL, MEDIUM,
+LARGE, EXTRA_LARGE,
+DOUBLE_EXTRA_LARGE }
+public enum LockerState { CLOSED,
+BOOKED, AVAILABLE
+}
+\end{lstlisting}
+
+\subsubsection{Item and order}\label{_FM1DBRLxFVNgQAcR3p2f-1}
+\\
+The \texttt{Item} class represents the single item, while the \texttt{Order} represents the order placed by the customer and can contain a list of items. The definition of these two classes is given below:
+
+\textbf{Item and Order classes}
+
+\begin{lstlisting}[language=Java]
+public class Item { private String itemId;
+ private int quantity;
+
+ public Item(String itemId, int quantity) { }
+
+ public String getItemId() { }
+ public int getQuantity() { }
+}
+
+import java.util. List;
+
+public class Order { private String orderId;
+private List<Item> items; private String deliveryLocation;
+ private String customerId;
+
+ public Order(String orderId, String deliveryLocation, String customerId) { }
+
+ public String getOrderId() { }
+ public String getDeliveryLocation() { }
+ public String getCustomerId() { }
+ public List<Item> getItems() { }
+ public void addItem(Item item) { }
+}
+\end{lstlisting}
+
+\subsubsection{Package and LockerPackage}\label{_FM1DBRLxFVNgQAcR3p2f-2}
+\\
+When an order is packed, it is represented by the~\texttt{Package}, and the package that is contained in the locker is represented by the~\texttt{LockerPackage}~class. The code to implement these classes is shown below:
+
+\textbf{The Package and LockerPackage classes}
+
+\begin{lstlisting}[language=Java]
+public class Package { private String packageId;
+private double packageSize; private Order order;
+
+ public Package(String packageId, double packageSize, Order order) { }
+
+ public String getPackageId() { }
+ public double getPackageSize() { }
+ public Order getOrder() { }
+ public void pack() { }
+}
+
+import java.util. Date;
+
+public class LockerPackage extends Package { private int codeValidDays;
+private String lockerId; private String code;
+private Date packageDeliveryTime; private String deliveryPersonId;
+
+public LockerPackage(String packageId, double packageSize, Order order, int codeValidDays, String lockerId, String code,
+ Date packageDeliveryTime, String deliveryPersonId) { }
+
+ public int getCodeValidDays() { }
+ public String getLockerId() { }
+ public String getCode() { }
+ public Date getPackageDeliveryTime() { }
+ public String getDeliveryPersonId() { }
+
+ public boolean isValidCode() { }
+ public boolean verifyCode(String code) { }
+}
+\end{lstlisting}
+
+\subsubsection{Customer and DeliveryPerson}\label{70WoknP4ryMWItNq-WKRe}
+\\
+The \texttt{Customer} class represents an Amazon user who can place orders, request returns, and receive notifications. The
+\texttt{DeliveryPerson} class models a logistics staff member responsible for delivering packages to lockers, picking up returns, and receiving notifications relevant to returns and deliveries. The implementation of these classes is given below:
+
+\textbf{Customer and DeliveryPerson}
+
+\begin{lstlisting}[language=Java]
+public class Customer { private String customerId;
+private String name; private String email;
+ private String phone;
+
+ public Customer(String customerId, String name, String email, String phone) { }
+
+ public void placeOrder(Order order) { }
+
+ public void requestReturn(Order order) { }
+
+ public void receiveNotification(Notification notification) { }
+}
+
+public class DeliveryPerson { private String deliveryPersonId;
+
+ public DeliveryPerson(String deliveryPersonId) { }
+
+ public void deliverPackage(LockerPackage pkg, Locker locker) { }
+
+ public void pickupReturn(LockerPackage pkg, Locker locker) { }
+
+ public void receiveReturnNotification(Notification notification) { }
+}
+\end{lstlisting}
+
+\subsubsection{Locker and LockerLocation}\label{_FM1DBRLxFVNgQAcR3p2f-3}
+\\
+The \texttt{Locker} is the most important class of the system, and a \texttt{LockerLocation} can contain multiple \texttt{Locker} instances. The implementation of these classes is given below:
+
+\textbf{The Locker and LockerLocation classes}
+
+\begin{lstlisting}[language=Java]
+public class Locker { private String lockerId;
+private LockerSize lockerSize; private String locationId;
+private LockerState lockerState; private LockerPackage currentPackage;
+
+public boolean addPackage(); public boolean removePackage();
+}
+
+public class LockerLocation { private String name;
+private List<Locker> lockers; private double longitude;
+private double latitude; private Date openTime;
+ private Date closeTime;
+ 
+public void addLocker(Locker locker) { // Implement your logic here
+ }
+}
+\end{lstlisting}
+
+\subsubsection{LockerService and Notification}\label{_FM1DBRLxFVNgQAcR3p2f-4}
+\\
+The final class of an Amazon Locker service is the \texttt{LockerService} class, which will be a Singleton class, which means that the entire system will have only one instance of this class. The following code provides the definition of the \texttt{LockerService} and \texttt{Notification} classes used in the Amazon Locker service:
+
+\textbf{The LockerService and Notification classes}
+
+\begin{lstlisting}[language=Java]
+public class LockerService { private List<LockerLocation> locations;
+
+ // The LockerService is a Singleton class that ensures it will have only one active instance at a time private static LockerService lockerService = null;
+ 
+// Created a static method to access the Singleton instance of LockerService class public static LockerService getInstance() { if (lockerService == null) {
+lockerService = new LockerService(); }
+return lockerService; }
+ 
+public void addLocation(LockerLocation loc) { // Implement your logic here
+ }
+ 
+public Locker findLockerById(String lockerId) { // Implement your logic here
+ }
+ 
+ // Returns true if the “return” is approved, false otherwise.
+public boolean requestReturn(Order order) { // Implement your logic here
+ }
+ 
+ // Finds (and returns) the first available Locker across all locations.
+public Locker requestLocker() { // Implement your logic here
+ }
+ 
+ // Delegates to a specific LockerPackage's verifyCode(...) under the hood.
+public boolean verifyOTP(LockerPackage lpkg, String code) { // Implement your logic here
+ }
+}
+
+public class Notification { private String customerId;
+private String orderId; private String lockerId;
+ private String code;
+
+public void send(); }
+\end{lstlisting}
+
+\subsection{Executable Code: Amazon Locker Service}\label{s98cC_7VpuTmyTGLtC3hu}
+\\
+Below is a fully self-contained, runnable program in Java, C\#, C++, Python, and JavaScript that demonstrates the core workflows of the Amazon Locker Service system. The system\textquotesingle s main driver code resides in \texttt{Driver.java}, \texttt{Driver.cs}, \texttt{Driver.py}, \texttt{Driver.cpp}, and \texttt{Driver.js} for all respective languages. You can click the ``Run'' button to execute the code.
+
+\subsubsection{What does this code show}\label{SQClzMCthBeoDqkQKSqJa}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{lZSH5-mzHIs8g6dW6Lcxy}
+\textbf{System initialization:} Sets up locations, lockers, a customer, and a delivery person.
+\item
+\protect\phantomsection\label{Bj-rjzM7H9hSbNYXd1CAU}
+\textbf{Scenario 1 (Customer places an order):} The customer places an order, the system packs the order, assigns a locker, the delivery person delivers the package, and the customer is notified with a code.
+\item
+\protect\phantomsection\label{QDaOr_ClfBb-eqXXd2527}
+\textbf{Scenario 2 (Customer picks up the package):} The customer arrives at the locker, enters the code, and successfully retrieves their package.
+\item
+\protect\phantomsection\label{O7o2T6NduMuHyEo1DAlqH}
+\textbf{Scenario 3 (Customer initiates a return):} The customer requests a return, the system approves and assigns a locker for the return, sends a return notification, and the delivery person collects the returned package.
+\end{itemize}
+\\
+\textbf{Hint: Try customizing the code!}
+\\
+This code is designed for experimentation, not just reading. You can edit, extend, or modify any part of the example.
+
+\textbf{Executable Code: Amazon Locker Service}
+
+\begin{lstlisting}[language=Java]
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+public class Driver {
+    public static void main(String[] args) {
+        System.out.println(new String(new char[100]).replace('\0', '═'));
+        System.out.println("\t\t\t\t\tAMAZON LOCKER SERVICE SYSTEM");
+        System.out.println(new String(new char[100]).replace('\0', '═'));
+
+        // --- System Initialization ---
+        System.out.println("🛠️  [SETUP] Initializing Locker Service, Locations, and Lockers...\n");
+        LockerService lockerService = LockerService.getInstance();
+        LockerLocation loc = new LockerLocation("Downtown", 10.5, 20.8, new Date(), new Date());
+        Locker locker1 = new Locker("L1", LockerSize.MEDIUM, loc.getName());
+        Locker locker2 = new Locker("L2", LockerSize.LARGE, loc.getName());
+        loc.addLocker(locker1);
+        loc.addLocker(locker2);
+        lockerService.addLocation(loc);
+        System.out.println("    → Added LockerLocation: Downtown with Lockers: [L1, L2]\n");
+
+        // --- Customer and DeliveryPerson Setup ---
+        Customer customer = new Customer("CUST1", "Alice", "alice@example.com", "1234567890");
+        DeliveryPerson deliveryGuy = new DeliveryPerson("DEL1");
+
+        // === Scenario 1: Customer Places an Order ===
+        System.out.println("1️⃣  SCENARIO 1: Customer Places an Order");
+        System.out.println(new String(new char[100]).replace('\0', '-'));
+        Order order = new Order("ORD1", loc.getName(), customer.getCustomerId());
+        order.addItem(new Item("ITM1", 2));
+        System.out.println("  → [Customer] Placing order ORD1 for 2x ITM1.");
+        customer.placeOrder(order);
+
+        Package pkg = new Package("PKG1", 2.5, order);
+        System.out.println("  → [System] Packing the order...");
+        pkg.pack();
+
+        System.out.println("  → [System] Assigning a locker for package delivery...");
+        Locker assignedLocker = lockerService.requestLocker(LockerSize.MEDIUM);
+        String otp = "123456";
+        LockerPackage lpkg = new LockerPackage("PKG1", 2.5, order, 3, assignedLocker.getLockerId(), otp, new Date(), deliveryGuy.getDeliveryPersonId());
+
+        System.out.println("  → [DeliveryPerson] Delivering package PKG1 to Locker L1...");
+        deliveryGuy.deliverPackage(lpkg, assignedLocker);
+
+        Notification notification = new Notification(customer.getCustomerId(), order.getOrderId(), assignedLocker.getLockerId(), otp);
+        System.out.println("  → [System] Sending pickup notification to customer...");
+        notification.send();
+        customer.receiveNotification(notification);
+
+        // === Scenario 2: Customer Picks Up the Package ===
+        System.out.println("\n2️⃣  SCENARIO 2: Customer Picks Up the Package");
+        System.out.println(new String(new char[100]).replace('\0', '-'));
+        System.out.println("  → [Customer] Arriving at Locker L1 to pick up package.");
+        boolean pickupSuccess = assignedLocker.removePackage(otp);
+        if (pickupSuccess) {
+            System.out.println("    ✔️  [Customer] Pickup successful! Package retrieved from locker L1.");
+        } else {
+            System.out.println("    ❌ [Customer] Pickup failed.");
+        }
+
+        // === Scenario 3: Customer Initiates a Return ===
+        System.out.println("\n3️⃣  SCENARIO 3: Customer Initiates a Return");
+        System.out.println(new String(new char[100]).replace('\0', '-'));
+        customer.requestReturn(order);
+        boolean returnApproved = lockerService.requestReturn(order);
+
+        if (returnApproved) {
+            System.out.println("  → [System] Return approved! Assigning locker for return...");
+            Locker returnLocker = lockerService.requestLocker(LockerSize.MEDIUM);
+            String returnOtp = "654321";
+            LockerPackage returnPkg = new LockerPackage("PKG1-R", 2.5, order, 3, returnLocker.getLockerId(), returnOtp, new Date(), deliveryGuy.getDeliveryPersonId());
+
+            Notification returnNotif = new Notification(customer.getCustomerId(), order.getOrderId(), returnLocker.getLockerId(), returnOtp);
+            System.out.println("  → [System] Sending return locker details to customer...");
+            returnNotif.send();
+            customer.receiveNotification(returnNotif);
+
+            System.out.println("  → [System] Notifying DeliveryPerson about expected return...");
+            deliveryGuy.receiveReturnNotification(returnNotif);
+
+            System.out.println("  → [Customer] Placing return package PKG1-R in Locker " + returnLocker.getLockerId() + "...");
+            returnLocker.addPackage(returnPkg);
+            System.out.println("      ↳ [Customer] Return package placed in locker " + returnLocker.getLockerId() + ".");
+
+            System.out.println("  → [DeliveryPerson] Arriving to pick up returned package...");
+            deliveryGuy.pickupReturn(returnPkg, returnLocker);
+        }
+
+        System.out.println("\n🏁\t\t\t\t\tSYSTEM DEMO COMPLETE");
+        System.out.println(new String(new char[100]).replace('\0', '═'));
+    }
+}
+
+\end{lstlisting}
+
+\subsection{Wrapping up}\label{_FM1DBRLxFVNgQAcR3p2f-5}
+\\
+We've explored the complete design of an Amazon Locker service in this chapter. We 've examined how an Amazon Locker service design can be visualized using various UML diagrams.
+
+\subsection{}\label{UfRx8ujROzMhBbVVhcNjR}
+
+% End of section content

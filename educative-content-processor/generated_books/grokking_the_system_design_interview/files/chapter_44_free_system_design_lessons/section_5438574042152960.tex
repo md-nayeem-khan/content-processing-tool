@@ -1,0 +1,211 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Design Interview Guide: Low-level OOD to Advanced System Design
+% Section ID: 5438574042152960
+% Section Slug: design-interview-guide-low-level-ood-to-advanced-system-design
+% Generated: 2025-12-08T15:44:48.471063
+
+Let's begin by visualizing the challenge of designing an intricate distributed relational database system such as Google Cloud Spanner. Now consider doing this while under pressure from an interviewer. What if we were asked to design a specific module or component within that architecture, like a load balancer or cache?
+\\
+These scenarios are possible during one portion of the modern technical interview loop: the design interview. We can use these interviews to send hireable signals and stand out in a competitive field, but they can be challenging to prepare for if we don't know the format.
+\\
+Understanding the different types of design interviews, whether they focus on low-level implementation details or more advanced System Design concepts, can give us the best chance of providing an answer that gets us hired.
+\\
+Unlike coding interviews, technical design interviews require thinking in broader, systemic terms. For these interviews, we must learn to weigh different tradeoffs between possible solutions and then provide justifications for the solutions we choose.
+\\
+However, as mentioned earlier, the types of design interviews available can vary, and each will have its own set of expectations and standards for what constitutes an ideal or complete solution. The type of design interview we perform will depend mostly on the size of the company, the role we're applying for, and our current experience level. Later , we'll clarify which particular roles and companies are most likely to conduct specific types of interviews.
+\\
+In this lesson, we'll discuss two types of design interviews that exist at opposite ends of the spectrum: Low-Level Object-Oriented Design (OOD) and Advanced System Design (ASD). We 'll cover what interviewers are looking for in OOD and ASD interviews, key differences between the types, to help us prepare for the right one.
+
+\subsection{Low-level OOD vs. ASD}\label{ruOrzpRz6MZ3hFfS8guQj}
+\\
+System Design interviews have been a part of the technical interviewing process for a relatively shorter period than low-level design interviews. In the software industry, it was always important for engineers to demonstrate the ability to design efficient and effective software at a granular level. System Design only caught on once real-world distributed systems became more commonplace in the 2010s.
+\\
+The greater complexity of these systems meant we needed highly scalable and reliable architectures and, consequently, people who could design them. Now , System Design is a cornerstone of modern software development.
+\\
+At the same time, the Low-Level OOD interview remains one of the most common types of design interviews we encounter during tech interviews. Coming into these interviews with a solid grasp of object-oriented design patterns puts us at a massive advantage.
+\begin{quote}
+``All well-structured object-oriented architectures are full of patterns.'' --- Grady BoochChief Scientist, Rational Software Corporation
+\end{quote}
+\\
+Here, the focus is on the implementation details of a specific module or component within a more extensive system. More specifically, it's focused on the details of individual classes and objects within that software system and their relationships, methods, and properties. Our interviewers are going to determine how well we can design an efficient implementation that satisfies all of the functional requirements.
+\\
+System Design interviews, on the other hand, take a broader look at the big picture. Here , our concerns are with an entire system's overall architecture and design. Our interviewers expect us to develop a robust, high-level architecture that meets functional and non-functional requirements alike. We may need to consider properties like scalability, availability, and security in our decision-making process.
+\\
+ASD interviews test our understanding of the principles of System Design through a more rigorous lens. These interviews often hold our solutions to far more exacting standards, as the interviewers will expect us to use more sophisticated techniques and methodologies that are often seen in enterprise-level applications. At this level, our designs must provide elegant, efficient solutions that reflect practical experience with real-world System design and implementation. While non-functional requirements like scalability are important to consider in System Design, they often become essential in ASD, being treated as existing properties of a complex, large-scale system to be optimized and improved.
+\\
+Returning to Google Cloud Spanner, this system represents the type of case study that could turn up in an Advanced System Design interview. A globally distributed relational database system designed to provide strong consistency, high availability, and horizontal scalability, Google Cloud Spanner showcases the system complexity that an interviewer could challenge us with at this level.
+\\
+At the same time, Spanner could also be used effectively within low-level design interviews to assess our understanding of the underlying architecture of a distributed system and how more specific components like databases and caches might interact.
+
+\textit{Component type 'Image' not yet supported.}
+
+\subsection{Quick differences: ASD vs. Low-level OOD}\label{BbT2thwHASWUNT7w5tXAy}
+\\
+To review, here are some major differences between the interviews to remember.
+
+\subsubsection{Advanced System Design}\label{Hpwy7FBeIGKIIegySRjw1}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{jMa3Q2igC7MgktghGiDHg}
+Focuses on the overall architecture of a system.
+\item
+\protect\phantomsection\label{aLs7P-41GFTCEBh_OMrb-}
+Concerned with designing a scalable, performant, and fault-tolerant system.
+\item
+\protect\phantomsection\label{TkL1FgGGjn7_JTp8KSSyh}
+Requires a deep understanding of distributed systems and System Design principles.
+\item
+\protect\phantomsection\label{9NDs3MtpXn5MarRJc8XWd}
+Encompasses large-scale, complex systems with many components and stakeholders involved.
+\end{itemize}
+
+\subsubsection{Low-level OOD}\label{HPAa4_bKHWTQuVtnIztL8}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{6zyRTiTN6YszNwEnrgX1g}
+Focuses on designing individual classes, objects, and their relationships.
+\item
+\protect\phantomsection\label{qXiNNY-RAZATVke738Hfs}
+Deals with solving problems related to implementation and programming.
+\item
+\protect\phantomsection\label{QeHZfTLpsw3glGhrNJhNT}
+Requires a deep understanding of object-oriented programming concepts and design principles.
+\item
+\protect\phantomsection\label{FrXEHMtI9LA148PJTxVyJ}
+It is applied to components \textbf{within} larger systems.
+\end{itemize}
+\\
+Now that we've covered the key differences, let's look at how to determine the style of design interview one should expect.
+
+\subsection{Who needs to know ASD vs. OOD?}\label{8goB9iM5B-HrYreWYu_02}
+\\
+The style of design interview we receive depends on several factors. Here is a quick overview of when we might encounter each type.
+
+\subsubsection{Advanced System Design}\label{BAhIehSZDcMxGbUWRYO4t}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{ICuaFqdQfjJwshsQiLTS3}
+More frequently used when interviewing for senior software engineering and engineering leadership roles.
+\item
+\protect\phantomsection\label{4yuGccPVIwZcIh2MId1gK}
+Interviewers expect candidates to be familiar with major examples of both modern and historical distributed systems.
+\item
+\protect\phantomsection\label{AjYMLLmq3G6jWnmNTPXct}
+We are expected to understand how to select and combine the building blocks of a modern system's architecture.
+\item
+\protect\phantomsection\label{oenMzY-HHAPnWHNDDgDVJ}
+Discussions typically focus on system architecture and high-level aspects such as scalability, performance, and fault tolerance.
+\end{itemize}
+
+\subsubsection{Low-level object-oriented design}\label{OuyXxeW3dcq7JP3JEkCqS}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{8n4GRE-zpqN7hJUKKDgWn}
+More dependent on the role and company we're applying for. For example, the mobile application team at Spotify would focus on OOD questions because they want to know how well we can optimize single processes.
+\item
+\protect\phantomsection\label{-oSv-RG5qADoXwMXNLL0g}
+Interview questions focus on creating classes and objects, as well as defining their attributes and behavior at the component level. We can expect to encounter coding exercises and algorithmic questions at this level.
+\end{itemize}
+\\
+Unless we're set on a particular role, preparing for both extremes of the design interview is the wisest course of action. Now , let's look more closely at each type of interview and our best advice for succeeding in them.
+
+\subsection{Low-level OOD: Leverage design patterns to build components}\label{YAqeJM3ugwwNQyxSBufCH}
+\\
+Now, we will start with the lowest level of the design interview, the Low-Level OOD interview. As defined earlier, OOD involves implementing specific modules or components and their classes within a more extensive system, such as Google's Chrome browser.
+\\
+In earlier software engineer interviews, Low-Level OOD interviews were the only type of design interview typically encountered. System Design and scalable systems were not as integral as they are today because large-scale distributed systems were relatively uncommon.
+\\
+We can think of OOD similarly to building a Formula 1 race car. If the entire car is a distributed system, then the engine's design would be considered a low-level process within that system.
+\\
+The OOD interview will primarily measure two things:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{6MPfE57949432lRU7NQAd}
+Can we design a component that successfully interacts with other components in the system?
+\item
+\protect\phantomsection\label{dCvTR6gYKRnLtiY8w_5Zv}
+Can we use design patterns to create this component efficiently?
+\end{itemize}
+\\
+Understanding the various design patterns of OOD should be a primary focus of our preparation for the low-level design interview.
+\\
+\emph{``Design Patterns: Elements of Reusable Object-Oriented Software''} (1994) by Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides, collectively known as the ``Gang of Four,'' is considered a seminal work in the field of object-oriented design. It was instrumental in popularizing the use of design patterns at a time when object-oriented design was reaching new heights of popularity.
+\\
+This book highlighted 23 fundamental design patterns of OOD, organized into three categories: creational, structural, and behavioral patterns.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{yEZB5A-aztSJCWMh8Pbgi}
+\textbf{Creational patterns} deal with the process of object creation and are used to abstract the process of object creation.
+\item
+\protect\phantomsection\label{2sYDSHEDKBLMGdVLEkUm_}
+\textbf{Structural patterns} deal with class and object composition. These patterns provide ways to organize or combine classes and objects to form larger structures.
+\item
+\protect\phantomsection\label{hDVY5qkMx3-BQsBoZU3Uo}
+\textbf{Behavioral patterns} focus more on object interaction and how objects communicate with each other. These patterns deal with how responsibilities are delegated across different objects.
+\end{itemize}
+\\
+Each category represents a set of design patterns meant to solve a specific type of object-oriented design problem. By using these patterns, developers can significantly improve our software's coherence, modularity, and maintainability.
+\\
+Of the 23 design patterns, these are the most frequently used in technical design interviews:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{zcmxh80sLxKulggVjd0XO}
+\textbf{Singleton:} Restricts the instantiation of a class to a single object.
+\item
+\protect\phantomsection\label{p2n8gQPtdqmkfpIHDdA2O}
+\textbf{Factory:} Doesn't require the use of a constructor to create objects (aka, the new keyword).
+\item
+\protect\phantomsection\label{bvVUM8w_lKhxTBLfvElnq}
+\textbf{Constructor:} Uses the constructors present in the class to create specific types of objects.
+\item
+\protect\phantomsection\label{p0kB0rk6SJI6ap63SO3-K}
+\textbf{Iterator:} Iterates a collection of objects without exposing the underlying form.
+\item
+\protect\phantomsection\label{IhZmC27hetvUgip8UFJJR}
+\textbf{Facade:} Simplifies a client's interaction with the system by hiding the underlying complex code.
+\item
+\protect\phantomsection\label{pma8Lr8TvqJtQP85-lDce}
+\textbf{Adaptor:} Allows an object to cooperate with a class that has an incompatible interface.
+\item
+\protect\phantomsection\label{WsL1ARVO8R7foxHhr5rwJ}
+\textbf{Visitor:} Allows new operations to the objects without changing the structure of the objects themselves.
+\end{itemize}
+\\
+Ultimately, the best pattern to use depends on the question asked. For example, if our software is generating IDs for our desktop app, we only want a single class generating those IDs, especially if we have more than one thread working off that class. The Singleton pattern is extremely relevant here as it ensures that each process in the software will have only one instance of our class.
+\\
+OOD is the oldest among the stages of tech design interviews, but it is not going away anytime soon. System Design can only be effective when individual processes are also optimized. Nobody will use a web app if their web browser software provides a bad user experience. Scalability only matters if customers want to stick around in the first place.
+
+\textit{Component type 'Image' not yet supported.}
+
+\subsection{Advanced System Design: Build on past designs}\label{N1QfxvZ3K-GJt8LR7sKND}
+\\
+Looking at case studies and analyzing patterns found in distributed systems built in the past is a great way to identify successful strategies for designing resilient, long-lasting systems. It is a practice all engineers should invest time in because many high-level distributed systems, like Amazon's DynamoDB, are modeled on past systems. In turn, these systems tend to influence the design of future distributed systems.
+\\
+In this way, we can understand the heart of modern distributed systems by studying the strengths and limitations of older systems. Advanced System Design interview questions require a deep understanding of distributed systems, particularly their history and evolution.
+\\
+Being advanced in System Design does not mean we are expected to start completely from scratch with every design. It does mean we can efficiently utilize pre-existing structures to quickly diagram the optimal version of a system while weighing any inherent strengths or flaws against the final design. Analyzing successful strategies and designs used in older distributed systems for later use is also known as pattern sharing.
+\\
+An excellent example of pattern-sharing in the real world can be found in Amazon DynamoDB. In 2004, Amazon published \emph{``The Dynamo Paper,''} which documented the creation of its in-house database. This led to the development of DynamoDB a few years later. Dynamo
+DB would go on to significantly influence the overall design of Apache Cassandra.
+\\
+In 2008, Facebook released Apache Cassandra, a database that aimed to replicate Dynamo's distributed storage and replication techniques while integrating the ability to handle large analytical and operational workloads like Google's Bigtable database. In fact, Avinash Lakshman, one of the lead developers on the Cassandra project, was also one of the authors of \emph{``The Dynamo Paper.''}
+\\
+It is reasonable to assume he did not start completely from scratch on Cassandra.
+\\
+The key lesson here is the importance of leveraging previous knowledge and building upon existing design patterns to innovate new and effective solutions. Lakshman 's experience working on DynamoDB allowed him to incorporate proven techniques to improve and expand an existing design. We need to practice this general approach as we prepare to solve various problems in the System Design interview.
+
+\subsection{Conclusion}\label{oQLmLYVVgVpXPUuruR2wq}
+\\
+Low-level OOD and ASD represent two extremes of the design interview spectrum, ranging from detailed implementation to high-level architecture. Understanding these differences and preparing for both types ensures a stronger foundation for all design interview challenges.
+
+% End of section content

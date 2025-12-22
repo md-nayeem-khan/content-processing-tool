@@ -1,0 +1,212 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Summary: Designing a Parking Lot
+% Section ID: 5194898247385088
+% Section Slug: summary-designing-a-parking-lot
+% Generated: 2025-12-11T13:40:40.338904
+
+Now that you've completed the parking lot case study, let's take a moment to reflect on and consolidate what we've learned. We 'll revisit the key system requirements, identify the core classes along with their responsibilities and relationships, and highlight the major design principles applied. We
+'ll also examine how objects interact within the system and walk through the overall workflow to understand how the components come together to achieve the desired functionality.
+
+\subsection{Key requirements}\label{eYcVBG4NYl_iHMHYdKGdq}
+\\
+This section outlines the primary functional requirements that shaped the design of the parking lot system.
+
+\begin{enumerate}
+\item
+\protect\phantomsection\label{EM-QNtd_zH5TeM8RE0CSM}
+The parking lot must support up to 40,000 vehicles.
+\item
+It must support multiple parking spots: accessible, compact, large, and motorcycle.
+\item
+The lot must have multiple entrances and exit points for efficient traffic flow.
+\item
+\protect\phantomsection\label{NocK7Mm31cIYjcF4OYt9r}
+The system must accommodate various vehicle types: car, truck, van, and motorcycle.
+\item
+\protect\phantomsection\label{ToL-xomzfPBz_JkT_U0t1}
+Display boards at entrances and on each floor must show the real-time number of available spots for each type.
+\item
+\protect\phantomsection\label{091te_LaRkDxZBY7gOxA7}
+The system must prevent vehicles from entering when the lot is full.
+\item
+\protect\phantomsection\label{zqFKTGwa3nnc9YUfpMn2a}
+A ``full'' message must be displayed at all entrances without capacity.
+\item
+\protect\phantomsection\label{Sd6pH5Kl27bLXTcH6Wiri}
+Upon entry, A parking ticket must be issued to track time and calculate fees.
+\item
+\protect\phantomsection\label{SKsJuoNWRwg5ag34K2RQR}
+Customers must be able to pay for parking at an automated exit panel.
+\item
+\protect\phantomsection\label{kuQbvMdL6FeSaxvFHA1Kd}
+The system must support configurable pricing rates based on vehicle/spot type and parking duration.
+\item
+\protect\phantomsection\label{5RzublxLfh4zqVGKZzM2w}
+Payments must be accepted via credit/debit card and cash.
+\end{enumerate}
+
+\subsection{System actors}\label{KP3D32CpsPjpiDzRgCxAB}
+\\
+The following actors interact with the parking lot system in various capacities.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{HfEgtN7advpLR0UyDMiLW}
+\textbf{Customer:} Parks their vehicle, obtains a parking ticket, pays the required fee, and exits the lot.
+\item
+\protect\phantomsection\label{dRiNC4Mg2-dTXyTiLBujp}
+\textbf{Admin:} Manages system resources, including configuring parking spots, setting pricing rates, and managing accounts.
+\end{itemize}
+
+\subsection{Important classes and relationships}\label{yRhw9-X2gM-ztEAPnqLzu}
+\\
+The system is built around core classes with distinct responsibilities and relationships.
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+
+\begin{longtable}{|p{0.25\linewidth}|p{0.35\linewidth}|p{0.35\linewidth}|}
+\hline
+\textbf{Class} & \textbf{Description} & \textbf{Important Relationships} \\
+\hline
+\endfirsthead
+
+\hline
+\textbf{Class} & \textbf{Description} & \textbf{Important Relationships} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+\texttt{ParkingLot} &
+The central class that manages all components of the system. Implemented as a Singleton. &
+\textbf{Composition:} Composed of \texttt{Entrance}, \texttt{Exit}, \texttt{ParkingSpot}, \texttt{ParkingRate}, \texttt{DisplayBoard}, and \texttt{ParkingTicket}. \\
+\hline
+
+\texttt{Vehicle} &
+An abstract class representing any vehicle, with subclasses like \texttt{Car} and \texttt{Truck}. &
+\textbf{Inheritance:} Base for \texttt{Car}, \texttt{Truck}, \texttt{Van}, \texttt{Motorcycle}. \newline
+\textbf{Association:} Linked to its \texttt{ParkingTicket}. \\
+\hline
+
+\texttt{ParkingSpot} &
+Abstract class for a parking spot, with specialized subclasses for different spot types. &
+\textbf{Inheritance:} Base for \texttt{AccessibleSpot}, \texttt{CompactSpot}, \texttt{LargeSpot}. \newline
+\textbf{Association:} Linked to a \texttt{Vehicle} when occupied. \\
+\hline
+
+\texttt{ParkingTicket} &
+Stores details of parking: entry/exit time, vehicle, and payment status. &
+\textbf{Association:} Connects \texttt{Vehicle}, \texttt{Entrance}, and \texttt{Exit}. \newline
+\textbf{Composition:} Contains a \texttt{Payment} object. \\
+\hline
+
+\texttt{Payment} &
+Abstract class for payment processing with subclasses for different payment types. &
+\textbf{Inheritance:} Base for \texttt{Cash} and \texttt{CreditCard}. \\
+\hline
+
+\texttt{ParkingRate} &
+Calculates parking fees based on duration and rules. &
+\textbf{Association:} Used by \texttt{ParkingLot} to determine fees. \\
+\hline
+
+\texttt{Entrance} / \texttt{Exit} &
+Manage issuing and validating tickets during vehicle entry and exit. &
+\textbf{Association:} Multiple instances associated with \texttt{ParkingLot}. \\
+\hline
+
+\texttt{DisplayBoard} &
+Displays real-time availability of parking spots. &
+\textbf{Association:} Connected to \texttt{ParkingSpot} objects. \\
+\hline
+
+\texttt{Admin} &
+Represents an administrative user of the system. &
+\textbf{Inheritance:} Extends the abstract \texttt{Account} class. \\
+\hline
+
+\end{longtable}
+
+\end{center}
+
+
+\subsection{Design highlights}\label{5k3J-gWX3iPnd69Sn_VpJ}
+\\
+The design of the parking lot system was guided by a clear methodology and established software engineering principles.
+
+\subsubsection{Design approach}\label{aA750NXB8pT0dtwEPcibC}
+\\
+The system was designed using a bottom-up approach. We started by identifying and modeling the core, fundamental entities like \texttt{Vehicle} and \texttt{ParkingSpot}. These were combined to build more complex components, which were finally integrated and orchestrated by the main \texttt{ParkingLot} class.
+
+\subsubsection{Design principles}\label{VomoINTCI_YfiyNJDgtMp}
+\\
+The design adheres to the SOLID principles to ensure it is robust, maintainable, and scalable.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{J8fwMUOIYMVYXuRLEDyKA}
+\textbf{Single Responsibility principle (SRP):} Each class has a well-defined purpose. For instance, \texttt{ParkingTicket} manages session data, \texttt{Payment} processes financial transactions, and \texttt{ParkingRate} is solely responsible for fee calculation.
+\item
+\protect\phantomsection\label{Kp1HBvK_pAsNAkySLYLYA}
+\textbf{Open/Closed principle (OCP):} Using abstract classes like \texttt{Vehicle} and \texttt{ParkingSpot} allows the system to be extended with new types (e.g., \texttt{Bus}, \texttt{ElectricVehicleSpot}) without modifying the existing, tested code.
+\item
+\protect\phantomsection\label{oQCjKI8Jp7yONCgRWAO7y}
+\textbf{Liskov Substitution principle (LSP):} Subclasses can stand in for their parent classes. For example, a \texttt{Car} or \texttt{Truck} object can be used wherever a \texttt{Vehicle} object is expected, ensuring consistent behavior.
+\item
+\protect\phantomsection\label{xprWNLsWYLWLtTsXxToic}
+\textbf{Interface Segregation principle (ISP):} Classes have focused roles. The \texttt{Entrance} class is only concerned with issuing tickets, and the \texttt{Exit} class is only concerned with validating them, preventing classes from depending on methods they don't use.
+\item
+\protect\phantomsection\label{F3xaJB1obT3DHQOc1XCAi}
+\textbf{Dependency Inversion principle (DIP):} The system depends on abstractions, not concrete implementations. The main \texttt{ParkingLot} class works with the abstract \texttt{Vehicle} and \texttt{ParkingSpot} classes, decoupling it from specific types of vehicles or spots.
+\end{itemize}
+
+\subsubsection{Design patterns}\label{mXbeZg3SHIuHjnXp-cZes}
+\\
+The system leverages established design patterns to solve common architectural challenges.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{zeYHgnektTJMfVZBFgvxy}
+\textbf{Singleton:} The \texttt{ParkingLot} class is implemented as a Singleton to ensure that only one instance controls all system resources and provides a single, global point of access.
+\item
+\protect\phantomsection\label{tDu6MUuC0q6EcYy4mqX15}
+\textbf{Factory / Abstract Factory:} These patterns create objects of different types, such as \texttt{Vehicle} or \texttt{ParkingSpot}. This decouples the client code from the concrete classes, making it easy to add new types in the future without changing the core logic.
+\end{itemize}
+
+\subsection{Object interactions}\label{SZFYTGEfxeZVWB802Gx9g}
+\\
+The system's dynamic behavior is defined by how its core objects collaborate.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{siph7Dc0KAOZEWlCUl7H5}
+\textbf{Ticket issuance:} When a \texttt{Customer} arrives, the \texttt{Entrance} panel, managed by the \texttt{ParkingLot}, creates \texttt{ParkingTicket}. The system then finds a suitable \texttt{ParkingSpot} based on the vehicle type and assigns it, updating the spot's status and the information on the \texttt{DisplayBoard}.
+\item
+\protect\phantomsection\label{ywHvjD7f5EMJbVlwHcg-b}
+\textbf{Fee calculation and payment:} At an \texttt{Exit} panel, the \texttt{Customer} presents their \texttt{ParkingTicket}. The \texttt{Exit} object retrieves the ticket details and uses the \texttt{ParkingRate} object to calculate the total fee. It then initiates a transaction through a \texttt{Payment} object (e.g., \texttt{CreditCard}). Once the payment is confirmed, the \texttt{ParkingTicket} status is updated to ``Paid,'' and the exit gate opens.
+\end{itemize}
+
+\subsection{System workflow}\label{lE3xv2whb2ohAebUX0hMx}
+\\
+The primary workflow illustrates the end-to-end journey of a customer using the parking lot.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{i7o7tcjar2AmkxYaLcZsw}
+\textbf{Vehicle entry:} A customer arrives at an \texttt{Entrance} and the \texttt{DisplayBoard} shows available spots. The customer selects their vehicle type, and the system checks for an available \texttt{ParkingSpot}. If a spot is free, the system assigns it, prints a \texttt{ParkingTicket} with the entry time and vehicle details, and opens the gate. If no spots are available, access is denied.
+\item
+\protect\phantomsection\label{bivOFC8nArE_HboR5DhnO}
+\textbf{Parking:} The customer parks their vehicle in the assigned \texttt{ParkingSpot}, which the system internally marks as occupied.
+\item
+\protect\phantomsection\label{G1lvvKUXYvdSNzQx3g0wi}
+\textbf{Vehicle exit:} The customer drives to an \texttt{Exit} panel and scans their \texttt{ParkingTicket}. The system calculates the parking duration and the total fee. The customer pays via cash or card. Upon successful payment, the system validates the ticket, opens the exit gate, and updates the \texttt{ParkingSpot} status to ``Available'' on the \texttt{DisplayBoard}.
+\end{itemize}
+
+% End of section content

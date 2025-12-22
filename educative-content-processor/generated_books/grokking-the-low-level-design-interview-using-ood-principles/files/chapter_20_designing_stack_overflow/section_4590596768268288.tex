@@ -1,0 +1,206 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Summary: Designing Stack Overflow
+% Section ID: 4590596768268288
+% Section Slug: summary-designing-stack-overflow
+% Generated: 2025-12-12T22:50:30.224793
+
+Now that you've completed the Stack Overflow case study, let's take a moment to reflect on and consolidate what we've learned. We 'll revisit the key system requirements, identify the core classes along with their responsibilities and relationships, and highlight the major design principles applied. We
+'ll also examine how objects interact within the system and walk through the overall workflow to understand how the components come together to achieve the desired functionality.
+
+\subsection{Key requirements}\label{5HDz2lMHVkMrtFQWkqGN9}
+\\
+This section outlines the primary functional requirements that shape the design of the Stack Overflow system.
+
+\begin{enumerate}
+\item
+\protect\phantomsection\label{Q22pDximA13qN916Xneh3}
+Any guest can view and search questions by tag, username, or word.
+\item
+\protect\phantomsection\label{-t9pVD6yE4dOn61RPXBWc}
+Users should be able to post new questions and add answers to an open question.
+\item
+\protect\phantomsection\label{jHUY5o0PfXBZLXaidOfzc}
+Users can flag a question, answer, or comment if anything goes against the community guidelines.
+\item
+\protect\phantomsection\label{eNPgJYx1c2vVjzzb4ygUg}
+Users can upvote, downvote, and add comments to a question or answer, but they can only upvote a comment.
+\item
+\protect\phantomsection\label{09KGp4A7nmarUri1_Vi9d}
+Users can vote to delete or close off questions for community-specific reasons. However, they can only vote to delete an answer.
+\item
+\protect\phantomsection\label{aAn9Dg0QqfZ1B_oWZ6Cp3}
+Users can add a bounty to their question to attract more answers.
+\item
+\protect\phantomsection\label{lFOU7A7dEyz1sk8dUqE_9}
+Moderators can close a question or restore an already deleted question. Moderators can also delete answers.
+\item
+\protect\phantomsection\label{puiIjyA2AuGJzGw-56_fK}
+The system should notify the user whenever there has been an interaction with them.
+\item
+\protect\phantomsection\label{Pw-kEhG3t04QDOU-yRERq}
+Users can earn badges for their helpful answers or comments.
+\item
+\protect\phantomsection\label{wqeLTAE_9nq7La7-1Rz9j}
+The system should also be able to determine the most popular tags used in questions.
+\item
+\protect\phantomsection\label{OrTm_F8qblzVlhtKF_2KH}
+Users can add tags to their questions.
+\end{enumerate}
+
+\subsection{System actors}\label{lMGfZp7nzqVkcj_PNUNjf}
+\\
+The following actors interact with the Stack Overflow platform in various capacities.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{5iBntwoPbrtTceVW61A7h}
+\textbf{User:} A registered member who can post questions, provide answers, comment, vote, and manage their content.
+\item
+\protect\phantomsection\label{_ti4mfBcRXwkplG8q36h2}
+\textbf{Moderator:} A privileged user who can perform all actions of a regular user, plus manage questions (close, delete, reopen) and delete answers.
+\item
+\protect\phantomsection\label{a5IM9zVIb2p_23AYfjAZG}
+\textbf{Guest:} An unregistered visitor who can only search for and view questions and answers.
+\item
+\protect\phantomsection\label{IV8d8v6oCcAgFKN4ewGT8}
+\textbf{Admin:} A system administrator who can manage users (block/unblock) and manually award badges.
+\end{itemize}
+
+\subsection{Important classes and relationships}\label{QV-I41dJnKXhl5w53YSFW}
+\\
+Here are the core classes that form the building blocks of the Stack Overflow system, along with their primary responsibilities and relationships.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|p{3.5cm}|p{6.5cm}|p{5.5cm}|}
+\hline
+\textbf{Class} & \textbf{Description} & \textbf{Important Relationships} \\
+\hline
+Account & Represents a user’s account details, including credentials and status. & Composed within the User class. \\
+\hline
+User & The central class for registered members, handling actions like posting, voting, and commenting. & Associated with Question, Answer, and Comment; extended by Admin and Moderator. \\
+\hline
+Question & Represents a user-submitted question, containing its content, tags, answers, and status. & Composed of Answer, Comment, and Bounty objects. \\
+\hline
+Answer & Represents a user-submitted answer to a specific question. & Associated with a Question. \\
+\hline
+Comment & Represents a comment made on either a Question or an Answer. & Associated with a Question or Answer. \\
+\hline
+Tag & Represents a keyword or label used to categorize a Question. & Composed within the TagList class; associated with Question. \\
+\hline
+Bounty & Represents reputation points offered on a Question to attract answers. & Composed within a Question. \\
+\hline
+Badge & Represents an award given to a User for achieving certain milestones. & Associated with the User class. \\
+\hline
+Notification & Responsible for creating and sending notifications to users about system events. & Associated with User, Question, and Answer. \\
+\hline
+Search & An interface that defines the contract for searching questions. & Implemented by SearchCatalog. \\
+\hline
+SearchCatalog & Implements the Search interface, providing concrete logic to search questions by tags, users, or words. & Implements the Search interface. \\
+\hline
+\end{tabular}
+\caption{Q\&A System Classes and Their Relationships}
+\label{tab:qa_classes}
+\end{table}
+
+
+\subsection{Design highlights}\label{pDELa9BpJsMwsR1ke5CpV}
+\\
+This section covers the strategic decisions made during the design process, including the overall approach, core principles, and specific patterns applied.
+
+\subsubsection{Design approach}\label{O4zZkMl1_2AaQc4ccZeKS}
+\\
+The system was designed using a bottom-up approach. This methodology begins with designing the smallest, most fundamental components, such as \texttt{Question} and \texttt{Answer}. These atomic components are progressively combined to build more complex features like \texttt{Comment}, \texttt{Bounty}, and the entire platform.
+
+\subsubsection{Design principles}\label{QtHNktPLmao6L0uQ679-Z}
+\\
+The design implicitly follows the SOLID principles to create a robust and maintainable system.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{ILIVZt9WZhzY9XNDNJhWv}
+\textbf{Single Responsibility principle (SRP):} Each class has a distinct responsibility. For instance, the \texttt{Question} class manages question-related data and logic, the \texttt{User} class handles user-specific actions, and the \texttt{Notification} class is solely responsible for sending notifications.
+\item
+\protect\phantomsection\label{VqJiBBfY7fbOW3Op1VZNP}
+\textbf{Open/Closed principle (OCP):} The system is open to extension but closed for modification. The use of inheritance, where \texttt{Admin} and \texttt{Moderator} extend \texttt{User}, allows adding new roles with specialized permissions without altering the base \texttt{User} class.
+\item
+\protect\phantomsection\label{PRrAL03lK7cEYuqiomJ_4}
+\textbf{Liskov Substitution principle (LSP):} Subtypes can be substituted for their base types. A \texttt{Moderator} object can be used wherever a \texttt{User} object is expected, as it inherits all of \texttt{User}'s functionality while extending it.
+\item
+\protect\phantomsection\label{OOCrMYvdHx2JeFj_27TfU}
+\textbf{Interface Segregation principle (ISP):} The \texttt{Search} interface is a good example, providing a focused contract for search functionality. Clients depend only on this small interface, not the larger concrete \texttt{SearchCatalog} class.
+\item
+\protect\phantomsection\label{SUhp-8iVUwSla6OXSk7NW}
+\textbf{Dependency Inversion principle (DIP):} The system depends on abstractions, not concretions. High-level components interact with the \texttt{Search} interface rather than depending directly on the low-level \texttt{SearchCatalog} implementation.
+\end{itemize}
+
+\subsubsection{Design patterns}\label{EBQBSYq9umUMFUc1iXUkI}
+\\
+The design leverages established patterns to solve common problems effectively.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{cs68x0Fm6vkrqkCd51AOT}
+\textbf{Observer pattern:} Used to notify users automatically when events occur on content they follow, such as receiving a new answer, vote, or comment.
+\item
+\protect\phantomsection\label{j5o9p08Zl4S-4bObEYNUe}
+\textbf{Strategy pattern:} Applied to handle interchangeable search functionalities, allowing users to search for questions by criteria like tags, keywords, or users, without changing the client.
+\item
+\protect\phantomsection\label{oY0RO68nzRmf8-kN_bgXK}
+\textbf{Factory Method pattern:} Used to create different objects like questions, answers, and comments, encapsulating the instantiation logic and promoting loose coupling.
+\item
+\protect\phantomsection\label{Hxk0-NkH7PIf9l0DwPEBP}
+\textbf{Template Method pattern:} This pattern defines a general workflow for actions but allows subclasses (like \texttt{Moderator} and \texttt{Admin}) to customize specific steps, such as deleting a question or restoring an answer.
+\item
+\protect\phantomsection\label{lAFY4GV7XFaF4uqS7Z-BX}
+\textbf{Command pattern:} This pattern encapsulates actions like flagging content or voting as objects, allowing them to be queued, logged, or executed later by a moderation system.
+\end{itemize}
+
+\subsection{Object interactions}\label{ZytgHxbVvnyXZKGs9MUJx}
+\\
+Collaborations between key objects drive the system's dynamic behavior. The process of closing a question illustrates this well.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{GZTtFtm6vgQxWubQn1Ut8}
+\textbf{Vote initiation:} A \texttt{User} object initiates the process by calling the vote(close,\ remark) method on a specific \texttt{Question} object.
+\item
+\protect\phantomsection\label{4o966fVc9FAgx6khEjs15}
+\textbf{Moderator action:} If the \texttt{User} is a \texttt{Moderator}, the \texttt{Question} object's state is immediately changed to ``Closed.'' It then calls the \texttt{notify(closedQuestion)} method, which alerts the \texttt{Author} (another \texttt{User} object) of the action.
+\item
+\protect\phantomsection\label{H7HWJYIbBDwEhmizPFbLv}
+\textbf{Regular user vote:} If the \texttt{User} is not a moderator, the \texttt{Question} object checks the user's reputation.
+\item
+\protect\phantomsection\label{hYPuruPktN2DYnbUVtKNw}
+\textbf{Vote aggregation:} A close vote is added to the Question object if the user has sufficient reputation. The Question then checks if the total number of close votes has reached the threshold (e.g., 3). If it has, the question's status is changed to ``Closed,'' and the \texttt{Author} is notified.
+\item
+\protect\phantomsection\label{UY3wEUt1ULwOFHGevvlzq}
+\textbf{Invalid vote:} If the user does not have sufficient reputation, the vote is deemed invalid, and no further action is taken.
+\end{itemize}
+
+\subsection{System workflow}\label{8HUzAELdhNE3MbSOLqLwK}
+\\
+The primary workflows demonstrate how actors move through the system to complete tasks. A core workflow is the end-to-end process of a member posting a new question.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{s_NZe96yj1YOjxY19t1bG}
+\textbf{Initiation:} The workflow begins when a \texttt{User} clicks the ``Ask Question'' button.
+\item
+\protect\phantomsection\label{IwJUnWY407iJXJzehvvga}
+\textbf{Content creation:} The \texttt{User} fills out the title and body fields for the new question.
+\item
+\protect\phantomsection\label{uj1si-98NOh4uDXzbZbqU}
+\textbf{Tagging:} The system prompts the user to add tags. If the \texttt{User} adds a new tag that doesn't exist, the system checks their account status and reputation. A \texttt{Moderator} can create a tag directly, while a regular \texttt{User} needs sufficient reputation.
+\item
+\protect\phantomsection\label{VkjP1VXO3sqtHUHSH4Ri2}
+\textbf{Policy check:} Once the post is composed, the system validates it against the terms of service.
+\item
+\protect\phantomsection\label{xbRVbmQ8j9j6dk0gqeUCR}
+\textbf{Finalization:} If the post adheres to the terms of service, the question is successfully created and published. Otherwise, the question is not posted, and the user is likely notified of the issue.
+\end{itemize}
+
+% End of section content

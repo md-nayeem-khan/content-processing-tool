@@ -1,0 +1,32 @@
+\contentsline {chapter}{\numberline {1} Distributed Task Scheduler }{1}{chapter.0.1}%
+\ttl@starttoc {chapters@1}
+\contentsline {section}{\numberline {1} System Design: The Distributed Task Scheduler }{2}{section.0.1.1}%
+\contentsline {subsection}{\numberline {1.1}What is a task scheduler?}{2}{subsection.0.1.1.1}%
+\contentsline {subsection}{\numberline {1.2}When to use a task scheduler}{2}{subsection.0.1.1.2}%
+\contentsline {subsection}{\numberline {1.3}Distributed task scheduling}{3}{subsection.0.1.1.3}%
+\contentsline {subsection}{\numberline {1.4}How will we design a task scheduling system?}{3}{subsection.0.1.1.4}%
+\contentsline {section}{\numberline {2} Requirements of a Distributed Task Scheduler's Design }{4}{section.0.1.2}%
+\contentsline {subsection}{\numberline {2.1}Requirements}{4}{subsection.0.1.2.1}%
+\contentsline {subsubsection}{Functional requirements}{4}{subsection.0.1.2.1}%
+\contentsline {subsubsection}{Non-functional requirements}{4}{figure.caption.21}%
+\contentsline {subsection}{\numberline {2.2}Building blocks we will use}{5}{subsection.0.1.2.2}%
+\contentsline {section}{\numberline {3} Design of a Distributed Task Scheduler }{5}{section.0.1.3}%
+\contentsline {subsection}{\numberline {3.1}Components}{5}{subsection.0.1.3.1}%
+\contentsline {subsection}{\numberline {3.2}Design}{6}{subsection.0.1.3.2}%
+\contentsline {subsection}{\numberline {3.3}Task submitter}{8}{subsection.0.1.3.3}%
+\contentsline {section}{\numberline {4} Design Considerations of a Distributed Task Scheduler }{9}{section.0.1.4}%
+\contentsline {subsection}{\numberline {4.1}Queueing}{9}{subsection.0.1.4.1}%
+\contentsline {subsection}{\numberline {4.2}Execution cap}{9}{subsection.0.1.4.2}%
+\contentsline {subsection}{\numberline {4.3}Prioritization}{10}{subsection.0.1.4.3}%
+\contentsline {subsection}{\numberline {4.4}Resource capacity optimization}{10}{subsection.0.1.4.4}%
+\contentsline {subsection}{\numberline {4.5}Task idempotency}{11}{subsection.0.1.4.5}%
+\contentsline {subsection}{\numberline {4.6}Schedule and execute untrusted tasks}{15}{subsection.0.1.4.6}%
+\contentsline {section}{\numberline {5} Evaluation of a Distributed Task Scheduler's Design }{15}{section.0.1.5}%
+\contentsline {subsection}{\numberline {5.1}Requirements compliance}{15}{subsection.0.1.5.1}%
+\contentsline {subsubsection}{Availability}{15}{subsection.0.1.5.1}%
+\contentsline {subsubsection}{Durability}{15}{subsection.0.1.5.1}%
+\contentsline {subsubsection}{Scalability}{16}{subsection.0.1.5.1}%
+\contentsline {subsubsection}{Fault tolerance}{16}{figure.caption.73}%
+\contentsline {subsubsection}{Bounded waiting time}{16}{figure.caption.73}%
+\contentsline {subsection}{\numberline {5.2}Conclusion}{16}{subsection.0.1.5.2}%
+\contentsfinish 

@@ -1,0 +1,177 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Encapsulation
+% Section ID: 6504525840252928
+% Section Slug: encapsulation
+% Generated: 2025-12-16T12:48:39.561160
+
+\subsection{Data hiding}\label{1N8Jf6NQE3wOoBVqfcj8j}
+\\
+Data hiding is an essential concept in object-oriented programming. In simple terms, it can be defined as~masking a class\textquotesingle s internal operations and only providing an interface through which other entities can interact with the class without being aware of what is happening within.
+\\
+The goal is to implement classes in a way that prevents unauthorized access to or modification of the original contents of a class by its instances (or objects). The underlying algorithms of one class need not be known to another class. The two classes can still communicate, though.
+
+\subsection{Components of data hiding}\label{YfvOALpEP6uI3sSQGd8RQ}
+\\
+Data hiding can be divided into two primary components:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{pxPnVdVg_FmeIGOZMZcXt}
+Encapsulation
+\item
+\protect\phantomsection\label{N3VVEYv3J9V4fStygPkqM}
+Abstraction
+\end{itemize}
+\\
+When used together, they allow us to make efficient classes for further use in our application.
+
+\subsection{Encapsulation}\label{F_kzbH9l-ET7xj_ZUd4Bg}
+\\
+Encapsulation is a fundamental programming technique used to achieve data hiding in OOP. Encapsulation in OOP refers to binding data and the methods to manipulate that data together in a single unit---class.
+\\
+Encapsulation is usually done to hide the state and representation of an object from the outside. A class can be thought of as a capsule with methods and attributes inside it.
+\\
+When encapsulating classes, a good convention is to declare all variables of a class private. This will restrict direct access by the code outside that class.
+\\
+At this point, a question can be raised. If the methods and variables are encapsulated in a class, how can they be used outside that class? The answer to this is simple. One has to implement public methods to let the outside world communicate with this class. These methods are called \textbf{getters} and \textbf{setters}. We can also implement other custom methods.
+
+\subsubsection{Implementing encapsulation in programming languages}\label{1zNsWvURzPwcZNFTlB2_m}
+\\
+In this section, we will show how to implement encapsulation using some of the most popular object-oriented programming languages, such as Java, C\#, Python, C++, and JavaScript.
+\\
+For the sake of explanation, we'll start off by creating a simple \texttt{Movie} class, which contains the following three data members (attributes):
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{5G90t7XNc_5Xt79JYw7FJ}
+\texttt{title}
+\item
+\protect\phantomsection\label{z229LSFXRqZjbsbLCOzRS}
+\texttt{year}
+\item
+\protect\phantomsection\label{dA2SXTo-9Fkbx_usWRgJf}
+\texttt{genre}
+\end{itemize}
+\\
+Below is the implementation of the \texttt{Movie} class in different OOP languages.
+
+\textbf{Data member initialization using the constructor of the "Movie" class}
+
+\begin{lstlisting}[language=Java]
+class Movie {
+  // Data members
+  private String title;
+  private int year;
+  private String genre;
+
+  // Default constructor
+  public Movie() {
+    title = "";
+    year = -1;
+    genre = "";
+  }
+
+  // Parameterized constructor
+  public Movie(String t, int y, String g) {
+    title = t;
+    year = y;
+    genre = g;
+  }
+}
+\end{lstlisting}
+
+There must be a way to interact with variables (\texttt{title}, \texttt{year}, and \texttt{genre}). They include all of the movie\textquotesingle s information. The question is, how do we access or modify them?
+\\
+We can create a \texttt{getTitle()} method, which will return the title to us. Similarly, the other two members can also have corresponding getters.
+\\
+We may draw a conclusion by studying the emerging pattern. These functions should be part of the class itself. Let's try it out.
+
+\textbf{Implementation of encapsulation}
+
+\begin{lstlisting}[language=Java]
+class Movie {
+  // Data members
+  private String title;
+  private int year;
+  private String genre;
+
+  // Default constructor
+  public Movie() {
+    title = "";
+    year = -1;
+    genre = "";
+  }
+
+  // Parameterized constructor
+  public Movie(String t, int y, String g) {
+    title = t;
+    year = y;
+    genre = g;
+  }
+  
+  // getters setters
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String t) {
+    title = t;
+  }
+  
+  public int getYear() {
+    return year;
+  }
+
+  public void setYear(int y) {
+    year = y;
+  }
+  
+  public String getGenre() {
+    return genre;
+  }
+
+  public void setGenre(String g) {
+    genre = g;
+  }
+  
+  void printDetails() {
+    System.out.println("Title: " + title);
+    System.out.println("Year: " + year);
+    System.out.println("Genre: " + genre);
+  }
+  
+  public static void main(String[] args) {
+    Movie movie = new Movie("The Lion King", 1994, "Adventure");
+    movie.printDetails();
+    
+    System.out.println("---");
+    movie.setTitle("Forrest Gump");
+    System.out.print("New title: " + movie.getTitle());
+  }
+}
+\end{lstlisting}
+
+The \texttt{Movie} class has an interface with public methods for communication.
+\\
+The private members (variables or functions) cannot be accessed directly from the outside, but public read and write functions allow access to them. This , in essence, is data encapsulation.
+
+\subsubsection{Advantages of encapsulation}\label{3JkU4uIRsnpz-lwJ0zusw}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{tFJ0oWJIOhnT7Xl6knYLW}
+Classes are simpler to modify and maintain.
+\item
+\protect\phantomsection\label{8AU5OUafN-DE7eA4kyZNk}
+Which data member we wish to keep hidden or accessible can be specified.
+\item
+\protect\phantomsection\label{Q8G8V-5w0oNDGonwdu4FD}
+We choose which variables are read-only and write-only (increases flexibility).
+\end{itemize}
+\\
+In the next lesson, we will discuss the concept of abstraction in detail.
+
+% End of section content

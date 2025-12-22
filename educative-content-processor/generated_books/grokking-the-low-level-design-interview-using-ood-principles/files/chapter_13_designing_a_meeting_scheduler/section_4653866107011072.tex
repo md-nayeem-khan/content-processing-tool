@@ -1,0 +1,312 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Code for the Meeting Scheduler
+% Section ID: 4653866107011072
+% Section Slug: code-for-the-meeting-scheduler
+% Generated: 2025-12-12T13:06:47.424953
+
+We've reviewed the different aspects of the meeting scheduler and observed the attributes attached to the problem using various UML diagrams. Let 's explore the more practical side of things, where we will work on implementing the meeting scheduler using multiple languages. This is usually the last step in an object-oriented design interview process.
+\\
+We have chosen the following languages to write the skeleton code of the different classes present in the meeting scheduler:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{YWZm774Xjv7kUdYzKarKr}
+Java
+\item
+\protect\phantomsection\label{svIF3ldOHtF5aC1t2FQ0a}
+C\#
+\item
+\protect\phantomsection\label{ROHHR2ykqp5FrfzWi_kgN}
+Python
+\item
+\protect\phantomsection\label{zeAMTGG_fTwh65gDRFWmh}
+C++
+\item
+\protect\phantomsection\label{UIojGjoeXSvBYn8BYHagf}
+JavaScript
+\end{itemize}
+\\
+If you want to skip directly to the implementation and see the complete workflow, simply scroll down or click~\hyperref[Executable-code-Meeting-scheduler]{Executable Code: Meeting Scheduler}.
+
+\subsection{Meeting scheduler classes}\label{qmPuiZ4xWbV1ysp-dtPX0}
+\\
+This section will provide the skeleton code of the classes designed in the class diagram lesson.
+\begin{quote}
+\textbf{Note:} For simplicity, we are not defining getter and setter functions. The reader can assume that all class attributes are private, accessed through their respective public getter methods, and modified only through their public method functions.
+\end{quote}
+\subsubsection{Enumeration}\label{6l4twQ_tBE9TbXdFaV32N}
+\\
+The following code defines the enumeration and custom data type used in the meeting scheduler system.
+\\
+\texttt{RSVPStatus}: We need to create an enumeration to keep track of the suit of states of the meetings, i.e., accepted, rejected, or pending.
+
+\textbf{The RSVPStatus enum}
+
+\begin{lstlisting}[language=Java]
+public enum RSVPStatus {
+    ACCEPTED,
+    REJECTED,
+    PENDING
+}
+\end{lstlisting}
+
+\subsubsection{User}\label{oWJ8qVZ_KdGtH5KM-p9oO}
+\\
+The \texttt{User} class refers to a participant taking part in a meeting. A user can either accept or reject an invitation. The definition of this class is given below:
+
+\textbf{The User class}
+
+\begin{lstlisting}[language=Java]
+public class User {
+    private String name;
+    private String email;
+    private Calendar calendar;
+
+    public User(String name, String email) { /* ... */ }
+
+    public void respondInvitation(Meeting meeting, RSVPStatus response) { /* ... */ }
+    public List<Meeting> viewMeetings() { /* ... */ }
+
+    // Getters and setters...
+}
+\end{lstlisting}
+
+\subsubsection{Interval}\label{rZMleuGT9Kdm0O6dcmbV6}
+\\
+The \texttt{Interval} class denotes the meeting interval (the start and end time).
+
+\textbf{The Interval class}
+
+\begin{lstlisting}[language=Java]
+import java.util.Date;
+
+public class Interval {
+    private Date startTime;
+    private Date endTime;
+
+    public Interval(Date startTime, Date endTime) { /* ... */ }
+
+    public Date getStartTime() { /* ... */ }
+    public Date getEndTime() { /* ... */ }
+}
+\end{lstlisting}
+
+\subsubsection{MeetingRoom}\label{a-GjKp6-VT6SMnzmDC3jh}
+\\
+The \texttt{MeetingRoom} class will represent the meeting rooms, each having a specific capacity, a boolean to check if a room is available, and a list of intervals for which the room is booked. The definition of the class is provided below:
+
+\textbf{The MeetingRoom class}
+
+\begin{lstlisting}[language=Java]
+import java.util.List;
+
+public class MeetingRoom {
+    private int id;
+    private int capacity;
+    private List<Interval> bookedIntervals;
+    private boolean isAvailable;
+
+    public MeetingRoom(int id, int capacity) { /* ... */ }
+
+    public boolean isAvailableFor(Interval interval, int capacity) { /* ... */ }
+    public void bookInterval(Interval interval) { /* ... */ }
+    public void releaseInterval(Interval interval) { /* ... */ }
+
+    // Getters and setters...
+}
+\end{lstlisting}
+
+\subsubsection{Calendar}\label{3VyJ6YosyGRVL7Tb2VQ2W}
+\\
+The \texttt{Calendar} class contains a list of meetings to keep track of all the scheduled meetings. The definition of this class is provided below:
+
+\textbf{The Calendar class}
+
+\begin{lstlisting}[language=Java]
+import java.util.List;
+
+public class Calendar {
+    private List<Meeting> meetings;
+
+    public Calendar() { /* ... */ }
+
+    public void addMeeting(Meeting meeting) { /* ... */ }
+    public void removeMeeting(Meeting meeting) { /* ... */ }
+    public List<Meeting> getMeetings() { /* ... */ }
+}
+\end{lstlisting}
+
+\subsubsection{Meeting}\label{julu7b82zRwsJjYIajaE4-1}
+\\
+The \texttt{Meeting} class outlines the meeting details, such as the number and list of participants, the meeting time interval, and the meeting room. It also has the option to add more participants. The definition of this class is shown below:
+
+\textbf{The Meeting class}
+
+\begin{lstlisting}[language=Java]
+import java.util.List;
+import java.util.Map;
+
+public class Meeting {
+    private int id;
+    private Map<User, RSVPStatus> participantStatus;
+    private Interval interval;
+    private MeetingRoom room;
+    private String subject;
+
+    public Meeting(int id, List<User> participants, Interval interval, MeetingRoom room, String subject) { /* ... */ }
+
+    public void addParticipants(List<User> participants) { /* ... */ }
+    public void updateParticipantStatus(User user, RSVPStatus status) { /* ... */ }
+    public List<User> getAcceptedParticipants() { /* ... */ }
+    public List<User> getPendingParticipants() { /* ... */ }
+    public List<User> getRejectedParticipants() { /* ... */ }
+
+    // Getters and setters...
+}
+\end{lstlisting}
+
+\subsubsection{MeetingScheduler}\label{julu7b82zRwsJjYIajaE4-2}
+\\
+The \texttt{MeetingScheduler} class is the main class of the meeting scheduler and contains the organizer responsible for scheduling and canceling a meeting and booking or releasing a room. It also checks if any meeting rooms are available. In addition, there will be only one instance of the scheduler in the meeting scheduler. Therefore, the \texttt{MeetingScheduler} class will be a Singleton class to ensure that only one instance of the scheduler is created in the entire system.
+\\
+The definition of this class is shown below:
+
+\textbf{The MeetingScheduler class}
+
+\begin{lstlisting}[language=Java]
+import java.util.List;
+
+public class MeetingScheduler {
+    private User organizer;
+    private Calendar calendar;
+    private List<MeetingRoom> rooms;
+
+    public MeetingScheduler(User organizer, List<MeetingRoom> rooms) { /* ... */ }
+
+    public Meeting scheduleMeeting(List<User> users, Interval interval, String subject) { /* ... */ }
+    public boolean cancelMeeting(Meeting meeting) { /* ... */ }
+    public MeetingRoom checkRoomsAvailability(int capacity, Interval interval) { /* ... */ }
+    public boolean bookRoom(MeetingRoom room, Interval interval) { /* ... */ }
+    public boolean releaseRoom(MeetingRoom room, Interval interval) { /* ... */ }
+
+    // Getters and setters...
+}
+\end{lstlisting}
+
+\subsubsection{Notification}\label{0ZVCay7W6Bkab1KXP_cLz}
+\\
+The \texttt{Notification} class is responsible for sending notifications to users about any new meetings cancellations. The definition of this class is provided below:
+
+\textbf{The Notification class}
+
+\begin{lstlisting}[language=Java]
+import java.util.Date;
+
+public class Notification {
+    private int notificationId;
+    private String content;
+    private Date creationDate;
+
+    public Notification(int notificationId, String content, Date creationDate) { /* ... */ }
+
+    public void sendInvite(User user, Meeting meeting) { /* ... */ }
+    public void sendCancelNotification(User user, Meeting meeting) { /* ... */ }
+}
+\end{lstlisting}
+
+\subsection{Executable code: Meeting scheduler}\label{q9QC2CQZ_l3nCbrbc8QPF}
+\\
+Below is a fully self-contained, runnable program in Java, C\#, C++, Python, and JavaScript that demonstrates the core workflows of the Meeting scheduler. The main driver code of the system resides in the~\texttt{Driver.java},~\texttt{Driver.cs},~\texttt{Driver.py},~\texttt{Driver.cpp}, and~\texttt{Driver.js}~for all respective languages. You can click the ``Run'' button to execute the code.
+
+\subsubsection{What does this code show}\label{0JrNyEGhT_chANMPTD3SH}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{51dwxmyGGHy6UgRwdB1Tu}
+\textbf{System initialization:} Sets up meeting rooms, users, and the meeting scheduler.
+\item
+\protect\phantomsection\label{ailIzXebJbC-skik3KLzo}
+\textbf{Scenario 1 (Schedule a meeting):} The organizer schedules a meeting with participants, the system checks room availability, books the room, adds the meeting to user calendars, and sends invitation notifications. Each participant randomly accepts or rejects the invite.
+\item
+\protect\phantomsection\label{x6V6rmHEefs9-L0zvEQON}
+\textbf{Scenario 2 (Schedule another meeting):} This scenario demonstrates scheduling another meeting using the same invitation and response workflow.
+\item
+\protect\phantomsection\label{ZMfdeb299a5W014Q6l7VS}
+\textbf{Scenario 3 (Cancel a meeting):} The organizer cancels the meeting, which releases the room, removes the meeting from all calendars, and sends cancellation notifications to participants.
+\end{itemize}
+\\
+\textbf{Hint: Try customizing the code!}
+\\
+This code is designed for experimentation, not just reading. You can edit, extend, or modify any part of the example.
+
+\textbf{Executable code: Meeting scheduler}
+
+\begin{lstlisting}[language=Java]
+import java.util.Date;
+
+public class Driver {
+    public static void main(String[] args) {
+        // Set up rooms
+        MeetingRoom roomA = new MeetingRoom(1, 4);
+        MeetingRoom roomB = new MeetingRoom(2, 8);
+        java.util.List<MeetingRoom> rooms = java.util.Arrays.asList(roomA, roomB);
+
+        // Set up users
+        User alice = new User("Alice", "alice@email.com");
+        User bob = new User("Bob", "bob@email.com");
+        User charlie = new User("Charlie", "charlie@email.com");
+        java.util.List<User> participants = java.util.Arrays.asList(alice, bob, charlie);
+
+        // Set up scheduler
+        MeetingScheduler scheduler = new MeetingScheduler(alice, rooms);
+
+        // Scenario 1: All accept
+        header("Scenario 1: Schedule a Meeting (Random Accept/Reject)");
+        arrow("Scheduling meeting "Design Review" for Alice, Bob, Charlie...");
+        Interval interval1 = getInterval(2025, java.util.Calendar.JULY, 10, 10, 0, 11, 0);
+        Meeting meeting1 = scheduler.scheduleMeeting(participants, interval1, "Design Review");
+
+        // Scenario 2: Schedule another meeting (possibly some will reject)
+        header("Scenario 2: Schedule Another Meeting (Random Accept/Reject)");
+        arrow("Scheduling meeting "Sprint Planning" for Alice, Bob, Charlie...");
+        Interval interval2 = getInterval(2025, java.util.Calendar.JULY, 10, 12, 0, 13, 0);
+        Meeting meeting2 = scheduler.scheduleMeeting(participants, interval2, "Sprint Planning");
+
+        // Scenario 3: Cancel a meeting
+        header("Scenario 3: Cancel Meeting");
+        arrow("Cancelling meeting "Design Review"...");
+        if (meeting1 != null) {
+            scheduler.cancelMeeting(meeting1);
+        }
+    }
+
+    // Formatting helpers
+    private static void header(String title) {
+        System.out.println("
+==============================");
+        System.out.println("â¶ " + title);
+        System.out.println("==============================
+");
+    }
+    private static void arrow(String msg) { System.out.println("â " + msg); }
+
+    // Utility function for creating an interval
+    private static Interval getInterval(int year, int month, int day, int startHour, int startMin, int endHour, int endMin) {
+        java.util.Calendar cal = java.util.Calendar.getInstance();
+        cal.set(year, month, day, startHour, startMin, 0);
+        Date start = cal.getTime();
+        cal.set(year, month, day, endHour, endMin, 0);
+        Date end = cal.getTime();
+        return new Interval(start, end);
+    }
+}
+\end{lstlisting}
+
+\subsection{Wrapping up}\label{d6DcwCJ0jKUAiX5iUpOvw-2}
+\\
+In this chapter, we've explored the complete design of the meeting scheduler, including how it can be visualized using various UML diagrams and designed using object-oriented principles and design patterns.
+
+% End of section content

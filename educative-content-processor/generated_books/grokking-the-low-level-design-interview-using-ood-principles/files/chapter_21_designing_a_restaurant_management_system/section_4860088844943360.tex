@@ -1,0 +1,232 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Summary: Designing a Restaurant Management System
+% Section ID: 4860088844943360
+% Section Slug: summary-designing-a-restaurant-management-system
+% Generated: 2025-12-14T12:24:18.066041
+
+Now that you've completed the restaurant management system case study, let's take a moment to reflect on and consolidate what we've learned. We 'll revisit the key system requirements, identify the core classes along with their responsibilities and relationships, and highlight the major design principles applied. We
+'ll also examine how objects interact within the system and walk through the overall workflow to understand how the components come together to achieve the desired functionality.
+
+\subsection{Key requirements}\label{I1agLQT1CI1zGI8iYUzk0}
+\\
+Below are the core functional and non-functional requirements for the restaurant management system:
+
+\begin{enumerate}
+\item
+\protect\phantomsection\label{8h8tyzT0EEMvbfnUL0kC0}
+The restaurant can have multiple branches, each with unique menus and table configurations.
+\item
+\protect\phantomsection\label{0DoT77jH5Oz3O2Ay6Bp0v}
+Waiters can create and update orders for tables, adding multiple items per person.
+\item
+\protect\phantomsection\label{joTJb4I8S29mujGnkI3op}
+Customers and receptionists can search for tables and make, modify, or cancel reservations.
+\item
+\protect\phantomsection\label{T6mfV6-CcMCe2LNTskLbA}
+The system can provide real-time information on available tables for walk-in customers.
+\item
+\protect\phantomsection\label{fsDHHAQdCDsE0skdoArl7}
+The system notifies customers as their reservation time approaches.
+\item
+\protect\phantomsection\label{wxtqyMmBuclgqkbnuVeSk}
+Customers can pay bills using credit cards or cash; servers process payments.
+\item
+\protect\phantomsection\label{LGUQRtMiLWjzvQxHAOhmi}
+Managers can update branch menus and table layouts.
+\item
+\protect\phantomsection\label{m6F3DYy37b9zq-MaMtLGR}
+The system automatically updates table statuses after reservations and payments.
+\end{enumerate}
+
+\subsection{System actors}\label{xeVungaihModcaoY3JbvF}
+\\
+The following are the main actors who interact with the restaurant management system:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{e7zhrYlfpMaY4eY9QgCum}
+\textbf{Customer:} Browses menu, makes or cancels reservations, places orders, and pays bills.
+\item
+\protect\phantomsection\label{gX0nU0pUfp3OVpTpLzdkF}
+\textbf{Receptionist:} Searches and manages customer table reservations, receives notifications, and modifies reservations.
+\item
+\protect\phantomsection\label{6GoE7TJ-sO7RjbjyB6tQd}
+\textbf{Server:} Assists with order taking, management, bill generation, and payment processing.
+\item
+\protect\phantomsection\label{tu9TIgGAW9F31jkSa5yU8}
+\textbf{Manager:} Manages menu sections/items and table configuration for each branch.
+\end{itemize}
+
+\subsection{Important classes and relationships}\label{q9z7jHLrtV25jBOEYF3xy}
+\\
+The table below summarizes the key classes, their responsibilities, and primary relationships:
+
+\begin{table}[h!]
+\centering
+\begin{tabularx}{\textwidth}{|X|X|X|}
+\hline
+\textbf{Class} & \textbf{Description} & \textbf{Important Relationships} \\
+\hline
+Person & Abstract base class for all staff and customers. & Extended by Customer, Waiter, Receptionist, Manager. \\
+\hline
+Customer & Makes reservations, places orders, and pays bills. & Inherits from Person; associated with Reservation, Order, Address. \\
+\hline
+Waiter & Takes orders and processes payments for tables. & Inherits from Person; associated with Order, Branch, Table. \\
+\hline
+Receptionist & Manages table reservations. & Inherits from Person; associated with Reservation, Branch. \\
+\hline
+Manager & Manages menu and table layout per branch. & Inherits from Person; associated with Branch. \\
+\hline
+Branch & Represents a restaurant location. & Associated with TableConfiguration, Menu, Manager, Waiter, Receptionist. \\
+\hline
+Table & Represents a table with seats and status. & Associated with Branch, Reservation, Order. \\
+\hline
+TableConfiguration & Represents the seating chart for a branch. & Composed in Branch; associated with Table. \\
+\hline
+Menu & Contains menu sections and menu items. & Associated with Branch; composed of MenuSection. \\
+\hline
+MenuSection & A category of menu items (e.g., appetizers, entrees). & Composed of MenuItem; part of Menu. \\
+\hline
+MenuItem & Individual food/drink item with details and price. & Associated with MealItem; part of MenuSection. \\
+\hline
+Meal & Represents the food ordered per person at a table. & Composed of MealItem, Table; part of Order. \\
+\hline
+MealItem & A specific menu item within a meal, with quantity. & Associated with MenuItem; part of Meal. \\
+\hline
+Order & An order placed for a table includes meals for each seat. & Composed of Meal; associated with Table, Waiter, Bill. \\
+\hline
+Bill & Represents the total amount for an order, including tax. & Associated with Order, Payment. \\
+\hline
+Payment & Handles payments for bills. & Parent to CreditCardPayment, CashTransaction; associated with Bill. \\
+\hline
+Reservation & Table reservation with time, status, and customer details. & Associated with Table, Customer, Receptionist, Notification. \\
+\hline
+Notification & Sends alerts to customers (e.g., reservation reminders). & Associated with the Reservation. \\
+\hline
+\end{tabularx}
+\caption{Restaurant Management System Classes and Their Relationships}
+\label{tab:restaurant_classes}
+\end{table}
+
+\subsection{Design highlights}\label{1ua1igwgRPu0VBANDDs58}
+\\
+This section captures the main design ideas behind the system.
+
+\subsection{Design approach}\label{DbGHNucVFx-IgRCZxbKaC}
+\\
+The system uses a bottom-up approach, beginning with atomic units (table, seat, menu item) and building up to meals, orders, reservations, and finally, full branch and restaurant management.
+
+\subsection{Design principles}\label{xob1VB7QMYimXbMw-6hIq}
+\\
+The design demonstrates the following SOLID principles:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{9SEI_2_EV68YI9eneFB5F}
+\textbf{Single Responsibility principle (SRP):} Each class has a focused purpose (e.g., \texttt{Waiter} manages orders, \texttt{Notification} handles alerts).
+\item
+\protect\phantomsection\label{K3VQWbfjpf_oy1sc0U1vj}
+\textbf{Open/Closed principle (OCP):} Extending base classes allows adding new payment types, menu sections, or notification methods.
+\item
+\protect\phantomsection\label{XrRinhA5307smvcnwY7o-}
+\textbf{Liskov Substitution principle (LSP):} Derived classes (e.g., \texttt{Customer}, \texttt{Waiter}) can replace their parents without affecting system behavior.
+\item
+\protect\phantomsection\label{oi9a8hLMTaT_GJFKEdBhF}
+\textbf{Interface Segregation principle (ISP):} Functionalities like reservations, ordering, and payments are handled by separate classes, avoiding ``fat'' interfaces.
+\item
+\protect\phantomsection\label{uB1vkUd4XHgrisvIWqK_t}
+\textbf{Dependency Inversion principle (DIP):} High-level modules depend on abstractions (\texttt{Payment}, \texttt{Notification}) rather than concrete implementations.
+\end{itemize}
+
+\subsection{Design patterns}\label{1_p53MM2SEKL6SbwJx8kg}
+\\
+Several established patterns are used:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{NsrxgkptiRCmcb15btZqF}
+\textbf{Strategy pattern:} This pattern is used for payment processing. The system supports different payment strategies (cash, credit card), allowing the payment process to be dynamically selected and extended.
+\item
+\protect\phantomsection\label{X4JpgmX1NSTjReVZDT3Rh}
+\textbf{Template Method pattern:} Each payment type (cash or credit card) follows the same overall process (prepare bill, initiate transaction, finalize payment), but can implement steps differently. This common flow with customizable steps is modeled with the template method pattern.
+\item
+\protect\phantomsection\label{ssNNM46Ih5FmPuVu9IXOm}
+\textbf{Composite pattern:} The restaurant menu is structured hierarchically: a menu contains multiple sections (like starters or desserts), each containing multiple items. This whole-part relationship is modeled using the composite pattern.
+\end{itemize}
+
+\subsection{Object interactions}\label{Zszul41maBIIbN2H4PXva}
+\\
+Here is how objects collaborate for core activities:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{DAGkXdruCfd4QmkGu-F97}
+\textbf{Making a reservation:}
+
+\begin{itemize}
+\item
+Customer searches for available tables via the receptionist/system.
+\item
+System returns available options; customer selects table, date, and time.
+\item
+The receptionist confirms and records the reservation.
+\item
+A reservation is associated with the customer and table.
+\item
+As the reservation time nears, the system sends a notification to the customer.
+\end{itemize}
+\item
+\protect\phantomsection\label{l-mGF06fXBgcmJC3OoUDC}
+\textbf{Placing an order and payment:}
+
+\begin{itemize}
+\item
+The customer is seated and reviews the menu.
+\item
+Waiter takes the order, creates an \texttt{Order}, and adds meals and meal items for each seat.
+\item
+Waiter generates a bill linked to the order.
+\item
+Customer selects payment method; waiter processes via \texttt{CreditCardPayment} or \texttt{CashTransaction}.
+\item
+System updates the table status to available after payment.
+\end{itemize}
+\item
+\protect\phantomsection\label{d-GXevFAVGsP13BH2aCwZ}
+\textbf{Modifying or canceling a reservation:}
+
+\begin{itemize}
+\item
+Customer or receptionist updates reservation; system updates associated table and notifies customer as needed.
+\end{itemize}
+\end{itemize}
+
+\subsection{System workflow}\label{JVfdWAil_fvAYNgBdnLZD}
+\\
+This section describes the main user journeys and life cycle events:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{WxN8iiDr-v3aGOKnb_67X}
+\textbf{Branch setup and management:} The manager configures each branch's table layouts and updates the menu and table configurations as required. This ensures every branch has an accurate seating plan and an up-to-date menu for customers and staff.
+\item
+\protect\phantomsection\label{-xWh-VGdEsSm3Ghte-tRp}
+\textbf{Reservation flow:} Customers or receptionists search for available tables by date and time to make, modify, or cancel reservations. As reservation times approach, the system automatically sends notifications to customers and updates table statuses accordingly.
+\item
+\protect\phantomsection\label{RicH1Y69t3jAxaAEhoeAf}
+\textbf{Walk-in ordering and dining:} Customers request tables at the reception and are seated if available. The server provides the menu, takes orders, and assists the customer throughout their dining experience.
+\item
+\protect\phantomsection\label{wgrEGLyqe9bfFmAR21fNw}
+\textbf{Order and billing process:} The waiter creates or updates orders for the table, adds meal items for each customer, and generates the bill after service. The bill reflects all items ordered and includes any applicable taxes.
+\item
+\protect\phantomsection\label{IKyEfLqlCIiv5252NaQT3}
+\textbf{Payment handling:} Customers pay the bill by cash or credit card, which the waiter processes after the bill is generated. The system records the payment and marks the table as available for future reservations or walk-ins.
+\item
+\protect\phantomsection\label{1D43D4BL30SKp96T-Hpg3}
+\textbf{System-driven updates:} The system sends automatic notifications to customers as their reservation time approaches and updates table statuses after reservation and payment events. This keeps all actors informed and the restaurant's table management accurate in real time.
+\end{itemize}
+
+% End of section content

@@ -1,0 +1,34 @@
+% Chapter template for Educative course content with dynamic section inclusion
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{ Real-World Design Problems }
+
+\intro{
+In this chapter, you will discover how to approach and solve real-world design problems using object-oriented principles and methodologies.
+}
+
+\section{ An Approach to Solve a Real-World Problem }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_6_real_world_design_problems/section_5225512261910528.tex
+\IfFileExists{files/chapter_6_real_world_design_problems/section_5225512261910528.tex}{
+    \input{files/chapter_6_real_world_design_problems/section_5225512261910528.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "An Approach to Solve a Real-World Problem" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 5225512261910528
+        \item Section Slug: an-approach-to-solve-a-real-world-problem
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+
+
+\end{document}

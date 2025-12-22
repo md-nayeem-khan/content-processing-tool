@@ -1,0 +1,28 @@
+\contentsline {chapter}{\numberline {1} Distributed Logging }{1}{chapter.0.1}%
+\ttl@starttoc {chapters@1}
+\contentsline {section}{\numberline {1} System Design: Distributed Logging }{2}{section.0.1.1}%
+\contentsline {subsection}{\numberline {1.1}Logging}{2}{subsection.0.1.1.1}%
+\contentsline {subsection}{\numberline {1.2}Need for logging}{2}{subsection.0.1.1.2}%
+\contentsline {subsection}{\numberline {1.3}How will we design a distributed logging system?}{3}{subsection.0.1.1.3}%
+\contentsline {section}{\numberline {2} Introduction to Distributed Logging }{3}{section.0.1.2}%
+\contentsline {subsection}{\numberline {2.1}Logging in a distributed system}{3}{subsection.0.1.2.1}%
+\contentsline {subsection}{\numberline {2.2}Restrain the log size}{3}{subsection.0.1.2.2}%
+\contentsline {subsubsection}{Use sampling}{5}{subsection.0.1.2.2}%
+\contentsline {subsubsection}{Use categorization}{5}{subsection.0.1.2.2}%
+\contentsline {subsection}{\numberline {2.3}Structure the logs}{6}{subsection.0.1.2.3}%
+\contentsline {subsection}{\numberline {2.4}Points to consider while logging}{6}{subsection.0.1.2.4}%
+\contentsline {subsubsection}{Vulnerability in logging infrastructure}{7}{section*.21}%
+\contentsline {section}{\numberline {3} Design of a Distributed Logging Service }{7}{section.0.1.3}%
+\contentsline {subsection}{\numberline {3.1}Requirements}{7}{subsection.0.1.3.1}%
+\contentsline {subsubsection}{Functional requirements}{7}{subsection.0.1.3.1}%
+\contentsline {subsubsection}{Non-functional requirements}{7}{section*.25}%
+\contentsline {subsection}{\numberline {3.2}Building blocks we will use}{7}{subsection.0.1.3.2}%
+\contentsline {subsection}{\numberline {3.3}API design}{7}{subsection.0.1.3.3}%
+\contentsline {subsubsection}{Write a message}{8}{subsection.0.1.3.3}%
+\contentsline {subsubsection}{Search log}{8}{table.caption.32}%
+\contentsline {subsection}{\numberline {3.4}Initial design}{8}{subsection.0.1.3.4}%
+\contentsline {subsection}{\numberline {3.5}Logging at various levels}{8}{subsection.0.1.3.5}%
+\contentsline {subsubsection}{In a server}{9}{subsection.0.1.3.5}%
+\contentsline {subsubsection}{At datacenter level}{10}{figure.caption.43}%
+\contentsline {subsection}{\numberline {3.6}Conclusion}{12}{subsection.0.1.3.6}%
+\contentsfinish 

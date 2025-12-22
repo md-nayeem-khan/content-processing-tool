@@ -1,0 +1,13 @@
+\contentsline {chapter}{\numberline {1} Monitor Client-Side Errors }{1}{chapter.0.1}%
+\ttl@starttoc {chapters@1}
+\contentsline {section}{\numberline {1} Focus on Client-Side Errors in a Monitoring System }{2}{section.0.1.1}%
+\contentsline {subsection}{\numberline {1.1}Client-side errors}{2}{subsection.0.1.1.1}%
+\contentsline {subsection}{\numberline {1.2}Failures due to a routing bug}{2}{subsection.0.1.1.2}%
+\contentsline {section}{\numberline {2} Design of a Client-Side Monitoring System }{3}{section.0.1.2}%
+\contentsline {subsection}{\numberline {2.1}Initial design}{3}{subsection.0.1.2.1}%
+\contentsline {subsubsection}{Issues with probers}{3}{figure.caption.6}%
+\contentsline {subsection}{\numberline {2.2}Improve the design}{3}{subsection.0.1.2.2}%
+\contentsline {subsection}{\numberline {2.3}Activate and deactivate reports}{4}{subsection.0.1.2.3}%
+\contentsline {subsection}{\numberline {2.4}Reach collectors under faulty conditions}{4}{subsection.0.1.2.4}%
+\contentsline {subsection}{\numberline {2.5}Protect user privacy}{5}{subsection.0.1.2.5}%
+\contentsfinish 

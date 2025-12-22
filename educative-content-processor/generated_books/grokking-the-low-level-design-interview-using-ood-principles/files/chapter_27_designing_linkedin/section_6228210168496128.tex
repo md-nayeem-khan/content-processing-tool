@@ -1,0 +1,263 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Summary: Designing LinkedIn
+% Section ID: 6228210168496128
+% Section Slug: summary-designing-linkedin
+% Generated: 2025-12-14T13:35:29.524636
+
+After completing the LinkedIn case study, reviewing and reinforcing your understanding is a good time. We review the main system requirements, outline the core classes along with their roles and relationships, and highlight the key design principles that were applied. We 'll also explore how different objects interact within the system and walk through the overall workflow to see how all the components fit together to deliver the intended functionality.
+
+\subsection{Key requirements}\label{kkRxjOY2XblY9LlVCgJ15}
+\\
+Here are the primary functional and non-functional requirements that define the scope of the LinkedIn system:
+
+\begin{enumerate}
+\item
+Users can create and update their profiles to include education, experience, achievements, and skills.
+\item
+Users can search for other users, company pages, groups, and job listings.
+\item
+Users can send, cancel, accept, or ignore connection requests.
+\item
+Users can follow or unfollow other users and company pages without needing to connect their accounts.
+\item
+Users can view analytics, including connections, profile views, post impressions, and search appearances.
+\item
+Users can request and give recommendations.
+\item
+Users can create, react to, share, and comment on posts and on existing comments.
+\item
+Users can send and receive direct messages.
+\item
+The system sends notifications for messages, connection requests, search appearances, and post activities.
+\item
+Users can create and join groups, as well as create or follow company pages.
+\item
+Company pages can list job openings, and users can apply for them.
+\end{enumerate}
+
+\subsection{System actors}\label{aE3fDHItKIBwwob4WUN7b}
+\\
+The following actor interacts with the LinkedIn system:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{yB2m09hxhJhON89Wq_aWc}
+\textbf{User:} A professional who creates a profile, manages connections, interacts with content, applies for jobs, joins groups, and receives notifications.
+\end{itemize}
+
+\subsection{Important classes and relationships}\label{rmr6IDrD161XCJ7cZmmVs}
+\\
+Below is a summary of the key classes, their responsibilities, and their primary relationships in the system:
+
+\begin{center}
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+>{\centering\arraybackslash} p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+>{\centering\arraybackslash} p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+>{\centering\arraybackslash} p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\begin{minipage}[t]{\linewidth}\centering
+\textbf{Class}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+\textbf{Description}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+\textbf{Important Relationships}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{Person}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Abstract base class containing personal details like name, address, and phone number.
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Parent of \texttt{User}, composed with \texttt{Account}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{User}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Represents a LinkedIn user, supports profile, messaging, posting, connections, etc.
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Inherits from \texttt{Person}, has one \texttt{Profile}, associates with \texttt{CompanyPage}, \texttt{Group}, \texttt{Job}, \texttt{Post}, \texttt{Comment}, \texttt{Message}, \texttt{ConnectionInvitation}, uses \texttt{Notification}, \texttt{Search}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{Profile}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Contains the user's education, experience, skills, achievements, and recommendations.
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Composed of \texttt{Education}, \texttt{Experience}, \texttt{Skill}, \texttt{Achievement}, \texttt{Recommendation}, \texttt{Analytics}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{CompanyPage}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Represents a company's profile on LinkedIn.
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Created by \texttt{User}, composed of \texttt{Job}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{Job}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Represents job postings.
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Belongs to \texttt{CompanyPage}, posted by \texttt{User}, has \texttt{Address}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{Group}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Represents a professional group for users.
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Created/joined by \texttt{User}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{Post}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Represents user-generated content.
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Owned by \texttt{User,} composed of \texttt{Comment}, notifies \texttt{Notification}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{Message}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Direct messages are exchanged between users.
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Sent by \texttt{User}, can have multiple recipients
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{ConnectionInvitation}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Tracks connection request status.
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Sent between two \texttt{User} instances, notifies \texttt{Notification}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{Notification}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Manages notifications for user activities and system events.
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Notifies \texttt{User} about various actions
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{Search}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Interface for searching users, companies, jobs, and groups.
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Returns relevant objects to \texttt{User}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{Recommendation}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Stores recommendations requested or given by users.
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Part of \texttt{Profile}, can be added via system action
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{Account}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Stores login credentials and account info.
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Composed within \texttt{Person}
+\end{minipage} \\
+\end{longtable}
+}
+\end{center}
+
+\subsection{Design highlights}\label{NJY9sURhTc6Z0BpQ74vwn}
+\\
+Here are some of the notable design choices made in the LinkedIn system:
+
+\subsection{Design approach}\label{7Mq8KzJY-IwRNYWkm6mjL}
+\\
+The system is designed using a bottom-up approach, starting with basic units such as \texttt{User}, \texttt{Post}, and \texttt{ConnectionInvitation}, which are then composed into larger structures, including \texttt{Profile}, \texttt{CompanyPage}, and the overall LinkedIn platform.
+
+\subsection{Design principles}\label{U-serCjP-5vZeC48o1irp}
+\\
+The following SOLID principles are evident in the LinkedIn system:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{nFliQXEYRCBIrk-DjsYAe}
+\textbf{Single Responsibility principle (SRP):} Each class is focused on a single aspect. For example, \texttt{Profile} manages profile details, while \texttt{Notification} handles alerts.
+\item
+\protect\phantomsection\label{tSc4cAFNWtWJTXLMPUdzL}
+\textbf{Open/Closed principle (OCP):} New features (like new analytics metrics or notification types) can be added by extending existing classes.
+\item
+\protect\phantomsection\label{LLPZ0-IeqyvDaxDt8nvm8}
+\textbf{Liskov Substitution principle (LSP):} Derived classes (e.g., \texttt{User} extending \texttt{Person}) can be used wherever the base class is expected.
+\item
+\protect\phantomsection\label{8Fiqr5kNY2daj47U3V2j7}
+\textbf{Interface Segregation principle (ISP):} Search operations for users, jobs, companies, and groups are separated via the \texttt{Search} interface.
+\item
+\protect\phantomsection\label{VpfSlmbtLNSC6Y9VcNhBs}
+\textbf{Dependency Inversion principle (DIP):} High-level modules like \texttt{User} depend on abstractions (\texttt{Search}, \texttt{Notification}) rather than concrete implementations.
+\end{itemize}
+
+\subsection{Design patterns}\label{90r3IwBIObnbYKgPLlahv}
+\\
+The system applies several classic design patterns:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{OwwJ8hw8TSfuwp7n3ply0}
+\textbf{Factory pattern:} Used for centralized creation of objects such as posts, connection invitations, and job listings.
+\item
+\protect\phantomsection\label{FG9mQxDjOnckNLK0grgI4}
+\textbf{Observer pattern:} Enables automatic notifications when certain actions occur (e.g., connection requests, new messages).
+\item
+\protect\phantomsection\label{_8c8b9t4JkWYH_As2vKOa}
+\textbf{Singleton pattern:} Ensures only one instance of services like \texttt{Notification} or \texttt{Search} exists system-wide.
+\item
+\protect\phantomsection\label{BFrgkLHcICA88fgYYEypc}
+\textbf{Strategy pattern:} Enables flexible search logic for various entity types (users, jobs, companies, and groups).
+\item
+\protect\phantomsection\label{Vjn8jRrebgT9ujVkpVy7K}
+\textbf{Decorator pattern:} Used to extend the behaviors of posts and comments, such as adding reactions or sharing.
+\end{itemize}
+
+\subsection{Object interactions}\label{obQj_gEnM0UmePZtBhVHD}
+\\
+Key objects collaborate as follows to achieve core LinkedIn functionalities:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{4Vw9vimerojhjfp3ja83I}
+\textbf{User search:} A user utilizes the \texttt{Search} service to find other users; if successful, the searched user receives a notification about appearing in the results.
+\item
+\protect\phantomsection\label{0FiWd6_n-selfZ9Elw9PH}
+\textbf{Connection invitations:} Sending a connection request creates a \texttt{ConnectionInvitation} object, which notifies the recipient of the new request.
+\item
+\protect\phantomsection\label{wdxf9iyER-OBPi_NvSAjy}
+\textbf{Content engagement:} Creating posts or comments triggers notifications to owners or followers; reactions and replies are similarly handled through the \texttt{Notification} system.
+\item
+\protect\phantomsection\label{0IR_fgGqfY23zwl4KcJTu}
+\textbf{Messaging:} Sending a message results in a \texttt{Message} object being delivered to the recipient(s) with real-time notification.
+\item
+\protect\phantomsection\label{c9wFRopl9Abvbm_PD7jXT}
+\textbf{Job and group actions:} Applying for jobs or joining groups updates the associated entities and may trigger relevant notifications.
+\end{itemize}
+
+\subsection{System workflow}\label{0dcQesllin5Y2EYoHqaD4}
+\\
+The primary user journeys and life cycle events are:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{c8U-YTViO-CQs2sYPf7DF}
+\textbf{Profile management:} Users can create or update their profiles, adding details such as education, experience, skills, and achievements.
+\item
+\protect\phantomsection\label{W4A6DZWN6lCsBs4EiScwU}
+\textbf{Discovery and connection:} Users search for others, send connection requests, and manage incoming requests with real-time notifications at each step.
+\item
+\protect\phantomsection\label{q7ug8CSGrYhNAB-nIpxJw}
+\textbf{Content creation and interaction:} Users publish posts, comment, share, and react, while receiving notifications about activity on their content.
+\item
+\protect\phantomsection\label{DzEkUg3m7c6f5pFa7rEdc}
+\textbf{Private messaging:} Users exchange direct messages and are notified of new communications.
+\item
+\protect\phantomsection\label{Y4M7bZqVThUzJodTQvv2j}
+\textbf{Engagement with organizations:} Users create or follow company pages, list or apply for jobs, and join or create groups, with notifications facilitating all major updates and actions.
+\end{itemize}
+
+% End of section content

@@ -1,0 +1,41 @@
+\contentsline {chapter}{\numberline {1} Design a Proximity Service/Yelp }{1}{chapter.0.1}%
+\ttl@starttoc {chapters@1}
+\contentsline {section}{\numberline {1} System Design: Yelp }{2}{section.0.1.1}%
+\contentsline {subsection}{\numberline {1.1}What is Yelp?}{2}{subsection.0.1.1.1}%
+\contentsline {subsection}{\numberline {1.2}How will we design Yelp?}{3}{subsection.0.1.1.2}%
+\contentsline {section}{\numberline {2} Requirements of Yelp’s Design }{3}{section.0.1.2}%
+\contentsline {subsection}{\numberline {2.1}Requirements}{3}{subsection.0.1.2.1}%
+\contentsline {subsubsection}{Functional requirements}{3}{subsection.0.1.2.1}%
+\contentsline {subsubsection}{Non-functional requirements}{3}{figure.caption.11}%
+\contentsline {subsection}{\numberline {2.2}Resource estimation}{4}{subsection.0.1.2.2}%
+\contentsline {subsubsection}{Number of servers estimation}{4}{section*.18}%
+\contentsline {subsubsection}{Storage estimation}{4}{figure.caption.19}%
+\contentsline {subsubsection}{Bandwidth estimation}{5}{figure.caption.28}%
+\contentsline {subsection}{\numberline {2.3}Building blocks we will use}{6}{subsection.0.1.2.3}%
+\contentsline {section}{\numberline {3} Design of Yelp }{6}{section.0.1.3}%
+\contentsline {subsection}{\numberline {3.1}API design}{6}{subsection.0.1.3.1}%
+\contentsline {subsubsection}{Search}{6}{subsection.0.1.3.1}%
+\contentsline {subsubsection}{Add a place}{7}{table.caption.47}%
+\contentsline {subsubsection}{Add a review}{7}{table.caption.48}%
+\contentsline {subsection}{\numberline {3.2}Storage schema}{7}{subsection.0.1.3.2}%
+\contentsline {subsection}{\numberline {3.3}Design}{9}{subsection.0.1.3.3}%
+\contentsline {subsubsection}{Components}{9}{subsection.0.1.3.3}%
+\contentsline {subsubsection}{Workflow}{10}{figure.caption.75}%
+\contentsline {section}{\numberline {4} Design Considerations of Yelp }{10}{section.0.1.4}%
+\contentsline {subsection}{\numberline {4.1}Introduction}{10}{subsection.0.1.4.1}%
+\contentsline {subsection}{\numberline {4.2}Searching}{10}{subsection.0.1.4.2}%
+\contentsline {subsubsection}{Improve data fetching}{12}{figure.caption.81}%
+\contentsline {subsubsection}{Search using segments}{12}{section*.82}%
+\contentsline {subsection}{\numberline {4.3}Dynamic segments}{13}{subsection.0.1.4.3}%
+\contentsline {subsubsection}{Search using a QuadTree}{13}{section*.85}%
+\contentsline {subsubsection}{Storage space estimation for QuadTrees}{14}{figure.caption.87}%
+\contentsline {subsubsection}{Data partitioning}{14}{section*.97}%
+\contentsline {subsubsection}{Ensure availability}{15}{section*.99}%
+\contentsline {subsubsection}{Insert a new place}{15}{section*.99}%
+\contentsline {subsubsection}{Rank popular places}{15}{section*.99}%
+\contentsline {subsection}{\numberline {4.4}Finalized design}{15}{subsection.0.1.4.4}%
+\contentsline {subsection}{\numberline {4.5}Evaluation}{15}{subsection.0.1.4.5}%
+\contentsline {subsubsection}{Requirements compliance}{16}{subsection.0.1.4.5}%
+\contentsline {subsection}{\numberline {4.6}Summary}{16}{subsection.0.1.4.6}%
+\contentsline {section}{\numberline {5} Quiz on Yelp's Design }{16}{section.0.1.5}%
+\contentsfinish 

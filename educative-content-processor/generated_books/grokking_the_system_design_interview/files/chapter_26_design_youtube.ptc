@@ -1,0 +1,50 @@
+\contentsline {chapter}{\numberline {1} Design YouTube }{1}{chapter.0.1}%
+\ttl@starttoc {chapters@1}
+\contentsline {section}{\numberline {1} System Design: YouTube }{2}{section.0.1.1}%
+\contentsline {subsection}{\numberline {1.1}What is YouTube?}{2}{subsection.0.1.1.1}%
+\contentsline {subsection}{\numberline {1.2}YouTube's popularity}{2}{subsection.0.1.1.2}%
+\contentsline {subsection}{\numberline {1.3}YouTube's growth}{2}{subsection.0.1.1.3}%
+\contentsline {subsection}{\numberline {1.4}How will we design YouTube?}{3}{subsection.0.1.1.4}%
+\contentsline {section}{\numberline {2} Requirements of YouTube's Design }{4}{section.0.1.2}%
+\contentsline {subsection}{\numberline {2.1}Requirements}{4}{subsection.0.1.2.1}%
+\contentsline {subsubsection}{Functional requirements}{4}{subsection.0.1.2.1}%
+\contentsline {subsubsection}{Non-functional requirements}{4}{section*.17}%
+\contentsline {subsection}{\numberline {2.2}Resource estimation}{5}{subsection.0.1.2.2}%
+\contentsline {subsubsection}{Storage estimation}{5}{section*.30}%
+\contentsline {subsubsection}{Bandwidth estimation}{6}{figure.caption.36}%
+\contentsline {paragraph}{Number of servers estimation}{7}{figure.caption.40}%
+\contentsline {subsection}{\numberline {2.3}Building blocks we will use}{8}{subsection.0.1.2.3}%
+\contentsline {section}{\numberline {3} Design of YouTube }{8}{section.0.1.3}%
+\contentsline {subsection}{\numberline {3.1}High-level design}{8}{subsection.0.1.3.1}%
+\contentsline {subsection}{\numberline {3.2}API design}{9}{subsection.0.1.3.2}%
+\contentsline {subsubsection}{Upload video}{10}{figure.caption.62}%
+\contentsline {subsubsection}{Stream video}{10}{table.caption.63}%
+\contentsline {subsubsection}{Search videos}{11}{table.caption.64}%
+\contentsline {subsubsection}{View thumbnails}{11}{table.caption.65}%
+\contentsline {subsection}{\numberline {3.3}Like and dislike a video}{11}{subsection.0.1.3.3}%
+\contentsline {subsection}{\numberline {3.4}Comment video}{11}{subsection.0.1.3.4}%
+\contentsline {subsection}{\numberline {3.5}Storage schema}{12}{subsection.0.1.3.5}%
+\contentsline {subsection}{\numberline {3.6}Detailed design}{12}{subsection.0.1.3.6}%
+\contentsline {subsubsection}{Detailed design components}{12}{section*.71}%
+\contentsline {subsubsection}{Design flow and technology usage}{13}{figure.caption.80}%
+\contentsline {subsection}{\numberline {3.7}YouTube search}{14}{subsection.0.1.3.7}%
+\contentsline {section}{\numberline {4} Evaluation of YouTube's Design }{15}{section.0.1.4}%
+\contentsline {subsection}{\numberline {4.1}Requirements compliance}{15}{subsection.0.1.4.1}%
+\contentsline {subsection}{\numberline {4.2}Trade-offs}{15}{subsection.0.1.4.2}%
+\contentsline {subsubsection}{Consistency}{16}{subsection.0.1.4.2}%
+\contentsline {subsubsection}{Distributed cache}{16}{subsection.0.1.4.2}%
+\contentsline {subsubsection}{Bigtable vs. MySQL}{16}{subsection.0.1.4.2}%
+\contentsline {subsubsection}{Public versus private CDN}{16}{subsection.0.1.4.2}%
+\contentsline {subsubsection}{Duplicate videos}{17}{section*.100}%
+\contentsline {subsection}{\numberline {4.3}Future scaling}{17}{subsection.0.1.4.3}%
+\contentsline {subsection}{\numberline {4.4}Web server}{18}{subsection.0.1.4.4}%
+\contentsline {section}{\numberline {5} The Reality Is More Complicated }{19}{section.0.1.5}%
+\contentsline {subsection}{\numberline {5.1}Introduction}{19}{subsection.0.1.5.1}%
+\contentsline {subsection}{\numberline {5.2}Encode}{19}{subsection.0.1.5.2}%
+\contentsline {subsection}{\numberline {5.3}Deploy}{20}{subsection.0.1.5.3}%
+\contentsline {subsubsection}{Recommendations}{21}{section*.118}%
+\contentsline {subsection}{\numberline {5.4}Deliver}{23}{subsection.0.1.5.4}%
+\contentsline {subsubsection}{Adaptive streaming}{23}{figure.caption.123}%
+\contentsline {subsection}{\numberline {5.5}Potential follow-up questions}{24}{subsection.0.1.5.5}%
+\contentsline {section}{\numberline {6} Quiz on YouTube's Design }{25}{section.0.1.6}%
+\contentsfinish 

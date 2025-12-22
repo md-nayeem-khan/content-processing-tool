@@ -698,7 +698,27 @@ if __name__ == "__main__":
     Path("generated_books").mkdir(exist_ok=True)
     Path("static").mkdir(exist_ok=True)
     
+    # Validate pandoc is available (REQUIRED)
     print("=" * 60)
+    print("🔍 Validating Requirements...")
+    print("=" * 60)
+    
+    try:
+        import pypandoc
+        # Try to get pandoc version to verify it's installed
+        version = pypandoc.get_pandoc_version()
+        print(f"✅ Pandoc found: version {version}")
+    except ImportError:
+        print("❌ ERROR: pypandoc is not installed!")
+        print("   Install it with: pip install pypandoc")
+        exit(1)
+    except OSError as e:
+        print("❌ ERROR: Pandoc is not installed or not found in PATH!")
+        print("   Please install pandoc from: https://pandoc.org/installing.html")
+        print(f"   Error details: {e}")
+        exit(1)
+    
+    print("\n" + "=" * 60)
     print("🚀 Starting Markdown Content Processor")
     print("=" * 60)
     print(f"📍 Server: http://localhost:8000")

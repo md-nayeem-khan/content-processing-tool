@@ -204,6 +204,10 @@ class SectionContentProcessor:
                     latex_content = self._process_table(component)
                     latex_parts.append(latex_content)
                     
+                elif component_type == "TableHTML":
+                    latex_content = self._process_table_html(component)
+                    latex_parts.append(latex_content)
+                    
                 elif component_type == "Chart":
                     latex_content = self._process_chart(component)
                     latex_parts.append(latex_content)
@@ -214,6 +218,14 @@ class SectionContentProcessor:
                     
                 elif component_type == "Code":
                     latex_content = self._process_code(component)
+                    latex_parts.append(latex_content)
+                    
+                elif component_type == "EditorCode":
+                    latex_content = self._process_editor_code(component)
+                    latex_parts.append(latex_content)
+                    
+                elif component_type == "TabbedCode":
+                    latex_content = self._process_tabbed_code(component)
                     latex_parts.append(latex_content)
                     
                 elif component_type == "LazyLoadPlaceholder":
@@ -298,6 +310,10 @@ class SectionContentProcessor:
                     latex_content = self._process_table(component)
                     latex_parts.append(latex_content)
                     
+                elif component_type == "TableHTML":
+                    latex_content = self._process_table_html(component)
+                    latex_parts.append(latex_content)
+                    
                 elif component_type == "Chart":
                     latex_content = self._process_chart(component)
                     latex_parts.append(latex_content)
@@ -308,6 +324,14 @@ class SectionContentProcessor:
                     
                 elif component_type == "Code":
                     latex_content = self._process_code(component)
+                    latex_parts.append(latex_content)
+                    
+                elif component_type == "EditorCode":
+                    latex_content = self._process_editor_code(component)
+                    latex_parts.append(latex_content)
+                    
+                elif component_type == "TabbedCode":
+                    latex_content = self._process_tabbed_code(component)
                     latex_parts.append(latex_content)
                     
                 else:
@@ -329,6 +353,24 @@ class SectionContentProcessor:
         """Apply final LaTeX fixes after all components are processed and joined"""
         if not latex_content:
             return latex_content
+        
+        # IMPORTANT: Protect code blocks from text-processing fixes
+        # Extract all lstlisting blocks and replace with placeholders
+        import re
+        code_blocks = []
+        placeholder_pattern = "<<<CODE_BLOCK_{}>>>"
+        
+        def extract_code_block(match):
+            code_blocks.append(match.group(0))
+            return placeholder_pattern.format(len(code_blocks) - 1)
+        
+        # Extract lstlisting blocks (both with and without language parameter)
+        latex_content = re.sub(
+            r'\\begin\{lstlisting\}.*?\\end\{lstlisting\}',
+            extract_code_block,
+            latex_content,
+            flags=re.DOTALL
+        )
             
         # Apply the specific problem fixes that might span component boundaries
         
@@ -424,6 +466,11 @@ class SectionContentProcessor:
         # Clean up excessive newlines but preserve structure
         latex_content = re.sub(r'\n\s*\n\s*\n+', '\n\n', latex_content)
         
+        # Restore code blocks with their original formatting intact
+        for i, code_block in enumerate(code_blocks):
+            placeholder = placeholder_pattern.format(i)
+            latex_content = latex_content.replace(placeholder, code_block)
+        
         return latex_content
     
     def _process_slate_html(self, component: Dict[str, Any]) -> str:
@@ -452,6 +499,16 @@ class SectionContentProcessor:
         """Process DrawIOWidget components with enhanced image extraction (ASYNC VERSION)"""
         content = component.get("content", {})
         
+        # Check if this is a slides-enabled DrawIOWidget
+        # Both slidesEnabled and isSlides must be true for slides mode
+        slides_enabled = content.get("slidesEnabled", False)
+        is_slides = content.get("isSlides", False)
+        
+        if slides_enabled and is_slides:
+            # Handle as slider component
+            return await self._process_drawio_slides_async(content)
+        
+        # Regular DrawIOWidget processing (non-slides)
         # Extract image path - try multiple possible locations
         image_path = None
         caption = content.get("caption", "")
@@ -491,7 +548,7 @@ class SectionContentProcessor:
                         latex_content = f"""
 \\begin{{figure}}[htbp]
     \\centering
-    \\includegraphics[width=0.8\\textwidth]{{{converted_path}}}
+    \\includegraphics[width=0.5\\textwidth]{{{converted_path}}}
     {f"\\caption{{{self._escape_latex(caption)}}}" if caption else ""}
 \\end{{figure}}
 """
@@ -504,7 +561,7 @@ class SectionContentProcessor:
                             latex_content = f"""
 \\begin{{figure}}[htbp]
     \\centering
-    \\includegraphics[width=0.8\\textwidth]{{{image_relative_path}}}
+    \\includegraphics[width=0.5\\textwidth]{{{image_relative_path}}}
     {f"\\caption{{{self._escape_latex(caption)}}}" if caption else ""}
 \\end{{figure}}
 """
@@ -596,7 +653,7 @@ class SectionContentProcessor:
                         latex_content = f"""
 \\begin{{figure}}[htbp]
     \\centering
-    \\includegraphics[width=0.8\\textwidth]{{{converted_path}}}
+    \\includegraphics[width=0.5\\textwidth]{{{converted_path}}}
     {f"\\caption{{{self._escape_latex(caption)}}}" if caption else ""}
 \\end{{figure}}
 """
@@ -609,7 +666,7 @@ class SectionContentProcessor:
                             latex_content = f"""
 \\begin{{figure}}[htbp]
     \\centering
-    \\includegraphics[width=0.8\\textwidth]{{{image_relative_path}}}
+    \\includegraphics[width=0.5\\textwidth]{{{image_relative_path}}}
     {f"\\caption{{{self._escape_latex(caption)}}}" if caption else ""}
 \\end{{figure}}
 """
@@ -633,6 +690,151 @@ class SectionContentProcessor:
                 return f"\\textit{{Error loading image: {str(e)}}}", []
         
         return "\\textit{Image content not available}", generated_images
+    
+    async def _process_drawio_slides_async(self, content: Dict[str, Any]) -> Tuple[str, List[str]]:
+        """Process DrawIOWidget with slides (multi-image slider)"""
+        slides_id = content.get("slidesId")
+        slides_captions = content.get("slidesCaption", [])
+        editor_image_path = content.get("editorImagePath", "")
+        
+        if not slides_id:
+            print(f"ERROR: Missing slidesId for DrawIOWidget slides")
+            return "\\textit{DrawIOWidget slides missing slidesId}", []
+        
+        # Check if we have the required course IDs for constructing image URLs
+        if not self.author_id or not self.collection_id:
+            print(f"ERROR: author_id and collection_id not set in processor context")
+            return "\\textit{DrawIOWidget slides requires course context}", []
+        
+        try:
+            # Fetch slide data from Educative API
+            slides_url = f"https://www.educative.io/api/slides/data?slides_id={slides_id}"
+            
+            print(f"DEBUG: Fetching DrawIOWidget slides from: {slides_url}")
+            
+            # Prepare headers with authentication
+            headers = {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+                "Accept": "application/json",
+                "Accept-Language": "en-US,en;q=0.9,bn;q=0.8",
+                "Referer": "https://www.educative.io/"
+            }
+            
+            if self.token:
+                headers["Authorization"] = f"Bearer {self.token}"
+            if self.cookie:
+                headers["Cookie"] = self.cookie
+            
+            # Fetch the slides data
+            async with httpx.AsyncClient(timeout=30.0) as client:
+                response = await client.get(slides_url, headers=headers)
+                response.raise_for_status()
+                slides_data = response.json()
+            
+            # Extract image IDs from the response
+            image_ids = slides_data.get("image_ids", [])
+            
+            if not image_ids:
+                print(f"WARNING: No image_ids found in slides response")
+                return "\\textit{DrawIOWidget slides has no images}", []
+            
+            print(f"DEBUG: Found {len(image_ids)} slide images")
+            
+            # Extract page_id from editorImagePath if available
+            # Format: /api/collection/{author}/{collection}/page/{page_id}/image/{image_id}?page_type=collection_lesson
+            page_id = None
+            if editor_image_path:
+                import re
+                match = re.search(r'/page/(\d+)/', editor_image_path)
+                if match:
+                    page_id = match.group(1)
+                    print(f"DEBUG: Extracted page_id: {page_id} from editorImagePath")
+            
+            if not page_id:
+                print(f"ERROR: Could not extract page_id from editorImagePath")
+                return "\\textit{DrawIOWidget slides missing page_id}", []
+            
+            # Download and process all slide images
+            generated_images = []
+            processed_images = []
+            
+            for idx, image_id in enumerate(image_ids):
+                try:
+                    # Construct image URL
+                    image_url = f"/api/collection/{self.author_id}/{self.collection_id}/page/{page_id}/image/{image_id}?page_type=collection_lesson"
+                    
+                    print(f"DEBUG: Downloading slide image {idx + 1}/{len(image_ids)}: {image_url}")
+                    image_relative_path = await self._download_image_async(image_url)
+                    
+                    if image_relative_path:
+                        generated_images.append(image_relative_path)
+                        
+                        # Convert to PNG if needed
+                        converted_path = await self._convert_image_to_png(image_relative_path)
+                        
+                        if converted_path:
+                            processed_images.append(converted_path)
+                            print(f"✅ Slide image {idx + 1} processed: {converted_path}")
+                        else:
+                            processed_images.append(image_relative_path)
+                            print(f"✅ Slide image {idx + 1} using original: {image_relative_path}")
+                    else:
+                        print(f"⚠️  Failed to download slide image {idx + 1}")
+                        
+                except Exception as e:
+                    print(f"Error processing slide image {idx + 1}: {e}")
+                    continue
+            
+            if not processed_images:
+                return "\\textit{Failed to process DrawIOWidget slide images}", []
+            
+            # Generate LaTeX with subfigures (2 images per row)
+            latex_parts = []
+            
+            for i in range(0, len(processed_images), 2):
+                latex_parts.append("\\begin{figure}[htbp]")
+                latex_parts.append("    \\centering")
+                
+                # First image in the row
+                img1 = processed_images[i]
+                caption1 = slides_captions[i] if i < len(slides_captions) else ""
+                
+                latex_parts.append("    \\begin{subfigure}[b]{0.48\\textwidth}")
+                latex_parts.append("        \\centering")
+                latex_parts.append(f"        \\includegraphics[width=\\textwidth]{{{img1}}}")
+                if caption1:
+                    latex_parts.append(f"        \\caption{{{self._escape_latex(caption1)}}}")
+                latex_parts.append("    \\end{subfigure}")
+                
+                # Second image in the row (if exists)
+                if i + 1 < len(processed_images):
+                    latex_parts.append("    \\hfill")
+                    img2 = processed_images[i + 1]
+                    caption2 = slides_captions[i + 1] if i + 1 < len(slides_captions) else ""
+                    
+                    latex_parts.append("    \\begin{subfigure}[b]{0.48\\textwidth}")
+                    latex_parts.append("        \\centering")
+                    latex_parts.append(f"        \\includegraphics[width=\\textwidth]{{{img2}}}")
+                    if caption2:
+                        latex_parts.append(f"        \\caption{{{self._escape_latex(caption2)}}}")
+                    latex_parts.append("    \\end{subfigure}")
+                
+                latex_parts.append("\\end{figure}")
+                latex_parts.append("")  # Empty line between figures
+            
+            latex_content = "\n".join(latex_parts)
+            
+            print(f"✅ Generated LaTeX for DrawIOWidget slides with {len(processed_images)} images")
+            return latex_content.strip(), processed_images
+            
+        except httpx.HTTPError as e:
+            print(f"HTTP error fetching DrawIOWidget slides: {e}")
+            return f"\\textit{{Error fetching DrawIOWidget slides: {str(e)}}}", []
+        except Exception as e:
+            print(f"Error processing DrawIOWidget slides: {e}")
+            import traceback
+            traceback.print_exc()
+            return f"\\textit{{Error processing DrawIOWidget slides: {str(e)}}}", []
     
     async def _process_lazy_load_placeholder_async(self, component: Dict[str, Any]) -> Tuple[str, List[str]]:
         """Process LazyLoadPlaceholder components (e.g., MxGraphWidget, CanvasAnimation)"""
@@ -736,7 +938,7 @@ class SectionContentProcessor:
                         latex_content = f"""
 \\begin{{figure}}[htbp]
     \\centering
-    \\includegraphics[width=0.8\\textwidth]{{{converted_path}}}
+    \\includegraphics[width=0.5\\textwidth]{{{converted_path}}}
     {f"\\caption{{{self._escape_latex(caption)}}}" if caption else ""}
 \\end{{figure}}
 """
@@ -749,7 +951,7 @@ class SectionContentProcessor:
                             latex_content = f"""
 \\begin{{figure}}[htbp]
     \\centering
-    \\includegraphics[width=0.8\\textwidth]{{{image_relative_path}}}
+    \\includegraphics[width=0.5\\textwidth]{{{image_relative_path}}}
     {f"\\caption{{{self._escape_latex(caption)}}}" if caption else ""}
 \\end{{figure}}
 """
@@ -858,17 +1060,20 @@ class SectionContentProcessor:
                 objects_dict = canvas_obj.get("objectsDict", {})
                 caption = canvas_obj.get("caption", "")
                 
-                # Look for the educativeObjContent with MxGraph type
+                # Look for the educativeObjContent with MxGraph or DrawIO type
                 for key, obj_data in objects_dict.items():
                     educative_content = obj_data.get("educativeObjContent", {})
-                    if educative_content.get("type") == "MxGraph":
-                        mx_content = educative_content.get("content", {})
-                        image_path = mx_content.get("path", "")
+                    content_type = educative_content.get("type", "")
+                    
+                    # Handle both MxGraph and DrawIO types (structure is the same)
+                    if content_type in ["MxGraph", "DrawIO"]:
+                        content_data = educative_content.get("content", {})
+                        image_path = content_data.get("path", "")
                         
                         if image_path:
                             image_paths.append(image_path)
                             captions.append(caption)
-                            print(f"DEBUG: Canvas object {idx + 1}: Found image path: {image_path}")
+                            print(f"DEBUG: Canvas object {idx + 1} ({content_type}): Found image path: {image_path}")
                             break
             
             if not image_paths:
@@ -1130,12 +1335,13 @@ class SectionContentProcessor:
             clean_content_1 = self._clean_content_for_minipage(column_contents[1])
             
             latex_output = f"""
+% \\vspace{{-1.0\\baselineskip}}
 \\noindent
-\\begin{{minipage}}[t]{{0.48\\textwidth}}
+\\begin{{minipage}}[t]{{0.48\\textwidth}}\\vspace{{0pt}}
 {clean_content_0}
 \\end{{minipage}}
 \\hfill
-\\begin{{minipage}}[t]{{0.48\\textwidth}}
+\\begin{{minipage}}[t]{{0.48\\textwidth}}\\vspace{{0pt}}
 {clean_content_1}
 \\end{{minipage}}
 """
@@ -1152,11 +1358,12 @@ class SectionContentProcessor:
                 clean_content = self._clean_content_for_minipage(content)
                 if i > 0:
                     latex_parts.append("\\hfill")
-                latex_parts.append(f"""\\begin{{minipage}}[t]{{{col_width:.2f}\\textwidth}}
+                latex_parts.append(f"""\\begin{{minipage}}[t]{{{col_width:.2f}\\textwidth}}\\vspace{{0pt}}
 {clean_content}
 \\end{{minipage}}""")
             
             latex_output = f"""
+% \\vspace{{-1.0\\baselineskip}}
 \\noindent
 {chr(10).join(latex_parts)}
 """
@@ -1213,12 +1420,13 @@ class SectionContentProcessor:
             clean_content_1 = self._clean_content_for_minipage(column_contents[1])
             
             latex_output = f"""
+% \\vspace{{-1.0\\baselineskip}}
 \\noindent
-\\begin{{minipage}}[t]{{0.48\\textwidth}}
+\\begin{{minipage}}[t]{{0.48\\textwidth}}\\vspace{{0pt}}
 {clean_content_0}
 \\end{{minipage}}
 \\hfill
-\\begin{{minipage}}[t]{{0.48\\textwidth}}
+\\begin{{minipage}}[t]{{0.48\\textwidth}}\\vspace{{0pt}}
 {clean_content_1}
 \\end{{minipage}}
 """
@@ -1235,7 +1443,7 @@ class SectionContentProcessor:
                 clean_content = self._clean_content_for_minipage(content)
                 if i > 0:
                     latex_parts.append("\\hfill")
-                latex_parts.append(f"""\\begin{{minipage}}[t]{{{col_width:.2f}\\textwidth}}
+                latex_parts.append(f"""\\begin{{minipage}}[t]{{{col_width:.2f}\\textwidth}}\\vspace{{0pt}}
 {clean_content}
 \\end{{minipage}}""")
             
@@ -1247,7 +1455,7 @@ class SectionContentProcessor:
         return latex_output.strip(), generated_images
     
     def _clean_content_for_minipage(self, content: str) -> str:
-        """Clean content to avoid nested figure environments in minipages"""
+        """Clean content to avoid nested figure environments in minipages and ensure top alignment"""
         if not content:
             return content
         
@@ -1262,6 +1470,7 @@ class SectionContentProcessor:
             # Remove centering and other figure-specific commands, keep includegraphics and caption
             lines = figure_content.split('\n')
             cleaned_lines = []
+            has_includegraphics = False
             
             for line in lines:
                 line = line.strip()
@@ -1269,18 +1478,32 @@ class SectionContentProcessor:
                 if line == '\\centering' or not line:
                     continue
                 # Keep includegraphics and caption
-                if '\\includegraphics' in line or '\\caption' in line:
+                if '\\includegraphics' in line:
+                    cleaned_lines.append(line)
+                    has_includegraphics = True
+                elif '\\caption' in line:
                     cleaned_lines.append(line)
             
             if cleaned_lines:
-                return '\n'.join(cleaned_lines)
+                # If there's an includegraphics, center it
+                # (vspace is now handled at minipage level)
+                if has_includegraphics:
+                    return '\\centering\n' + '\n'.join(cleaned_lines)
+                else:
+                    return '\n'.join(cleaned_lines)
             else:
                 return ''
         
         # Apply the replacement
         cleaned_content = re.sub(figure_pattern, replace_figure, content, flags=re.DOTALL)
         
-        return cleaned_content.strip()
+        # Additional check: if content starts with \includegraphics (no figure wrapper)
+        # add centering command
+        cleaned_content = cleaned_content.strip()
+        if cleaned_content.startswith('\\includegraphics'):
+            cleaned_content = '\\centering\n' + cleaned_content
+        
+        return cleaned_content
     
     def _process_markmap(self, component: Dict[str, Any]) -> str:
         """
@@ -1495,6 +1718,43 @@ class SectionContentProcessor:
         
         return '\n'.join(result)
     
+    def _process_table_html(self, component: Dict[str, Any]) -> str:
+        """
+        Process TableHTML components - converts HTML table to LaTeX format
+        
+        TableHTML structure from backend:
+        - content.type: "TableV2"
+        - content.html: HTML representation of the table
+        - content.children: Structured data representation (not used here)
+        
+        We use the HTML representation and convert it to LaTeX using pandoc.
+        """
+        content = component.get("content", {})
+        
+        # Extract HTML content
+        html_content = content.get("html", "")
+        
+        if not html_content or not html_content.strip():
+            return "\\textit{Empty table}"
+        
+        # Convert HTML to LaTeX using pandoc
+        try:
+            latex_content = self._html_to_latex_pandoc(html_content)
+            
+            # Post-process the LaTeX to ensure it fits properly
+            # Remove any excessive whitespace
+            latex_content = latex_content.strip()
+            
+            # If the table doesn't have proper formatting, wrap it
+            if latex_content and not latex_content.startswith("\\begin{"):
+                latex_content = f"\\begin{{center}}\n{latex_content}\n\\end{{center}}"
+            
+            return latex_content
+            
+        except Exception as e:
+            print(f"Error converting TableHTML to LaTeX: {e}")
+            return f"\\textit{{Error processing table: {str(e)}}}"
+    
     def _process_chart(self, component: Dict[str, Any]) -> str:
         """
         Process Chart components - converts chart data to LaTeX table format
@@ -1657,6 +1917,170 @@ class SectionContentProcessor:
         # Use \[ \] for unnumbered display equations
         return f"\\[\n{latex_text}\n\\]"
     
+    def _process_editor_code(self, component: Dict[str, Any]) -> str:
+        """
+        Process EditorCode components - renders inline code snippets
+        
+        The backend provides:
+        - content.language: Programming language (e.g., 'python', 'javascript')
+        - content.content: The actual code content
+        - content.version: Version information
+        - mode: 'edit' or 'view' mode
+        
+        Returns:
+            LaTeX code listing with proper formatting
+        """
+        content = component.get("content", {})
+        code_text = content.get("content", "")
+        language = content.get("language", "").lower()
+        
+        if not code_text:
+            return ""
+        
+        # Decode escape sequences if the string contains literal \n, \t, etc.
+        # This handles cases where JSON escape sequences aren't properly interpreted
+        if '\\n' in code_text or '\\t' in code_text:
+            try:
+                # Use encode().decode('unicode_escape') to interpret escape sequences
+                code_text = code_text.encode().decode('unicode_escape')
+            except:
+                # If decoding fails, use the original text
+                pass
+        
+        # Strip only after decoding to preserve internal whitespace
+        code_text = code_text.strip()
+        
+        # Map Educative language names to listings package language names
+        language_map = {
+            'javascript': 'JavaScript',
+            'python': 'Python',
+            'python3': 'Python',
+            'python2': 'Python',
+            'java': 'Java',
+            'cpp': 'C++',
+            'c++': 'C++',
+            'c': 'C',
+            'csharp': 'C',
+            'c#': 'C',
+            'ruby': 'Ruby',
+            'go': 'Go',
+            'rust': 'Rust',
+            'php': 'PHP',
+            'swift': 'Swift',
+            'kotlin': 'Kotlin',
+            'typescript': 'JavaScript',
+            'shell': 'bash',
+            'bash': 'bash',
+            'sql': 'SQL',
+            'html': 'HTML',
+            'css': 'CSS',
+            'xml': 'XML',
+            'json': 'JavaScript',
+            'yaml': 'Python',
+            'dockerfile': 'bash',
+            'markdown': 'TeX',
+        }
+        
+        # Get the listings language name
+        listings_language = language_map.get(language, language)
+        
+        result = []
+        
+        # Create the code listing
+        # Use lstlisting environment from listings package
+        if listings_language:
+            result.append(f"\\begin{{lstlisting}}[language={listings_language}]")
+        else:
+            result.append("\\begin{lstlisting}")
+        
+        result.append(code_text)
+        result.append("\\end{lstlisting}")
+        
+        return '\n'.join(result)
+    
+    def _process_tabbed_code(self, component: Dict[str, Any]) -> str:
+        """
+        Process TabbedCode components - renders multi-language code snippets
+        For now, only extract and display Java code, ignoring other languages.
+        
+        The backend provides:
+        - content.codeContents: Array of code content objects for different languages
+          Each object has:
+          - title: Language name (e.g., 'Java', 'Python', 'C++')
+          - language: Language identifier (e.g., 'java', 'python3', 'c++')
+          - content: The actual code content
+          - caption: Description/title of the code
+        
+        Returns:
+            LaTeX code listing with Java code only
+        """
+        content = component.get("content", {})
+        code_contents = content.get("codeContents", [])
+        
+        if not code_contents:
+            return "\\textit{No code content available}"
+        
+        # Find Java code (look for title="Java" or language="java")
+        java_code_obj = None
+        for code_obj in code_contents:
+            title = code_obj.get("title", "").lower()
+            language = code_obj.get("language", "").lower()
+            if title == "java" or language == "java":
+                java_code_obj = code_obj
+                break
+        
+        if not java_code_obj:
+            # Fallback: use first available code if Java not found
+            java_code_obj = code_contents[0]
+        
+        code_text = java_code_obj.get("content", "")
+        caption = java_code_obj.get("caption", "")
+        language = java_code_obj.get("language", "java").lower()
+        
+        if not code_text:
+            return ""
+        
+        # Decode escape sequences if the string contains literal \n, \t, etc.
+        # This handles cases where JSON escape sequences aren't properly interpreted
+        if '\\n' in code_text or '\\t' in code_text:
+            try:
+                # Use encode().decode('unicode_escape') to interpret escape sequences
+                code_text = code_text.encode().decode('unicode_escape')
+            except:
+                # If decoding fails, use the original text
+                pass
+        
+        # Strip only after decoding to preserve internal whitespace
+        code_text = code_text.strip()
+        
+        # Map language to listings package name
+        language_map = {
+            'java': 'Java',
+            'python': 'Python',
+            'python3': 'Python',
+            'c++': 'C++',
+            'cpp': 'C++',
+            'c#': 'C',
+            'csharp': 'C',
+            'javascript': 'JavaScript',
+            'javascript-es2024': 'JavaScript',
+        }
+        
+        listings_language = language_map.get(language, 'Java')
+        
+        result = []
+        
+        # Add caption if available
+        if caption:
+            result.append(f"\\textbf{{{caption}}}\n")
+        
+        # Create the code listing
+        result.append(f"\\begin{{lstlisting}}[language={listings_language}]")
+        result.append(code_text)
+        result.append("\\end{lstlisting}")
+        
+        return '\n'.join(result)
+    
     def _process_code(self, component: Dict[str, Any]) -> str:
         """
         Process Code components - renders code blocks with syntax highlighting
@@ -1673,13 +2097,26 @@ class SectionContentProcessor:
             LaTeX code listing with proper formatting
         """
         content = component.get("content", {})
-        code_text = content.get("content", "").strip()
+        code_text = content.get("content", "")
         language = content.get("language", "").lower()
         caption = content.get("caption", "").strip()
         title = content.get("title", "").strip()
         
         if not code_text:
             return ""
+        
+        # Decode escape sequences if the string contains literal \n, \t, etc.
+        # This handles cases where JSON escape sequences aren't properly interpreted
+        if '\\n' in code_text or '\\t' in code_text:
+            try:
+                # Use encode().decode('unicode_escape') to interpret escape sequences
+                code_text = code_text.encode().decode('unicode_escape')
+            except:
+                # If decoding fails, use the original text
+                pass
+        
+        # Strip only after decoding to preserve internal whitespace
+        code_text = code_text.strip()
         
         # Map Educative language names to listings package language names
         language_map = {
@@ -2149,6 +2586,9 @@ class SectionContentProcessor:
         # Convert links
         latex = re.sub(r'<a[^>]*href="([^"]*)"[^>]*>(.*?)</a>', r'\\href{\1}{\2}', latex)
         
+        # Convert <meaning> tags to parentheses
+        latex = re.sub(r'<meaning>(.*?)</meaning>', r'(\1)', latex)
+        
         # Convert lists
         latex = re.sub(r'<ul[^>]*>(.*?)</ul>', self._convert_ul_list, latex, flags=re.DOTALL)
         latex = re.sub(r'<ol[^>]*>(.*?)</ol>', self._convert_ol_list, latex, flags=re.DOTALL)
@@ -2398,7 +2838,7 @@ class SectionContentProcessor:
             if file_ext == '.svg':
                 # Try multiple SVG conversion methods in order of preference
                 
-                # Method 1: Try cairosvg (most reliable)
+                # Method 1: Try cairosvg (most reliable, but requires Cairo library)
                 if _lazy_import_cairosvg():
                     try:
                         import cairosvg
@@ -2417,8 +2857,16 @@ class SectionContentProcessor:
                         
                         print(f"✅ Successfully converted SVG to PNG using cairosvg: {png_filename}")
                         return png_relative_path
+                    except OSError as e:
+                        if 'cairo' in str(e).lower() or 'library' in str(e).lower():
+                            print(f"⚠️  cairosvg requires Cairo library (not installed): Install GTK+ runtime")
+                        else:
+                            print(f"⚠️  cairosvg conversion failed: {e}")
+                        print(f"    Trying Wand/ImageMagick...")
                     except Exception as e:
-                        print(f"⚠️  cairosvg conversion failed: {e}, trying alternative methods...")
+                        print(f"⚠️  cairosvg conversion failed: {e}, trying Wand/ImageMagick...")
+                else:
+                    print(f"⚠️  cairosvg not available, trying Wand/ImageMagick...")
                 
                 # Method 2: Try Wand (ImageMagick) 
                 if _lazy_import_wand():
@@ -2449,8 +2897,18 @@ class SectionContentProcessor:
                 try:
                     def convert_svg_with_imagemagick_cli():
                         import subprocess
+                        import shutil
+                        
+                        # Try to find magick or convert command
+                        magick_cmd = shutil.which('magick')
+                        if not magick_cmd:
+                            magick_cmd = shutil.which('convert')  # Older ImageMagick versions
+                        
+                        if not magick_cmd:
+                            raise FileNotFoundError("ImageMagick not found")
+                        
                         result = subprocess.run([
-                            'magick',
+                            magick_cmd,
                             str(original_file_path),
                             '-resize', '1200x900',
                             '-background', 'white',
@@ -2470,11 +2928,64 @@ class SectionContentProcessor:
                         print(f"✅ Successfully converted SVG to PNG using ImageMagick CLI: {png_filename}")
                         return png_relative_path
                     else:
-                        print(f"⚠️ ImageMagick CLI conversion produced empty file, trying next method...")
+                        print(f"⚠️ ImageMagick CLI conversion produced empty file, trying Inkscape...")
+                except FileNotFoundError:
+                    print(f"⚠️ ImageMagick not found (install from imagemagick.org), trying Inkscape...")
                 except Exception as e:
-                    print(f"⚠️ ImageMagick CLI conversion failed: {e}, trying fallback...")
+                    print(f"⚠️ ImageMagick CLI conversion failed: {e}, trying Inkscape...")
                 
-                # Method 4: Try Pillow with svg handling (limited but sometimes works)
+                # Method 4: Try Inkscape CLI (excellent for SVG, often pre-installed)
+                try:
+                    def convert_svg_with_inkscape():
+                        import subprocess
+                        import shutil
+                        
+                        # Try to find inkscape
+                        inkscape_cmd = shutil.which('inkscape')
+                        if not inkscape_cmd:
+                            # Try common Windows installation paths
+                            possible_paths = [
+                                r'C:\Program Files\Inkscape\bin\inkscape.exe',
+                                r'C:\Program Files (x86)\Inkscape\bin\inkscape.exe',
+                                r'C:\Program Files\Inkscape\inkscape.exe',
+                                r'C:\Program Files (x86)\Inkscape\inkscape.exe',
+                            ]
+                            for path in possible_paths:
+                                if os.path.exists(path):
+                                    inkscape_cmd = path
+                                    break
+                        
+                        if not inkscape_cmd:
+                            raise FileNotFoundError("Inkscape not found")
+                        
+                        result = subprocess.run([
+                            inkscape_cmd,
+                            str(original_file_path),
+                            '--export-type=png',
+                            f'--export-filename={str(png_file_path)}',
+                            '--export-width=1200',
+                            '--export-background=white',
+                        ], capture_output=True, text=True, timeout=30)
+                        
+                        if result.returncode != 0 and not png_file_path.exists():
+                            raise Exception(f"Inkscape conversion failed: {result.stderr}")
+                    
+                    # Run the conversion in a thread pool to avoid blocking
+                    import asyncio
+                    loop = asyncio.get_event_loop()
+                    await loop.run_in_executor(None, convert_svg_with_inkscape)
+                    
+                    if png_file_path.exists() and png_file_path.stat().st_size > 0:
+                        print(f"✅ Successfully converted SVG to PNG using Inkscape: {png_filename}")
+                        return png_relative_path
+                    else:
+                        print(f"⚠️ Inkscape conversion produced empty file, trying Pillow...")
+                except FileNotFoundError:
+                    print(f"⚠️ Inkscape not found (install from inkscape.org), trying Pillow...")
+                except Exception as e:
+                    print(f"⚠️ Inkscape conversion failed: {e}, trying Pillow...")
+                
+                # Method 5: Try Pillow with svg handling (very limited, rarely works)
                 if _lazy_import_pil():
                     try:
                         from PIL import Image
@@ -2504,8 +3015,16 @@ class SectionContentProcessor:
                         print(f"⚠️  Pillow SVG conversion failed: {e}")
                 
                 # All conversion methods failed
+                print("")
                 print("❌ All SVG conversion methods failed. SVG images will remain as SVG.")
-                print("      Note: SVG files may not display properly in LaTeX PDFs.")
+                print("   LaTeX may not render SVG images properly in PDFs.")
+                print("")
+                print("   💡 SOLUTIONS:")
+                print("   1. Install Inkscape: https://inkscape.org/release/ (RECOMMENDED)")
+                print("   2. Install ImageMagick: https://imagemagick.org/script/download.php")
+                print("   3. Install GTK+ runtime for Cairo: https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer")
+                print("   After installing, restart the server to enable SVG conversion.")
+                print("")
                 return image_path
                 
             elif file_ext in ['.webp', '.gif', '.bmp', '.tiff', '.ico']:
@@ -2604,6 +3123,9 @@ class SectionContentProcessor:
         html = re.sub(r'<del>(.*?)</del>', r'\\sout{\1}', html)
         html = re.sub(r'<s>(.*?)</s>', r'\\sout{\1}', html)
         
+        # Handle <meaning> tags - wrap content in parentheses
+        html = re.sub(r'<meaning>(.*?)</meaning>', r'(\1)', html)
+        
         return html
     
     def _clean_markdown_for_pandoc(self, markdown: str) -> str:
@@ -2665,8 +3187,46 @@ class SectionContentProcessor:
         # Fix "interview.Such" -> "interview. Such"
         latex = re.sub(r'\.([A-Z][a-z])', r'. \1', latex)
         
-        # Clean up excessive whitespace and newlines
+        # Clean up excessive whitespace and newlines (more than 2 newlines)
         latex = re.sub(r'\n\s*\n\s*\n+', '\n\n', latex)
+        
+        # Convert double newlines (paragraph breaks) to LaTeX line breaks (\\)
+        # but preserve section breaks and environment boundaries
+        lines = latex.split('\n')
+        result_lines = []
+        i = 0
+        while i < len(lines):
+            line = lines[i]
+            result_lines.append(line)
+            
+            # Check if we have a blank line (paragraph break)
+            if i + 1 < len(lines) and lines[i + 1].strip() == '':
+                # Check what comes after the blank line
+                if i + 2 < len(lines):
+                    next_content = lines[i + 2].strip()
+                    # Don't add \\ before LaTeX environments or commands
+                    if (next_content and 
+                        not next_content.startswith('\\begin{') and
+                        not next_content.startswith('\\end{') and
+                        not next_content.startswith('\\section') and
+                        not next_content.startswith('\\subsection') and
+                        not next_content.startswith('\\subsubsection') and
+                        not next_content.startswith('\\chapter') and
+                        not next_content.startswith('\\part') and
+                        not next_content.startswith('\\item')):
+                        # This is a paragraph break in flowing text, add \\
+                        result_lines.append('\\\\')
+                        i += 1  # Skip the blank line
+                    else:
+                        # Keep the blank line for structural elements
+                        i += 1
+                        result_lines.append(lines[i])
+                else:
+                    i += 1
+                    result_lines.append(lines[i])
+            i += 1
+        
+        latex = '\n'.join(result_lines)
         
         # Convert Windows-style line endings to Unix
         latex = latex.replace('\r\n', '\n')

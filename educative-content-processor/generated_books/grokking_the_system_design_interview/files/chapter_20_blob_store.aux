@@ -1,0 +1,201 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\abx@aux@refcontext{ynt/global//global/global}
+\providecommand \oddpage@label [2]{}
+\@writefile{toc}{\contentsline {chapter}{\numberline {1} Blob Store }{1}{chapter.0.1}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\ttl@writefile{ptc}{\ttl@starttoc{chapters@1}}
+\@writefile{toc}{\contentsline {section}{\numberline {1} System Design: A Blob Store }{2}{section.0.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}What is a blob store?}{2}{subsection.0.1.1.1}\protected@file@percent }
+\newlabel{0t_3XqY5eDWyO-7KGPQxc}{{1.1}{2}{What is a blob store?}{subsection.0.1.1.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces A blob store storing and streaming large unstructured files like audio, video, images, and documents}}{2}{figure.caption.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Why do we use a blob store?}{2}{subsection.0.1.1.2}\protected@file@percent }
+\newlabel{why-do-we-use-a-blob-store}{{1.2}{2}{Why do we use a blob store?}{subsection.0.1.1.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Azure storage access tiers}{2}{subsection.0.1.1.3}\protected@file@percent }
+\newlabel{rdv4DttQETC0pGQZ_NyFm}{{1.3}{2}{Azure storage access tiers}{subsection.0.1.1.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces Azure Storage access tiers }}{3}{figure.caption.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.4}Blob life cycle management rules}{3}{subsection.0.1.1.4}\protected@file@percent }
+\newlabel{bFcikMju76m-r_nKWpVDv}{{1.4}{3}{Blob life cycle management rules}{subsection.0.1.1.4}{}}
+\newlabel{XoHaQvOr_maHyq91j8WJo}{{1.4}{3}{Blob life cycle management rules}{section*.4}{}}
+\newlabel{j3zvw-vueDl8hr3NeI3CX}{{1.4}{3}{Blob life cycle management rules}{section*.5}{}}
+\newlabel{OHqppa4jKzG86kPyIXQzt}{{1.4}{3}{Blob life cycle management rules}{section*.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.5}Use cases}{4}{subsection.0.1.1.5}\protected@file@percent }
+\newlabel{GWfuHH4lhkabt7-r0FlLg}{{1.5}{4}{Use cases}{subsection.0.1.1.5}{}}
+\newlabel{PHfb-4lgqCWM1EN3BG9pP}{{1.5}{4}{Use cases}{section*.7}{}}
+\newlabel{IfOIo_Xw97UXs3pkcmySa}{{1.5}{4}{Use cases}{section*.8}{}}
+\newlabel{E2B_jbCJxgRabrW_rd2cn}{{1.5}{4}{Use cases}{section*.9}{}}
+\newlabel{1qSzvVshMkEAHhQuCGa2r}{{1.5}{4}{Use cases}{section*.10}{}}
+\newlabel{7gw3fF4cs9snWSbu9PQBB}{{1.5}{4}{Use cases}{section*.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.6}How do we design a blob store system?}{4}{subsection.0.1.1.6}\protected@file@percent }
+\newlabel{wI8Z8ozI8EVzgZO9o6x2o}{{1.6}{4}{How do we design a blob store system?}{subsection.0.1.1.6}{}}
+\newlabel{64X0SL-QgKdiY8htgzLAj}{{1}{4}{How do we design a blob store system?}{section*.12}{}}
+\newlabel{sCSftNcTBUbXsyOltwr3x}{{2}{4}{How do we design a blob store system?}{section*.13}{}}
+\newlabel{MhchOsnFOHROFzPE9VuOT}{{3}{4}{How do we design a blob store system?}{section*.14}{}}
+\newlabel{XY0fxBfzE2C17dv8ZtO-y}{{4}{4}{How do we design a blob store system?}{section*.15}{}}
+\newlabel{bS37V2LcUsnGZU0uJP7we}{{5}{4}{How do we design a blob store system?}{section*.16}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2} Requirements of a Blob Store's Design }{4}{section.0.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Requirements}{4}{subsection.0.1.2.1}\protected@file@percent }
+\newlabel{OgrKwILwMEDGKQZ2UWGAM}{{2.1}{4}{Requirements}{subsection.0.1.2.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Functional requirements}{5}{subsection.0.1.2.1}\protected@file@percent }
+\newlabel{_X5hhr6FLKMhdQaPeokfh}{{2.1}{5}{Functional requirements}{subsection.0.1.2.1}{}}
+\newlabel{c4k31iVnI5RqYhQE9Kf9u}{{2.1}{5}{Functional requirements}{section*.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.3}{\ignorespaces Multiple containers associated with a single storage account, and multiple blobs inside a single container}}{5}{figure.caption.18}\protected@file@percent }
+\newlabel{qH5eTqg0YQnQWL4c3o5He}{{2.1}{5}{Functional requirements}{section*.19}{}}
+\newlabel{AvqF0Zn_i8ys8c_swZYXB}{{2.1}{5}{Functional requirements}{section*.20}{}}
+\newlabel{f894Du4f6m62Kje0Cy2_h}{{2.1}{5}{Functional requirements}{section*.21}{}}
+\newlabel{coWY5GWsfoO8b5f-14Krr}{{2.1}{5}{Functional requirements}{section*.22}{}}
+\newlabel{LBk3E1tjikjVJDHipqv_F}{{2.1}{5}{Functional requirements}{section*.23}{}}
+\newlabel{F-3w2WVJuGu-F_8n5jszD}{{2.1}{5}{Functional requirements}{section*.24}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.4}{\ignorespaces Functional requirements of a blob store}}{5}{figure.caption.25}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Non-functional requirements}{5}{figure.caption.25}\protected@file@percent }
+\newlabel{guXWXSPYsdMGPDpRTFcx9}{{2.1}{5}{Non-functional requirements}{figure.caption.25}{}}
+\newlabel{MR3Q7jKil2z9s8iq_-4Lj}{{2.1}{5}{Non-functional requirements}{section*.26}{}}
+\newlabel{57s_HOMO8_QyfR7jeAWvy}{{2.1}{5}{Non-functional requirements}{section*.27}{}}
+\newlabel{PN4CDgTjjw6T0L4evkgIX}{{2.1}{6}{Non-functional requirements}{section*.28}{}}
+\newlabel{2i-tG4mVFKr0bJ_6gfnD7}{{2.1}{6}{Non-functional requirements}{section*.29}{}}
+\newlabel{XN0DJDa1hYDwtL81lkLVO}{{2.1}{6}{Non-functional requirements}{section*.30}{}}
+\newlabel{Kytv8mSF8z5s88y8rtrwM}{{2.1}{6}{Non-functional requirements}{section*.31}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.5}{\ignorespaces The non-functional requirements of a blob store}}{6}{figure.caption.32}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Resource estimation}{6}{subsection.0.1.2.2}\protected@file@percent }
+\newlabel{h0U1_4HpwXCWjr4lUXH7t}{{2.2}{6}{Resource estimation}{subsection.0.1.2.2}{}}
+\newlabel{A--Q0EgFZ6C0W8dQImtx5}{{2.2}{6}{Resource estimation}{section*.33}{}}
+\newlabel{xiZYhMT2ZfDlyfYvBhdax}{{2.2}{6}{Resource estimation}{section*.34}{}}
+\newlabel{VFciHqgyN897AuEYj5HFT}{{2.2}{6}{Resource estimation}{section*.35}{}}
+\newlabel{UKAVTad0xDxBdY4SgUsGT}{{2.2}{6}{Resource estimation}{section*.36}{}}
+\newlabel{FW7x2EogdONUvKeR92NZE}{{2.2}{6}{Resource estimation}{section*.37}{}}
+\newlabel{SbKcCZe-SKKvKRcRSPp2D}{{2.2}{6}{Resource estimation}{section*.38}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Number of servers estimation}{6}{section*.38}\protected@file@percent }
+\newlabel{SSa8aib22ogN3Dl7IBRs2}{{2.2}{6}{Number of servers estimation}{section*.38}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.6}{\ignorespaces Number of servers required by a blob store system dedicated to storing YouTube data}}{7}{figure.caption.39}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Storage estimation}{7}{figure.caption.39}\protected@file@percent }
+\newlabel{1naUHazqZvwXbsXTORyKC}{{2.2}{7}{Storage estimation}{figure.caption.39}{}}
+\newlabel{katex_inline_fu6-1xWDdgybbmLgdSekU}{{2.2}{7}{Storage estimation}{section*.40}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Bandwidth estimation}{7}{figure.caption.41}\protected@file@percent }
+\newlabel{xn8qslLEmd0Bm-IIQqLqu}{{2.2}{7}{Bandwidth estimation}{figure.caption.41}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Building blocks we will use}{7}{subsection.0.1.2.3}\protected@file@percent }
+\newlabel{xhKKen_zdcnzKYs3KpTqO}{{2.3}{7}{Building blocks we will use}{subsection.0.1.2.3}{}}
+\newlabel{4gOeXJagJhUjMmZLIgg2B}{{2.3}{7}{Building blocks we will use}{section*.44}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.7}{\ignorespaces Summarizing the bandwidth requirements of a blob store system for YouTube videos only}}{8}{figure.caption.42}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1.8}{\ignorespaces Building blocks for the design of a blob store}}{8}{figure.caption.43}\protected@file@percent }
+\newlabel{8taOd18lZxXeqZfkafi-j}{{2.3}{8}{Building blocks we will use}{section*.45}{}}
+\newlabel{-2lxue25x6WiwMsiZCbXQ}{{2.3}{8}{Building blocks we will use}{section*.46}{}}
+\newlabel{bQlgADz0svjdvVlRVY-1F}{{2.3}{8}{Building blocks we will use}{section*.47}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3} Design of a Blob Store }{8}{section.0.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}High-level design}{8}{subsection.0.1.3.1}\protected@file@percent }
+\newlabel{8T_83u7LMTmjDypviQlsy}{{3.1}{8}{High-level design}{subsection.0.1.3.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.9}{\ignorespaces The high-level design of a blob store}}{8}{figure.caption.48}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}API design}{8}{subsection.0.1.3.2}\protected@file@percent }
+\newlabel{YiVcGUT7bqlv9-KWUFgaW}{{3.2}{8}{API design}{subsection.0.1.3.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Create container}{9}{subsection.0.1.3.2}\protected@file@percent }
+\newlabel{DbPvdAQ-ImkxgLt07UaBU}{{3.2}{9}{Create container}{subsection.0.1.3.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Upload blobs}{9}{table.caption.49}\protected@file@percent }
+\newlabel{7KHuCVFgOV06cbEkqz4vk}{{3.2}{9}{Upload blobs}{table.caption.49}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Download blobs}{9}{table.caption.50}\protected@file@percent }
+\newlabel{0zK4cjqRJXuF9HMvL2Ch4}{{3.2}{9}{Download blobs}{table.caption.50}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Delete blob}{9}{table.caption.51}\protected@file@percent }
+\newlabel{6Dm8r3h1fAcmQNM_GKJDP}{{3.2}{9}{Delete blob}{table.caption.51}{}}
+\@writefile{toc}{\contentsline {subsubsection}{List blobs}{9}{table.caption.52}\protected@file@percent }
+\newlabel{y9OR2-iae4eYUERptOvMp}{{3.2}{9}{List blobs}{table.caption.52}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Delete container}{10}{table.caption.53}\protected@file@percent }
+\newlabel{tleRe6eXYSMUnHZyvnStq}{{3.2}{10}{Delete container}{table.caption.53}{}}
+\@writefile{toc}{\contentsline {subsubsection}{List containers}{10}{table.caption.54}\protected@file@percent }
+\newlabel{7yLrwdOLKV35Yr9aN0L6S}{{3.2}{10}{List containers}{table.caption.54}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Detailed design}{10}{subsection.0.1.3.3}\protected@file@percent }
+\newlabel{ljXYJrkelDWSWnKGfAMLh}{{3.3}{10}{Detailed design}{subsection.0.1.3.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Components}{10}{subsection.0.1.3.3}\protected@file@percent }
+\newlabel{g09cVGuIIDaJNBUS6YSAK}{{3.3}{10}{Components}{subsection.0.1.3.3}{}}
+\newlabel{r0axmnG0KhsirIh0As36g}{{3.3}{10}{Components}{section*.56}{}}
+\newlabel{S_iXIPvNNv_2BxZ3AEbzh}{{3.3}{10}{Components}{section*.57}{}}
+\newlabel{zK2MHzZ6erXUA4DdB2K1C}{{3.3}{10}{Components}{section*.58}{}}
+\newlabel{h8c8k4TrWCPMUjJut55j4}{{3.3}{10}{Components}{section*.59}{}}
+\newlabel{YKbSzlx16jW7XnG1Zr6QL}{{3.3}{10}{Components}{section*.60}{}}
+\newlabel{7S3-Da-4h-U4Tc8bxCJWC}{{3.3}{11}{Components}{section*.61}{}}
+\newlabel{-2Wv9ehSf8Od1phyhLn9M}{{3.3}{11}{Components}{section*.62}{}}
+\newlabel{uVyeD3g9NWyzvJ5_IZ2PM}{{3.3}{11}{Components}{section*.63}{}}
+\newlabel{4V8WVw2FmH1Xexq8ZyFZ_}{{3.3}{11}{Components}{section*.64}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.10}{\ignorespaces The detailed design of a blob store}}{11}{figure.caption.65}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Workflow}{11}{figure.caption.65}\protected@file@percent }
+\newlabel{YENkyl3rmJbWMT75RyfYu}{{3.3}{11}{Workflow}{figure.caption.65}{}}
+\newlabel{cy-n9pIVoWXlp1AMNZ2GI}{{1}{11}{Workflow}{section*.66}{}}
+\newlabel{YAsFa8OQXjaFUu4RkEp05}{{2}{11}{Workflow}{section*.67}{}}
+\newlabel{CxDdB8yQ_p3TqxzSn_pHr}{{3}{12}{Workflow}{section*.68}{}}
+\newlabel{kt7zIvGsmremPbw8dmdkG}{{4}{12}{Workflow}{section*.69}{}}
+\newlabel{E2tmP9GGoFeCViYAfV9oi}{{5}{12}{Workflow}{section*.70}{}}
+\newlabel{Mrzz50_pLOeuOJ72xfqQG}{{6}{12}{Workflow}{section*.71}{}}
+\newlabel{Gf-6ti_XA_hLb9kWyqtnM}{{1}{12}{Workflow}{section*.72}{}}
+\newlabel{PPQFrrLTDBQUSFhFOc9dV}{{2}{12}{Workflow}{section*.73}{}}
+\newlabel{wihk1vpP8PLLsMmRy7M3V}{{3}{12}{Workflow}{section*.74}{}}
+\newlabel{ZV54X82RJFnSiwgI63Z7U}{{4}{12}{Workflow}{section*.75}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4} Design Considerations of a Blob Store }{13}{section.0.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Introduction}{13}{subsection.0.1.4.1}\protected@file@percent }
+\newlabel{SiATehfWWz18HTGPS6yWe}{{4.1}{13}{Introduction}{subsection.0.1.4.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1.1}{\ignorespaces Summary of the Lesson}}{13}{table.caption.76}\protected@file@percent }
+\newlabel{OZ4pY7JfkYCanG9iuVw7c}{{1}{13}{Introduction}{section*.77}{}}
+\newlabel{il1Ajs5eAFXDtaxqV_-lE}{{2}{13}{Introduction}{section*.78}{}}
+\newlabel{nPM_TKB1bt0IYwQDzUYKR}{{3}{13}{Introduction}{section*.79}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1.2}{\ignorespaces Layered Information}}{14}{table.caption.80}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Blob metadata}{14}{subsection.0.1.4.2}\protected@file@percent }
+\newlabel{cbHDnEH5ogq_EiqoKXK95}{{4.2}{14}{Blob metadata}{subsection.0.1.4.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1.3}{\ignorespaces Blob Metadata}}{14}{table.caption.81}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Partition data}{15}{subsection.0.1.4.3}\protected@file@percent }
+\newlabel{vNAxOZ_2T6GsyU_F8QoJD}{{4.3}{15}{Partition data}{subsection.0.1.4.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.11}{\ignorespaces Range partitioning based on blob IDs}}{15}{figure.caption.83}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Blob indexing}{15}{subsection.0.1.4.4}\protected@file@percent }
+\newlabel{933s55h2eqamMPibQZ2FP}{{4.4}{15}{Blob indexing}{subsection.0.1.4.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.12}{\ignorespaces Indexing and searching blobs}}{16}{figure.caption.84}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Pagination for listing}{16}{subsection.0.1.4.5}\protected@file@percent }
+\newlabel{J6kDu088kddPcJ0J3W3oc}{{4.5}{16}{Pagination for listing}{subsection.0.1.4.5}{}}
+\newlabel{gHgKv7EESvCDvhp316aO_}{{4.5}{16}{Pagination for listing}{section*.86}{}}
+\newlabel{OTd76x5dtnBpIf94LAzZR}{{4.5}{16}{Pagination for listing}{section*.87}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Replication}{17}{subsection.0.1.4.6}\protected@file@percent }
+\newlabel{1Rlgk4sfffmbK7jhTTQVo}{{4.6}{17}{Replication}{subsection.0.1.4.6}{}}
+\newlabel{RmP-lOAMJ7NlfkxkiIc63}{{4.6}{17}{Replication}{section*.88}{}}
+\newlabel{HCpjuru4M6x8EgC-0enek}{{4.6}{17}{Replication}{section*.89}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Synchronous replication within a storage cluster}{17}{section*.89}\protected@file@percent }
+\newlabel{Pn_KY_GwGxXgIxSmzHL9z}{{4.6}{17}{Synchronous replication within a storage cluster}{section*.89}{}}
+\newlabel{d_YozD5HkE4waV940bgG6}{{4.6}{17}{Synchronous replication within a storage cluster}{section*.90}{}}
+\newlabel{zut_sfZ0HbJhcYJn0xty8}{{4.6}{17}{Synchronous replication within a storage cluster}{section*.91}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Asynchronous replication across data centers and region}{17}{section*.91}\protected@file@percent }
+\newlabel{b_CXwNhQzXRYP1xACaAMs}{{4.6}{17}{Asynchronous replication across data centers and region}{section*.91}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.13}{\ignorespaces These are the regions and availability zones. Dark yellow is the primary data and light yellow are the replicas}}{17}{figure.caption.92}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7}Garbage collection while deleting a blob}{18}{subsection.0.1.4.7}\protected@file@percent }
+\newlabel{lIR_6nlqNCW8Q3Mc1ihJy}{{4.7}{18}{Garbage collection while deleting a blob}{subsection.0.1.4.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.8}Stream a file}{18}{subsection.0.1.4.8}\protected@file@percent }
+\newlabel{YvFCdDPfI6fkzm6kgSRN2}{{4.8}{18}{Stream a file}{subsection.0.1.4.8}{}}
+\newlabel{katex_inline_LhOA21hVUDldcXZqB6U6l}{{4.8}{18}{Stream a file}{section*.98}{}}
+\newlabel{katex_inline_urT4dpS6XFLsICFlIFvce}{{4.8}{18}{Stream a file}{section*.99}{}}
+\newlabel{katex_inline_sX-K9_nHVQDmOH0dyaiGM}{{4.8}{18}{Stream a file}{section*.100}{}}
+\newlabel{katex_inline_3PmVhmx0EEZsEIxb9jmr2}{{4.8}{18}{Stream a file}{section*.101}{}}
+\newlabel{katex_inline_M67rpvK6G7bT1M_L7cG9v}{{4.8}{20}{Stream a file}{section*.102}{}}
+\newlabel{katex_inline_mgO7RTp3cdOreYzKmPf2k}{{4.8}{20}{Stream a file}{section*.103}{}}
+\newlabel{katex_inline_ujBUzJ_sVnbdf1KAEvUho}{{4.8}{20}{Stream a file}{section*.104}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.9}Cache the blob store}{20}{subsection.0.1.4.9}\protected@file@percent }
+\newlabel{kHCod9BmE6rMB5UFnO7SK}{{4.9}{20}{Cache the blob store}{subsection.0.1.4.9}{}}
+\newlabel{mOt3KM9ID0TrqsjUZ__Ux}{{4.9}{20}{Cache the blob store}{section*.105}{}}
+\newlabel{PEniBCm6gsTQLw9xHKgJb}{{4.9}{20}{Cache the blob store}{section*.106}{}}
+\newlabel{02G7UZed38_3eUJbHtJ2x}{{4.9}{20}{Cache the blob store}{section*.107}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5} Evaluation of a Blob Store's Design }{20}{section.0.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Requirements compliance}{20}{subsection.0.1.5.1}\protected@file@percent }
+\newlabel{YF6t9xGZLYhSh4uV6F431}{{5.1}{20}{Requirements compliance}{subsection.0.1.5.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Availability}{20}{subsection.0.1.5.1}\protected@file@percent }
+\newlabel{q4kSKHryY0ZcXXR4hZuwm}{{5.1}{20}{Availability}{subsection.0.1.5.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Durability}{21}{subsection.0.1.5.1}\protected@file@percent }
+\newlabel{BPqJ9d8xZh6PGTwbAh9p9}{{5.1}{21}{Durability}{subsection.0.1.5.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.19}{\ignorespaces Guarantees provided by the blob store }}{21}{figure.caption.108}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Scalability}{21}{figure.caption.108}\protected@file@percent }
+\newlabel{vpUbMv5RIf6-iDtghfsKN}{{5.1}{21}{Scalability}{figure.caption.108}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Throughput}{21}{figure.caption.108}\protected@file@percent }
+\newlabel{0j8qZGd9xrHBjsBkE1S10}{{5.1}{21}{Throughput}{figure.caption.108}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Reliability}{22}{figure.caption.108}\protected@file@percent }
+\newlabel{YkP6gdpI_pqaLNETn_YNW}{{5.1}{22}{Reliability}{figure.caption.108}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Consistency}{22}{figure.caption.108}\protected@file@percent }
+\newlabel{1IXXcT47ZNOkW2jGAvP2W}{{5.1}{22}{Consistency}{figure.caption.108}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Conclusion}{22}{subsection.0.1.5.2}\protected@file@percent }
+\newlabel{NSrQhHWFjBArmIPQxI7ew}{{5.2}{22}{Conclusion}{subsection.0.1.5.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6} Quiz on the Blob Store's Design }{22}{section.0.1.6}\protected@file@percent }
+\ttl@finishall
+\abx@aux@read@bbl@mdfivesum{nobblfile}
+\gdef \@abspage@last{24}

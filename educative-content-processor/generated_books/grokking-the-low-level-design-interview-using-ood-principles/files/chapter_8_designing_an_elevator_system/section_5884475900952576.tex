@@ -1,0 +1,902 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Class Diagram for the Elevator System
+% Section ID: 5884475900952576
+% Section Slug: class-diagram-for-the-elevator-system
+% Generated: 2025-12-11T14:08:26.823360
+
+In this lesson, we'll identify and design the classes, abstract classes, and interfaces based on the requirements we previously gathered from the interviewer in our elevator system.
+
+\subsection{Components of an elevator system}\label{7gQWTbVCc0ltN6xEKqjYE}
+\\
+As mentioned, we will design the elevator system using a bottom-up approach. Therefore, we will first identify and design classes for the smaller components like \texttt{Button}, \texttt{Door}, and \texttt{Floor}. Then , we will create the larger components, \texttt{ElevatorCar}, \texttt{Building}, and the overall \texttt{ElevatorSystem}---composed of aggregating the smaller ones.
+
+\subsection{Button}\label{R94f6CUxLI2G4F-24LSWE}
+\\
+\texttt{Button} is an abstract class. There can be four types of buttons: the door button, the elevator button, the hall button, and the emergency stop button. The status of the button determines whether it is pressed or unpressed. We can press the button or check its status through the \texttt{Button} class.
+\\
+The \texttt{ElevatorButton} subclass is inherited from the \texttt{Button} class and represents the buttons inside the elevator. When the elevator button is pressed, it specifies the destination floor of the elevator car or where the passenger wants to go.
+\\
+Similar to \texttt{ElevatorButton}, \texttt{HallButton} is also a subclass of the \texttt{Button} class. This class represents the buttons outside the elevator. It uses the enumeration \texttt{Direction} to specify whether the button is for going up or down. The hall button has two important pieces of information: the floor from where the button is pressed and the direction the passenger wants to move.
+\\
+Furthermore, there's an \texttt{EmergencyButton} class that also inherits the behavior of the abstract \texttt{Button} class. This class responds to the passengers' call when they press the emergency button. It alerts the support team to take prompt action and prevents other passengers from using the elevator car.
+\\
+The UML representation of these classes is shown below:
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_8/section_5884475900952576/6519475934199808.png}
+ \caption{The class diagram of Button and its derived classes}
+\end{figure}
+
+\textbf{R3:} Elevator doors shall only open when the car is idle and auto-close after a configurable timeout unless the ``Open'' button is actively held.
+\\
+\textbf{R4:} Each floor shall have a panel with ``Up''/``Down'' call buttons, indicator lights, and an external display of the car's current floor and direction.
+\\
+\textbf{R5:} Each elevator car shall have buttons, ground (0) to 15th floor, for every floor, ``Open,'' ``Close,'' and an emergency-stop button, plus an internal display showing the current floor, direction, and load status.
+\\
+\textbf{R6:} Pressing the emergency-stop button shall immediately halt the car, keep doors closed, and alert building security/operators.
+
+\subsubsection{Elevator panel and hall panel}\label{qnHDeCfp8v6BKDRVQs1cL}
+\\
+\texttt{ElevatorPanel} is a class that represents the complete grid of buttons inside the elevator. In the elevator panel, we will have a list of buttons for selecting the destination floor, two buttons for closing and opening the elevator, and an emergency stop button.
+\\
+The \texttt{HallPanel} class represents the buttons that are outside the elevators. The hall panel consists of only two buttons: up and down\emph{.}
+\\
+The elevator and hall panels are used to take input from the passenger. The representation of both classes is given below:
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_8/section_5884475900952576/6355381985869824.png}
+ \caption{The class diagram of the HallPanel and ElevatorPanel classes}
+\end{figure}
+
+\textbf{R4:} Each floor shall have a panel with ``Up''/``Down'' call buttons, indicator lights, and an external display of the car's current floor and direction.
+\\
+\textbf{R5:} Each elevator car shall have buttons, ground (0) to 15th floor, for every floor, ``Open,'' ``Close,'' and an emergency-stop button, plus an internal display showing the current floor, direction, and load status.
+
+\begin{quote}
+Number of buttons in the elevator panel = Number of floors + 3
+\\
+Number of buttons in the hall panel = 2
+\end{quote}
+\subsubsection{Display}\label{DmcVqpIKcXJfRqvo3zbWI}
+\\
+Every elevator has a display to represent the current floor number and direction (up or down) of the elevator. It also gives information about the capacity of the elevator. So we will use the \texttt{Display} class which represents this information. The
+\texttt{Display} class consists of the floor number, capacity, and direction. It has separate methods for both elevator display and hall display. The
+\texttt{showElevatorDisplay()} will display all of the class attributes. The
+\texttt{Display} class also has an \texttt{update()} method that changes the floor number, the capacity, and the direction of the elevator car.
+\\
+The class representation is provided below:
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_8/section_5884475900952576/4742854122274816.png}
+ \caption{The class diagram of the Display class}
+\end{figure}
+
+\textbf{R4:} Each floor shall have a panel with ``Up''/``Down'' call buttons, indicator lights, and an external display of the car's current floor and direction.
+\\
+\textbf{R5:} Each elevator car shall have buttons, ground (0) to 15th floor, for every floor, ``Open,'' ``Close,'' and an emergency-stop button, plus an internal display showing the current floor, direction, and load status.
+\\
+\textbf{R11:} All internal and external displays and indicators shall update in real-time to reflect the current floor, direction, and operational state (idle, moving, maintenance, or emergency) of each elevator car.
+\\
+\textbf{R12:} The system shall clearly communicate all operational states, errors, and safety messages to users via audio/visual indicators and displays, ensuring passengers are always aware of the elevator's status.
+
+\subsubsection{Door}\label{QmGUoJmdOkuy7GfYS-3f1}
+\\
+The \texttt{Door} class symbolizes the door of an elevator. This class references the enum \texttt{DoorState}, which depicts that the door's status can be open or closed. A simple representation of the \texttt{Door} class is provided below:
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_8/section_5884475900952576/4947154668748800.png}
+ \caption{The class diagram of the Door class}
+\end{figure}
+
+\textbf{R3:} Elevator doors shall only open when the car is idle and auto-close after a configurable timeout unless the ``Open'' button is actively held.
+\\
+\textbf{R6:} Pressing the emergency-stop button shall immediately halt the car, keep doors closed, and alert building security/operators.
+\\
+\textbf{R10b:} All elevator doors remain closed, and panel inputs are ignored.
+
+\subsubsection{Elevator car}\label{r6iHLX8YiYErWUnhipwSS}
+\\
+\texttt{ElevatorCar} is the class that expresses the elevators of the building. Each elevator has a unique ID. This class consists of an enumeration named \texttt{state} that tells the present state of the elevator. Moreover, every elevator car has a door, an elevator panel, and a display. The elevator car can start moving or stop on any floor. The UML expression of the class is as follows:
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_8/section_5884475900952576/6522351280586752.png}
+ \caption{The class diagram of the ElevatorCar class}
+\end{figure}
+
+\textbf{R1:} The elevator car system shall support a configurable number of floors (up to 15) and a configurable number of elevator cars (up to 3).
+\\
+\textbf{R2:} Each elevator car shall be capable of serving every floor and exist in one of four states: moving up, moving down, maintenance, or idle.
+\\
+\textbf{R3:} Elevator doors shall only open when the car is idle and auto-close after a configurable timeout unless the ``Open'' button is actively held.
+\\
+\textbf{R5:} Each elevator car shall have buttons, ground (0) to 15th floor, for every floor, ``Open,'' ``Close,'' and an emergency-stop button, plus an internal display showing the current floor, direction, and load status.
+\\
+\textbf{R6:} Pressing the emergency-stop button shall immediately halt the car, keep doors closed, and alert building security/operators.
+\\
+\textbf{R7:} Each elevator car shall enforce a maximum load of eight passengers or 680 kg, inhibit motion if this limit is exceeded, and emit an audible and visual alarm when overloaded.
+\\
+\textbf{R9:} The elevator car system shall support calls from multiple passengers, where each passenger can go to the same or different floors in the same or opposite direction.
+\\
+\textbf{R10:} The system shall support a maintenance state for each car in which:
+\\
+\textbf{R10a:} The car is removed from normal dispatch (no new requests assigned).
+\\
+\textbf{R10b:} All elevator doors remain closed, and panel inputs are ignored.
+\\
+\textbf{R10c:} All UIs display ``Maintenance'' for that car.
+\\
+\textbf{R10d:} Upon exiting maintenance, the car returns to idle state at its current floor before resuming service.
+\\
+\textbf{R11:} All internal and external displays and indicators shall update in real-time to reflect the current floor, direction, and operational state (idle, moving, maintenance, or emergency) of each elevator car.
+\\
+\textbf{R12:} The system shall clearly communicate all operational states, errors, and safety messages to users via audio/visual indicators and displays, ensuring passengers are always aware of the elevator's status.
+
+\subsubsection{Floor}\label{SlOk1nf4JQk9bFOZ-RuO9}
+\\
+The \texttt{Floor} class represents the floors of a building. Each floor consists of several hall panels to call the lift and has displays to indicate the current floor and direction of the lift, as there is a separate panel and display for each elevator. Moreover , we will have \texttt{getFloorNumber()}, \texttt{getPanel()}, and \texttt{getDisplay()} functions to check if the floor is at the bottom or top, and update the panels and displays respectively. The
+``Down'' button will be disabled if the floor is at the lowest level of the building, and the ``Up'' button will be disabled if the floor is topmost.
+\\
+The model of the \texttt{Floor} class is shown below:
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_8/section_5884475900952576/6618022004260864.png}
+ \caption{The class diagram of the Floor class}
+\end{figure}
+
+\textbf{R4:} Each floor shall have a panel with ``Up''/``Down'' call buttons, indicator lights, and an external display of the car's current floor and direction.
+
+\subsubsection{Building}\label{7lgv-Qr3Qax9j0YYy5ilz}
+\\
+The \texttt{Building} class represents an actual building consisting of several floors and elevators. This class is represented below:
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_8/section_5884475900952576/4990837103394816.png}
+ \caption{The class diagram of the Building class}
+\end{figure}
+
+\textbf{R1:} The elevator car system shall support a configurable number of floors (up to 15) and a configurable number of elevator cars (up to 3).
+
+\subsubsection{Elevator system}\label{3XCXlm0IeeiUF6CPwgvie}
+\\
+\texttt{ElevatorSystem} is the main functional class of the whole elevator control system. The elevator system displays each elevator and monitors the elevator cars. The elevator system has a \texttt{dispatcher} to select the best elevator car. Moreover, the system takes control of the elevator doors. The UML representation of a class is given below:
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_8/section_5884475900952576/5789801146875904.png}
+ \caption{The class diagram of the ElevatorSystem class}
+\end{figure}
+
+\textbf{R1:} The elevator car system shall support a configurable number of floors (up to 15) and a configurable number of elevator cars (up to 3).
+\\
+\textbf{R8:} The central controller shall assign the most appropriate car to each floor-call request, aiming to minimize average wait time, and command that car to move accordingly.
+\\
+\textbf{R9:} The elevator car system shall support calls from multiple passengers, where each passenger can go to the same or different floors in the same or opposite direction.
+\\
+\textbf{R10:} The system shall support a maintenance state for each car in which:
+\\
+\textbf{R10a:} The car is removed from normal dispatch (no new requests assigned).
+\\
+\textbf{R10b:} All elevator doors remain closed, and panel inputs are ignored.
+\\
+\textbf{R10c:} All UIs display ``Maintenance'' for that car.
+\\
+\textbf{R10d:} Upon exiting maintenance, the car returns to idle state at its current floor before resuming service.
+\\
+\textbf{R11:} All internal and external displays and indicators shall update in real-time to reflect the current floor, direction, and operational state (idle, moving, maintenance, or emergency) of each elevator car.
+\\
+\textbf{R12:} The system shall clearly communicate all operational states, errors, and safety messages to users via audio/visual indicators and displays, ensuring passengers are always aware of the elevator's status.
+
+\subsubsection{Enumerations}\label{sw8hBJ_D0_r8mMwvUwBQS}
+\\
+Enumeration is generally a data type in which only a specific set of constants can be stored. The following is the list of enumerations required in the elevator system:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{ieKXPWmJRLd8lJr4JT65V}
+\texttt{ElevatorState}: It describes the state of an elevator, which could be idle, up, down, or maintenance.
+\item
+\protect\phantomsection\label{0HobXMMChqEf3Y1DCCcaT}
+\texttt{Direction}: When the elevator is not idle, it describes the direction of its motion, which could be up or down.
+\item
+\protect\phantomsection\label{koiMYAbuJS1aCdGN6Kzra}
+\texttt{DoorState}: When the elevator is idle, it describes the status of an elevator door that could be open or closed.
+\end{itemize}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_8/section_5884475900952576/4853477271273472.png}
+ \caption{Enums in the elevator system}
+\end{figure}
+
+\textbf{R2:} Each elevator car shall be capable of serving every floor and exist in one of four states: moving up, moving down, maintenance, or idle.
+\\
+\textbf{R3:} Elevator doors shall only open when the car is idle and auto-close after a configurable timeout unless the ``Open'' button is actively held.
+\\
+\textbf{R5:} Each elevator car shall have buttons, ground (0) to 15th floor, for every floor, ``Open,'' ``Close,'' and an emergency-stop button, plus an internal display showing the current floor, direction, and load status.
+\\
+\textbf{R11:} All internal and external displays and indicators shall update in real-time to reflect the current floor, direction, and operational state (idle, moving, maintenance, or emergency) of each elevator car.
+\\
+\textbf{R12:} The system shall clearly communicate all operational states, errors, and safety messages to users via audio/visual indicators and displays, ensuring passengers are always aware of the elevator's status.
+
+\subsection{Relationship between the classes}\label{TQeQvn7wVlq23DuZpRwW7-1}
+\\
+Now, we'll discuss the relationships between the classes we have defined above in our elevator system.
+
+\subsubsection{Aggregation}\label{Lx31yZSOGVEb5_iWnJdV5}
+\\
+Aggregation is a ``has-a'' relationship where the container (whole) can exist independently of the contained (part). The part can also exist independently, and is often shared or referenced. The class diagram has the following aggregation relationships:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{8Ye4NnIFmKM5juk6QnDRZ}
+\texttt{ElevatorSystem} has an aggregation relationship with \texttt{Building}.
+
+\begin{itemize}
+\item
+The \texttt{ElevatorSystem} is the high-level controller and contains a \texttt{Building} instance (which has floors and elevator cars). The
+\texttt{Building} object can be reused or replaced if the system is reset.
+\end{itemize}
+\item
+\protect\phantomsection\label{nI-PhZCrf_6sob1hDemEU}
+\texttt{Building} aggregates, \texttt{Floor} and \texttt{ElevatorCar}.
+
+\begin{itemize}
+\item
+The \texttt{Building} has multiple floors and elevator cars. Even if the \texttt{Building} is destroyed, the floors and cars might still be conceptual entities (e.g., for reporting or migration).
+\end{itemize}
+\end{itemize}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_8/section_5884475900952576/5903215370305536.png}
+ \caption{The association relationship between classes}
+\end{figure}
+
+\subsubsection{Composition}\label{_p_oxRkeUSg1SIGw1sCtb}
+\\
+Composition is a strong ``part-of'' relationship where the part cannot exist without the whole. If the whole is destroyed, its parts are destroyed too. The class diagram has the following composition relationships.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{zvMb6Vw5ZuvJeRpcU6g_W}
+\texttt{ElevatorCar} is composed of \texttt{Door}, \texttt{Display}, and \texttt{ElevatorPanel}.
+
+\begin{itemize}
+\item
+Each \texttt{ElevatorCar} \emph{owns} its \texttt{Door}, \texttt{Display}, and \texttt{Panel}---these have no meaningful existence outside the car. If the car is decommissioned, so are its door, display, and panel.
+\end{itemize}
+\item
+\protect\phantomsection\label{RvFQ8uuHhLRJ79UEwI_Dr}
+\texttt{Floor} is composed of \texttt{HallPanel} and \texttt{Display}.
+
+\begin{itemize}
+\item
+Each floor has a unique \texttt{HallPanel} and \texttt{Display}, which do not make sense independently of their floor.
+\end{itemize}
+\item
+\protect\phantomsection\label{6FCDgW6qM1_ybaJ64b6Y0}
+\texttt{HallPanel} contains \texttt{HallButtons}.
+
+\begin{itemize}
+\item
+A \texttt{HallPanel} comprises up/down buttons specific to it; these buttons are not shared with other panels.
+\end{itemize}
+\item
+\protect\phantomsection\label{G8A-GIBJx3FGXEGjC_XUO}
+\texttt{ElevatorPanel} contains \texttt{ElevatorButtons}, \texttt{DoorButtons}, and an \texttt{EmergencyButton}.
+
+\begin{itemize}
+\item
+These buttons are part of the elevator's control panel and are not shared across panels or elevators.
+\end{itemize}
+\end{itemize}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_8/section_5884475900952576/5469626652557312.png}
+ \caption{The composition relationships between classes}
+\end{figure}
+
+\subsubsection{Inheritance}\label{l87icHNRx2MWvccKptNmm}
+\\
+Inheritance is an ``is-a'' relationship. Subclasses share a contract and behavior with the superclass, and can be used wherever the superclass is expected. The following classes show an inheritance relationship:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{c4IzTYrD6Sirfosp_4Ggg}
+\texttt{ElevatorButton}, \texttt{HallButton}, \texttt{DoorButton}, and \texttt{EmergencyButton} all extend the abstract \texttt{Button} class.
+
+\begin{itemize}
+\item
+All buttons share common features (pressed state, press/reset actions), but each has specialized behavior and context. Inheriting from a base \texttt{Button} reduces duplication and supports polymorphism if needed.
+\end{itemize}
+\end{itemize}
+\begin{quote}
+\textbf{Note:} The component section has already discussed the inheritance relationship between classes.
+\end{quote}
+\subsection{Class diagram of the elevator system}\label{Ga2LWnDWbLs5V7wrqdXVX}
+\\
+This section outlines the multiplicity (cardinality) relationships between the main classes in our elevator system. We explain the allowed number of instances on each side for each relationship and the real-world or design rationale behind the connection. Understanding these relationships is key to modeling how different entities interact and collaborate to support key workflows in the system.
+
+\begin{center}
+\begin{tabular}{|p{0.18\linewidth}|p{0.18\linewidth}|p{0.12\linewidth}|p{0.45\linewidth}|}
+\hline
+\textbf{Source} & \textbf{Target} & \textbf{Multiplicity} & \textbf{Reason} \\
+\hline
+ElevatorSystem & Building & 1 → 1 & The ElevatorSystem manages exactly one Building; the Building is created and owned by the system. \\
+\hline
+Building & Floor & 1 → 1..15 & A Building consists of at least 1 and up to 15 Floor objects. \\
+\hline
+Building & ElevatorCar & 1 → 1..3 & A Building consists of at least 1 and up to 3 ElevatorCar objects. \\
+\hline
+Floor & HallPanel & 1 → 1..* & Each Floor contains at least one HallPanel (may be more in special configurations). \\
+\hline
+Floor & Display & 1 → 1..* & Each Floor contains at least one Display, and possibly more for redundancy or multiple elevator banks. \\
+\hline
+HallPanel & HallButton & 1 → 2 & Each HallPanel comprises exactly 2 HallButtons (up and down), except for top/bottom floors (some implementations may have one null). \\
+\hline
+ElevatorCar & ElevatorPanel & 1 → 1 & Each ElevatorCar contains exactly one ElevatorPanel for passenger controls. \\
+\hline
+ElevatorCar & Door & 1 → 1 & Each ElevatorCar has exactly one Door. \\
+\hline
+ElevatorCar & Display & 1 → 1 & Each ElevatorCar has exactly one Display for internal status. \\
+\hline
+ElevatorPanel & ElevatorButton & 1 → 1..18 & Each ElevatorPanel contains one ElevatorButton for each floor it can reach (typically 1 to 18). \\
+\hline
+ElevatorPanel & DoorButton & 1 → 2 & Each ElevatorPanel has exactly 2 DoorButtons (open and close). \\
+\hline
+ElevatorPanel & EmergencyButton & 1 → 1 & Each ElevatorPanel has exactly one EmergencyButton. \\
+\hline
+\end{tabular}
+\end{center}
+
+
+Here's the complete class diagram for our elevator system:
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_8/section_5884475900952576/4592133024382976.png}
+ \caption{The class diagram of elevator system}
+\end{figure}
+
+\subsection{Design pattern}\label{DOwu3M73j1ZgdpKzHFk7D}
+\\
+Several design patterns are well-suited to the elevator control system:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{Jj5jYodB1oTT7kJrDX2ZU}
+\textbf{Strategy pattern:} The dispatching logic---how the system assigns elevator cars to requests---can vary based on building size, traffic patterns, or custom policies. Using the Strategy pattern, you can define multiple dispatch algorithms (e.g., nearest-car, least-busy, or time-based scheduling) and swap them at runtime depending on building requirements.
+\item
+\protect\phantomsection\label{GVL2rTQeHPP6sljdsatfD}
+\textbf{State pattern:} Elevators naturally transition between states such as idle, moving up, moving down, maintenance, or emergency. The State pattern allows each elevator to delegate its behavior to an object representing its current state. This leads to cleaner, more maintainable code: state transitions are explicit, and each state handles only its relevant actions (such as door logic or input handling).
+\item
+\protect\phantomsection\label{tJ-6-aY3xNPspRkrH485I}
+\textbf{Delegation:} Instead of implementing all behaviors in a single class, delegation enables objects (like the elevator system or elevator cars) to delegate certain responsibilities---such as dispatching, state management, or display updates---to specialized helper classes or state objects. This promotes separation of concerns and greater flexibility in modifying or extending system behavior.
+\end{itemize}
+\\
+These patterns help make the elevator system modular and extensible, easily adapting to different building requirements or future enhancements.
+
+\subsection{AI-powered trainer}\label{FQLkrluSPM3UYoJmrdCuE}
+\\
+At this stage, everything should be clear. If you encounter any confusion or ambiguity, feel free to utilize the interactive AI-enabled widget below to seek clarification. This tool is designed to help you strengthen your understanding of the concepts.
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.15\textwidth]{Images/chapter_8/section_5884475900952576/6614250666459136.png}
+ 
+\end{figure}
+
+\subsection{Additional requirements}\label{IWceepSl0goky8ORuya6B}
+\\
+The interviewer can introduce some additional requirements in the elevator control system, or they can ask some follow-up questions. The additional requirement is how the dispatcher works in the elevator system. The interviewer can ask to devise an algorithm to optimize any of these:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{5xUOtppuWRO6_BEPHdfxF}
+To minimize the wait time of the system
+\item
+\protect\phantomsection\label{tyijNsNh7mGvkht6Mjz9j}
+To minimize the wait time of the passenger
+\item
+\protect\phantomsection\label{KNoSPx8_Ct77Un4u9VOmD}
+To maximize throughput
+\item
+\protect\phantomsection\label{LSOiiYL-LMuzp7NyIXq6L}
+To minimize the power usage or cost
+\end{itemize}
+\\
+To optimize the elevator system, we have different dispatching algorithms.
+
+\subsubsection{FCFS}\label{SydLsUJDEQBDlOlpe4iFn}
+\\
+\textbf{First come, first serve (FCFS)} is a scheduling algorithm by which the passenger who comes first gets the elevator car and reaches the destination. There are four states of an elevator car with respect to the passenger:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{wFxsTmSLF4mMyVnQ9N1Xj}
+The elevator car is in an idle state.
+\item
+\protect\phantomsection\label{kwcVYXPCekLXB57Kn7CLF}
+The elevator car is moving toward the passenger in the same direction the passenger wants.
+\item
+\protect\phantomsection\label{nloTvkpr-h7X43H-0zosW}
+An elevator car is moving toward the passenger, but in the opposite direction the passenger wants to go.
+\item
+\protect\phantomsection\label{s6oE2Jag5kTmS9_L3i8b5}
+The elevator car is moving away from the passenger.
+\end{itemize}
+\\
+In this algorithm, the dispatcher will try to find elevators in either of the first two states and ignore those elevators in the last two states.
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/6107741234135040.png}
+ \caption{The FCFS algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/6246805806514176.png}
+ \caption{The FCFS algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/5051725116604416.png}
+ \caption{The FCFS algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/4901746821562368.png}
+ \caption{The FCFS algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/5769696948518912.png}
+ \caption{The FCFS algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/4608342975840256.png}
+ \caption{The FCFS algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/6469985812873216.png}
+ \caption{The FCFS algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/4684380070215680.png}
+ \caption{The FCFS algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/5777473020362752.png}
+ \caption{The FCFS algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/4870139133820928.png}
+ \caption{The FCFS algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/5538368667779072.png}
+ \caption{The FCFS algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/4832060953067520.png}
+ \caption{The FCFS algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/4540165580390400.png}
+ \caption{The FCFS algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/5458300336603136.png}
+ \caption{The FCFS algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/5747288234524672.png}
+ \caption{The FCFS algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/4948558384201728.png}
+ \caption{The FCFS algorithm}
+ \end{subfigure}
+\end{figure}
+
+The advantage of this algorithm is that it is simple and easy to implement. The drawback of this algorithm is that extra elevator movements occur by this algorithm which resulting in more power usage and cost. To implement FCFS, we can use a queue data structure to track which passenger comes first.
+
+\subsubsection{SSTF}\label{blumSYNJ6YSNBYQXKrIDl}
+\\
+\textbf{Shortest seek time first (SSTF)} is an algorithm in which the passenger closest to the elevator car gets the elevator car. This algorithm is considered better than FCFS as less elevator movement is required compared to the FCFS algorithm. This algorithm also results in an increased throughput. However, this method has a loophole where it always chooses the minimum distant passengers and ignores the farther ones completely. We can use a priority queue, a min heap, or an array data structure to implement this algorithm.
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/5931541744320512.png}
+ \caption{The SSTF algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/5740049611358208.png}
+ \caption{The SSTF algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/5442993416044544.png}
+ \caption{The SSTF algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/4853034996989952.png}
+ \caption{The SSTF algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/5463629744046080.png}
+ \caption{The SSTF algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/5695358329159680.png}
+ \caption{The SSTF algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/5415877844664320.png}
+ \caption{The SSTF algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/6421012968374272.png}
+ \caption{The SSTF algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/6505930327064576.png}
+ \caption{The SSTF algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/6053666579808256.png}
+ \caption{The SSTF algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/4616791310729216.png}
+ \caption{The SSTF algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/5625381165203456.png}
+ \caption{The SSTF algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/6156519822589952.png}
+ \caption{The SSTF algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/6734633896247296.png}
+ \caption{The SSTF algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/4587709466411008.png}
+ \caption{The SSTF algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/4777373963911168.png}
+ \caption{The SSTF algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/4733229266632704.png}
+ \caption{The SSTF algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/6548179500924928.png}
+ \caption{The SSTF algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/6095985429446656.png}
+ \caption{The SSTF algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/6229662243225600.png}
+ \caption{The SSTF algorithm}
+ \end{subfigure}
+\end{figure}
+
+\subsubsection{SCAN}\label{VB-a0gzbl1Vlz8sozqCrS-3}
+\\
+\textbf{SCAN} is also known as the \textbf{Elevator algorithm}. The elevator car starts from one end of the building and moves toward the other end, servicing requests in between. This method has the advantage of serving multiple requests in parallel. However, it increases cost as the elevator car only changes direction at the top or lowest floors. The implementation of SCAN can be done using two boolean arrays, a single HashMap, or two priority queue data structures to track the floor where the elevator should stop.
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/5054083952279552.png}
+ \caption{The SCAN algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/4976903833518080.png}
+ \caption{The SCAN algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/5844428926484480.png}
+ \caption{The SCAN algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/6536500629209088.png}
+ \caption{The SCAN algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/4767608886001664.png}
+ \caption{The SCAN algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/5986604473909248.png}
+ \caption{The SCAN algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/6545562137788416.png}
+ \caption{The SCAN algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/6385362793660416.png}
+ \caption{The SCAN algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/6113843745128448.png}
+ \caption{The SCAN algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/6222646893346816.png}
+ \caption{The SCAN algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/5524229191892992.png}
+ \caption{The SCAN algorithm}
+ \end{subfigure}
+\end{figure}
+
+\subsubsection{LOOK}\label{VB-a0gzbl1Vlz8sozqCrS-4}
+\\
+\textbf{LOOK} is also known as the look-ahead \textbf{SCAN algorithm}. It is an improved version of the SCAN Algorithm. In this algorithm, the elevator car stops when there is no request in front of it. It will move again based on the request. The advantage of this algorithm is that the elevator car does not always go to the end of the building, but can change its direction in between. This algorithm can use a HashMap, a TreeMap, or a binary search tree data structure.
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/4998845949018112.png}
+ \caption{The LOOK algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/5700772873633792.png}
+ \caption{The LOOK algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/6336815050260480.png}
+ \caption{The LOOK algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/6191008007323648.png}
+ \caption{The LOOK algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/6323166499831808.png}
+ \caption{The LOOK algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/4727001513721856.png}
+ \caption{The LOOK algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/5566788214718464.png}
+ \caption{The LOOK algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/6347093578088448.png}
+ \caption{The LOOK algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/6113843745128448.png}
+ \caption{The LOOK algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/6222646893346816.png}
+ \caption{The LOOK algorithm}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/5524229191892992.png}
+ \caption{The LOOK algorithm}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_8/section_5884475900952576/6402942456561664.png}
+ \caption{The LOOK algorithm}
+ \end{subfigure}
+\end{figure}
+
+We have completed the class diagram of the elevator system according to the requirements. In the next lesson, let's design the sequence diagram of the elevator control system.
+
+% End of section content

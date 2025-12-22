@@ -1,0 +1,57 @@
+% Chapter template for Educative course content with dynamic section inclusion
+\documentclass[../Main.tex]{subfiles}
+
+\begin{document}
+\chapter{ Design a ChatGPT System }
+
+\intro{
+Explore the design and architecture of a scalable ChatGPT-like conversational system.
+}
+
+\section{ System Design: ChatGPT System }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_41_design_a_chatgpt_system/section_6392521611411456.tex
+\IfFileExists{chapter_41_design_a_chatgpt_system/section_6392521611411456.tex}{
+    \input{chapter_41_design_a_chatgpt_system/section_6392521611411456.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "System Design: ChatGPT System" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 6392521611411456
+        \item Section Slug: system-design-chatgpt-system
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+\vspace{1cm}
+
+\section{ Design of a ChatGPT System }
+
+% Dynamic section content inclusion - New hierarchical structure
+% Section file: chapter_41_design_a_chatgpt_system/section_4771659539939328.tex
+\IfFileExists{chapter_41_design_a_chatgpt_system/section_4771659539939328.tex}{
+    \input{chapter_41_design_a_chatgpt_system/section_4771659539939328.tex}
+}{
+    % Fallback content if section file doesn't exist
+    \textit{Section content for "Design of a ChatGPT System" is being generated.}
+    
+    \vspace{0.5cm}
+    \textbf{Section Details:}
+    \begin{itemize}
+        \item Section ID: 4771659539939328
+        \item Section Slug: design-of-a-chatgpt-system
+        \item Status: Content pending generation
+    \end{itemize}
+    
+    \textit{Use the section content generation API to create the content for this section.}
+}
+
+
+
+\end{document}

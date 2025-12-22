@@ -1,0 +1,67 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: SOLID: Interface Segregation Principle
+% Section ID: 6500211344277504
+% Section Slug: solid-interface-segregation-principle
+% Generated: 2025-12-11T05:50:30.680481
+
+\subsection{Introduction}\label{M6J8TKCEDQp_iwhYt5tsR}
+\\
+The \textbf{Interface Segregation Principle (ISP)} is a design principle that does not recommend having methods that an interface would not use and require. Therefore, it goes against having fat interfaces in classes and prefers having small interfaces with a group of methods, each serving a particular purpose.
+\\
+The goal behind implementing the ISP is to have a precise code design that follows the correct abstraction guidelines and tends to be more flexible, which would help in making it more robust and reusable. This becomes key when more and more features are added to the software, making it bloated and harder to maintain.
+
+\subsection{Example}\label{s4HA-dlj6bhcb7o1sKC0Q}
+\\
+Let's construct a simple interface called \texttt{Shape} that has the \texttt{area()} method, and \texttt{Square} and \texttt{Rectangle} as the classes to implement it as shown below:
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_4/section_6500211344277504/4844330590273536.png}
+ \caption{The Shape interface}
+\end{figure}
+
+So far, this implementation seems right, as both the \texttt{Square} and \texttt{Rectangle} classes are implementing an interface that they're using. Let 's see how this example can violate the ISP.
+
+\subsubsection{Violation}\label{pQkIPojJ73rYhtt3V_2t6}
+\\
+Let's add the \texttt{volume()} method to the \texttt{Shape} interface and have a new subclass \texttt{Cube} to implement it:
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_4/section_6500211344277504/6142376242446336.png}
+ \caption{Violation of the ISP}
+\end{figure}
+
+The violation leads to a problem. The 2-D shapes cannot have a volume, yet they're forced to implement the \texttt{volume()} method of the \texttt{Shape} interface that they don't have any use of. This is a clear violation of the Interface Segregation Principle.
+
+\subsubsection{Solution}\label{nO-qcGDVWs7J-fnt95M0n}
+\\
+To adhere to the Interface Segregation Principle (ISP), it is essential to ensure that an interface is client-specific rather than general-purpose. In this context, the solution involves implementing the Shape interface into two distinct interfaces: \texttt{TwoDimensionalShape} for 2D shapes and \texttt{ThreeDimensionalShape} for 3D shapes.
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_4/section_6500211344277504/5268888215748608.png}
+ \caption{Solution of the ISP}
+\end{figure}
+
+By organizing interfaces based on the dimensions of shapes, we avoid forcing 2D shape implementations to provide methods irrelevant to them. The separation follows the Interface Segregation Principle, resulting in a cleaner and more intuitive design. Classes representing 2D shapes only need to implement \texttt{TwoDimensionalShape}, while 3D shapes like \texttt{Cube} implement \texttt{ThreeDimensionalShape}, requiring the implementation of the \texttt{volume()} method appropriate to their nature.
+
+\subsection{Conclusion}\label{QZ_nop2ZkKCR0fN5eB74b}
+\\
+The ISP, being an important principle, is the most violated principle in object-oriented programming. This can easily be achieved by adding more features to our software, requiring us to update large parts of our program. A few benefits of the ISP are as follows:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{oAiweIfT8kg9Wwif4MTVt}
+It helps to keep our software maintainable and robust.
+\item
+\protect\phantomsection\label{iz76aNXnJfX9qpeYBfVYt}
+It allows for efficient refactoring and redeployment of code.
+\end{itemize}
+\\
+Let's look at the Dependency Inversion Principle in the next lesson.
+
+% End of section content

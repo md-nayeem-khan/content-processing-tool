@@ -1,0 +1,122 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Quiz on WhatsApp’s Design
+% Section ID: 4877609447456768
+% Section Slug: quiz-on-whatsapps-design
+% Generated: 2025-12-08T15:00:57.042105
+
+\subsection*{Quiz}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 1:} The WebSocket manager is responsible for which function?
+\\[0.2cm]
+\begin{itemize}
+ \item Routing data toward a user
+\\[0.1cm]
+\textit{Explanation:} 
+Routing messages to the right user is usually the responsibility of a chat server or message router, not the WebSocket manager.
+ \item \textbf{[CORRECT]} Maintaining the mapping between users and their WebSocket handlers
+\\[0.1cm]
+\textit{Explanation:} 
+The WebSocket manager tracks which WebSocket connection belongs to which user so messages can be delivered through the right channel.
+ \item Reconnecting users to blob storage
+\\[0.1cm]
+\textit{Explanation:} 
+Blob storage is for media files (images, videos). The WebSocket manager does not deal with storage or reconnections to it.
+ \item None of the above
+\\[0.1cm]
+\textit{Explanation:} 
+Option B is correct, so this is wrong.
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 2:} What happens to the message if it's sent to an offline user?
+\\[0.2cm]
+\begin{itemize}
+ \item The message is discarded, and an error response is sent back to the sender.
+\\[0.1cm]
+\textit{Explanation:} 
+WhatsApp does not discard messages; it ensures delivery when the user comes online.
+ \item The message is forwarded to another user.
+\\[0.1cm]
+\textit{Explanation:} 
+Messages are never redirected to a different user. It is illogical.
+ \item \textbf{[CORRECT]} The message is stored in a database for a temporary period unless the user becomes online.
+\\[0.1cm]
+\textit{Explanation:} 
+Messages are queued in storage (like a message queue or database) and delivered when the user reconnects.
+ \item None of the above
+\\[0.1cm]
+\textit{Explanation:} 
+Option C is the correct behavior.
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 3:} Why can't WhatsApp use the Mnesia database to store media files instead of using blob storage?
+\\[0.2cm]
+\begin{itemize}
+ \item Mnesia provides limited capacity.
+\\[0.1cm]
+\textit{Explanation:} 
+Mnesia is an in-memory database mainly for small metadata, not large media files.
+ \item \textbf{[CORRECT]} Blob store is optimized to store and retrieve large files.
+\\[0.1cm]
+\textit{Explanation:} 
+Blob storage (e.g., AWS S3) is designed for efficient, scalable storage and retrieval of large binary objects like images and videos.
+ \item Mnesia is more costly than blob storage.
+\\[0.1cm]
+\textit{Explanation:} 
+Cost is not the primary concern; performance and scalability for large files are.
+ \item None of the above
+\\[0.1cm]
+\textit{Explanation:} 
+Option B is the correct answer.
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 4:} \textbf{(Fill in the blank.)} If a media file is shared and accessed multiple times, it's stored in \_\_\_\_\_\_\_\_ from blob storage.
+\\[0.2cm]
+\begin{itemize}
+ \item Kafka
+\\[0.1cm]
+\textit{Explanation:} 
+Kafka is a distributed messaging system, not for caching or delivering media.
+ \item the Mnesia database
+\\[0.1cm]
+\textit{Explanation:} 
+Mnesia stores lightweight metadata, not large media files.
+ \item \textbf{[CORRECT]} a CDN
+\\[0.1cm]
+\textit{Explanation:} 
+A Content Delivery Network caches media closer to users for faster repeated access and reduced latency.
+ \item a MySQL database
+\\[0.1cm]
+\textit{Explanation:} 
+MySQL is used for structured data, not for caching or delivering media files.
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 5:} \textbf{(Fill in the blank.)} WebSocket servers use cache to \_\_\_\_\_\_\_\_.
+\\[0.2cm]
+\begin{itemize}
+ \item store messages temporarily
+\\[0.1cm]
+\textit{Explanation:} 
+If a message arrives when the target user is briefly disconnected, the cache holds it for quick delivery once the user reconnects.
+ \item store messages permanently
+\\[0.1cm]
+\textit{Explanation:} 
+Cache is for short-term storage; permanent storage happens in databases.
+ \item \textbf{[CORRECT]} store mapping of users and their corresponding WebSocket handlers
+\\[0.1cm]
+\textit{Explanation:} 
+This mapping is maintained by the WebSocket manager, not the cache.
+ \item store metadata of each user
+\\[0.1cm]
+\textit{Explanation:} 
+User metadata is usually stored in a database (like MySQL or Cassandra), not in cache. Cache is for short-lived data like pending messages.
+\end{itemize}
+
+% End of section content

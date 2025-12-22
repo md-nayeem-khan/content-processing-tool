@@ -1,0 +1,324 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Requirements of YouTube's Design
+% Section ID: 5574324458618880
+% Section Slug: requirements-of-youtubes-design
+% Generated: 2025-12-07T22:36:53.012045
+
+\subsection{Requirements}\label{4KUJuIjY-WU5VploGHRVY}
+\\
+Let's start with the requirements for designing a system like YouTube.
+
+\subsubsection{Functional requirements}\label{rj26YZRNfJWY3jgmBiM-4}
+\\
+We require that our system is able to perform the following functions:
+
+\begin{enumerate}
+\item
+\protect\phantomsection\label{Vflgoy_p0uzA4cXNu5RNS}
+Stream videos
+\item
+\protect\phantomsection\label{_pY-aWTczmYPm3hTFQ8Fm}
+Upload videos
+\item
+\protect\phantomsection\label{y98dbzNHCJ-XjPKjfHsp3}
+Search videos according to titles
+\item
+\protect\phantomsection\label{TPkeONLOByy4rZIvS-JV7}
+Like and dislike videos
+\item
+\protect\phantomsection\label{mpzAYwsr2J7NmFMx8aMul}
+Add comments to videos
+\item
+\protect\phantomsection\label{SFdzrhgisTf1zFKsiuqao}
+View thumbnails
+\end{enumerate}
+
+\subsubsection{Non-functional requirements}\label{go-2Bn_EpbWkRURSbLEyS}
+\\
+It's important that our system also meets the following requirements:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{Ek7paaEu3CxgntVNF-pFT}
+\textbf{High availability}: The system should be highly available. High availability requires a good percentage of uptime. Generally, an uptime of 99\% and above is considered good.
+\item
+\protect\phantomsection\label{Ui9gQrHlU7XueZZxWwmna}
+\textbf{Scalability}: As the number of users grows, these issues should not become bottlenecks: storage for uploading content, the bandwidth required for simultaneous viewing, and the number of concurrent user requests should not overwhelm our application/web server.
+\item
+\protect\phantomsection\label{NdKbez2igCb96MbKpwlKB}
+\textbf{Good performance}: A smooth streaming experience leads to better performance overall.
+\item
+\protect\phantomsection\label{LVMDHb_-MYotp3JB9G1B7}
+\textbf{Reliability}: Content uploaded to the system should not be lost or damaged.
+\end{itemize}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_26/section_5574324458618880/5859885273448448.png}
+ \caption{Representation of the functional and non-functional requirements}
+\end{figure}
+
+We don't require strong consistency for YouTube's design. Consider an example where a creator uploads a video. Not all users subscribed to the creator's channel should immediately get the notification for uploaded content.
+\\
+To summarize, the functional requirements are the features and functionalities that the user will get, whereas the non-functional requirements are the expectations in terms of performance from the system.
+\\
+Based on the requirements, we'll estimate the required resources and design of our system.
+
+\subsection{Resource estimation}\label{ReDQfJBYIt-b5EvzoA3IZ}
+\\
+Estimation requires the identification of important resources that we'll need in the system.
+\\
+Hundreds of minutes of video content get uploaded to YouTube every minute. Also , a large number of users will be streaming content at the same time, which means that the following resources will be required:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{6U0LxnL5ZiE__k7EHnzKh}
+Storage resources will be needed to store uploaded and processed content.
+\item
+\protect\phantomsection\label{TDujGNGnM0pHLCpPihLix}
+A large number of requests can be handled by doing concurrent processing. This means web/application servers should be in place to serve these users.
+\item
+\protect\phantomsection\label{va-oU_DqnvWdlViS3xbty}
+Both upload and download bandwidth will be required to serve millions of users.
+\end{itemize}
+\\
+To convert the above resources into actual numbers, we assume the following:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{gSfamiMb9XdKqczaaAV4u}
+Total number of YouTube users: 1.5 billion.
+\item
+\protect\phantomsection\label{rg2PYauUF17q3wr1_-Xhc}
+Active daily users (who watch or upload videos): 500 million.
+\item
+\protect\phantomsection\label{QeqR0E8peBVfkFlrzXw6h}
+Average length of a video: 5 minutes.
+\item
+\protect\phantomsection\label{A6aCkW_a63vgvfV9ZlTme}
+Size of an average (5 minute-long) video before processing/encoding (compression, format changes, and so on): 600 MB.
+\item
+\protect\phantomsection\label{2IgIb3HttW4EMkyTL-w57}
+Size of an average video after encoding (using different algorithms for different resolutions like MPEG-4 and VP9): 30 MB.
+\end{itemize}
+
+\subsubsection{Storage estimation}\label{Xvb9w4fqzvKNS5WgFQz5G}
+\\
+To find the storage needs of YouTube, we have to estimate the total number of videos and the length of each video uploaded to YouTube per minute. Let 's consider that 500 hours worth of content is uploaded to YouTube in one minute. Since each video of 30 MB is 5 minutes long, we require \protect\phantomsection\label{katex_inline_wxZrjlwVASv3Zwx7SZ-HQ}{{{\(\frac{30}{5}\)}}} = 6 MB to store 1 minute of video.
+\\
+Let's put this in a formula by assuming the following:
+\\
+\protect\phantomsection\label{katex_inline_xy9jZ9WZHeYFZ9ONqbhiz}{{{\(\text{Total}_\text{{storage}}\)}}}: Total storage requirement.
+\\
+\protect\phantomsection\label{katex_inline_6QCKSF8czmgtWIMY619Bq}{{{\(\text{Total}_\text{{upload/min}}\)}}}: Total content uploaded (in minutes) per minute.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{eF8gkQ1Bttn7QYQbZOXQJ}
+Example: 500 hours worth of video is uploaded in one minute.
+\end{itemize}
+\\
+\protect\phantomsection\label{katex_inline_lQdjVeHlpjc5xBB1aDVD1}{{{\(\text{Storage}_\text{{min}}\)}}}: Storage required for each minute of content
+\\
+Then, the following formula is used to compute the storage:
+
+\[
+\text{Total}_\text{{storage}} = \text{Total}_\text{{upload/min} } \times \text{Storage}_\text{{min}}
+\]
+
+Below is a calculator to help us estimate our required resources. We 'll look first at the storage required to persist 500 hours of content uploaded per minute, where each minute of video costs 6 MBs to store:
+
+\begin{quote}
+\textbf{Note:} Try changing the~\textbf{Hours}~and~\textbf{MB per minute} fields (in yellow)~to see their impact on storage space requirements.
+\end{quote}
+\\
+The numbers mentioned above correspond to the compressed version of videos. However, we need to transcode videos into various formats for reasons that we will see in the coming lessons. Therefore, we'll require more storage space than the one estimated above.
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_26/section_5574324458618880/5395620917805056.png}
+ 
+\end{figure}
+
+\begin{quote}
+\textbf{Note:} In a real-world scenario, YouTube's design requires storage for thumbnails, users' data, video metadata, users' channel information, and so on. Since the storage requirement for these data sets will not be significant compared to video files, we ignore it for simplicity's sake.
+\end{quote}
+
+\begin{quote}
+\textbf{Quiz:}
+\textbf{Question 1:} Assuming YouTube stores videos in five different qualities and the average size of a one-minute video is 6 MB, what would the estimated storage requirements per minute be?
+\textbf{Answer:} Since we need $6\ \text{MB}$ per minute and we need to store files in five different formats,  
+the overall requirement is  
+$5 \times 6\ \text{MB} = 30\ \text{MB}.$
+
+Next, we'll calculate the below value:
+
+\[
+\text{Num of hr uploaded to YouTube per min}
+\times \text{Num of min per hr}
+\times \text{Storage requirement per min}
+\]
+
+\[
+= 500\ \frac{\text{hours}}{\text{minute}}
+\times 60\ \frac{\text{minutes}}{\text{hour}}
+\times 30\ \frac{\text{MB}}{\text{minute}}
+\]
+
+\[
+= 900{,}000\ \text{MB} = 900\ \text{GB}
+\]
+
+\end{quote}
+
+\subsubsection{Bandwidth estimation}\label{n4FQvEmUfqlchOTJhdPN8}
+\\
+A lot of data transfer will be performed for streaming and uploading videos to YouTube. This is why we need to calculate our bandwidth estimation too. Assume the \texttt{upload:view} ratio is \texttt{1:300}---that is, for each uploaded video, we have 300 video views per second. We 'll also have to keep in mind that when a video is uploaded, it is not in compressed format, while viewed videos can be of different qualities. Let
+'s estimate the bandwidth required for uploading the videos.
+\\
+\protect\phantomsection\label{katex_inline_5NrIld1msOnaPm-vyHmbK}{{{\(\text{Total}_\text{{bandwidth}}\)}}}: Total bandwidth required.
+\\
+\protect\phantomsection\label{katex_inline_jdg1bv8BS9aukneFpmiYR}{{{\(\text{Total}_\text{{content}}\)}}}: Total content (in minutes) uploaded per minute.
+\\
+\protect\phantomsection\label{katex_inline_d8XKUPM_h5Utqt_3ldZYE}{{{\(\text{Size}_\text{{minute}}\)}}}: Transmission required (in MBs) for each minute of content.\\
+\strut \\
+Then, the following formula is used to do the computation below:
+
+\[
+\text{Total}_\text{{bandwidth}} = \text{Total}_\text{{content}} \times \text{Size}_\text{{minute}}
+\]
+
+We calculate bandwidth in bits per second (bps), as shown above. Therefore, the detailed calculation of the above number (480 Gbps) is given below.
+\\
+Let's convert the numbers to appropriate units first:
+
+\begin{itemize}
+\item
+No.~of video hours per minute = 500 hours
+\item
+No.~of video minutes per minute = 500 * 60 = 30,000 minutes
+\item
+Size of an average 5-minute-long video before processing/encoding: 600 MB.
+\item
+So, the size per minute video is: \(\frac{600\ MB} {5 \ minute}\)= \(120\) MB/minute.
+\item
+MB per second = 120/60 = 2 MB/second
+\end{itemize}
+\\
+\(Bandwidth = 30,000\ \frac{minutes}{minute}\times 2 \frac{MB}{second} \times 8\ \frac{ bits}{Byte} = 480,000\ Mbps = 480 \ Gbps\)
+\\
+The 8 bits are used to convert bytes to bits. By convention metric of bandwidth is in bits per second.
+
+\begin{quote}
+\textbf{Quiz:}
+\textbf{Question 1:} If 480 Gbps of bandwidth is required to satisfy uploading needs, how much bandwidth would be required to stream videos?  
+Assume each minute of video requires 10 MB of bandwidth on average.  
+Hint: The `upload:view` ratio is provided.
+
+\textbf{Answer:} For every video uploaded, 300 videos are watched.
+
+The equation becomes:
+
+\[
+\text{Total viewing hours per minute}
+\times \text{Size of each minute (MB)}
+\times \text{View ratio}
+\]
+
+\[
+= 500\ \frac{\text{hours}}{\text{minute}}
+\times 60\ \frac{\text{minutes}}{\text{hour}}
+\times 10\ \frac{\text{MB}}{\text{minute}}
+\times 300
+\]
+
+\[
+= 90{,}000{,}000\ \text{MB per minute}
+= 90\ \text{TB per minute}
+\]
+
+\[
+90\ \text{TB per minute} \times 8\ \text{bits per byte}
+= 720\ \text{Tb per minute}
+= 12\ \text{Tbps}
+\]
+
+\end{quote}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_26/section_5574324458618880/6426118075056128.png}
+ \caption{Total bandwidth required by YouTube}
+\end{figure}
+
+\paragraph{Number of servers estimation}\label{yH9uKs8NKFL5I9NzoKpTT}
+\\
+Let\textquotesingle s assume that we have 500 million daily active users of YouTube. Considering our assumption of using \href{https://www.educative.io/courses/grokking-the-system-design-interview/put-back-of-the-envelope-numbers-in-perspective}{daily active users as a proxy for the number of requests per second} to find the number of servers for peak load times, we get 500 million requests per second. Then , we use the following formula to calculate the number of servers:
+
+\[
+\text{Servers needed at peak load} = \frac{\text{Number of requests/second}}{\text{RPS of server}}
+\]
+
+\[
+\text{Servers needed at peak load} 
+= \frac{500\,\text{million}}{64,000} 
+= 7812.5 \;\approx\; 8K \;\text{servers}
+\]
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.25\textwidth]{Images/chapter_26/section_5574324458618880/5020697787498496.png}
+ \caption{Number of servers required for YouTube }
+\end{figure}
+
+\begin{quote}
+\textbf{Note:} Concurrent requests significantly impact the number of required servers compared to requests spread over time. For a more in-depth exploration of refining peak load assumptions, refer to the ``\href{https://www.educative.io/courses/grokking-the-system-design-interview/put-back-of-the-envelope-numbers-in-perspective}{Back-of-the-envelope Calculations}'' chapter.
+\end{quote}
+\subsection{Building blocks we will use}\label{uODNXqxof-qgHk3Q4u5-t}
+\\
+Now that we have completed the resource estimations, let's identify the building blocks that will be an integral part of our design for the YouTube system. The key building blocks are given below:
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_26/section_5574324458618880/6337216077234176.png}
+ \caption{Building blocks in a high-level design}
+\end{figure}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{-XJ_IqRfXIhpmaJNd6fWo}
+\href{https://www.educative.io/courses/grokking-the-system-design-interview/introduction-to-databases}{\textbf{Databases}} are required to store the metadata of videos, thumbnails, comments, and user-related information.
+\item
+\protect\phantomsection\label{mReGKAwFX5-e0SXvp0YTM}
+\href{https://www.educative.io/courses/grokking-the-system-design-interview/system-design-a-blob-store}{\textbf{Blob storage}} is important for storing all videos on the platform.
+\item
+\protect\phantomsection\label{kp4t_lMXUSjeWiUzFrYgh}
+A \href{https://www.educative.io/courses/grokking-the-system-design-interview/system-design-the-content-delivery-network-cdn}{\textbf{CDN}} is used to effectively deliver content to end users, reducing delay and burden on end-servers.
+\item
+\protect\phantomsection\label{WmRZeB-7yZWiETppWOg34}
+\href{https://www.educative.io/courses/grokking-the-system-design-interview/introduction-to-load-balancers}{\textbf{Load balancers}} are a necessity to distribute millions of incoming clients requests among the pool of available servers.
+\end{itemize}
+\\
+Other than our building blocks, we anticipate the use of the following components in our high-level design:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{KmCM3BmP0TT9d8DgB3zyf}
+Servers are a basic requirement to run application logic and entertain user requests.
+\item
+\protect\phantomsection\label{4usbJWAzHJ26FbgOEdh0K}
+\textbf{Encoders} and transcoders compress videos and transform them into different formats and qualities to support varying numbers of devices according to their screen resolution and bandwidth.
+\end{itemize}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.25\textwidth]{Images/chapter_26/section_5574324458618880/5166808816287744.png}
+ \caption{Components in YouTube's high-level design}
+\end{figure}
+
+
+
+% End of section content

@@ -1,0 +1,215 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Use Case Diagram for ESPNcricinfo
+% Section ID: 5181276366831616
+% Section Slug: use-case-diagram-for-espncricinfo
+% Generated: 2025-12-14T13:32:31.301643
+
+Let's build the use case diagram of ESPNcricinfo and understand the relationship between its different components.
+\\
+First, we will define the different elements of our ESPNcricinfo system, followed by the complete use case diagram.
+
+\subsection{System}\label{TwFe58jJlqaiOugJM-2Z_}
+\\
+Our system is ESPNcricinfo.
+
+\subsection{Actors}\label{8l7R0YYWNfCVk8NNXlXJZ}
+\\
+Now, we'll define the main actors of ESPNcricinfo.
+
+\subsubsection{Primary actors}\label{seb9p4ykuEsfu7Ln7DBaM}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{2usCBW6OB2oa7YUQWla_7}
+\textbf{Admin:} The admin is responsible for performing various operations, including adding or modifying tournaments, players, squads, matches, assigning stadiums and personnel, and updating statistics.
+\item
+\protect\phantomsection\label{eoRcwcssMNQB7dohPpfKK}
+\textbf{Coach:} The coach manages players, news, and squad submissions for the team in tournaments.
+\item
+\protect\phantomsection\label{5TE4fHHlROCEv7Gsyscov}
+\textbf{Umpire:} The umpire gets assigned to matches and oversees match-related decisions (assignment only modeled).
+\item
+\protect\phantomsection\label{dJQ494rM2pfLt3s9TUIjL}
+\textbf{Commentator:} This actor can add commentary to the match or modify it.
+\end{itemize}
+
+\subsubsection{Secondary actors}\label{lEcNC8WML8gerPdLMHJRE}
+\\
+There is no secondary actor in the system.
+
+\subsection{Use cases}\label{gWjPgqzXlAQUpyZh5raCb}
+\\
+In this section, we'll define the use cases for ESPNcricinfo. We have listed the use cases according to their respective interactions with a particular actor.
+\begin{quote}
+\textbf{Note:} You may see some use cases repeated multiple times because they are shared among different actors in the system.
+\end{quote}
+\subsubsection{Admin}\label{eZpS0muFQwUehMM5WsagE}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{KW05Iujb2XrJ6--uuloP_}
+\textbf{Add/modify team:} To add or update a team and its attributes.
+\item
+\protect\phantomsection\label{xwM4nsS3-JAwvL8Y1USlL}
+\textbf{Add/modify player:} To add a player to the team or update a player's details.
+\item
+\protect\phantomsection\label{Sy0AtnapSY_a5zMELAULY}
+\textbf{Add/modify tournament:} To add a tournament or update its structure.
+\item
+\protect\phantomsection\label{DY_7RYjh92fmWLSd9AoMR}
+\textbf{Add/modify match:} To add a new match to the system or update existing details.
+\item
+\protect\phantomsection\label{oszPnpxG4LqL0kAvOCf3d}
+\textbf{Assign stadium:} To assign a stadium to a specific match.
+\item
+\protect\phantomsection\label{m9ocfhR9l5-sKnTFtDuSy}
+\textbf{Assign umpire:} To assign umpires to a match.
+\item
+\protect\phantomsection\label{V4XasAkLtb6obQzZvAUKi}
+\textbf{Assign commentator:} To assign a commentator to a match.
+\item
+\protect\phantomsection\label{Xovcz_k2ipQYNg-719yGE}
+\textbf{Add/update stats:} To update player, match, or team stats in the system.
+\item
+\protect\phantomsection\label{D-B7wcWEuLJzQrOP-S3WZ}
+\textbf{Add/update news:} To publish team or match-related news.
+\item
+\protect\phantomsection\label{D-B7wcWEuLJzQrOP-S3WZ}
+\textbf{Maintain points table:} To keep track of the scores and standings of the matches.
+\end{itemize}
+
+\subsection{Coach}\label{GCn3WMaZtgtA2Xqd_RxkR}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{Il6rkWgBLW6KzNVHJaXnt}
+\textbf{Add player to team:} To add a player to the team's roster.
+\item
+\protect\phantomsection\label{7sp2MGXHBujUdtnr4QNtR}
+\textbf{Submit squad for tournament:} To add a selected squad of players to a tournament.
+\item
+\protect\phantomsection\label{C0p3qAEEOHbmFsmVEL4Pa}
+\textbf{Add/update team news:} To publish news articles or updates for a team.
+\end{itemize}
+
+\subsubsection{Umpire}\label{JOC16-5I0GeV9BwYmQY7b}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{PfxYB_iGZxOjcFUCqvbAB}
+\textbf{View assigned match:} To let umpires see their upcoming assigned matches.
+\end{itemize}
+
+\subsubsection{Commentator}\label{CdOuHEWCNZ7_3wtvr8-7X}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{VJNin-Hc2LfYiLnhXlh9Q}
+\textbf{Add/modify commentary:} To add or edit commentary for a specific ball during the match.
+\end{itemize}
+
+\subsection{Relationships}\label{8BL5FscWTauKUf5jddA9H}
+\\
+We describe the relationships between and among actors and their use cases in this section.
+
+\subsubsection{Generalization}\label{PvYmjGpiy7o6fml9rt2qK}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{AovziuTjnssP440Z8xGKR}
+Add/update stats use case has a generalization relationship with:
+
+\begin{itemize}
+\item
+Add/update player stats
+\item
+Add/update match stats
+\item
+Add/update team stats
+\end{itemize}
+\item
+\protect\phantomsection\label{WiWguxpzyzPMhfNJXChFk}
+Add match use case has a generalization relationship with:
+
+\begin{itemize}
+\item
+Add T20 match
+\item
+Add an ODI match
+\item
+Add Test match
+\end{itemize}
+\end{itemize}
+
+\subsubsection{Associations}\label{OjLBAVYYyLhgqam6vZs01}
+\\
+The table below illustrates the association between actors and their corresponding use cases.
+
+\begin{table}[htbp]
+\centering
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{|p{0.234\textwidth}|p{0.244\textwidth}|p{0.252\textwidth}|p{0.220\textwidth}|}
+\hline
+\textbf{Admin} & \textbf{Commentator} & \textbf{Coach} & \textbf{Umpire} \\
+\hline
+\hline
+Add/modify team & Add/modify commentary & Add player to team & View assigned match \\
+\hline
+Add/modify player & \hfill\break & Submit squad for tournament & \hfill\break \\
+\hline
+Add/modify tournament & \hfill\break & Add/update team news & \hfill\break \\
+\hline
+Add/modify match & \hfill\break & \hfill\break & \hfill\break \\
+\hline
+Assign stadium & \hfill\break & \hfill\break & \hfill\break \\
+\hline
+Assign umpire & \hfill\break & \hfill\break & \hfill\break \\
+\hline
+Assign commentator & \hfill\break & \hfill\break & \hfill\break \\
+\hline
+Add/update stats & \hfill\break & \hfill\break & \hfill\break \\
+\hline
+Add/update news & \hfill\break & \hfill\break & \hfill\break \\
+\hline
+Maintain points table & \hfill\break & \hfill\break & \hfill\break \\
+\hline
+\hfill\break & \hfill\break & \hfill\break & \hfill\break \\
+\hline
+\hfill\break & \hfill\break & \hfill\break & \hfill\break \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\subsubsection{Include}\label{RshjQYx4c3bhh290SDqQc}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{0vfhlRdaHZXAsnL5fdtdz}
+Add/modify match use case has an include relationship with:
+
+\begin{itemize}
+\item
+Add/modify run
+\item
+Add/modify wicket
+\end{itemize}
+\end{itemize}
+
+\subsection{Use case diagram}\label{HFQfTYLoTV24fA25OUDpX}
+\\
+Here's the use case diagram of ESPNcricinfo:
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_26/section_5181276366831616/6200929521893376.png}
+ \caption{The use case diagram of ESPNcricinfo}
+\end{figure}
+
+In the next lesson, we'll discuss the class diagram with a detailed explanation of all classes and their relationship with each other.
+
+% End of section content

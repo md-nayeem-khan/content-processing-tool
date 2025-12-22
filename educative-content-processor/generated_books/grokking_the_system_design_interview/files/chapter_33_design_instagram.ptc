@@ -1,0 +1,41 @@
+\contentsline {chapter}{\numberline {1} Design Instagram }{1}{chapter.0.1}%
+\ttl@starttoc {chapters@1}
+\contentsline {section}{\numberline {1} System Design: Instagram }{2}{section.0.1.1}%
+\contentsline {subsection}{\numberline {1.1}What is Instagram?}{2}{subsection.0.1.1.1}%
+\contentsline {subsection}{\numberline {1.2}How will we design Instagram?}{2}{subsection.0.1.1.2}%
+\contentsline {section}{\numberline {2} Requirements of Instagram’s Design }{3}{section.0.1.2}%
+\contentsline {subsection}{\numberline {2.1}Requirements}{3}{subsection.0.1.2.1}%
+\contentsline {subsubsection}{Functional requirements}{3}{subsection.0.1.2.1}%
+\contentsline {subsubsection}{Non-functional requirements}{3}{section*.11}%
+\contentsline {subsection}{\numberline {2.2}Resource estimation}{4}{subsection.0.1.2.2}%
+\contentsline {subsubsection}{Storage estimation}{4}{section*.21}%
+\contentsline {subsubsection}{Bandwidth estimation}{4}{figure.caption.26}%
+\contentsline {subsubsection}{Server count}{5}{figure.caption.30}%
+\contentsline {paragraph}{Server count assuming uniform request distribution}{5}{figure.caption.30}%
+\contentsline {paragraph}{Server count assuming peak load}{5}{figure.caption.37}%
+\contentsline {subsection}{\numberline {2.3}Try it yourself}{6}{subsection.0.1.2.3}%
+\contentsline {subsection}{\numberline {2.4}Building blocks we will use}{6}{subsection.0.1.2.4}%
+\contentsline {section}{\numberline {3} Design of Instagram }{7}{section.0.1.3}%
+\contentsline {subsection}{\numberline {3.1}High-level design}{7}{subsection.0.1.3.1}%
+\contentsline {subsection}{\numberline {3.2}API design}{7}{subsection.0.1.3.2}%
+\contentsline {subsubsection}{Post photos or videos}{7}{section*.51}%
+\contentsline {subsubsection}{Follow and unfollow users}{8}{table.caption.52}%
+\contentsline {subsubsection}{Like or dislike posts}{8}{table.caption.53}%
+\contentsline {subsubsection}{Search photos or videos}{8}{table.caption.54}%
+\contentsline {subsubsection}{Generate news feed}{8}{table.caption.55}%
+\contentsline {subsection}{\numberline {3.3}Storage schema}{9}{subsection.0.1.3.3}%
+\contentsline {subsubsection}{Relational or non-relational database}{9}{subsection.0.1.3.3}%
+\contentsline {subsubsection}{Define tables}{9}{subsection.0.1.3.3}%
+\contentsline {subsubsection}{Data estimation}{10}{figure.caption.61}%
+\contentsline {section}{\numberline {4} Detailed Design of Instagram }{10}{section.0.1.4}%
+\contentsline {subsection}{\numberline {4.1}Add more components}{10}{subsection.0.1.4.1}%
+\contentsline {subsection}{\numberline {4.2}Upload, view, and search a photo}{10}{subsection.0.1.4.2}%
+\contentsline {subsection}{\numberline {4.3}Generate a timeline}{11}{subsection.0.1.4.3}%
+\contentsline {subsubsection}{The pull approach}{11}{subsection.0.1.4.3}%
+\contentsline {subsubsection}{The push approach}{11}{figure.caption.70}%
+\contentsline {subsubsection}{Hybrid approach}{13}{figure.caption.71}%
+\contentsline {subsection}{\numberline {4.4}Finalized design}{14}{subsection.0.1.4.4}%
+\contentsline {subsection}{\numberline {4.5}Requirements compliance}{14}{subsection.0.1.4.5}%
+\contentsline {subsection}{\numberline {4.6}Conclusion}{15}{subsection.0.1.4.6}%
+\contentsline {section}{\numberline {5} Quiz on Instagram’s Design }{15}{section.0.1.5}%
+\contentsfinish 

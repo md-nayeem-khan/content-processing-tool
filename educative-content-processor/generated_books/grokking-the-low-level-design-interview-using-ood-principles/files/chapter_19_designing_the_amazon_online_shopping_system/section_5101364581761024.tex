@@ -1,0 +1,101 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Sequence Diagram for the Amazon Online Shopping System
+% Section ID: 5101364581761024
+% Section Slug: sequence-diagram-for-the-amazon-online-shopping-system
+% Generated: 2025-12-12T22:45:53.138926
+
+Sequence diagrams are a great way to understand the interactions between different entities and objects in the system. There can be different sequence diagrams that we can create for the Amazon online shopping system. For this lesson, we'll create sequence diagrams for the following two interactions:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{UleKBEA74d9oATlVM7THK}
+\textbf{Checkout and payment:} The user checks out and pays for their order using a credit card.
+\item
+\protect\phantomsection\label{dAwAeCojFF6KbTWo7gkjc}
+\textbf{Sequence challenge:} The user searches and adds an item to the shopping cart.
+\end{itemize}
+
+\subsection{Checkout and payment}\label{uwBhDA-E6PbQBajODofA_}
+\\
+The sequence diagram for the order checkout and payment should have the following actors and objects that will interact with each other:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{1aCST-NKtYFj9aPHMPHW-}
+\textbf{Actor:} \texttt{Customer}
+\item
+\protect\phantomsection\label{6j90pMyjVRuuMHAVwbLLO}
+\textbf{Objects:} \texttt{ShoppingCart}, \texttt{Order}, \texttt{Item}, and \texttt{Payment}
+\end{itemize}
+\\
+Here are the steps in the order checkout and payment interaction:
+
+\begin{enumerate}
+\item
+\protect\phantomsection\label{1T6a-W9j7Qhn9xdyu9VeO}
+The customer gets the shopping cart.
+\item
+\protect\phantomsection\label{ODGsA8pJLDCG1UwOSqgGo}
+The customer then places the order for the requested items.
+\item
+\protect\phantomsection\label{EJ3nsMKjvxbLGwsRC59cs}
+The items are verified for availability.
+\item
+\protect\phantomsection\label{nqJuQpeuFtaRmdozDGBIa}
+If the item quantity is less than the available count:
+
+\begin{enumerate}
+\item
+The order status is updated.
+\item
+The customer is informed that the order is ready for payment.
+\item
+The customer initiates a payment against the order amount using their card.
+\item
+The payment is processed.
+\item
+The customer is informed of the updated payment status.
+\end{enumerate}
+\item
+\protect\phantomsection\label{ifPchoZ8AYQY8U1ao-5v9}
+Else if the item quantity is greater than the available count:
+
+\begin{enumerate}
+\item
+The item in the order is unavailable.
+\item
+The customer receives an error for the unavailable item.
+\end{enumerate}
+\end{enumerate}
+\\
+Based on the order above, the sequence diagram below represents the checkout and payment process in an online shopping system.
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_19/section_5101364581761024/4990992410083328.png}
+ \caption{The sequence diagram for checkout and payment}
+\end{figure}
+
+\subsection{Sequence challenge: Search and add items to the cart}\label{F9M5YkBaWS8T5ePwwqzHx}
+\\
+You will help us complete a sequence diagram for searching and adding items to the cart. A skeleton of the search and add item sequence diagram is given below:
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_19/section_5101364581761024/6511657206284288.png}
+ \caption{The sequence diagram for search and add items to the cart}
+\end{figure}
+
+Notice that the arrows in the diagram above are numbered from 1 to 5. Below are the messages between the actor(s) and object(s). Can you rearrange the messages below in the correct order sequence they should appear in the skeleton of the sequence diagram provided above?
+\begin{quote}
+\textbf{Note:} If you're stuck, click the ``Show Solution'' button.
+\end{quote}
+
+Alternatively, you can also click the ``Show complete diagram'' button below to view the complete sequence diagram for the search and add items to the cart interaction.
+
+Next, let's look at the activity diagrams for the online shopping system to understand the control flow of the system.
+
+% End of section content

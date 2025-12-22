@@ -1,0 +1,194 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Summary: Designing an Elevator System
+% Section ID: 5490841492520960
+% Section Slug: summary-designing-an-elevator-system
+% Generated: 2025-12-11T14:08:49.977241
+
+Now that you've completed the elevator system case study, let's take a moment to reflect on and consolidate what we've learned. We 'll revisit the key system requirements, identify the core classes along with their responsibilities and relationships, and highlight the major design principles applied. We
+'ll also examine how objects interact within the system and walk through the overall workflow to understand how the components come together to achieve the desired functionality.
+
+\subsection{Key requirements}\label{QJKne63Qmki8VtY1ba7-o}
+\\
+This section outlines the primary functional requirements that guided the design of the elevator system.
+
+\begin{enumerate}
+\item
+\protect\phantomsection\label{PNi1W8hqo82QEquE0BvgP}
+The system must support a configurable number of floors (up to 15) and elevator cars (up to 3).
+\item
+\protect\phantomsection\label{JOxpIBkUCEMCeI5cwwkj5}
+Each elevator car must be able to serve all floors and can be in one of four states: moving up, moving down, maintenance, or idle.
+\item
+\protect\phantomsection\label{6xrkkO_IeVdlHluB3yfX0}
+Elevator doors should only open when the car is idle and must close automatically after a set time.
+\item
+\protect\phantomsection\label{PtR09RqIIkn3gKPt13P9o}
+Each floor needs a panel with up/down call buttons and a display showing the car's floor and direction.
+\item
+\protect\phantomsection\label{TkdaHySEIPBF6l9mvyAm-}
+Each elevator car must have an internal panel with floor selection buttons, open/close buttons, an emergency-stop button, and a display for floor, direction, and load status.
+\item
+\protect\phantomsection\label{zIs91Q3bAV5kzBE7N50y3}
+The emergency-stop button must immediately halt the car, keep doors closed, and alert security.
+\item
+\protect\phantomsection\label{D3zBVy-1LabweVCNdscHg}
+Each car must enforce a maximum load (680 kg) and prevent movement if exceeded.
+\item
+\protect\phantomsection\label{ft2L20_cYifmHJMnLiBif}
+A central controller must intelligently assign the most suitable car to floor calls to minimize wait times.
+\item
+\protect\phantomsection\label{4IRiQIrcgbGl62N8hArTL}
+The system must handle multiple passenger requests simultaneously.
+\item
+\protect\phantomsection\label{__CSARUYOrMfNlHhwKA5i}
+A maintenance state is required to take a car out of service for repairs.
+\item
+\protect\phantomsection\label{qVTub6voWSfvpRzxMNn6W}
+All displays must update in real time to reflect the elevator's current status.
+\item
+\protect\phantomsection\label{4qb96vs6HNZ628qcVxvAH}
+The system must communicate all states, errors, and messages to users through audio and visual indicators.
+\end{enumerate}
+
+\subsection{System actors}\label{7Fmb-YQ0tcLWvy4PPbc56}
+\\
+The following actors interact with the elevator system in various capacities.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{2VJPYTyXepnmsSZQZ0NRs}
+\textbf{Passenger:} The primary user calls the elevator, selects destination floors, and operates the in-car buttons, such as opening/closing doors or making an emergency stop.
+\item
+\protect\phantomsection\label{3ZUK4t2rGIq6sjB-JmLyc}
+\textbf{Operator:} A secondary actor who can place elevators into or out of maintenance mode and receives emergency alerts.
+\end{itemize}
+
+\subsection{Important classes and relationships}\label{Q6YBtvgV3AELvMhCanKTC}
+\\
+The system is designed using several key classes that interact to provide the required functionality. The table below summarizes the most important ones.
+
+\begin{center}
+\begin{tabular}{|p{0.18\linewidth}|p{0.42\linewidth}|p{0.35\linewidth}|}
+\hline
+\textbf{Class} & \textbf{Description} & \textbf{Important Relationships} \\
+\hline
+ElevatorSystem & The main class that manages the entire system, including monitoring cars and dispatching requests. & Aggregates Building. \\
+\hline
+Building & Represents the physical building, containing a collection of floors and elevator cars. & Aggregates Floor and ElevatorCar. \\
+\hline
+ElevatorCar & Represents a single elevator car, managing its state, movement, door, panel, and display. & Composed of Door, Display, and ElevatorPanel. \\
+\hline
+Floor & Represents a single floor in the building, containing hall panels and displays. & Composed of HallPanel and Display. \\
+\hline
+Button & An abstract class for all buttons in the system. & Base class for ElevatorButton, HallButton, EmergencyButton, and DoorButton. \\
+\hline
+ElevatorButton & A concrete button class representing the floor selection buttons inside the elevator. & Inherits from Button. \\
+\hline
+HallButton & A concrete button class for the up/down call buttons on each floor. & Inherits from Button. \\
+\hline
+Display & Represents the display units both inside the car and on the floors, showing status information. & Part of ElevatorCar and Floor (Composition). \\
+\hline
+Door & Represents the elevator door, managing its open and closed states. & Part of ElevatorCar (Composition). \\
+\hline
+ElevatorPanel & Represents the panel inside the car, containing all the floor, door, and emergency buttons. & Composed of various Button types. \\
+\hline
+HallPanel & Represents the panel on each floor, containing the up and down HallButtons. & Composed of HallButtons. \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\subsection{Design highlights}\label{vh-fL2v1tF1jS54oEHykc}
+\\
+A specific approach guided the system's design and incorporated key software design principles and patterns.
+
+\subsubsection{Design approach}\label{M2vdGptiiAH0BbBV31gVp}
+\\
+The system was designed using a bottom-up approach. We identified and designed the smallest components, such as \texttt{Button} and \texttt{Door}. These were assembled into larger components like \texttt{ElevatorCar} and \texttt{Floor}, which were finally integrated into the complete \texttt{ElevatorSystem}. This modular approach ensures the design is extensible and robust.
+
+\subsubsection{Design principles}\label{iVHtxm8THk2l_Np8qTWS1}
+\\
+The design implicitly applies the five SOLID principles to create a maintainable and scalable system.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{5hQa8zVS2J2Za25JBsiSw}
+\textbf{Single Responsibility principle (SRP):} Each class has a distinct responsibility. For instance, \texttt{ElevatorCar} manages its state and movement, \texttt{Dispatcher} handles request allocation, and \texttt{Display} is solely for showing information.
+\item
+\protect\phantomsection\label{bKqJtPqZ0fAvnX6Wz7h_z}
+\textbf{Open/Closed principle (OCP):} The system is open for extension but closed for modification. Using the Strategy pattern for dispatching allows new routing algorithms to be added without changing the core \texttt{ElevatorSystem} class.
+\item
+\protect\phantomsection\label{ZZZ1RtFNiFb2DLY3x0vts}
+\textbf{Liskov Substitution principle (LSP):} Subtypes can be substituted for their base types. For example, different button types like \texttt{ElevatorButton} and \texttt{HallButton} inherit from the abstract \texttt{Button} class and can be used interchangeably where a \texttt{Button} is expected.
+\item
+\protect\phantomsection\label{YzvN2wmea3Tp1DcNO0GwR}
+\textbf{Interface Segregation principle (ISP):} The system is broken down into fine-grained classes (\texttt{Door}, \texttt{Display}, \texttt{Button}) rather than a single monolithic class. This ensures that components like \texttt{ElevatorCar} only depend on the interfaces they use.
+\item
+\protect\phantomsection\label{piVGS7hxMskioJnatGm6n}
+\textbf{Dependency Inversion principle (DIP):} High-level modules do not depend on low-level modules; both depend on abstractions. The \texttt{ElevatorSystem} depends on an abstract dispatching strategy, not a concrete one, allowing for greater flexibility.
+\end{itemize}
+
+\subsubsection{Design patterns}\label{qZxh8lTHgB1o6frQogITF}
+\\
+The system leverages several design patterns to solve common problems effectively.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{b6zCWrOBsUGTnd2dt6LRz}
+\textbf{Strategy pattern:} This pattern is used for the dispatching logic. It allows the algorithm for assigning an elevator car to a request (e.g., nearest-car, least-busy) to be selected and swapped at runtime without altering the \texttt{ElevatorSystem}.
+\item
+\protect\phantomsection\label{aOt9mosmHY_wcYJi6TJBg}
+\textbf{State pattern:} This pattern is used to manage the various states of an \texttt{ElevatorCar} (e.g., \texttt{idle}, moving\ up, moving\ down, \texttt{maintenance}). The car's behavior changes based on its state, and this pattern encapsulates state-specific logic into separate classes, making the \texttt{ElevatorCar} class cleaner and easier to manage.
+\item
+\protect\phantomsection\label{Q8Bag1fbOFkaFYsA6qi_r}
+\textbf{Delegation:} To avoid overly complex classes, the system uses delegation to assign specific tasks to helper objects. For example, the main \texttt{ElevatorSystem} delegates choosing a car to a \texttt{Dispatcher} object. This approach enhances modularity and makes the system easier to maintain and extend.
+\end{itemize}
+
+\subsection{Object interactions}\label{V6Y5bRSpASoC5bHRrkoBv}
+\\
+The system's dynamic behavior is best understood by examining how objects collaborate. The sequence of interactions for a passenger calling an elevator is a key example.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{DMwtJQoU_7oWLpLirzmgM}
+\textbf{Request initiation:} A \texttt{Passenger} presses a \texttt{HallButton} on a specific floor.
+\item
+\protect\phantomsection\label{oQQR1risKsiL9ulw1fK96}
+\textbf{System notification:} The \texttt{HallButton} sends a \texttt{callElevator()} message to the central \texttt{ElevatorSystem}.
+\item
+\protect\phantomsection\label{PBeDiMFjl38lmP_QDn0kV}
+\textbf{Car selection:} The \texttt{ElevatorSystem} invokes the \texttt{Dispatcher} to run its algorithm (\texttt{selectBestCar()}). The \texttt{Dispatcher} checks the state of all \texttt{ElevatorCar} objects and returns the most appropriate one.
+\item
+\protect\phantomsection\label{wUnC0u0GiO7lh54kTBw4r}
+\textbf{Car movement:} The \texttt{ElevatorSystem} commands the selected \texttt{ElevatorCar} to \texttt{move()} to the passenger's floor.
+\item
+\protect\phantomsection\label{HCSHj2rM9HU8yeA5m2JXm}
+\textbf{Arrival and door operation:} Once the \texttt{ElevatorCar} arrives, it notifies the \texttt{ElevatorSystem}. The system then commands the car's \texttt{Door} to \texttt{openDoor()}, allowing the passenger to enter.
+\end{itemize}
+
+\subsection{System workflow}\label{lCf9x0KC-D_Gz0in7iZcV}
+\\
+The primary workflow describes the end-to-end journey of a passenger from requesting to arriving at their destination.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{B951jrFw5GnLgYtWTiF80}
+\textbf{Calling the elevator:} A passenger presses the ``Up'' or ``Down'' button on a floor's \texttt{HallPanel}.
+\item
+\protect\phantomsection\label{dDk-7f4_plchvdS7SizBA}
+\textbf{Entering the car:} The system dispatches the nearest available car. Once it arrives and the doors open, the passenger enters. The system checks if the car's maximum capacity is exceeded; if so, an alarm sounds, and the passenger cannot proceed.
+\item
+\protect\phantomsection\label{m41tIE5MLdeanNE4WEk8Y}
+\textbf{Selecting a destination:} The passenger presses a floor button on the \texttt{ElevatorPanel} inside the car.
+\item
+\protect\phantomsection\label{FTQtWQRiHD_bK_0E6aD6B}
+\textbf{Servicing requests:} The elevator begins moving, stopping at other floors to pick up or drop off passengers moving in the same direction. Requests for floors in the opposite direction are queued and serviced later.
+\item
+\protect\phantomsection\label{fXDkvQlG6wGxRPFHvs1fP}
+\textbf{Reaching the destination:} The elevator arrives at the passenger's desired floor, the doors open, and the passenger exits, completing the journey.
+\end{itemize}
+
+% End of section content

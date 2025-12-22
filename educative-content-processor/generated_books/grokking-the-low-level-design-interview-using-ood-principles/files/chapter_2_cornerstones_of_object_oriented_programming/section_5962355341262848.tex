@@ -1,0 +1,178 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Quiz: Object-oriented Basics
+% Section ID: 5962355341262848
+% Section Slug: quiz-object-oriented-basics
+% Generated: 2025-12-16T12:49:54.815479
+
+\subsection{Match the answers}\label{khiQy5hFp6HJMSGOolcSw}
+\\
+As a game developer, you create popular games such as Tic-Tac-Toe and Sudoku. You use object-oriented programming (OOP) principles to design a well-structured and scalable project. OOP helps you define relationships between different components and organize your code efficiently.
+\\
+To get started, you establish a base class, \texttt{Game}, that contains common attributes and methods. Then , you create specific game classes---\texttt{TicTacToe} and \texttt{Sudoku}---which inherit from the \texttt{Game} class and add their unique attributes and behaviors. An example of how this project's structure is defined is given below:
+
+\begin{lstlisting}[language=plaintext]
+-> Game : Base Class
+    -> playerNum : int              (Stores the number of players)
+    -> makeMove() : void            (Represents making a move in the game)
+    -> getPlayers() : string        (Returns player details)
+
+-> TicTacToe : Derived from Game
+    -> isHuman : bool               (Indicates whether the player is human)
+    -> getIsHuman() : bool          (Returns whether the player is human)
+
+-> Sudoku : Derived from Game
+    -> value : int                  (Represents a value in the Sudoku grid)
+    -> setValue() : void            (Allows setting a value in the Sudoku grid)
+\end{lstlisting}
+
+Below are four core OOP principles. Your task is to match each principle with the correct example based on the given class structure.
+\begin{quote}
+\textbf{Note:} Select an OOP principle in the left-hand column by clicking it, and then click one of the options in the right-hand column.
+\end{quote}
+
+\textit{Component type 'MatchTheAnswers' not yet supported.}
+
+\subsection{MCQs}\label{E99f25gGckVKDrZUsgKEr}
+\\
+Challenge yourself by solving the following quiz questions.
+
+\subsection*{Object-Oriented Basics}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 1:} What best captures the main advantage of using object-oriented programming (OOP)?
+\\[0.2cm]
+\begin{itemize}
+ \item It focuses on writing low-level, memory-optimized code.
+ \item \textbf{[CORRECT]} It groups related data and behavior into objects to model real-world systems more naturally.
+\\[0.1cm]
+\textit{Explanation:} 
+OOP is about modeling software using objects, which often represent real-world things and encapsulate both data and behavior.
+ \item It allows you to avoid writing functions entirely.
+ \item It replaces the need for planning and system design.
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 2:} Which statement is \emph{true} about objects and classes in OOP?
+\\[0.2cm]
+\begin{itemize}
+ \item A class is a specific instance of an object.
+ \item Objects can exist without a class.
+ \item \textbf{[CORRECT]} A class defines the blueprint for creating objects.
+\\[0.1cm]
+\textit{Explanation:} 
+A class provides the template or blueprint for creating objects, which are specific instances of the class.
+ \item An object defines the template for creating classes.
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 3:} What is the main purpose of encapsulation in OOP?
+\\[0.2cm]
+\begin{itemize}
+ \item \textbf{[CORRECT]} To hide internal data of a class and expose only what's necessary.
+\\[0.1cm]
+\textit{Explanation:} 
+Encapsulation involves wrapping data (variables) and behavior (methods) into a single unit and hiding internal details from external access.
+ \item To make the code run faster.
+ \item To allow one class to inherit from another.
+ \item To combine two classes into one.
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 4:} Why is it recommended to use private variables in a class?
+\\[0.2cm]
+\begin{itemize}
+ \item So other classes can modify them freely.
+ \item To reduce memory usage.
+ \item \textbf{[CORRECT]} To prevent accidental or unauthorized changes to the data.
+\\[0.1cm]
+\textit{Explanation:} 
+Making variables private protects them from outside interference and maintains data integrity.
+ \item To make the class load faster.
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 5:} What best represents encapsulation?
+\\[0.2cm]
+\begin{itemize}
+ \item \textbf{[CORRECT]} A phone's interface showing apps but hiding internal circuits.
+\\[0.1cm]
+\textit{Explanation:} 
+Like a phone, encapsulation shows a usable interface while hiding the complex internal mechanisms.
+ \item A chef showing every recipe ingredient to customers.
+ \item A book where every chapter is public.
+ \item A classroom where every student's grade is shared openly.
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 6:} What does abstraction mean in the context of OOP?
+\\[0.2cm]
+\begin{itemize}
+ \item Hiding the real-world objects.
+ \item \textbf{[CORRECT]} Focusing on essential features while hiding complex details.
+\\[0.1cm]
+\textit{Explanation:} 
+Abstraction allows a programmer to deal with ideas rather than specific events---simplifying complexity by exposing only what's necessary.
+ \item Storing multiple values in one object.
+ \item Inheriting from multiple classes.
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 7:} You're building a ride booking app. As a user, you can simply call \texttt{bookRide()} without knowing how the matching algorithm or pricing logic works.
+\\
+What OOP principle does this demonstrate?
+\\[0.2cm]
+\begin{itemize}
+ \item Inheritance
+ \item Encapsulation
+ \item \textbf{[CORRECT]} Abstraction
+\\[0.1cm]
+\textit{Explanation:} 
+Abstraction means hiding the internal implementation details and exposing only what's necessary. In this example, the user interacts with \texttt{bookRide()} without needing to know how it works behind the scenes.
+ \item Polymorphism
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 8:} What does inheritance allow a class to do?
+\\[0.2cm]
+\begin{itemize}
+ \item Hide internal data from other classes.
+ \item Create multiple unrelated classes.
+ \item \textbf{[CORRECT]} Use properties and methods of another class.
+\\[0.1cm]
+\textit{Explanation:} 
+Inheritance allows a class (child/subclass) to acquire attributes and behaviors (methods) from another class (parent/superclass).
+ \item Destroy objects when they're no longer needed.
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 9:} Which real-world example best illustrates inheritance?
+\\[0.2cm]
+\begin{itemize}
+ \item A company owning several branches.
+ \item A car having four wheels.
+ \item A button on a webpage responding to a click.
+ \item \textbf{[CORRECT]} A dog being a type of animal and sharing common animal traits.
+\\[0.1cm]
+\textit{Explanation:} 
+A dog inherits traits from the animal class---this is similar to how a subclass inherits from a superclass.
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 10:} What best demonstrates polymorphism?
+\\[0.2cm]
+\begin{itemize}
+ \item A teacher teaching math, science, and history.
+ \item \textbf{[CORRECT]} A shape class with \texttt{draw()} method, and circle, square, triangle each having its own \texttt{draw()}.
+\\[0.1cm]
+\textit{Explanation:} 
+Different shapes implement their own version of the same method, \texttt{draw()}, demonstrating polymorphism.
+ \item A class hiding data from the user.
+ \item A car with four wheels and each wheel using the same \texttt{steer()} method.
+\end{itemize}
+
+
+
+% End of section content

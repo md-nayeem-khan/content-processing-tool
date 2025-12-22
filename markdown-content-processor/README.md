@@ -21,6 +21,16 @@ A fully offline content processing tool that converts raw markdown content into 
 
 ## Installation
 
+### Prerequisites
+
+**Pandoc is REQUIRED** for this application. Install it first:
+
+- **Windows**: Download installer from https://pandoc.org/installing.html
+- **Linux**: `sudo apt-get install pandoc`
+- **Mac**: `brew install pandoc`
+
+### Setup
+
 1. Create a virtual environment:
 ```bash
 python -m venv .venv

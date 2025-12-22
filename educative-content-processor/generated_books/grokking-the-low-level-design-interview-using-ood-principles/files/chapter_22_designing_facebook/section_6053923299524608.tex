@@ -1,0 +1,557 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Code for Facebook
+% Section ID: 6053923299524608
+% Section Slug: code-for-facebook
+% Generated: 2025-12-14T12:40:19.470283
+
+We've reviewed different aspects of Facebook and observed the attributes attached to the problem using various UML diagrams. Let 's now explore the more practical side of things, where we will work on implementing the Facebook network using multiple languages. This is usually the last step in an object-oriented design interview process.
+\\
+We have chosen the following languages to write the skeleton code of the different classes present in Facebook:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{5MVwykRUFoN83F8hjfrIV}
+Java
+\item
+\protect\phantomsection\label{O_lrk-etWKbAomEfDOhDs}
+C\#
+\item
+\protect\phantomsection\label{hg2Ag9Odig9jdmzIitaXe}
+Python
+\item
+\protect\phantomsection\label{YcINEV55e4BpyhFL55GKh}
+C++
+\item
+\protect\phantomsection\label{Wao1TLm3Z1PN3Yh4iOhhI}
+JavaScript
+\end{itemize}
+\\
+If you want to skip directly to the implementation and see the complete workflow, simply scroll down or click~\hyperref[Executable-code-Designing-Facebook]{\textbf{Executable Code: Designing Facebook}}.
+
+\subsection{Facebook classes}\label{6op16HCX1YKgipH7RhBSS}
+\\
+This section will provide the skeleton code of the classes designed in the class diagram lesson.
+\begin{quote}
+\textbf{Note:} For simplicity, we are not defining getter and setter functions. The reader can assume that all class attributes are private, accessed through their respective public getter methods, and modified only through their public method functions.
+\end{quote}
+\subsubsection{Constants}\label{MU_WZCHV_OmUt6XAQ4iWW}
+\\
+The following code defines the various enums and custom data types being used in the Facebook design:
+\begin{quote}
+\textbf{Note:} JavaScript does not support enumerations, so we will use the\ Object.freeze() method as an alternative that freezes an object and prevents further modifications.
+\end{quote}
+
+\textbf{Constant definitions}
+
+\begin{lstlisting}[language=Java]
+public class Address {
+  private int zipCode;
+  private String houseNo;
+  private String city;
+  private String state;
+  private String country;
+}
+
+enum AccountStatus {
+  ACTIVE, 
+  BLOCKED,
+  DISABLED,
+  DELETED 
+}
+
+enum FriendInviteStatus {
+  PENDING, 
+  ACCEPTED, 
+  REJECTED, 
+  CANCELED
+}
+
+enum PostPrivacySettings {
+  PUBLIC, 
+  FRIENDS_OF_FRIENDS, 
+  ONLY_FRIENDS, 
+  CUSTOM
+}
+
+enum Role {
+    USER,
+    ADMIN
+}
+\end{lstlisting}
+
+\subsubsection{Interfaces implemented by the user}\label{YDQhuZ6auR1qtkJ9lVyTk}
+\\
+Facebook will have several interfaces that will be implemented by users and are described below:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{jhh-T7CdV3hRibIQeasL3}
+\texttt{PageFunctionsByUser}\textbf{:} This will define a user's functions while interacting with pages.
+\item
+\protect\phantomsection\label{LxaArrInwt5RjAOxUd8P4}
+\texttt{GroupFunctionsByUser}\textbf{:} This will define a user's functions while interacting with groups.
+\item
+\protect\phantomsection\label{LAXqsKqjrDywQKIHWZLG3}
+\texttt{PostFunctionsByUser}\textbf{:} This will define a user's functions while interacting with posts.
+\item
+\protect\phantomsection\label{cdtrkYZx2PV8iN0MAiIq_}
+\texttt{CommentFunctionsByUser}\textbf{:} This will define a user's functions while interacting with comments.
+\end{itemize}
+\\
+The definition of all these interfaces is given below:
+
+\textbf{The interfaces present in Facebook}
+
+\begin{lstlisting}[language=Java]
+public interface PageFunctionsByUser {
+  public Page createPage(String name);
+  public Page sharePage(Page page);
+  public void likePage(Page page);
+  public void followPage(Page page);
+  public void unLikePage(Page page);
+  public void unFollowPage(Page page);
+}
+
+public interface GroupFunctionsByUser {
+  public Group createGroup(String name);
+  public void joinGroup(Group group);
+  public void leaveGroup(Group group);
+  public void sendGroupInvite(Group group);
+}
+
+public interface PostFunctionsByUser {
+  public Post createPost(String content);
+  public Post sharePost(Post post);
+  public void commentOnPost(Post post);
+  public void likePost(Post post);
+}
+
+public interface CommentFunctionsByUser {
+  public Comment createComment(Post post, String content);
+  public void likeComment(Comment comment);
+}
+\end{lstlisting}
+
+\subsubsection{Person and user}\label{a-GjKp6-VT6SMnzmDC3jh}
+\\
+The \texttt{Person} class is an abstract class that serves as the blueprint for all Facebook users. It defines common attributes such as ID, password, name, email, phone number, address, and account status. It also includes a method to reset the user's password.
+\\
+The \texttt{User} class extends \texttt{Person} and implements user-specific functionality through the \texttt{PageFunctionsByUser} interface. Each
+\texttt{User} object maintains a profile, a list of pages and groups they administer, and a set of roles they hold. By default, every user has the \texttt{User} role but can also assume additional roles, such as \texttt{Admin}. The definitions of the relevant classes are provided below:
+\begin{quote}
+\textbf{Note:} The \texttt{User} class contains various methods representing user interactions and functionalities within the system. For brevity, only a subset of these methods is shown here.
+\end{quote}
+
+\textbf{The Person, User, and Admin classes}
+
+\begin{lstlisting}[language=Java]
+public abstract class Person {
+  private String Id;
+  private String password;
+  private String name;
+  private String email;
+  private String phone;
+  private Address address;
+  private AccountStatus status;
+  
+  public boolean resetPassword();
+}
+
+
+public class User extends Person implements PageFunctionsByUser{
+  private Date dateOfJoining;
+  private List<Page> pagesAdmin;
+  private List<Group> groupsAdmin;
+  private Profile profile;
+  
+  private Set<Role> roles = new HashSet<>();
+  
+  public boolean hasRole(Role role);
+  
+  public boolean sendMessage(Message message);
+  public boolean sendRecommendation(Page page, Group group, User user);
+  public boolean sendFriendRequest(User user);
+  public boolean unfriendUser(User user);
+  public boolean blockUser(User user);
+  public boolean followUser(User user);
+  
+  public Page createPage(String name);
+  public void likePage(Page page);
+  public void followPage(Page page);
+  public void unLikePage(Page page);
+  public void unFollowPage(Page page);
+  public Page sharePage(Page page);
+  public List<User> search(String name);
+  public boolean addFriend(User userB);
+  public boolean accept(FriendRequest request);
+  public boolean reject(FriendRequest request);
+  public void enablePage(Page page) {}
+  public void disablePage(Page page) {}
+  
+  // If user is Admin
+  public void blockPageUser(User user) {}
+  public void unblockPageUser(User user) {}
+  public void blockGroupUser(User user) {}
+  public void unblockGroupUser(User user) {}
+  public void changeGroupPrivacy(Group group) {}
+
+}
+\end{lstlisting}
+
+\subsubsection{Profile, education, places, and work}\label{KcbwE9F21HX5kQsBlPvQF}
+\\
+The \texttt{Work}, \texttt{Education}, and \texttt{Places} classes will provide a user's personal information and make up the \texttt{Profile} class. The definition of these classes is given below:
+
+\textbf{The Profile, Education, Places, and Work classes}
+
+\begin{lstlisting}[language=Java]
+public class Profile {
+  private String gender;
+  private byte[] profilePicture;
+  private byte[] coverPhoto;
+  private List<User> friends;
+
+  private List<int> usersFollowed;
+  private List<int> pagesFollowed;
+  private List<int> groupsJoined;
+  
+  private ProfilePrivacy privacy;
+
+  private List<Work> workExperience;
+  private List<Education> educationInfo;
+  private List<Place> places;
+
+  public boolean addWorkExperience(Work work);
+  public boolean addEducation(Education education);
+  public boolean addPlace(Place place);
+  public boolean addProfilePicture(byte[] image);
+  public boolean addCoverPhoto(byte[] image);
+  public boolean addGender(String gender);
+}
+
+public class Work {
+  private String title;
+  private String company;
+  private String location;
+  private String description;
+  private Date startDate;
+  private Date endDate;
+}
+
+public class Places {
+  private String name;
+}
+
+public class Education {
+  private String school;
+  private String degree;
+  private String description;
+  private Date startDate;
+  private Date endDate;
+}
+\end{lstlisting}
+
+\subsubsection{Page, post, and comment}\label{3VyJ6YosyGRVL7Tb2VQ2W}
+\\
+Facebook users can create and like pages, posts, and comments. The definition of these classes is given below:
+
+\textbf{The Page, Post, and Comment classes}
+
+\begin{lstlisting}[language=Java]
+public class Page {
+  private int pageId;
+  private String name;
+  private String description;
+  private int likeCount;
+}
+
+public class Post {
+  private int postId;
+  private String content;
+  private byte[] image;
+  private int likeCount;
+  private int shareCount;
+  private User postOwner;
+  private PostPrivacySettings settings;
+  public changePostVisibility(Post post);
+}
+
+public class Comment {
+  private int commentId;
+  private String content;
+  private int likeCount;
+  private User commentOwner;
+}
+\end{lstlisting}
+
+\subsubsection{Profile privacy}\label{julu7b82zRwsJjYIajaE4-1}
+\\
+Each profile will have privacy settings, where users can change the visibility settings of their friends' list and lock their profile and profile picture.
+
+\textbf{The ProfilePrivacy class}
+
+\begin{lstlisting}[language=Java]
+public class ProfilePrivacy {
+    public void changeFriendsListVisibility(Profile profile) {}
+    public void lockProfile(Profile profile) {}
+    public void lockProfilePicture(Profile profile) {}
+}
+\end{lstlisting}
+
+\subsubsection{Group and the group functions interface}\label{FlqX3PLuJU_QNryN7B_Rq-1}
+\\
+Facebook users can also create and join groups, add and delete new users. In addition, users who initially join groups will be notified of all new activities. The definition of these classes is given below:
+
+\textbf{The Group class and the GroupFunctions interface}
+
+\begin{lstlisting}[language=Java]
+public interface GroupFunctions {
+  public boolean addUser(User user);
+  public boolean deleteUser(User user);
+  public boolean notifyUser(User user);
+}
+
+public class Group implements GroupFunctions {
+  private int groupId;
+  private String name;
+  private String description;
+  private byte[] coverPhoto;
+  private int totalUsers;
+  private boolean isPrivate;
+  private List<User> users;
+
+  public boolean addUser(User user) {
+    // functionality
+  }
+  public boolean deleteUser(User user) {
+    // functionality
+  }
+  public boolean notifyUser(User user) {
+    // functionality
+  }
+  public void updateDescription(String description) {}
+  public void addCoverPhoto(byte[] image) {}
+}
+\end{lstlisting}
+
+\subsubsection{Message and friend request}\label{FlqX3PLuJU_QNryN7B_Rq-2}
+\\
+Each Facebook user can send messages and friend requests to other users. The definition of both of these classes is given below:
+
+\textbf{The Message and FriendRequest classes}
+
+\begin{lstlisting}[language=Java]
+public class Message {
+  private int messageId;
+  private User sender;
+  private String content;
+  private List<User> recipent;
+  private List<byte[]> multimedia;
+
+  public boolean addRecipent(List<User> users);
+}
+
+public class FriendRequest {
+  private User recipent;
+  private User sender;
+  private FriendRequestStatus status;
+  private Date requestSent;
+  private Date requestStatusModified;
+
+  public boolean acceptRequest(User user);
+  public boolean rejectRequest(User user);
+  public boolean sendFriendRequest() {
+    // Send friend request logic
+  }
+  
+  public boolean addToFriendList(User userB) {
+    // Add userB to sender and recipient's friend list
+  }
+  
+  public boolean sendNotification() {
+    // Notify both parties
+  }
+
+}
+\end{lstlisting}
+
+\subsubsection{Notification}\label{0ZVCay7W6Bkab1KXP_cLz}
+\\
+The \texttt{Notification} class sends notifications to users about new messages, comments, posts, or friend requests via the built-in notification option. Its definition is given below:
+
+\textbf{The Notification class}
+
+\begin{lstlisting}[language=Java]
+public class Notification {
+  private int notificationId;
+  private Date createdOn;
+  private String content;
+
+  public boolean sendNotification(Profile profile);
+}
+\end{lstlisting}
+
+\subsubsection{Search catalog and interface}\label{julu7b82zRwsJjYIajaE4-2}
+\\
+The \texttt{SearchCatalog} class contains information on members, groups, pages, and posts. It also implements the \texttt{Search} interface class to enable the search functionality based on criteria (member, group, page names, and post keywords). The definition of these two classes is given below:
+
+\textbf{The Search interface and SearchCatalog class}
+
+\begin{lstlisting}[language=Java]
+public interface Search {
+  public List<User> searchUsers(String name);
+  public List<Group> searchGroups(String name);
+  public List<Page> searchPages(String name);
+  public List<Post> searchPosts(String keywords);
+}
+
+public class SearchCatalog implements Search {
+  HashMap<String, List<User>> userNames;
+  HashMap<String, List<Group>> groupNames;
+  HashMap<String, List<Page>> pageTitles;
+  HashMap<String, List<Post>> posts;
+
+  public boolean addNewUser(User user) {}
+  public boolean addNewGroup(Group group) {}
+  public boolean addNewPage(Page page) {}
+  public boolean addNewPost(Post post) {}
+
+  public List<User> searchUsers(String name) {
+    // functionality
+  }
+
+  public List<Group> searchGroups(String name) {
+    // functionality
+  }
+
+  public List<Page> searchPages(String name) {
+    // functionality
+  }
+
+  public List<Post> searchPosts(String keywords) {
+    // functionality
+  }
+}
+\end{lstlisting}
+
+\subsection{Executable code: Designing Facebook}\label{Ln1qy9I-7AzywzfgVXQ7Z}
+\\
+Below is a fully self-contained, runnable program in Java, C\#, C++, Python, and JavaScript that demonstrates the core workflows of the Facebook system. The main driver code of the system resides in the~\texttt{Driver.java},~\texttt{Driver.cs},~\texttt{Driver.py},~\texttt{Driver.cpp}, and~\texttt{Driver.js}~for all respective languages. You can click the ``Run'' button to execute the codes.
+
+\subsubsection{What does this code show}\label{j_YSDW2YIi08FtN0d1BkS}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{lZSH5-mzHIs8g6dW6Lcxy}
+\textbf{System initialization:}~Initializes two users (\texttt{Alice} and \texttt{Bob}) with their own \texttt{Profile} instances and empty friend lists. This sets up the baseline for simulating user interactions.
+\item
+\protect\phantomsection\label{Bj-rjzM7H9hSbNYXd1CAU}
+\textbf{Scenario 1 (Friend request and acceptance):} Alice searches for Bob and sends him a friend request. Bob accepts the request, and both users' friend lists are updated to reflect the new connection.
+\item
+\protect\phantomsection\label{QDaOr_ClfBb-eqXXd2527}
+\textbf{Scenario 2 (Page creation and following):} Alice creates a new page titled ``Tech Updates.'' Bob follows this page, simulating how users can engage with community or brand content on the platform.
+\item
+\protect\phantomsection\label{O7o2T6NduMuHyEo1DAlqH}
+\textbf{Scenario 3 (Group creation and joining):} A group called ``Java Enthusiasts'' is created directly. Alice joins the group using the \texttt{addUser} method, demonstrating user engagement with interest-based communities without altering the core \texttt{User} class.
+\end{itemize}
+\begin{quote}
+\textbf{Hint: Try customizing the code!}\\
+This code is designed for experimentation, not just reading. You can edit, extend, or modify any part of the example.
+\end{quote}
+
+\textbf{Executable Code: Designing Facebook}
+
+\begin{lstlisting}[language=Java]
+import java.util.*;
+
+public class Driver {
+  public static void main(String[] args) {
+
+    System.out.println("=========================================");
+    System.out.println("ð SCENARIO 1: Friend Request and Acceptance");
+    System.out.println("=========================================");
+
+    // Create Profiles
+    Profile profileA = new Profile();
+    profileA.setFriends(new ArrayList<>());
+
+    Profile profileB = new Profile();
+    profileB.setFriends(new ArrayList<>());
+
+    // Create Users
+    User userA = new User();
+    userA.setName("Alice");
+    userA.setProfile(profileA);
+
+    User userB = new User();
+    userB.setName("Bob");
+    userB.setProfile(profileB);
+
+    // Step 1: UserA searches for UserB
+    System.out.println("ð UserA searches for UserB...");
+    System.out.println("ð¢ Found user: " + userB.getName());
+
+    // Step 2: UserA sends a friend request
+    FriendRequest friendRequest = new FriendRequest();
+    friendRequest.setSender(userA);
+    friendRequest.setRecipent(userB);
+    friendRequest.sendFriendRequest();
+    System.out.println("ð¨ Friend request sent from " + userA.getName() + " to " + userB.getName());
+
+    // Step 3: UserB accepts the friend request
+    boolean accepted = userB.accept(friendRequest);
+    if (accepted) {
+      System.out.println("â " + userB.getName() + " accepted the friend request.");
+    }
+
+    // Step 4: Display updated friend lists
+    System.out.println("ð¥ Friends of " + userA.getName() + ": " +
+        userA.getProfile().getFriends().stream().map(User::getName).toList());
+    System.out.println("ð¥ Friends of " + userB.getName() + ": " +
+        userB.getProfile().getFriends().stream().map(User::getName).toList());
+
+    System.out.println("
+=========================================");
+    System.out.println("ð SCENARIO 2: User Creates and Follows a Page");
+    System.out.println("=========================================");
+
+    // Step 1: UserA creates a page
+    Page techPage = userA.createPage("Tech Updates");
+    System.out.println("ð " + userA.getName() + " created a page: Tech Updates");
+
+    // Step 2: UserB follows the page
+    userB.followPage(techPage);
+    System.out.println("ð£ " + userB.getName() + " followed the page: Tech Updates");
+
+    System.out.println("
+=========================================");
+    System.out.println("ð SCENARIO 3: Creating and Joining a Group");
+    System.out.println("=========================================");
+    
+    // Step 1: A group is created directly
+    Group javaGroup = new Group();
+    javaGroup.setName("Java Enthusiasts");
+    javaGroup.setUsers(new ArrayList<>());
+    javaGroup.setTotalUsers(0);
+    javaGroup.setPrivate(false);
+    System.out.println("ð¥ A new group created: " + javaGroup.getName());
+    
+    // Step 2: UserA joins the group
+    boolean joined = javaGroup.addUser(userA);
+    if (joined) {
+      System.out.println("â " + userA.getName() + " joined the group: " + javaGroup.getName());
+    } else {
+      System.out.println("â ï¸ " + userA.getName() + " could not join the group (already a member?)");
+    }
+  }
+}
+\end{lstlisting}
+
+\subsection{Wrapping up}\label{d6DcwCJ0jKUAiX5iUpOvw-2}
+\\
+We've explored the complete design of Facebook in this chapter. We 've explor\hspace{0pt}\hspace{0pt} ed Facebook's complete design, including how it can be visualized using various UML diagrams and designed using object-oriented principles and design patterns.
+
+% End of section content

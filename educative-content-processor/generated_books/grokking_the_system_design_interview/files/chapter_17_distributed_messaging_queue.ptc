@@ -1,0 +1,47 @@
+\contentsline {chapter}{\numberline {1} Distributed Messaging Queue }{1}{chapter.0.1}%
+\ttl@starttoc {chapters@1}
+\contentsline {section}{\numberline {1} System Design: The Distributed Messaging Queue }{2}{section.0.1.1}%
+\contentsline {subsection}{\numberline {1.1}What is a messaging queue?}{2}{subsection.0.1.1.1}%
+\contentsline {subsubsection}{Key components of a messaging queue}{2}{figure.caption.1}%
+\contentsline {paragraph}{Producers}{2}{figure.caption.1}%
+\contentsline {paragraph}{Consumers}{2}{figure.caption.1}%
+\contentsline {paragraph}{Queues}{2}{figure.caption.1}%
+\contentsline {paragraph}{Messages}{2}{figure.caption.1}%
+\contentsline {subsection}{\numberline {1.2}Why use a messaging queue}{2}{subsection.0.1.1.2}%
+\contentsline {subsubsection}{Common messaging queue patterns}{3}{section*.5}%
+\contentsline {subsubsection}{Popular messaging queue technologies}{3}{figure.caption.7}%
+\contentsline {subsubsection}{Messaging queue use cases}{4}{section*.10}%
+\contentsline {subsection}{\numberline {1.3}Best practices for implementing messaging queues}{4}{subsection.0.1.1.3}%
+\contentsline {subsubsection}{Message idempotency}{4}{subsection.0.1.1.3}%
+\contentsline {subsubsection}{Monitoring and logging}{5}{subsection.0.1.1.3}%
+\contentsline {subsubsection}{Error handling}{5}{figure.caption.14}%
+\contentsline {subsection}{\numberline {1.4}How do we design a distributed messaging queue?}{5}{subsection.0.1.1.4}%
+\contentsline {section}{\numberline {2} Requirements of a Distributed Messaging Queue’s Design }{6}{section.0.1.2}%
+\contentsline {subsection}{\numberline {2.1}Requirements}{6}{subsection.0.1.2.1}%
+\contentsline {subsubsection}{Functional requirements}{6}{subsection.0.1.2.1}%
+\contentsline {subsubsection}{Non-functional requirements}{6}{section*.24}%
+\contentsline {subsection}{\numberline {2.2}Single-server messaging queue}{6}{subsection.0.1.2.2}%
+\contentsline {subsection}{\numberline {2.3}Building blocks we will use}{7}{subsection.0.1.2.3}%
+\contentsline {section}{\numberline {3} Considerations of a Distributed Messaging Queue’s Design }{7}{section.0.1.3}%
+\contentsline {subsection}{\numberline {3.1}Ordering of messages}{8}{subsection.0.1.3.1}%
+\contentsline {subsubsection}{Best-effort ordering}{8}{section*.35}%
+\contentsline {subsubsection}{Strict ordering}{8}{figure.caption.36}%
+\contentsline {paragraph}{Sorting}{9}{section*.39}%
+\contentsline {subsection}{\numberline {3.2}Effect on performance}{10}{subsection.0.1.3.2}%
+\contentsline {subsubsection}{Managing concurrency}{10}{subsection.0.1.3.2}%
+\contentsline {section}{\numberline {4} Design of a Distributed Messaging Queue: Part 1 }{11}{section.0.1.4}%
+\contentsline {subsection}{\numberline {4.1}Distributed messaging queue}{11}{subsection.0.1.4.1}%
+\contentsline {subsubsection}{High-level design}{11}{subsection.0.1.4.1}%
+\contentsline {paragraph}{Load balancer}{11}{figure.caption.47}%
+\contentsline {paragraph}{Front-end service}{12}{figure.caption.47}%
+\contentsline {paragraph}{Metadata service}{12}{section*.53}%
+\contentsline {section}{\numberline {5} Design of a Distributed Messaging Queue: Part 2 }{14}{section.0.1.5}%
+\contentsline {subsection}{\numberline {5.1}Back-end service}{14}{subsection.0.1.5.1}%
+\contentsline {subsubsection}{Primary-secondary model}{15}{table.caption.67}%
+\contentsline {subsubsection}{A cluster of independent hosts}{15}{figure.caption.68}%
+\contentsline {section}{\numberline {6} Evaluation of a Distributed Messaging Queue’s Design }{16}{section.0.1.6}%
+\contentsline {subsection}{\numberline {6.1}Functional requirements compliance}{17}{subsection.0.1.6.1}%
+\contentsline {subsection}{\numberline {6.2}Non-functional compliance}{18}{subsection.0.1.6.2}%
+\contentsline {subsection}{\numberline {6.3}Conclusion}{18}{subsection.0.1.6.3}%
+\contentsline {section}{\numberline {7} Quiz on the Distributed Messaging Queue’s Design }{19}{section.0.1.7}%
+\contentsfinish 

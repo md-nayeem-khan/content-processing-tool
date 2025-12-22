@@ -1,0 +1,395 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Summary: Designing a Car Rental System
+% Section ID: 4754498181267456
+% Section Slug: summary-designing-a-car-rental-system
+% Generated: 2025-12-12T14:51:59.811109
+
+Now that you've completed the car rental system case study, let's take a moment to reflect on and consolidate what we've learned. We 'll revisit the key system requirements, identify the core classes along with their responsibilities and relationships, and highlight the major design principles applied. We
+'ll also examine how objects interact within the system and walk through the overall workflow to understand how the components come together to achieve the desired functionality.
+
+\subsection{Key requirements}\label{Iq7WPedOPmehRiTvv77-s}
+\\
+The following are the primary functional and operational requirements for the car rental system:
+
+\begin{enumerate}
+\item
+\protect\phantomsection\label{QOzOm-08UQHqSkjTwoUNE}
+Support two user roles: customer and receptionist.
+\item
+\protect\phantomsection\label{HVlyr9hIkBoaGFeaRA7IZ}
+Manage multiple vehicle types: cars, trucks, vans, motorcycles (with subtypes).
+\item
+\protect\phantomsection\label{aNA1r4dG87pj5LvDqYHfP}
+Track reservations, customer info, rental history, and vehicle logs.
+\item
+\protect\phantomsection\label{zPCdJYdvASkLPzxGVL6oZ}
+Support the reservation life cycle: make, update, cancel, pick up, and return.
+\item
+\protect\phantomsection\label{7vWXd9oMRM4GMMX2NlNH2}
+Allow optional services and equipment (e.g., Wi-Fi, child seat).
+\item
+\protect\phantomsection\label{Di-6Jbz3H9DHIoIWJ1irf}
+Handle late returns and issue fines automatically.
+\item
+\protect\phantomsection\label{SytP-OlLWDXVc_wbjQs_d}
+Enable vehicle search by type, model, features, or location.
+\item
+\protect\phantomsection\label{1wMsQb--ESyUj3tIMds-v}
+Maintain multi-branch support with branch-specific inventories.
+\item
+\protect\phantomsection\label{rLE1fgfgq_I4vh4BbyO8u}
+Track parking stall availability at each branch.
+\item
+\protect\phantomsection\label{PX9hsI6YBIyJ9M2uTvxmX}
+Support secure payments and refunds via multiple methods.
+\item
+\protect\phantomsection\label{lr727NVwKS-9dXxEswQGg}
+Allow payment at reservation time or vehicle return.
+\end{enumerate}
+
+\subsection{System actors}\label{OsOwlFNnNpZBy6xV6dliA}
+\\
+This system involves several actors with distinct roles and capabilities:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{WC-aeyJ4rHlIMclPMesOs}
+\textbf{Customer:} Registers, searches for vehicles, makes and updates reservations, selects services/equipment, makes payments, and handles vehicle pickup/return.
+\item
+\protect\phantomsection\label{9a0zKwHWxWNXEGTlG3R_4}
+\textbf{Receptionist:} Performs customer operations on their behalf and manages vehicle inventory, logs, and payment processing at the branch.
+\end{itemize}
+
+\subsection{Important classes and relationships}\label{j58j__w3p5WMfw4rvOcKY}
+\\
+The system design includes several key classes that collaborate to fulfill car rental operations.
+
+\begin{center}
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+>{\centering\arraybackslash} p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+>{\centering\arraybackslash} p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+>{\centering\arraybackslash} p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\begin{minipage}[t]{\linewidth}\centering
+\textbf{Class}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+\textbf{Description}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+\textbf{Important Relationships}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{Address}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Represents a physical address used by persons and branches
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Used by \texttt{Customer}, \texttt{Receptionist}, and \texttt{CarRentalBranch}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{Person}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Abstract base class for all system users
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Extended by \texttt{Account}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{Account}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Abstract class managing user login and access
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Extended by \texttt{Customer} and \texttt{Receptionist}. Associated with \texttt{VehicleReservation}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{Customer}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Concrete class representing end users
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Inherits from \texttt{Account}; handles add/cancel and get reservation
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{Receptionist}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Admin-level account managing branches and reservations
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Inherits from \texttt{Customer}; manages Vehicle, \texttt{VehicleLog}, and \texttt{Payment}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{DriverService}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Represents an additional driver assigned to a reservation
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Associated with \texttt{Service}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{Vehicle}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Abstract class for rentable units
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Composed of \texttt{VehicleLog}; extended by \texttt{Car}, \texttt{Truck}, \texttt{Van}, \texttt{Motorcycle}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{Equipment}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Abstract class for optional add-ons
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Subclasses include \texttt{Navigation}, \texttt{ChildSeat}, \texttt{SkiRack}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{Service}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Abstract class for value-added services
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Subclasses include \texttt{DriverService}, \texttt{WiFi}, \texttt{RoadsideAssistance}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{Notification}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Abstract class to notify customers
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Subclasses include \texttt{SMSNotification}, \texttt{EmailNotification}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{ParkingStall}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Represents vehicle storage units at a branch
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Composed in \texttt{CarRentalBranc} h; aggregates \texttt{Vehicle}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{VehicleLog}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Tracks maintenance, repairs, and events
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Composed in \texttt{Vehicle}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{VehicleReservation}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Manages reservation state and associated services/equipment
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Associated with \texttt{Payment}, \texttt{Vehicle}, \texttt{Notification}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{Payment}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Abstract class for processing fees
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Subclasses: \texttt{CreditCard}, \texttt{Cash}; associated with \texttt{Fine}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{Fine}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Applies late fees or penalties
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+One-way association with \texttt{Payment}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{Search}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Interface defining search operations
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Implemented by \texttt{VehicleCatalog}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{VehicleCatalog}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Enables search by model/type
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Aggregates \texttt{Vehicle}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{CarRentalBranch}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Represents a system location
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Composed of \texttt{ParkingStall}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\centering
+\texttt{CarRentalSystem}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Core orchestrator of branches, reservations, inventory, and search
+\end{minipage} & \begin{minipage}[t]{\linewidth}\centering
+Aggregates \texttt{CarRentalBranch}
+\end{minipage} \\
+\end{longtable}
+}
+\end{center}
+
+\subsection{Design highlights}\label{cNrK6IXPpE82IdBZbPuns}
+\\
+In this section, we outline the design approach and the application of SOLID principles and design patterns to ensure modularity, flexibility, and scalability.
+
+\subsubsection{Design approach}\label{KhQ8rbxsZ1fpzS-NJnHUB}
+\\
+The system follows a bottom-up approach, beginning with simple entities like \texttt{Vehicle}, \texttt{Customer}, and \texttt{Reservation}, and building up to high-level modules like inventory and payment management. It integrates subsystems to produce a cohesive, modular application.
+
+\subsubsection{Design principles}\label{YsQlUTa-sxSCvy5W1p3-J}
+\\
+The system applies SOLID design principles as follows:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{jYDvSks9PHOZQLl1d0xRY}
+\textbf{Single Responsibility principle (SRP):} Each class (e.g., \texttt{Payment}, \texttt{Notification}, \texttt{Reservation}) encapsulates one well-defined responsibility.
+\item
+\protect\phantomsection\label{ljBscaPOT58tEZCVmM5wB}
+\textbf{Open/Closed principle (OCP):} Services, equipment, and decorators can be extended without altering core logic.
+\item
+\protect\phantomsection\label{DWzDL4pfTazVuJsIYtsLW}
+\textbf{Liskov Substitution principle (LSP):} Subclasses (e.g., \texttt{Car}, \texttt{Truck}) can be used wherever their base \texttt{Vehicle} type is expected.
+\item
+\protect\phantomsection\label{-UxBdzyOb18madbbCkMlp}
+\textbf{Interface Segregation principle (ISP):} Specific interfaces like \texttt{Search} prevent dependency on unused operations.
+\item
+\protect\phantomsection\label{tuk67ehXAbc5PR8XPLJrj}
+\textbf{Dependency Inversion principle (DIP):} High-level modules like \texttt{CarRentalSystem} depend on abstractions (\texttt{Search}, \texttt{Payment}, etc.), not implementations.
+\end{itemize}
+
+\subsubsection{Design patterns}\label{7-NrEzAq3q9yyNF5pJ9nD}
+\\
+Design patterns help structure the system's complexity:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{MSxHN-j_VKu2R-3llG8YU}
+\textbf{Decorator pattern:} Used for dynamic fee calculation (e.g., \texttt{DiscountDecorator}, \texttt{DamageFineDecorator}) without modifying core logic.
+\item
+\protect\phantomsection\label{sfdrIUPeQEXxqurBmuQ1z}
+\textbf{Interface pattern:} Employed via the \texttt{Search} interface to allow flexible querying.
+\end{itemize}
+
+\subsection{Object interactions}\label{_Aq3DiKyVdfzIFtOXh_JV}
+\\
+Here, we describe the key message exchanges between objects that model real-time behaviors within the system.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{w8ORudkoW5jlxWitvcBuJ}
+\textbf{Vehicle reservation:}
+
+\begin{itemize}
+\item
+Customer searches for vehicles via \texttt{VehicleCatalog}.
+\item
+Available vehicles are returned from \texttt{CarRentalSystem}.
+\item
+Customer selects a vehicle; system checks availability and creates a \texttt{VehicleReservation}.
+\item
+The system calculates fees and prompts for payment.
+\item
+Upon success, the reservation is confirmed, and a \texttt{Notification} is sent.
+\end{itemize}
+\item
+\protect\phantomsection\label{A0l1zSNycNmT5B0jo1t1a}
+\textbf{Reservation cancellation:}
+
+\begin{itemize}
+\item
+Customer requests cancellation.
+\item
+System verifies policy and updates reservation status.
+\item
+Any applicable refund or fine is processed via \texttt{Payment}.
+\item
+A cancellation \texttt{Notification} is sent.
+\end{itemize}
+\item
+\protect\phantomsection\label{hFdWa_nRz7kSaTW7NBmR6}
+\textbf{Overdue return:}
+
+\begin{itemize}
+\item
+Upon late return, the system detects overdue via the \texttt{Reservation}.
+\item
+A \texttt{Fine} is applied.
+\item
+A \texttt{Notification} alerts the customer about the overdue charge.
+\end{itemize}
+\item
+\protect\phantomsection\label{91tggfww5lFocytkwnl7f}
+\textbf{Add services/equipment:}
+
+\begin{itemize}
+\item
+During or after the reservation, the customer selects optional items.
+\item
+\texttt{Service} or \texttt{Equipment} objects are added to the reservation.
+\item
+Total cost is recalculated.
+\end{itemize}
+\end{itemize}
+
+\subsection{System workflow}\label{FZUizPbyEkD4ImZ08FTMN}
+\\
+This section outlines the main workflows that occur in the system, as illustrated in the activity diagrams.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{6iJdCFlpIYvaGGnAgc77-}
+\textbf{Vehicle reservation:}
+
+\begin{itemize}
+\item
+Customer searches vehicle inventory by date, location, or model.
+\item
+Selects and reserves a vehicle with optional services/equipment.
+\item
+Makes payment during the reservation or upon return.
+\end{itemize}
+\item
+\protect\phantomsection\label{WAO-pGhtIiFHtO1Vjs6lC}
+\textbf{Vehicle pickup:}
+
+\begin{itemize}
+\item
+The customer arrives at the branch.
+\item
+The receptionist verifies the reservation and updates the vehicle status.
+\item
+The vehicle is handed over to the customer.
+\end{itemize}
+\item
+\protect\phantomsection\label{0Xd7somWh1zzFgLPfXwX8}
+\textbf{Vehicle return:}
+
+\begin{itemize}
+\item
+Vehicle is returned at the designated branch.
+\item
+The receptionist inspects for damage or refueling.
+\item
+Applicable fines are assessed.
+\item
+Final payment is collected, and vehicle status is updated.
+\end{itemize}
+\item
+\protect\phantomsection\label{UzKB-wNXkKz0t7W9cNWx-}
+\textbf{Optional services handling:}
+
+\begin{itemize}
+\item
+During reservation updates, the customer selects add-ons.
+\item
+Services like \texttt{Wi-Fi} or Roadside\ Assistance are added to the reservation object.
+\item
+Payment is adjusted accordingly.
+\end{itemize}
+\item
+\protect\phantomsection\label{7smvXn4M7_mTWmhloLtMI}
+\textbf{Notifications workflow:}
+
+\begin{itemize}
+\item
+System sends email/SMS for confirmations, cancellations, and overdue alerts.
+\end{itemize}
+\end{itemize}
+
+\subsection{}\label{CnJ5Z6IrtWinUF3bIXTEa}
+
+% End of section content

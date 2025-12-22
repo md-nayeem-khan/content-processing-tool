@@ -1,0 +1,244 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Use Case Diagram for the Online Stock Brokerage System
+% Section ID: 5131948513296384
+% Section Slug: use-case-diagram-for-the-online-stock-brokerage-system
+% Generated: 2025-12-14T12:53:20.828654
+
+Let's build the use case diagram of the online stock brokerage system and understand the relationship between its different components. First , we'll define the different elements of our online stock brokerage, followed by the complete use case diagram of the system.
+
+\subsection{System}\label{7g46wV3QV49d5GsTx07ms}
+\\
+Our system is a stock brokerage.
+
+\subsection{Actors}\label{ah8HA3fHu_uD_qn1W7Hza}
+\\
+Now, we'll define the main actors of our online stock brokerage system.
+
+\subsubsection{Primary actor}\label{vDxqW7jy1APVvWV6FSYss}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{jjwLshAGqUwA-qtV8nYKD}
+\textbf{Member:} The member is the main user of the system who can create, update, or cancel an account, log in and out, and reset their password. Members can search for stocks, manage watch lists, view stock positions, and place different orders (market, limit, stop-loss, and stop-limit). They can select stock details, cancel orders, and perform transactions via electronic transfer, wire, or check. Members also receive notifications about order and transaction statuses.
+\end{itemize}
+
+\subsubsection{Secondary actors}\label{RnN8mVQQ2BPn1Q1AFEVtu}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{YdmqKKaXcsiicKPx2FOMO}
+\textbf{Admin:} The admin manages user accounts. They can create, update, or cancel accounts, log in and out, reset passwords, and block or unblock members when necessary.
+\item
+\protect\phantomsection\label{-ptAS0NOQC9Mz61vlqnvF}
+\textbf{System:} The system handles internal processes such as fetching stock quotes, sending order details to the stock exchange, acknowledging and processing orders, and notifying members about order and transaction updates.
+\end{itemize}
+
+\subsection{Use cases}\label{02pb5CeINxwiomb2H183V}
+\\
+This section will define the use cases for the online stock brokerage system. We have listed the use cases according to their interactions with a particular actor.
+\begin{quote}
+\textbf{Note:} Some use cases will occur multiple times because they are shared among different actors in the system.
+\end{quote}
+\subsubsection{Member}\label{0qLD4kbR7BZwhXZGSQpfA}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{NGKfZEoMWdx-yqdWxMDxv}
+\textbf{Create account:} To register a new user in the system.
+\item
+\protect\phantomsection\label{3u-n7wgaelweLTcjNsjV6}
+\textbf{Update account:} To modify existing account information.
+\item
+\protect\phantomsection\label{fp5yZAI1-4tIDc5j7LXSp}
+\textbf{Cancel membership:} To terminate the user's membership and access.
+\item
+\protect\phantomsection\label{8mlv8oucXZEEDovjU5gB5}
+\textbf{Login/Logout:} To authenticate or end a user session.
+\item
+\protect\phantomsection\label{l6VgcU3ppIqJ39WPM9aES}
+\textbf{Reset password:} To recover access by setting a new password.
+\item
+\protect\phantomsection\label{U7MnGcZ6mKxjhazbiyOZ-}
+\textbf{Search stock inventory:} To look up stock details using a symbol.
+\item
+\protect\phantomsection\label{7McJlPQdiWaYO0HYVAE8Y}
+\textbf{View stock positions:} To display current holdings and quantities.
+\item
+\protect\phantomsection\label{iP5mVSUXID0a7MlrAer1e}
+\textbf{Create watch list:} To create a new list to track favorite stocks.
+\item
+\protect\phantomsection\label{V7q-hrctuNHWPF4gt2Qk6}
+\textbf{Update watch list:} To add or remove stocks from an existing watchlist.
+\item
+\protect\phantomsection\label{EHtWwfU9KvLtbfItEn8hL}
+\textbf{Place order:} To submit an order to buy or sell stocks.
+\item
+\protect\phantomsection\label{C2jfGzKuYJh0ga6kNYozQ}
+\textbf{Select stock details:} To choose stock, order type, quantity, and price..
+\item
+\protect\phantomsection\label{ooMjR4_q-zMmxsj6DPlxO}
+\textbf{Cancel order:} To stop a pending order before execution.
+\item
+\protect\phantomsection\label{LL4yq85OmwvIRHoKNNV-X}
+\textbf{Deposit money:} To fund the account via electronic transfer, wire, or check.
+\item
+\protect\phantomsection\label{gbHDVUhCR7a3HnWTpmWDB}
+\textbf{Withdraw money:} To transfer funds out of the trading account.
+\item
+\protect\phantomsection\label{pfRVzfopksN7UG8UzFFOT}
+\textbf{Receive order notification:} To get alerts on order execution status.
+\item
+\protect\phantomsection\label{Udqk4bB9QqfEoHAz-y8yl}
+\textbf{Receive transaction notification:} To be informed about deposit or withdrawal updates.
+\end{itemize}
+
+\subsubsection{Admin}\label{JaAClp_6q0QlfmBtxSjWv}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{ztnZWfP-t578etBH33qwL}
+\textbf{Create account:} To add a new member to the system.
+\item
+\protect\phantomsection\label{lKvyWTYZvLcpsURwzXsIX}
+\textbf{Update account:} To modify existing member details.
+\item
+\protect\phantomsection\label{zX4UaonkaDCZAAJlMYwUd}
+\textbf{Cancel membership:} To terminate a member's access to the system.
+\item
+\protect\phantomsection\label{tMhRXA4lSywC7AE_7vE_z}
+\textbf{Login/Logout:} To access or exit the admin interface.
+\item
+\protect\phantomsection\label{SBgnJcC8JAlqN3u5Mpo29}
+\textbf{Reset password:} To assist a member in password recovery.
+\end{itemize}
+
+\subsubsection{System}\label{_yGT54A16HNvcSIKKfb-A}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{oFv0Hb6k04ftr3-AE_66t}
+\textbf{Fetch stock quotes:} To retrieve live stock prices from the exchange.
+\item
+\protect\phantomsection\label{REmpppfocKdp0fFwY_EtW}
+\textbf{Send order details:} To forward order information to the stock exchange.
+\item
+\protect\phantomsection\label{FqIOVvur33GQ1hbUQRHj0}
+\textbf{Execute order:} To process, match, and fulfill stock orders.
+\item
+\protect\phantomsection\label{uRG86pFkMhMmxBoSAbcAB}
+\textbf{Deduct stock:} To adjust inventory after trade execution.
+\item
+\protect\phantomsection\label{iakEEmNA-vi7UFB67EGb_}
+\textbf{Send order notification:} To notify members of order status changes.
+\item
+\protect\phantomsection\label{3VDfEUoVm45pHfuTAePB_}
+\textbf{Send transaction notification:} To inform members of deposit or withdrawal outcomes.
+\end{itemize}
+
+\subsection{Relationships}\label{D3hZLqMBzqwDLmqdnsAhS}
+\\
+This section describes the relationships between and among actors and their use cases.
+
+\subsubsection{Generalization}\label{RQn68c6ubywz34gS3wiSe}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{juKmJdniVmuJ-MDG_996P}
+The ``Electronic bank transfer,'' ``Wire transfer,'' and ``Check transfer'' use cases are used for transactions. Hence , they have a generalization relationship with the ``Transaction'' use case.
+\item
+\protect\phantomsection\label{O9_z53EIlPK7_K6DSCIvr}
+The ``Place market order,'' ``Place limit order,'' ``Place stop-loss order,'' and ``Place stop-limit order'' use cases represent different ways of placing a trade. Hence , they have a generalization relationship with the ``Place order'' use case.
+\end{itemize}
+
+\subsubsection{Associations}\label{_WolsXwKYMT-rI2iy89bE}
+\\
+The table below shows the association relationship between actors and their use cases.
+
+\begin{table}[htbp]
+\centering
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{|p{0.254\textwidth}|p{0.253\textwidth}|p{0.443\textwidth}|}
+\hline
+\textbf{Member} & \textbf{Admin} & \textbf{System} \hfill\break \\
+\hline
+\hline
+Create account & Create account & Fetch stocks quotes \\
+\hline
+Update account & Cancel membership & Send order details \\
+\hline
+Cancel membership & Update account & Send deposit/withdrawal status change notification \\
+\hline
+Login/Logout & Login/Logout & Send notification \\
+\hline
+Reset password & Reset password & Execute order \\
+\hline
+Search stock inventory & \hfill\break & Deduct stock \\
+\hline
+View stock positions & \hfill\break & \hfill\break \\
+\hline
+Create watchlist & \hfill\break & \hfill\break \\
+\hline
+Update watchlist & \hfill\break & \hfill\break \\
+\hline
+Place order & \hfill\break & \hfill\break \\
+\hline
+Select stock details & \hfill\break & \hfill\break \\
+\hline
+Cancel order & \hfill\break & \hfill\break \\
+\hline
+Deposit money & \hfill\break & \hfill\break \\
+\hline
+Withdraw money & \hfill\break & \hfill\break \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\subsubsection{Include}\label{E6c3ykAkGs3AZ07d6dOGz-2}
+\\
+When a user places an order, they must provide all relevant details such as stock, order type, quantity, price/limit, and time enforcement.
+
+\begin{itemize}
+\item
+The ``Place order'' use case includes the ``Select stock,'' ``Select order type,'' ``Select quantity,'' and ``Select price/limit''use cases.
+\end{itemize}
+\\
+When a user places an order, the system processes stock deduction, sends notifications, and forwards order details.
+
+\begin{itemize}
+\item
+The ``Place order'' use case includes the ``Deduct stock,'' ``Send notification,'' and ``Send order details'' use cases.
+\end{itemize}
+\\
+The system retrieves the latest stock quotes when a user selects stock details.
+
+\begin{itemize}
+\item
+The ``Select stock details'' use case includes the ``Fetch stock quotes'' use case.
+\end{itemize}
+\\
+When a user deposits or withdraws money, the system sends a notification.
+
+\begin{itemize}
+\item
+The ``Deposit/Withdraw money'' use case includes the ``Send notification'' use case.
+\end{itemize}
+
+\subsection{Use case diagram}\label{ey3nITedLw7frTk8r2kxC}
+\\
+Here's the use case diagram of the online stock brokerage system:
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_23/section_5131948513296384/6262329468387328.png}
+ \caption{The use case diagram of the online stock brokerage system}
+\end{figure}
+
+\hfill\break
+In the next lesson, we will discuss the class diagram with a detailed explanation of all classes and their relationship with each other.
+
+% End of section content

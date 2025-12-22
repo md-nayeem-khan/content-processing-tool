@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  breaklines=true,
+  numbers=left
+}
+\begin{document}
+
+\section{Code Component Test}
+\textbf{Python Class Example}
+
+\begin{lstlisting}[language=Python]
+class Calculator:
+    def __init__(self):
+        self.result = 0
+
+    def add(self, value):
+        self.result += value
+        return self.result
+
+    def subtract(self, value):
+        self.result -= value
+        return self.result
+\end{lstlisting}
+
+\section{EditorCode Component Test}
+\begin{lstlisting}[language=JavaScript]
+function processData(items) {
+    return items
+        .filter(item => item.active)
+        .map(item => ({
+            id: item.id,
+            name: item.name.toUpperCase()
+        }))
+        .sort((a, b) => a.name.localeCompare(b.name));
+}
+\end{lstlisting}
+
+\end{document}

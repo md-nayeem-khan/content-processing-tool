@@ -1,0 +1,144 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Key Insights and Tips: Designing an Airline Management System
+% Section ID: 4904772199907328
+% Section Slug: key-insights-and-tips-designing-an-airline-management-system
+% Generated: 2025-12-14T13:18:11.100854
+
+Great job on wrapping up the airline management system case study! This lesson'll build on your progress by spotlighting frequent design pitfalls and sharing targeted interview tips. To help you test your understanding, you'll also find a quick quiz, plus a selection of related case studies to further strengthen your object-oriented design skills.
+
+\subsection{Common mistakes}\label{HN-218aJDxRJRAENk_8Lp}
+\\
+Avoiding these mistakes will help you create a more robust and scalable airline management system:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{BKLf5YKB3R-Bd7E0j-Myc}
+\textbf{Mixing concerns:} Don't combine booking, payments, flight details, and notifications in a single class. Modularize your design---separate entities like \texttt{Flight}, \texttt{Seat}, \texttt{Itinerary}, \texttt{Payment}, and \texttt{Notification}.
+\item
+\textbf{Inconsistent seat assignment:} Failing to validate seat assignments can lead to double-booking. Always ensure one seat maps to one passenger for each flight instance.
+\item
+\textbf{Neglecting payment and refund flows:} Failing to account for various payment methods, payment statuses, and refund logic can result in a suboptimal user experience. Model payments as abstract classes with appropriate status tracking.
+\item
+\textbf{Overcomplicating relationships between classes:} Creating overly complex, tightly coupled class relationships (for example, making Payment directly manage seat allocation) can make the system hard to maintain and extend. Always favor clear, well-defined associations and use aggregation/composition appropriately.
+\item
+\protect\phantomsection\label{ttOfnloOOJxpK0ocU_VFg}
+\textbf{Ignoring real-time notifications:} Failing to implement notifications for booking, cancellations, or status updates can leave users confused or uninformed. Utilize a notification system (e.g., Observer pattern) to receive timely alerts.
+\end{itemize}
+
+\subsection{Interview tips}\label{PEA0Hs-8YCap_JRqJtlJJ}
+\\
+Understand key design patterns, system components, and real-world applications to prepare for your interview and confidently discuss your approach to these concepts.
+
+\begin{tabular}{|>{\raggedright\arraybackslash}p{5cm}|>{\raggedright\arraybackslash}p{10cm}|}
+\hline
+\textbf{Tip} & \textbf{Explanation} \\
+\hline
+Demonstrate how your design accommodates change. & Illustrate how your architecture accommodates future needs, such as internationalization, integration with external APIs, or regulatory changes, showing flexibility without sacrificing integrity. \\
+\hline
+Discuss error handling and transaction safety. & Explain your approach to ensuring data consistency in critical business flows, such as seat reservation and payment, including mechanisms like transaction boundaries and rollback strategies. \\
+\hline
+Demonstrate the use of appropriate design patterns. & Discuss why you chose certain patterns (e.g., Observer for notifications, Factory for payment methods). \\
+\hline
+Discuss extensibility. & Explain how your design supports adding new features, roles, or payment methods in the future. \\
+\hline
+Explain pricing and seat logic. & Be prepared to answer questions about dynamic pricing, seat classes, and reservation constraints. \\
+\hline
+\end{tabular}
+
+\subsection{Test your understanding}\label{xMxFY_uVFkK-nsTjEBLOK}
+\\
+Now that you understand OOD principles well, solve the quiz below to test your knowledge.
+
+\subsection*{Airline Management System}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 1:} Which design pattern would you use to add new payment types (e.g., Apple Pay, PayPal) to the system without modifying the payment processing logic?
+\\[0.2cm]
+\begin{itemize}
+ \item Singleton pattern
+ \item \textbf{[CORRECT]} Factory pattern
+\\[0.1cm]
+\textit{Explanation:} 
+Factory pattern allows you to introduce new payment classes without changing the core logic, promoting extensibility and OCP (Open/Closed Principle).
+ \item Observer pattern
+ \item Adapter pattern
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 2:} What OOD concept helps you share core flight search and reservation logic among different user types (Customer, Front Desk Officer) while allowing for custom behaviors?
+\\[0.2cm]
+\begin{itemize}
+ \item Multiple inheritance
+ \item Interface segregation
+ \item \textbf{[CORRECT]} Use of interfaces and composition
+\\[0.1cm]
+\textit{Explanation:} 
+Interfaces (or abstract classes) allow shared logic, while composition lets you add custom behaviors where needed, promoting reusability and maintainability.
+ \item Hardcoding logic in each class
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 3:} Which design pattern is best for sending users real-time booking and cancellation notifications?
+\\[0.2cm]
+\begin{itemize}
+ \item Factory pattern
+ \item \textbf{[CORRECT]} Observer pattern
+\\[0.1cm]
+\textit{Explanation:} 
+The Observer pattern is the best choice because it enables the system to automatically notify all registered observers (like email or SMS services) whenever a booking or cancellation event occurs.
+ \item Builder pattern
+ \item Prototype pattern
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 4:} What design approach would you use to support multiple seat types (such as regular, emergency exit, and extra legroom) and ensure that future seat categories can be added easily?
+\\[0.2cm]
+\begin{itemize}
+ \item \textbf{[CORRECT]} Use an enumeration and class hierarchy for seat types.
+\\[0.1cm]
+\textit{Explanation:} 
+Combining enums for categorization and a class hierarchy for behavior allows for both easy extension and clear logic for each seat type.
+ \item Hardcode seat types in the \texttt{Seat} class.
+ \item Store seat type as a plain string.
+ \item Require manual code changes for each new seat type.
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 5:} How does the system ensure that two customers cannot be assigned the same seat on a flight?
+\\[0.2cm]
+\begin{itemize}
+ \item Manual review of each reservation
+ \item \textbf{[CORRECT]} Database constraints or transaction locking during seat assignment
+\\[0.1cm]
+\textit{Explanation:} 
+This prevents race conditions and ensures no two reservations are made for the same seat at the same time, even with concurrent bookings.
+ \item Sending an SMS alert to the customer
+ \item Letting the crew handle seating at check-in
+\end{itemize}
+
+\subsection{Related case studies}\label{i3ON28R6p4A02N1mny76g}
+\\
+The following case studies will help reinforce concepts used in the Airline Management System:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{rZGFwAeacIuG5DqqgdOoy}
+\textbf{Design of a library management system:} Emphasizes user roles, reservation management, and notification flows---translatable to airline contexts.
+\item
+\protect\phantomsection\label{qRrbeAS2Mv6kc05MPRjvK}
+\textbf{Design of a parking lot system:} Demonstrates entity management, slot assignments, and payment workflows, with clear analogies to seat management and bookings in airlines.
+\item
+\protect\phantomsection\label{L0Yh_sW9mBw5l_bPi4fWD}
+\textbf{Design of a hotel reservation system:} Focuses on bookings, payments, room types, and notifications.
+\item
+\protect\phantomsection\label{PhVQzhiSfBwn3Ds8heOxO}
+\textbf{Design of a ride sharing platform:} Covers scheduling, reservations, dynamic pricing, and trip management.
+\item
+\protect\phantomsection\label{Kfk-BIwhoCN0KpyMHGIVV}
+\textbf{Design of a ticketing system for events:} Includes seat assignments, reservations, payments, and cancellations.
+\end{itemize}
+
+% End of section content

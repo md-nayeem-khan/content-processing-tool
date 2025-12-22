@@ -1,0 +1,89 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Sequence Diagram for the Restaurant Management System
+% Section ID: 5569020712714240
+% Section Slug: sequence-diagram-for-the-restaurant-management-system
+% Generated: 2025-12-14T12:24:06.213071
+
+Sequence diagrams are a great way to understand the interactions between different entities and objects in the system. There can be different sequence diagrams that we can create for our restaurant management system. In this lesson, we will create sequence diagrams for the following two interactions:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{3kq5RhAx4Rv9AbuQRnVPg}
+A customer makes a reservation and receives notification.
+\item
+\protect\phantomsection\label{62zGajFIchyuWPnhnQshZ}
+\textbf{Sequence challenge:} Customer places the order and pays the bill.
+\end{itemize}
+
+\subsection{Making a reservation}\label{BVgKhKGUMnicvRp0i6fle}
+\\
+The sequence diagram for making a reservation should have the following actors and objects that will interact with each other:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{4GNpsOPyoded2pjeMoyAG}
+\textbf{Actors:} \texttt{Customer} and \texttt{Receptionist}
+\item
+\protect\phantomsection\label{iXG0Qw4kSBPoTBEqGnHU_}
+\textbf{Objects:} \texttt{TableReservation} and \texttt{Notification}
+\end{itemize}
+\\
+Here are the steps in the reservation interaction:
+
+\begin{enumerate}
+\item
+\protect\phantomsection\label{xFvcsLQb76owF7mesnTjv}
+The customer initiates the process by searching for tables for a specific time and date.
+\item
+\protect\phantomsection\label{dQfKGzxyK5OnasFowr9GG}
+The system returns a list of available tables to the customer.
+\item
+\protect\phantomsection\label{NkDtvaeoGhToj_nyEHMbV}
+The customer requests a reservation by selecting a table, time, and date.
+\item
+\protect\phantomsection\label{79ryz_CmwAYbRDULkO701}
+The receptionist confirms and saves the reservation in the system.
+\item
+\protect\phantomsection\label{T0do-gfouH8JXa-lvmBxO}
+The reservation is recorded and stored under the customer's details.
+\item
+\protect\phantomsection\label{UBYXPhmWSi3YjZj5YBXpc}
+As the reservation time approaches, the system sends an automated notification to the customer.
+\item
+\protect\phantomsection\label{9a34CdxPVoNwucKtZR-Sb}
+The customer receives the notification about their upcoming reservation.
+\end{enumerate}
+\\
+Based on the flow above, the sequence diagram for making a reservation in a restaurant management system is given below:
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_21/section_5569020712714240/5024251726659584.png}
+ \caption{The sequence diagram for making a reservation}
+\end{figure}
+
+\subsection{Sequence challenge: Customer places the order and pays}\label{fHxT_dVYp6FmPOr1CFhnN-1}
+\\
+Let's complete a sequence diagram for the placing order and payment process.
+\\
+A skeleton of the sequence diagram, given that the payment is successful, is provided below:
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_21/section_5569020712714240/5289743183904768.png}
+ \caption{A sequence diagram of a customer placing the order and paying the bill}
+\end{figure}
+
+Notice that the arrows in the diagram above are numbered from 1 to 8. Below are the messages between the actor(s) and object(s). Can you rearrange the messages below in the correct sequence they should appear in the skeleton of the sequence diagram above?
+\begin{quote}
+\textbf{Note:} If you're stuck, click the ``Show Solution'' button.
+\end{quote}
+
+Alternatively, click the ``Show complete diagram'' button to view the complete sequence diagram.
+
+In the next lesson, we'll create activity diagrams for the restaurant management system.
+
+% End of section content

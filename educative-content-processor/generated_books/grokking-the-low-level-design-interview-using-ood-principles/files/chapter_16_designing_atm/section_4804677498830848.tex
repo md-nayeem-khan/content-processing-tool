@@ -1,0 +1,504 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Class Diagram for the ATM System
+% Section ID: 4804677498830848
+% Section Slug: class-diagram-for-the-atm-system
+% Generated: 2025-12-12T15:53:54.907607
+
+In this lesson, we'll design the classes and then identify the relationship between classes according to the requirements for the ATM design problem.
+
+\subsection{Components of the ATM system}\label{hP8_QIUE1hZ1Nw3GI-rR_}
+\\
+As mentioned earlier, we'll design the class diagram for the ATM using a bottom-up approach.
+
+\subsubsection{User}\label{9krlDXymfEnYBjQKkXhjQ}
+\\
+The\texttt{User} class models a bank customer who uses the ATM. It holds the user's \texttt{ATMCard} and associated BankAccount\ and initiates ATM sessions and transactions.
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_16/section_4804677498830848/5014394254917632.png}
+ \caption{The User class}
+\end{figure}
+
+\textbf{R1:} Each user has a single account at the bank that they can access by inserting their card into the ATM.
+
+\subsubsection{ATM card}\label{pcf6TXm7UkTgLGis-iqCY}
+\\
+The \texttt{ATMCard} class encapsulates the details required for card-based authentication and authorization. It uniquely identifies a user's bank card for ATM operations and secures access through PIN verification.
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_16/section_4804677498830848/5759000386994176.png}
+ \caption{The ATMCard class}
+\end{figure}
+
+\textbf{R4:} All transactions are possible after the successful authentication of the ATM card.
+
+\subsubsection{Bank account}\label{QYMpCqDK65bcvucg6e1O0}
+\\
+The \texttt{BankAccount} class represents a user's bank account. Two concrete types extend it: \texttt{SavingAccount} and \texttt{CurrentAccount}.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{Zh8nueXzUmUukEAclXSgS}
+\texttt{SavingAccount}\textbf{:} This derived class represents a savings account with a withdrawal limit.
+\item
+\protect\phantomsection\label{F8b5We7hoPNISTEuC_C2D}
+\texttt{CurrentAccount}\textbf{:} This derived class represents a current/checking account with a withdrawal limit.
+\end{itemize}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_16/section_4804677498830848/5442555876343808.png}
+ \caption{BankAccount and its derived classes}
+\end{figure}
+
+\textbf{R1:} Each user has a single account at the bank that they can access by inserting their card into the ATM.
+\\
+\textbf{R5:} The user can have two types of accounts---current and savings---and can perform the following operations on the ATM: - Balance inquiry - Cash withdrawal - Funds/money transfer
+
+\subsubsection{Bank}\label{cC5OsT1t6pnhhXW40b1vX}
+\\
+The \texttt{Bank} class models a financial institution responsible for accounts and cards. It provides account validation and backend transaction processing, and associates the bank code and name with issued cards and accounts.
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_16/section_4804677498830848/4884211889471488.png}
+ \caption{The Bank class}
+\end{figure}
+
+\textbf{R1:} Each user has a single account at the bank that they can access by inserting their card into the ATM.
+
+\subsubsection{Card reader, cash dispenser, keypad, screen, and printer}\label{DGa4_GOBNfyP3SsYNy3G8}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{IPgxM42Y_EnoZzP4Pybd9}
+\texttt{CardReader}\textbf{:} This class accepts or rejects a card.
+\item
+\protect\phantomsection\label{nd3OZsf9LrFltlIzt9mbH}
+\texttt{CashDispenser}\textbf{:} This class provides the required amount specified by the user in cash.
+\item
+\protect\phantomsection\label{mOni0bELCcMP4-UzjhVD6}
+\texttt{Keypad}\textbf{:} This class allows the user to enter the PIN.
+\item
+\protect\phantomsection\label{r10BcLeQ9F3ChY3iA1c7O}
+\texttt{Screen}\textbf{:} This class represents a screen that displays information upon card insertion.
+\item
+\protect\phantomsection\label{0zKOmTYsWQ7QxKggG3WQs}
+\texttt{Printer}\textbf{:} This class represents a printer that prints the transaction/withdrawal receipts for the user.
+\end{itemize}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_16/section_4804677498830848/4649736373272576.png}
+ \caption{The class diagram of the Keypad, CashDispenser, CardReader, Screen, and Printer classes}
+\end{figure}
+
+\textbf{R2:} The main components of the ATM system that facilitate interactions between the user and the machine are listed below: - \textbf{Card reader:} To read the user's ATM card - \textbf{Keypad:} To enter information such as the user's PIN - \textbf{Screen:} To display messages to the user, such as prompts or error messages - \textbf{Cash dispenser:} To dispense cash to the user - \textbf{Printer:} To print receipts for the user - \textbf{Network infrastructure:} To connect with the bank's computer system to access account information and complete transactions
+
+\subsubsection{ATM state}\label{FVWzhsFKJpBYGL8eYidgb}
+\\
+The \texttt{ATMState} abstract class and its concrete subclasses implement the State Design pattern for the ATM. Each state handles only those operations valid during the session, enforcing a robust and safe workflow.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{NVMuFkTac98BECCEaiVeG}
+\texttt{IdleState}: ATM is waiting for a card; handles card insertion.
+\item
+\protect\phantomsection\label{5T-yTgLMSp7LZaJQftIe1}
+\texttt{HasCardState}: Card is inserted. Handles PIN entry/authentication and card return.
+\item
+\protect\phantomsection\label{tGp2WOLNTX97nZtWp2IVG}
+\texttt{SelectionOptionState}: User can select an operation (balance inquiry, withdrawal, transfer, change PIN, or cancel).
+\item
+\protect\phantomsection\label{53xg5qahZ9D5yWZ25TCPY}
+\texttt{BalanceInquiryState}: Handles the balance inquiry process and returns the user to operation selection.
+\item
+\protect\phantomsection\label{OeQmwLv4ECsIY7p3Jxusy}
+\texttt{CashWithdrawalState}: Handles withdrawal, including cash dispensing and updating balances.
+\item
+\protect\phantomsection\label{4Gu-1YAO7mwJV0Ils80m4}
+\texttt{TransferMoneyState}: Handles funds transfers, including validation and updating accounts.
+\item
+\protect\phantomsection\label{NT6NliMXS4Mwpp0QHi4_0}
+\texttt{ChangePinState}: Handles the process of updating a card's PIN.
+\end{itemize}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_16/section_4804677498830848/4702414798979072.png}
+ \caption{ATMState and its derived classes}
+\end{figure}
+
+\subsubsection{ATM}\label{72h4CGLozncFerGoijwhA}
+\\
+The \texttt{ATM} class models the full automated teller machine, orchestrating every operation. It maintains the current state of operation (\texttt{Idle}, \texttt{HasCard} , \texttt{SelectionOption} transaction states). It also tracks current cash reserves and the count of available bill denominations (hundreds, fifties, tens).
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_16/section_4804677498830848/6443733774893056.png}
+ \caption{The ATM class}
+\end{figure}
+
+\subsubsection{ATM room}\label{iy6tgUsUXHTlHmKx5z-tm}
+\\
+An \texttt{ATMRoom} class has an ATM and may or may not have a user.
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_16/section_4804677498830848/6741678166900736.png}
+ \caption{The ATMRoom class}
+\end{figure}
+
+\subsubsection{Enumerations and custom data types}\label{IteZWOSsswuJ93Qks11x2}
+\\
+The following overviews the enumerations and custom data types used in this problem.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{8UIVlObV_WP0sZn5U06q8}
+\texttt{ATMStatus}: This enumeration keeps track of the following states of an ATM:
+
+\begin{itemize}
+\item
+\texttt{Idle}
+\item
+\texttt{HasCard}
+\item
+\texttt{OptionSelected}
+\item
+\texttt{CashWithdrawal}
+\item
+\texttt{MoneyTransfer}
+\item
+\texttt{DisplayBalance}
+\item
+\texttt{ChangePIN}
+\end{itemize}
+\item
+\protect\phantomsection\label{gC_uwJYzmjcjpWIx8jNPH}
+\texttt{TransactionType}: This enumeration represents the following transactions:
+
+\begin{itemize}
+\item
+\texttt{BalanceInquiry}
+\item
+\texttt{CashWithdrawal}
+\item
+\texttt{FundsTransfer}
+\item
+\texttt{ChangePIN}
+\item
+\texttt{Cancel}
+\end{itemize}
+\end{itemize}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_16/section_4804677498830848/4805312769818624.png}
+ \caption{Enums in the ATM design problem}
+\end{figure}
+
+\subsection{Relationship between the classes}\label{SqIl83cYe6RdY59IZGLqM}
+
+\subsubsection{Association}\label{gSDOrAzW9ZLrAOm8jbWDb}
+\\
+The class diagram has the following association relationships:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{0vGLVRoIvHq5qbbkDurnb}
+\texttt{User} is associated with (has a reference to) these objects but does not ``own'' their life cycle (they can exist without the user object in code).
+
+\begin{itemize}
+\item
+\texttt{ATMCard} (one-to-one)
+\item
+\texttt{BankAccount} (one-to-one)
+\end{itemize}
+\item
+\protect\phantomsection\label{O_UbhVevc0WaoSg5I4epc}
+\texttt{ATM} is associated with:
+
+\begin{itemize}
+\item
+\texttt{Bank} (typically for backend operations or validation; not always a direct attribute in your code, but conceptually, for real transaction validation)
+\item
+\texttt{ATMState} (the current session state; owned but could be swapped, so this is a weak composition or aggregation)
+\item
+\texttt{User} (the current active user during a session; reference, not strong ownership)
+\item
+\texttt{ATMCard} (the currently inserted card in the session)
+\end{itemize}
+\item
+\protect\phantomsection\label{eAzmBNsoTqeU98BM30gPf}
+\texttt{ATMCard} is associated with (via the user) a \texttt{BankAccount} (conceptually, not as a direct field).
+\end{itemize}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_16/section_4804677498830848/5345284413325312.png}
+ \caption{The association relationship between classes}
+\end{figure}
+
+\subsubsection{Composition}\label{MsgcA5Zj7EvelXBXxigWs}
+\\
+The class diagram has the following composition relationships.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{FYnAUHYotJHFCmfAlmoG0}
+\texttt{ATM} is composed of the following hardware components:
+
+\begin{itemize}
+\item
+\texttt{CardReader}
+\item
+\texttt{CashDispenser}
+\item
+\texttt{Keypad}
+\item
+\texttt{Screen}
+\item
+\texttt{Printer}
+\end{itemize}
+\item
+\protect\phantomsection\label{dS1eLfkPr8XufJOEuqi6J}
+These are usually instantiated and owned by the \texttt{ATM} object. If the \texttt{ATM} is destroyed, these components cease to exist as well. This is a strong (composition) relationship.
+\end{itemize}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_16/section_4804677498830848/6326315444862976.png}
+ \caption{The composition relationship between classes}
+\end{figure}
+
+\subsubsection{Inheritance}\label{znpJyQcvePnsTKyOIafF7}
+\\
+The following classes show an inheritance relationship:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{FNgRhB-zOct9J8gJntfhk}
+\texttt{SavingAccount} and \texttt{CurrentAccount} both extend the abstract class \texttt{BankAccount}.
+\item
+\protect\phantomsection\label{OjvDHIBwY0_Tl6H12_QeA}
+All concrete state classes (IdleState, HasCardState, SelectionOptionState,
+BalanceInquiryState, CashWithdrawalState, TransferMoneyState, ChangePinState)
+extend the abstract class ATMState.
+
+\end{itemize}
+\begin{quote}
+\textbf{Note:} We have already discussed the inheritance relationship between classes in the component section above one by one.
+\end{quote}
+\subsection{Class diagram for the ATM System}\label{co8y4vDhgPnVfFgbUrLxO}
+\\
+In this section, we outline the multiplicity (cardinality) relationships between the main classes in our ATM system. We explain the allowed number of instances on each side for each relationship and the real-world or design rationale behind the connection. Understanding these relationships is key to modeling how different entities interact and collaborate to support key workflows in the system.
+
+\begin{center}
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+>{\raggedright\arraybackslash} p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+>{\raggedright\arraybackslash} p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+>{\raggedright\arraybackslash} p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+>{\raggedright\arraybackslash} p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\begin{minipage}[t]{\linewidth}\raggedright
+\textbf{Source}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\textbf{Target}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\textbf{Multiplicity}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\textbf{Reason}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+ATM
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+CardReader
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+1-\/-1
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+Every ATM has exactly one \texttt{CardReader} (composition).
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+ATM
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+CashDispenser
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+1-\/-1
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+Every ATM has exactly one \texttt{CashDispenser} (composition).
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+ATM
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+Keypad
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+1-\/-1
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+Every ATM has exactly one \texttt{Keypad} (composition).
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+ATM
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+Screen
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+1-\/-1
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+Every ATM has exactly one \texttt{Screen} (composition).
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+ATM
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+Printer
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+1-\/-1
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+Every ATM has exactly one \texttt{Printer} (composition).
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+ATM
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+ATMState
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+1-\/-1
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+ATM holds a reference to exactly one current state at any time.
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+ATM
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+User
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+1-\/-0..1
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+ATM may have one active user during a session, or none if idle.
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+ATM
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+ATMCard
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+1-\/-0..1
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+ATM may have one inserted card during a session, or none if idle.
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+ATM
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+Bank
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+1-\/-1
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+ATM belongs to/operates with one bank (assumed in design).
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+User
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+ATMCard
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+1-\/-1
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+Each \texttt{User} is issued exactly one \texttt{ATMCard}.
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+User
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+BankAccount
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+1-\/-1
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+Each \texttt{User} has exactly one \texttt{BankAccount}.
+\end{minipage} \\
+\end{longtable}
+}
+\end{center}
+
+Here's the complete class diagram for our ATM design:
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_16/section_4804677498830848/4634318960721920.png}
+ \caption{The class diagram of the ATM design problem}
+\end{figure}
+
+\subsection{Design pattern}\label{OCzMP9jaoXlUUgEEp8fks}
+\\
+The following design patterns have been used in the class diagram:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{MLXdxAXPu2Me7tV1x_TcZ}
+\textbf{The Singleton design pattern:} This pattern ensures the existence of a single instance of the ATM at a given moment that can be accessed by multiple users, due to the shared nature of the ATM components.
+\item
+\protect\phantomsection\label{8muJUW308UmF9NQROkvm3}
+\textbf{The State design pattern:} This pattern enables the ATM to alter its behavior based on internal changes in the machine. For example, an ATM can transition from one state to another, like switching from an idle state to displaying an account balance or money withdrawal state, and as soon as all the operations have been performed, it can switch back to the initial idle state.
+\end{itemize}
+\\
+The following design patterns can also be used to design an ATM:
+
+\begin{itemize}
+\item
+The Composite design pattern can combine different ATM components and functionalities.
+\item
+The Builder design pattern allows the same processes for a complex object to have different representations. In the ATM system, it can help separate different kinds of transactions, such as withdrawals and deposits.
+\end{itemize}
+\\
+We have completed the class diagram of the ATM system according to the requirements. In the next lesson, let's design its sequence diagram.
+
+\subsection{AI-powered trainer}\label{s9AXUG-NKUETp0YlaWfvN}
+\\
+At this stage, everything should be clear. If you encounter any confusion or ambiguity, feel free to utilize the interactive AI-enabled widget below to seek clarification. This tool is designed to help you strengthen your understanding of the concepts.
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.15\textwidth]{Images/chapter_16/section_4804677498830848/6398798799437824.png}
+ 
+\end{figure}
+
+\subsection{Additional requirements}\label{JQM3Q9Rgjjr_3HkNdIrTN}
+\\
+The interviewer might ask about the workings of the cash withdrawal process. How can it be implemented in our ATM system? This addition is a bit challenging since we need a system that can withdraw the correct combinations of hundred, twenty, and two-dollar bills, respectively, according to the amount specified by the user. The system also needs to work sequentially until the required amount is met.
+\\
+We will use the \emph{Chain of Responsibility} design pattern to tackle this addition to our system. This design pattern will ensure the correct division of the dollar bills in the ATM by creating a chain of handlers that forward the requests based on the situation until all the requirements are met.\\
+We have created the following classes to implement the Chain of Responsibility design pattern:
+
+\begin{itemize}
+    \item CashWithdrawProcessor: Associated with the CashWithdrawalState class.
+    This abstract class is extended by HundredDollarWithdrawProcessor,
+    FiftyDollarWithdrawProcessor, and TwoDollarWithdrawProcessor.
+    
+    \item HundredDollarWithdrawProcessor: Derived from CashWithdrawProcessor 
+    and responsible for dispensing hundred-dollar bills.
+    
+    \item FiftyDollarWithdrawProcessor: Derived from CashWithdrawProcessor 
+    and responsible for dispensing fifty-dollar bills.
+    
+    \item TwoDollarWithdrawProcessor: Derived from CashWithdrawProcessor 
+    and responsible for dispensing two-dollar bills.
+\end{itemize}
+
+\begin{quote}
+\textbf{Valid amount:} If the amount entered by the user has a modulus equal to zero with any specified bills that the ATM can withdraw, then the amount is considered valid for the transaction. If the amount is invalid, then the transaction will not be processed.
+\end{quote}
+\\
+For example, a user wants to withdraw \$548. The
+\texttt{HundredDollarWithdrawProcessor} class will start the cash withdrawal using the \texttt{cashWithdrawal()} method by taking out five bills of one hundred dollars. Now that we have \$48 to withdraw for the user, less than a hundred dollars, the \texttt{FiftyDollarWithdrawProcessor} class will start withdrawing dollar bills. This class will take out two bills of twenty dollars with \$8 remaining. Since two dollars is less than twenty, the \texttt{cashWithdrawal()} method of the \texttt{TwoDollarWithdrawProcessor} will take out four bills of \$2 for the user. The withdrawal, in this case, is successful.
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_16/section_4804677498830848/6573171569197056.png}
+ \caption{How to apply the Chain of Responsibility design pattern to the cashWithdrawal method}
+\end{figure}
+
+We have completed the class diagram of the ATM system according to the requirements. In the next lesson, let's design its sequence diagram.
+
+% End of section content

@@ -1,0 +1,152 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Key Insights and Tips: Designing a Stock Brokerage System
+% Section ID: 4957315084976128
+% Section Slug: key-insights-and-tips-designing-a-stock-brokerage-system
+% Generated: 2025-12-14T12:54:43.411237
+
+Congratulations on finishing the online stock brokerage system case study! In this lesson, we'll reinforce your learning by pointing out common design mistakes to avoid and sharing effective strategies for tackling interview questions. You 'll also find a quick quiz to test your understanding and a list of related case studies to help you deepen your grasp of key object-oriented design principles.
+
+\subsection{Common mistakes}\label{ZSjeWmHDp5z6SDQL1Ls3d}
+\\
+Avoiding these common mistakes will help you create a more reliable and scalable online stock brokerage system:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{TxpPecp2r3k8eCHlvzIys}
+\textbf{Misunderstanding user roles and permissions:} Confusing the roles and permissions of \texttt{Member} and \texttt{Admin} can lead to security issues or unauthorized access. Ensure that \texttt{Admin} and \texttt{Member} roles have well-defined, separate permissions. \texttt{Admin} should manage users and the system, while a \texttt{Member} should only access and modify their data.
+\item
+\protect\phantomsection\label{ylao1-VnEfBCe0d67AI7G}
+\textbf{Handling multiple order types incorrectly:} Mismanaging the implementation of different order types, such as market, limit, stop-loss, and stop-limit orders, can cause incorrect stock trades or failures. Implement each order type as a subclass of a base\texttt{Order} class, ensuring specific behaviors (e.g., price validation) are handled separately for each type.
+\item
+\protect\phantomsection\label{JY-KIcIW_OsBASsbmSdyZ}
+\textbf{Not implementing real-time data updates:} Failing to keep stock data up-to-date can cause synchronization issues, leading to outdated or incorrect trading information. Use the \texttt{StockExchange} class to pull real-time data and update the \texttt{StockInventory} at regular intervals or in real time as needed.
+\item
+\protect\phantomsection\label{P7tMND293AwIO1m3j2Mng}
+\textbf{Inefficient notification handling:} Not sending timely notifications or poorly managing notification types (SMS, email) can frustrate users. Use the Observer pattern to send real-time notifications, ensuring users receive accurate updates about their trade status, account changes, and transaction alerts.
+\item
+\protect\phantomsection\label{WdNVyDyejnhcg2Mf2jfuL}
+\textbf{Lack of scalability consideration:} Not designing the system to handle increasing users or trades can lead to performance bottlenecks as the system grows. To ensure the system can handle growth, consider scalability using modular components, optimizing queries, and possibly incorporating a microservices architecture.
+\end{itemize}
+
+\subsection{Interview tips}\label{cVQsxQ-2AMmzv-daXOJ38}
+\\
+Understand key design patterns, system components, and real-world applications to prepare for your interview and confidently discuss your approach.
+
+\begin{table}[h!]
+\centering
+\begin{tabularx}{\textwidth}{|X|X|}
+\hline
+\textbf{Tip} & \textbf{Explanation} \\
+\hline
+Understanding system components & Be prepared to discuss the stock brokerage system’s modular design. Understand how components like StockInventory, StockPosition, and Order interact to form a seamless user experience. \\
+\hline
+Explain design patterns & Highlight design patterns like Singleton (for StockExchange), Observer (for notifications), and Factory (for creating different order types). Explain why these patterns are chosen. \\
+\hline
+Show awareness of error handling and transaction integrity & Detail how the system will handle failures in trade execution, notification delivery, or account transactions, ensuring system reliability and data consistency. \\
+\hline
+Highlight transaction management and consistency & Discuss how you’ll maintain data consistency and handle atomicity for trades, deposits, and withdrawals. Reference database transactions, rollback strategies, or distributed transaction management if relevant. \\
+\hline
+Talk about user experience & Include how real-time updates, clear error messages, and timely notifications enhance the overall user experience for both Member and Admin. \\
+\hline
+\end{tabularx}
+\caption{Stock Exchange System Design Tips and Explanations}
+\label{tab:stock_exchange_tips}
+\end{table}
+
+\subsection{Test your understanding}\label{sqlOKnwkgxaR9v-G2p3VH}
+\\
+Now that you understand OOD principles well, solve the quiz below to test your knowledge.
+
+\subsection*{Online Stock Brokerage System}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 1:} How would you allow your brokerage system to integrate with multiple external stock exchanges, each with its own API, without rewriting the main business logic?
+\\[0.2cm]
+\begin{itemize}
+ \item \textbf{[CORRECT]} Use the Adapter pattern to wrap each exchange's API and expose a unified interface.
+\\[0.1cm]
+\textit{Explanation:} 
+This enables pluggable integration and keeps core trading logic unchanged.
+ \item Copy-paste the integration code everywhere.
+ \item Restrict to a single exchange.
+ \item Only use synchronous calls for all APIs.
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 2:} What design would you use to allow users to create complex, customizable order types in the future (e.g., multi-condition triggers)?
+\\[0.2cm]
+\begin{itemize}
+ \item Hardcode every new order type in the \texttt{Order} class.
+ \item \textbf{[CORRECT]} Leverage the Composite pattern to allow orders to be composed of multiple simpler conditions.
+\\[0.1cm]
+\textit{Explanation:} 
+The Composite pattern allows the system to combine simple and complex order logic flexibly.
+ \item Use only basic \texttt{if}-\texttt{else} logic in order of execution.
+ \item Only allow market orders.
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 3:} Which design pattern best fits the requirement for sending users different notifications (SMS, email) in response to various system events (e.g., order filled, deposit made)?
+\\[0.2cm]
+\begin{itemize}
+ \item Singleton
+ \item Adapter
+ \item \textbf{[CORRECT]} Observer
+\\[0.1cm]
+\textit{Explanation:} 
+The Observer pattern allows the system to notify multiple subscribers (SMS, email, etc.) whenever an event occurs, supporting extensible and decoupled notification delivery.
+ \item Proxy
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 4:} What is the main benefit of using interfaces (such as a \texttt{Search} interface) in the design of this system?
+\\[0.2cm]
+\begin{itemize}
+ \item To ensure only one implementation
+ \item \textbf{[CORRECT]} To enable polymorphism and allow flexible, interchangeable implementations
+\\[0.1cm]
+\textit{Explanation:} 
+Interfaces promote loose coupling and flexibility, allowing different classes to implement search functionality as needed.
+ \item To make the code harder to understand
+ \item To speed up execution
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 5:} Imagine you want to track every order placed, modified, or canceled for auditing. What OOD technique or pattern is most suitable?
+\\[0.2cm]
+\begin{itemize}
+ \item Use global variables to record changes.
+ \item \textbf{[CORRECT]} Implement an event sourcing approach to log all order events as immutable records.
+\\[0.1cm]
+\textit{Explanation:} 
+Event sourcing captures the full history, making audits, rollbacks, and debugging possible.
+ \item Overwrite the order every time without history.
+ \item Only store the current state in the database.
+\end{itemize}
+
+\subsection{Related case studies}\label{pwSttOF6Mjwt4ME0HhvW1}
+\\
+The following case studies will help reinforce concepts used in the online stock brokerage system:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{A6-bj3IU6Erqg5zp2554J}
+\textbf{Design of a library management system:} This focus is on user roles, inventory management, notification patterns, and modular entity design.
+\item
+\protect\phantomsection\label{yiShubi_NQbKy3EqeHTpZ}
+\textbf{Design of a vending machine:} Emphasizes extensible design for adding new product types, payment methods, and maintenance workflows.
+\item
+\protect\phantomsection\label{1MXLIXl4YrO6lIPFrbW_3}
+\textbf{Design of a parking lot system:} This course focuses on designing a parking lot system that handles multiple types of vehicles, parking spaces, and payments.
+\item
+\protect\phantomsection\label{_dcdG7JEG4-Oi3yEJSlOO}
+\textbf{Design of an online bookstore:} This case study covers the design of an online bookstore, focusing on catalog management, user accounts, and order processing.
+\item
+\protect\phantomsection\label{yUCe1mOnfcwL1-6_FUdfV}
+\textbf{Design of an e-commerce marketplace:} Covers catalog management, multiple user roles (buyer, seller, admin), real-time inventory updates, order processing, payments, and notifications, mapping closely to user accounts and trade/order processing.
+\end{itemize}
+
+% End of section content

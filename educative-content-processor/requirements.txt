@@ -7,3 +7,8 @@ python-dotenv==1.0.0
 jinja2==3.1.2
 pypandoc==1.15
 requests==2.31.0
+aiohttp==3.13.2
+aiofiles==25.1.0
+cairosvg==2.8.2
+Pillow==12.0.0
+Brotli==1.2.0

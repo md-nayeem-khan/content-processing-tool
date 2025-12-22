@@ -1,0 +1,192 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Summary: Designing the Amazon Online Shopping System
+% Section ID: 5469326290059264
+% Section Slug: summary-designing-the-amazon-online-shopping-system
+% Generated: 2025-12-12T22:46:09.333857
+
+Now that you've completed the Amazon online shopping system case study, let's take a moment to reflect on and consolidate what we've learned. We 'll revisit the key system requirements, identify the core classes along with their responsibilities and relationships, and highlight the major design principles applied. We
+'ll also examine how objects interact within the system and walk through the overall workflow to understand how the components come together to achieve the desired functionality.
+
+\subsection{Key requirements}\label{zEU_70b-iTORfcn-1j8bx}
+\\
+This section outlines the primary functional requirements that guided the design of the online shopping system.
+
+\begin{enumerate}
+\item
+\protect\phantomsection\label{MD529woe0XLdL_NGM1e3w}
+The system must support registered \texttt{AuthenticatedUser} accounts and non-registered \texttt{Guest} users.
+\item
+\protect\phantomsection\label{ja5YmfNzcs8-ii-_wqEqE}
+Authenticated users can buy, sell, and search for products, while guests can only search.
+\item
+\protect\phantomsection\label{54Gs8NcUEgpjCRt5Rr-o1}
+Products can have multiple reviews and ratings from authenticated users.
+\item
+\protect\phantomsection\label{8BlVnjI3uFIGs9wbpkWBh}
+Authenticated users must have a shopping cart to add, remove, and modify items before checkout.
+\item
+\protect\phantomsection\label{g3_EcvqoPvdIcyCWRchue}
+Users must be able to specify a shipping address for their orders.
+\item
+\protect\phantomsection\label{WW3yWYdNMtLuClo_DWgKm}
+The system must support multiple payment methods, including credit cards, electronic bank transfers, and cash on delivery.
+\item
+\protect\phantomsection\label{nJjkcnbn9806M5L3jfK5c}
+Orders can be canceled only if they have not yet been shipped.
+\item
+\protect\phantomsection\label{2ly6kBl57CtraTn6VEBVz}
+The system must notify users about order and shipment status changes.
+\item
+\protect\phantomsection\label{gMF70dgsAwWScSBW9qzuh}
+Users must be able to track the shipment status and estimated arrival of their orders.
+\item
+\protect\phantomsection\label{aIvHGZChP4VSyEckZwiZ2}
+An \texttt{Admin} role must exist to manage product categories and block users.
+\item
+\protect\phantomsection\label{YlLE_sW8ic89VYMJLeq9B}
+The system must store personal information for registered accounts, including name, email, and password.
+\end{enumerate}
+
+\subsection{System actors}\label{btNo-3hDwyji-mMZJSeyS}
+\\
+The following actors interact with the online shopping system in various capacities.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{Ck72s5ohn0OAhVaBNKVFh}
+\textbf{Authenticated User:} A registered user who can search for products, manage their shopping cart, place and cancel orders, and sell their products.
+\item
+\protect\phantomsection\label{6c2lcYT1AUoWIYtbi5d5i}
+\textbf{Guest:} A non-registered user who can search for and view products but must register to make a purchase.
+\item
+\protect\phantomsection\label{Arkj-0jNM0gjC5xem-h19}
+\textbf{Admin:} A user with special privileges to manage product categories and block user accounts.
+\end{itemize}
+
+\subsection{Important classes and relationships}\label{fxuURlTI3yz_01ceaP4Gq}
+\\
+The system's most important classes, descriptions, and key relationships are listed below:
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|p{3.8cm}|p{6.8cm}|p{5.8cm}|}
+\hline
+\textbf{Class} & \textbf{Description} & \textbf{Important Relationships} \\
+\hline
+Customer & An abstract class representing a user of the system. & Parent of AuthenticatedUser and Guest (inheritance). \\
+\hline
+AuthenticatedUser & Represents a registered user with a full set of permissions. & Composed of Account and Order (composition). \\
+\hline
+Account & Stores personal details, credentials, and payment information for a registered user or admin. & Composed of CreditCard and ElectronicBankTransfer. \\
+\hline
+Product & Contains all information about an item for sale, including its category, price, and reviews. & Associated with ProductCategory and ProductReview. \\
+\hline
+ShoppingCart & Holds a collection of CartItem objects that a user intends to purchase. & Associated with CartItem (two-way). \\
+\hline
+Order & Represents a customer’s request to purchase items, tracking status from placement to completion. & Associated with Payment and Shipment. \\
+\hline
+Payment & An abstract class for processing payments. & Parent of CreditCard, ElectronicBankTransfer, and Cash. \\
+\hline
+Shipment & Tracks the shipping details and status of an order. & Associated with Order. \\
+\hline
+Notification & An abstract class responsible for sending notifications to users. & Associated with Order and Shipment. \\
+\hline
+Search & An interface that defines the contract for searching products by name or category. & Aggregated by Product (aggregation). \\
+\hline
+\end{tabular}
+\caption{E-Commerce System Classes and Their Relationships}
+\label{tab:ecommerce_classes}
+\end{table}
+
+
+\subsection{Design highlights}\label{4yZ-MXZNs_zxGjUCEZvVS}
+\\
+This section covers the overall design methodology, the core principles applied, and the specific patterns used to structure the system.
+
+\subsubsection{Design approach}\label{Wd3W3AOLYIP1Jb4e0RI0P}
+\\
+The system was designed using a bottom-up approach. This methodology identifies and designs the smallest, most granular components, such as the \texttt{Product} and \texttt{ProductReview} classes. These smaller components are then assembled into larger, more complex components like \texttt{ProductCategory} and \texttt{ShoppingCart}, continuing until the entire system is built.
+
+\subsubsection{Design principles}\label{qek50DnYxoVHRVeUC9Kej}
+\\
+The design of the Amazon system effectively demonstrates the five SOLID principles, leading to a more maintainable, scalable, and robust architecture.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{_v8adgq1iJJONOVDHrQOP}
+\textbf{Single Responsibility principle (SRP):} Each class is designed to have one primary responsibility. For instance, the \texttt{Order} class manages order data and status, the \texttt{Payment} class handles payment processing, and the \texttt{Notification} class is solely responsible for sending notifications.
+\item
+\protect\phantomsection\label{ct1JxDZyJELPgx6BINLbW}
+\textbf{Open/Closed principle (OCP):} The system is open to extension but closed for modification. This is evident in the use of abstract classes like \texttt{Payment} and \texttt{Notification}. New payment methods or notification types can be added by creating new subclasses without altering the existing, tested code.
+\item
+\protect\phantomsection\label{yQzHTYAru29Dmi6em6-Di}
+\textbf{Liskov Substitution principle (LSP):} Subtypes can be substituted for their base types without altering the program's correctness. For example, the system can use a \texttt{Customer} object to function correctly, whether the concrete instance is an \texttt{AuthenticatedUser} or a \texttt{Guest}.
+\item
+\protect\phantomsection\label{1CyRDHjIhRe-goNatWuOP}
+\textbf{Interface Segregation principle (ISP):} The \texttt{Search} interface is a clear example, providing only the methods relevant to searching. This ensures that client classes do not depend on methods they don't use, preventing bloated interfaces.
+\item
+\protect\phantomsection\label{JY5zBktr2qE-FjwxWFwGv}
+\textbf{Dependency Inversion principle (DIP):} The system depends on abstractions rather than concrete implementations. The \texttt{Order} class interacts with the abstract \texttt{Payment} class, not directly with a specific \texttt{CreditCard} or \texttt{Cash} class, which decouples the components.
+\end{itemize}
+
+\subsubsection{Design patterns}\label{xRkOx9rO3BHYp4PAqRGFn}
+\\
+The system strategically employs several design patterns to solve common object-oriented design problems.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{S6omLNPCRh8xb5xvCL4ZL}
+\textbf{Factory Method pattern:} Used to create different types of accounts (\texttt{AuthenticatedUser}, \texttt{Guest}) without exposing the instantiation logic to the client.
+\item
+\protect\phantomsection\label{qUp3ypLcv2aghdY1sEK_b}
+\textbf{Strategy pattern:} Implemented to handle different payment methods (\texttt{CreditCard}, \texttt{Cash}), allowing the payment algorithm to be selected at runtime.
+\item
+\protect\phantomsection\label{FKle3j4ppsfRyGkA_ZiZk}
+\textbf{Composite pattern:} Used to treat individual \texttt{Product} objects and collections of products (\texttt{ProductCategory}, \texttt{ShoppingCart}) uniformly.
+\item
+\protect\phantomsection\label{_jmdvNSQNBVhHjnF_Jgex}
+\textbf{Observer pattern:} Applied to notify customers automatically whenever their \texttt{Order} or \texttt{Shipment} status changes.
+\item
+\protect\phantomsection\label{MYdTMLq48D-KYhnYIomXN}
+\textbf{Command pattern:} Used to encapsulate actions on objects like \texttt{Order} and \texttt{ShoppingCart} as distinct objects, enabling operations like \texttt{placeOrder()} and \texttt{addProduct()}.
+\end{itemize}
+
+\subsection{Object interactions}\label{WStuK2YJWBHi0WR9p0yJ2}
+\\
+Collaborating between key objects to fulfill user requests drives the system's dynamic behavior.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{gE3nnsxp3cKuonK0ht2fI}
+\textbf{Checkout process:} When a \texttt{Customer} decides to check out, they interact with their \texttt{ShoppingCart}. The \texttt{ShoppingCart} data is used to create an \texttt{Order} object. The \texttt{Order}, which then verifies the availability of each \texttt{Product}.
+\item
+\protect\phantomsection\label{DS76aVzsW09RboXpC2F07}
+\textbf{Payment processing:} Once the order is verified, the \texttt{Customer} initiates payment through the \texttt{Order} object. The \texttt{Order} object delegates the processing to a concrete \texttt{Payment} object (e.g., \texttt{CreditCard}). The \texttt{Payment} object processes the transaction and returns a status, which the \texttt{Order} object then updates.
+\item
+\protect\phantomsection\label{2PyJzx1HhHGA8QlcUEVIW}
+\textbf{Handling unavailable items:} If a \texttt{Product} is unavailable during verification, the \texttt{Order} object flags it and sends an error message back to the \texttt{Customer}, preventing the process from proceeding to payment.
+\end{itemize}
+
+\subsection{System workflow}\label{O4rO-uGw6xV9JtI6okNLA}
+\\
+The primary workflow involves a customer finding and purchasing a product, which unfolds through several steps.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{i9vxGTxdG77_4mI9g5b-b}
+\textbf{Product discovery:} A \texttt{Customer} Guest or Authenticated) starts by navigating to the home page. They can use the search functionality (by name or category) or browse \texttt{ProductCategory} listings to find items.
+\item
+\protect\phantomsection\label{JxAl4pqO47vqUI__sYjF5}
+\textbf{Adding to cart:} Once a \texttt{Product} is selected, the \texttt{Customer} can view its details. An \texttt{AuthenticatedUser} can then add the item to their \texttt{ShoppingCart}. They can continue adding more products or proceed to view the cart.
+\item
+\protect\phantomsection\label{H5rNDyTCjW6sNqbdnL1LY}
+\textbf{Cart management and checkout:} In the \texttt{ShoppingCart}, the user can modify quantities, delete items, or proceed to checkout.
+\item
+\protect\phantomsection\label{dDy1VDys9Zxg4wLxLEy6h}
+\textbf{Finalizing the order:} The checkout process converts the \texttt{ShoppingCart} into an \texttt{Order}, where the user confirms shipping details and makes a payment, completing the purchase life cycle.
+\end{itemize}
+
+% End of section content

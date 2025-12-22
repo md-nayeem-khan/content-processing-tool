@@ -1,0 +1,40 @@
+\contentsline {chapter}{\numberline {1} Design a URL Shortening Service/TinyURL }{1}{chapter.0.1}%
+\ttl@starttoc {chapters@1}
+\contentsline {section}{\numberline {1} System Design: TinyURL }{2}{section.0.1.1}%
+\contentsline {subsection}{\numberline {1.1}Introduction}{2}{subsection.0.1.1.1}%
+\contentsline {subsubsection}{Advantages}{2}{figure.caption.1}%
+\contentsline {subsubsection}{Disadvantages}{2}{section*.5}%
+\contentsline {subsection}{\numberline {1.2}Requirements for URL Shortening Design}{3}{subsection.0.1.1.2}%
+\contentsline {subsubsection}{Functional requirements}{3}{subsection.0.1.1.2}%
+\contentsline {subsubsection}{Non-functional requirements}{3}{section*.14}%
+\contentsline {subsection}{\numberline {1.3}Resource estimation}{4}{subsection.0.1.1.3}%
+\contentsline {subsubsection}{Storage estimation}{4}{section*.25}%
+\contentsline {subsubsection}{Query rate estimation}{4}{figure.caption.28}%
+\contentsline {subsubsection}{Bandwidth estimation}{5}{section*.33}%
+\contentsline {subsubsection}{Memory estimation}{5}{figure.caption.38}%
+\contentsline {subsubsection}{Number of servers estimation}{5}{section*.40}%
+\contentsline {subsubsection}{Summarizing estimation}{5}{figure.caption.41}%
+\contentsline {subsection}{\numberline {1.4}Building blocks we will use}{6}{subsection.0.1.1.4}%
+\contentsline {subsection}{\numberline {1.5}System APIs}{6}{subsection.0.1.1.5}%
+\contentsline {subsubsection}{Shortening a URL}{7}{figure.caption.55}%
+\contentsline {subsubsection}{Redirecting a short URL}{7}{table.caption.56}%
+\contentsline {subsubsection}{Deleting a short URL}{7}{table.caption.57}%
+\contentsline {subsection}{\numberline {1.6}Design}{7}{subsection.0.1.1.6}%
+\contentsline {subsubsection}{Components}{8}{subsection.0.1.1.6}%
+\contentsline {subsubsection}{Design diagram}{10}{section*.68}%
+\contentsline {subsubsection}{Workflow}{10}{figure.caption.69}%
+\contentsline {subsubsection}{Managing unique ID allocation}{11}{section*.73}%
+\contentsline {subsection}{\numberline {1.7}URL Encoding and Readability}{16}{subsection.0.1.1.7}%
+\contentsline {subsubsection}{Why to use encoding}{16}{section*.87}%
+\contentsline {subsection}{\numberline {1.8}Converting base-10 to base-58}{16}{subsection.0.1.1.8}%
+\contentsline {subsection}{\numberline {1.9}Converting base-58 to base-10}{17}{subsection.0.1.1.9}%
+\contentsline {subsection}{\numberline {1.10}The scope of the short URL generator}{18}{subsection.0.1.1.10}%
+\contentsline {subsection}{\numberline {1.11}The sequencer\textquotesingle s lifetime}{19}{subsection.0.1.1.11}%
+\contentsline {subsection}{\numberline {1.12}Requirements compliance}{20}{subsection.0.1.1.12}%
+\contentsline {subsubsection}{Availability}{20}{subsection.0.1.1.12}%
+\contentsline {subsubsection}{Scalability}{20}{figure.caption.149}%
+\contentsline {subsubsection}{Readability}{21}{section*.151}%
+\contentsline {subsubsection}{Latency}{21}{section*.153}%
+\contentsline {subsubsection}{Unpredictability}{21}{section*.157}%
+\contentsline {subsection}{\numberline {1.13}Conclusion}{24}{subsection.0.1.1.13}%
+\contentsfinish 

@@ -1,0 +1,155 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Key Insights: Stack Overflow
+% Section ID: 6216187120582656
+% Section Slug: key-insights-stack-overflow
+% Generated: 2025-12-12T22:50:34.412305
+
+Well done on building your Stack Overflow system design! This lesson shares key insights to help you polish your approach, avoid common mistakes, and easily handle interview questions. You 'll also find a quick quiz to check your understanding and related case studies to boost your confidence.
+
+\subsection{Common mistakes}\label{dnBPAYV-RiCcGpXM4f7NV}
+\\
+Even strong candidates sometimes slip up when tackling Stack Overflow's design. Watch out for these typical mistakes so you don't lose points during your interview:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{iqbsl6X9Amy4EtYYfrcjv}
+\textbf{Overcomplicating the discoverability feature:} Many candidates jump into implementing an overly complex search engine without clarifying that a simple tag, user, or keyword-based search is enough for an MVP. Remember, Stack Overflow's search starts simple, so keep the search logic simple and scalable later. Clearly state that for an MVP, the \texttt{SearchCatalog} only needs to support search by tags, usernames, and keywords.
+\item
+\protect\phantomsection\label{RCjfbIAQZDTlFRWA6948r}
+\textbf{Ignoring the reputation system's influence on privileges:} Some forget to link user actions (like voting to close) to reputation thresholds. For example, failing to mention that only users with enough reputation can vote to close questions weakens your answer. Explicitly tie user actions (like voting to close or delete) to reputation levels in your design. Call out thresholds (e.g., minimum 3000 rep for close votes) and show this check in your sequence or class diagrams.
+\item
+\protect\phantomsection\label{hPqobGt6jMmKH5iD1NvUO}
+\textbf{Vague handling of notifications:} Candidates often overlook how the notification system uses the Observer pattern. For example, not mentioning how followers of a question get notified when new answers arrive can make your design feel incomplete. Use the Observer pattern for your \texttt{Notification} class. Explain that followers of a question or answer are subscribers, and the system automatically notifies them when there's a new answer, comment, or edit.
+\item
+\protect\phantomsection\label{TMMyKkBHxTcZBOki132KH}
+\textbf{Unclear class responsibilities:} A common slip is mixing up the duties of \texttt{User} and \texttt{Moderator}. It is clear that \texttt{Moderator} extends \texttt{User} but adds special privileges like restoring deleted questions.
+\item
+\protect\phantomsection\label{vby1q-3378AVbRZQlzXms}
+\textbf{Missing edge cases in voting logic:} Many candidates skip corner cases, like who can downvote a comment or how close votes aggregate before closure. Forgetting this shows gaps in requirement awareness. Always describe vote scenarios fully. Note that comments can only be upvoted, not downvoted. Also, explain how multiple close votes add up and who can trigger them based on reputation or role.
+\end{itemize}
+
+\subsection{Key interview tips}\label{JiCHNi_Pr2OzlJeHYJZsu}
+\\
+Use these focused tips to explain your Stack Overflow design more clearly and confidently handle follow-up questions.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|p{6cm}|p{9cm}|}
+\hline
+\textbf{Tip} & \textbf{Explanation} \\
+\hline
+Clarify user roles upfront. & 
+State early how Guest, User, Moderator, and Admin relate. Show you understand inheritance and privileges. \\
+\hline
+Tie actions to reputation. & 
+Always link voting, bounty, and moderation to user reputation levels. This shows awareness of Stack Overflow’s trust model. \\
+\hline
+Leverage design patterns. & 
+Highlight the Observer pattern for notifications to demonstrate practical object-oriented design knowledge. \\
+\hline
+Use realistic examples. & 
+Back-up features like flagging a question or bounty expiry with a short scenario to prove understanding of real system behavior. \\
+\hline
+Justify your bottom-up approach. & 
+Explain why you started with classes like Question and Answer, and then composed bigger features. This demonstrates methodical thinking. \\
+\hline
+\end{tabular}
+\caption{Design and Explanation Tips for a Q\&A System}
+\label{tab:qa_design_tips}
+\end{table}
+
+
+\subsection{Test your understanding}\label{onBu7Gkxf3hnv0XzJdd_z}
+\\
+These tricky questions help you check if you grasp the Stack Overflow design details and OOD concepts involved.
+
+\subsection*{Stack Overflow}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 1:} What happens next if a question has 2 close votes from users with a reputation of ≥ 3000?
+\\[0.2cm]
+\begin{itemize}
+ \item \textbf{[CORRECT]} One more close vote is needed.
+\\[0.1cm]
+\textit{Explanation:} 
+Three close votes are required for auto-closure by users with sufficient reputation.
+ \item The question closes immediately.
+ \item The question is flagged automatically.
+ \item The question stays open until a moderator acts.
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 2:} Which relationship does \texttt{Moderator} have with \texttt{User}?
+\\[0.2cm]
+\begin{itemize}
+ \item Association
+ \item Composition
+ \item \textbf{[CORRECT]} Inheritance
+\\[0.1cm]
+\textit{Explanation:} 
+The \texttt{Moderator} class extends the \texttt{User} class, so it's an inheritance.
+ \item Dependency
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 3:} Which part of Stack Overflow's design uses composition?
+\\[0.2cm]
+\begin{itemize}
+ \item \texttt{User} and \texttt{Notification}
+ \item \textbf{[CORRECT]} \texttt{Account} and \texttt{User}
+\\[0.1cm]
+\textit{Explanation:} 
+The \texttt{Account} class is composed of the \texttt{User} class.
+ \item \texttt{Moderator} and \texttt{User}
+ \item \texttt{Guest} and \texttt{Search}
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 4:} Which follow-up requirement can change the \texttt{SearchCatalog} design later?
+\\[0.2cm]
+\begin{itemize}
+ \item Adding moderator actions.
+ \item Enabling answer deletion.
+ \item \textbf{[CORRECT]} Supporting ``saved'' questions.
+\\[0.1cm]
+\textit{Explanation:} 
+Supporting saved questions means indexing them for user-specific retrieval.
+ \item Badge awarding rules.
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 5:} Which scenario best demonstrates the use of an extend relationship in the Stack Overflow use case model?
+\\[0.2cm]
+\begin{itemize}
+ \item \textbf{[CORRECT]} A user modifies a question and adds a new tag.
+\\[0.1cm]
+\textit{Explanation:} 
+The Modify\ Question use case extends to Add\ Tag (or Add\ Bounty), because adding a tag is an optional extension when modifying a question.
+ \item A guest registers an account to become a user.
+ \item The system sends a notification after an answer is posted.
+ \item A moderator restores a deleted question.
+\end{itemize}
+
+\subsection{Related case studies}\label{-u7cKp7p46yfqemZNrN9z}
+\\
+If you want to broaden your understanding, here are related systems you can practice designing to strengthen your low-level design skills:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{2Uz1VMHy0bWnfzXq8ykZa}
+\textbf{Quora:} Similar Q\&A platform focusing on discoverability, upvotes, and user reputation, but includes following individual users as a core feature.
+\item
+\protect\phantomsection\label{zsiBElAG-BWUp-Io-JwuQ}
+\textbf{Reddit:} Combines voting and moderation features with nested comments and communities, which is great for practicing user roles and content moderation.
+\item
+\protect\phantomsection\label{F7Y6-1zxhCllh_4wWCl3R}
+\textbf{Medium:} Publishing platform with comments, upvotes (claps), notifications, and author privileges is useful for comparing different interaction flows.
+\item
+\protect\phantomsection\label{YGymfVzqIYnUVcfxQ0loh}
+\textbf{GitHub issues:} A collaborative Q\&A/ticketing system with tagging, voting (reactions), and user roles for maintainers and contributors.
+\end{itemize}
+
+% End of section content

@@ -1,0 +1,70 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Quiz on the Rate Limiter’s Design
+% Section ID: 6564352194248704
+% Section Slug: quiz-on-the-rate-limiters-design
+% Generated: 2025-12-07T21:30:45.125174
+
+\subsection*{Quiz}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 1:} Which of the following algorithms is used to smooth spikes in incoming requests at the edge of the window?
+\\[0.2cm]
+\begin{itemize}
+ \item Token bucket algorithm
+ \item \textbf{[CORRECT]} Sliding window log algorithm
+\\[0.1cm]
+\textit{Explanation:} 
+Due to the sliding window over time this algorithm does not allow the spikes of requests at the window edge.
+ \item Fixed window counter algorithm
+ \item None of the above
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 2:} Assume that soft-throttling is used with a rate of 100 requests per minute and a 5\% exceed in the limit is allowed. The client has sent the 104th request within the time limit. However, no resources are available to serve the request. What should the system do with this incoming request?
+\\[0.2cm]
+\begin{itemize}
+ \item Discard the request and send an error response to the client.
+ \item \textbf{[CORRECT]} Add a request to the queue and wait for the resource to become available.
+\\[0.1cm]
+\textit{Explanation:} 
+Since with 5\% exceed in the limit, the rate limiter can allow 105 requests per minute. Therefore, the request will be allowed and the system will keep the request in the queue until the required resource becomes available.
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 3:} Assume that the service owner adds some extra rules to the database. Consequently
+, data in the cache will become outdated. In this scenario, which components are responsible for updating the cache?
+\\[0.2cm]
+\begin{itemize}
+ \item The request processor
+ \item Decision-maker
+ \item \textbf{[CORRECT]} Throttle rule retriever
+\\[0.1cm]
+\textit{Explanation:} 
+Throttle rule retriever checks for changes in rules updated or modified by the service owner. Hence , this component is responsible for updating the cache.
+ \item None of the above
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 4:} A client has to send 18 MB of data at a rate of 6 Mbps (megabits per second) to a server. Let
+'s assume that the server processes data at a rate of 4 Mbps. If the leaky bucket algorithm is used at the server end, how much capacity must the queue hold so as not to discard any data?
+\\[0.2cm]
+\begin{itemize}
+ \item \textbf{[CORRECT]} 6 MB
+\\[0.1cm]
+\textit{Explanation:} 
+Size of data to be sent {{\(=\)}} {{\(18MB \times 8= 144Mb\)}}
+\\
+Time taken to transmit {{\(144Mb\)}}{{\(= 144Mb/6Mbps=24s\)}}
+\\
+Actual data that the server can process in {{\(24s\)}}{{\(=4Mbps*24s=96Mb=12MB\)}}
+\\
+Bucket (queue) size{{\(=18MB-12MB=6MB\)}}
+ \item 9 MB
+ \item 3 MB
+ \item 7 MB
+\end{itemize}
+
+% End of section content

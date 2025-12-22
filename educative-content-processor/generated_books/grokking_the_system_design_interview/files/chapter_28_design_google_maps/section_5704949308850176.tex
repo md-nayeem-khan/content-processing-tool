@@ -1,0 +1,219 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Requirements of Google Maps Design
+% Section ID: 5704949308850176
+% Section Slug: requirements-of-google-maps-design
+% Generated: 2025-12-07T23:05:08.977900
+
+\subsection{Requirements}\label{UBzsrkbzAnPTkM2qtPG2l}
+\\
+Before we start requirements, let's clarify that we will design a system like Google Maps by picking a few key features because actual Google Maps is feature-rich and complex.
+\\
+Let's list the functional and non-functional requirements of the system under design.
+
+\subsubsection{Functional requirements}\label{yvjEwZkx-9Vd_EFXoR4Gn}
+\\
+The functional requirements of our system are as follows.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{0HSX0hgoRRyDnWPCKwPUL}
+\textbf{Identify the current location}: Users should be able to approximate their current location (latitude and longitude in decimal values) on the world map.
+\item
+\protect\phantomsection\label{uM48wZCZBoofVC5CqG7Qv}
+\textbf{Recommend the fastest route}: Given the source and destination (place names in text), the system should recommend the optimal route by distance and time, depending on the type of transportation.
+\item
+\protect\phantomsection\label{Oaja7QI_Qc3dfhedZFHvi}
+\textbf{Give directions}: Once the user has chosen the route, the system should list directions in text format, where each item in the list guides the user to turn or continue in a specific direction to reach the destination.
+\end{itemize}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.25\textwidth]{Images/chapter_28/section_5704949308850176/4612390348128256.png}
+ \caption{Google Maps functional requirements}
+\end{figure}
+
+\subsubsection{Non-functional requirements}\label{ePKm2zvlf463E7tvkrlVX}
+\\
+The non-functional requirements of our system are as follows.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{-tzsJp3LNa80T0JMB6q50}
+\textbf{Availability}: The system should be highly available.
+\item
+\protect\phantomsection\label{wv8vpzmpNgqbOZduuOVWZ}
+\textbf{Scalability}: It should be scalable because both individuals and other enterprise applications like Uber and Lyft use Google Maps to find appropriate routes.
+\item
+\protect\phantomsection\label{ZJHE7yCpX7NRY3VTS1LKv}
+\textbf{Less response time}: It shouldn't take more than two or three seconds to calculate the ETA(Estimated Time of Arrival) and the route, given the source and the destination points.
+\item
+\protect\phantomsection\label{qWhSFRW9QjOqUDLRsy-Ol}
+\textbf{Accuracy}: The ETA we predict should not deviate too much from the actual travel time.
+\end{itemize}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.25\textwidth]{Images/chapter_28/section_5704949308850176/5982841804685312.png}
+ \caption{Non-functional requirements of Google maps}
+\end{figure}
+
+\begin{quote}
+\textbf{Note:} We're not getting into the details of how we get the data on roads and layout. Government agencies provide maps, and in some places, Google itself drives mapping vehicles to find roads and their intersection points. Road networks are modeled with a graph data structure, where intersection points are the \textbf{vertices}, and the roads between intersections are the \textbf{weighted edges}.
+\end{quote}
+\subsection{Challenges}\label{AVjBwUk6GKLLLz0eoMV_S}
+\\
+\hfill\break
+Some of the challenges that we need to focus on while designing a system like Google Maps are below:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{9PIz6x6fF8SaCJ1fC8s7-}
+\textbf{Scalability}: Serving millions of queries for different routes in a second, given a graph with billions of nodes and edges spanning over 194 countries, requires robust scalability measures. A simple approach, given the latitude and longitude of the source and destination, would be to apply an algorithm like Dijkstra to find the shortest path between the source and the destination. However, this approach wouldn't scale well for billions of users sending millions of queries per second. This is because running any path-finding algorithm on a graph with billions of nodes running a million times per second is inefficient in terms of time and cost, ultimately leading to a bad user experience. Therefore, our solution needs to find alternative techniques to scale well.
+\end{itemize}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.15\textwidth]{Images/chapter_28/section_5704949308850176/4985756949807104.png}
+ \caption{A graph spanning the whole world network}
+\end{figure}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{GPXgVraC7DWsg4p4gTDfa}
+\textbf{ETA computation}: In an ideal situation with empty roads, it's straightforward to compute ETA using the distance and the speed of the vehicle we want to ride on. However, we cannot ignore factors like the amount of traffic on the roads and road conditions, which affect the ETA directly. For example, a road under construction, collisions, and rush hours all might slow down traffic. Quantifying the factors above to design our system is not trivial. Therefore, we'll categorize the factors above in terms of traffic load to complete our design.
+\end{itemize}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_28/section_5704949308850176/5616625441308672.png}
+ \caption{Factors affecting the ETA computation}
+\end{figure}
+
+\subsection{Resource estimation}\label{1C07DJRxoSo150MpR56zV}
+\\
+\hfill\break
+Let\textquotesingle s estimate the total number of servers, storage, and bandwidth required by the system.
+
+\subsubsection{Number of servers estimation}\label{6-xCpcMuEg9oHNKiUxfuO}
+\\
+To estimate the number of servers, we need to know the number of daily active users of Google Maps. Let 's assume that we have 32 million daily active users of Google Maps. Considering
+\href{https://www.educative.io/courses/grokking-the-system-design-interview/put-back-of-the-envelope-numbers-in-perspective}{our assumption} of using daily active users as a proxy for the number of requests per second, we get 32 million requests per second. Then
+, we use the following formula to calculate the number of servers:
+
+\[
+\text{Servers needed at peak load = } \frac{\text{Number of requests/second}}{\text{RPS of server}}
+\]
+
+Using 64,000 as an estimated RPS a server can handle from "Back-of-the-envelope Calculations" section, the required servers are estimated as follows:
+
+\[
+\text{Servers needed at peak load = } \frac{\text{32 million}}{\text{64,000}} \text{ = 500 servers}
+\]
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_28/section_5704949308850176/4890830995587072.png}
+ \caption{The number of servers required for Google Maps}
+\end{figure}
+
+\subsubsection{Storage estimation}\label{0s2ytyavpssikAzcpSr0o}
+\\
+\hfill\break
+Google Maps is essentially a system with a one-time storage requirement. The road data from many countries has already been added, which is over 20 petabytes as of 2022. Since there are minimal changes on the road networks, the daily storage requirement is going to be negligible for Google Maps. Also , short-term changes in the road network is a small amount of data as compared to the full network data. Therefore, our storage needs don't change rapidly.
+
+\subsubsection{Bandwidth estimation}\label{JqklEjMfWxjatPJ6H8K2h}
+\\
+As a standard practice, we have to estimate the bandwidth required for the incoming and outgoing traffic of our system. Most of the bandwidth requirements for Google Maps are due to requests sent by users. Therefore, we've devised the following formula to calculate bandwidth:
+
+\[
+\text{Total}_{\text{bandwidth}} = \text{Total}_{\text{requests\_second}} \times \text{Total}_{\text{query\_size}}
+\]
+
+The \protect\phantomsection\label{katex_inline_uFIyIMQsLKzDId9JFKZ6L}{{{\(\text{Total}_{\text{requests\_second}}\)}}} represents the number of requests per second, whereas the \protect\phantomsection\label{katex_inline_fO1Hj7qZJzMXZXNzIPecO}{{{\(\text{Total}_{\text{query\_size}}\)}}} represents the size of each request.
+\\
+\textbf{Incoming traffic}
+\\
+To estimate the incoming query traffic bandwidth, we assume the following numbers:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{YqdHQC9TPG7V5s0zCbgTB}
+Maximum number of requests by a single user per day: 50.
+\item
+\protect\phantomsection\label{pHhkq7IxXk-ZKC1rLAoR9}
+Request size (source and destination): 200 Bytes.
+\end{itemize}
+\\
+Using the assumptions above, we can estimate the total number of requests per second on Google Maps using the following formula:
+
+\[
+\text{Total}_{\text{requests\_second}} = \frac{\text{Daily active users} \times \text{Requests}_{\text{per\_user}}}{24 \times 60 \times 60} = 18,518\ \text{requests per second}
+\]
+
+We can calculate the incoming query traffic bandwidth required by Google Maps by inserting the request per second calculated above and the size of each request in the aforementioned bandwidth formula.
+
+\textbf{Outgoing traffic}
+\\
+Outgoing application traffic will include the response that the server generates for the user when they make a navigation request. The response consists of visuals and textual content, and typically includes the route shown on the map, estimated time, distance, and more detail about each step in the route. We assume the following numbers to estimate the outgoing traffic bandwidth:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{Z9islS0NVhATbJpINtdXn}
+Total requests per second (calculated above): 18,518.
+\item
+\protect\phantomsection\label{vTROfz7qyDoueMB-nQDLw}
+Response size: 2 MB + 5 KB = 2005 KB.
+
+\begin{itemize}
+\item
+Size of visual data on average: 2 MB.
+\item
+Size of textual data on average: 5 KB.
+\end{itemize}
+\end{itemize}
+\\
+We can calculate the bandwidth required for outgoing traffic using the same formula.
+
+
+\[Total_{bandwidth} = Total_{requests\_second} \times Total_{query\_size} = 18518 \times 2005 KB \times 8\ bits = 297.03 Gbps\]
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_28/section_5704949308850176/5440981107605504.png}
+ \caption{Summarizing the bandwidth requirements for Google Maps}
+\end{figure}
+
+\subsection{Building blocks we will use}\label{9gCu9nJ_8XP1QdTsjn3bV}
+\\
+Now that we've completed our estimates of resources required, let's identify the building blocks that will be an integral part of our design for the Google Maps system. Below , we have the key building blocks:\\
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_28/section_5704949308850176/4999374482833408.png}
+ \caption{Building blocks used in the high-level and detailed design of Google Maps}
+\end{figure}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{zuru86sAIiisXf62kU1jl}
+\href{https://www.educative.io/courses/grokking-the-system-design-interview/introduction-to-load-balancers}{\textbf{Load balancers}} are necessary to distribute user requests among different servers and services.
+\item
+\protect\phantomsection\label{fGHVMvU5AW1pY2hnCiyIy}
+\href{https://www.educative.io/courses/grokking-the-system-design-interview/introduction-to-databases}{\textbf{Databases}} are required to store data in the form of a graph along with metadata information.
+\item
+\protect\phantomsection\label{84Ud2cMJUaSmcOCoWQGr2}
+\href{https://www.educative.io/courses/grokking-the-system-design-interview/system-design-the-distributed-search}{\textbf{Distributed search}} is needed to search different places on the map.
+\item
+\protect\phantomsection\label{qBh2zTCKANREPa-mzmkmb}
+\href{https://www.educative.io/courses/grokking-the-system-design-interview/system-design-the-pub-sub-abstraction}{\textbf{A pub-sub system}} is required for generating and responding to important events during navigation and notifying the corresponding services.
+\item
+\protect\phantomsection\label{XXXTXtRQTGv5ZIMcT3NCU}
+\href{https://www.educative.io/courses/grokking-the-system-design-interview/system-design-the-key-value-store}{\textbf{A key-value store}} is also used to store some metadata information.
+\end{itemize}
+\\
+Besides the building blocks mentioned above, other components will also be required for designing our maps system. These components will be discussed in the design lessons. We are now ready to explore the system and API design of Google Maps.
+
+% End of section content

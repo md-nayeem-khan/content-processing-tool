@@ -1,0 +1,455 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Code for the ATM System
+% Section ID: 4911472275881984
+% Section Slug: code-for-the-atm-system
+% Generated: 2025-12-12T15:54:08.983971
+
+Using various UML diagrams, we've covered different aspects of the ATM and observed the attributes attached to the problem. Let 's now explore the more practical side of things, where we will work on implementing the ATM using multiple languages. This is usually the last step in an object-oriented design interview process.
+\\
+We have chosen the following languages to write the skeleton code of the different classes present in the ATM system:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{gu67nup9V-AhDIvACfJqX}
+Java
+\item
+\protect\phantomsection\label{05cd4rwzyGh7aNNMNpdA_}
+C\#
+\item
+\protect\phantomsection\label{nEkBv9aoxxaZo27mzkgqI}
+Python
+\item
+\protect\phantomsection\label{ju-U_xv1uoYx9ZaHLSDFo}
+C++
+\item
+\protect\phantomsection\label{c3k812o6OsVswnFLdPsI_}
+JavaScript
+\end{itemize}
+\\
+If you want to skip directly to the implementation and see the complete workflow, simply scroll down or click \hyperref[Executable-code-ATM]{Executable Code: ATM}.
+
+\subsection{ATM classes}\label{Xh9-PjXpaF0EP8T9p-cME}
+\\
+This section will provide the skeleton code of the classes designed in the class diagram lesson.
+\begin{quote}
+\textbf{Note:} For simplicity, we are not defining getter and setter functions. The reader can assume that all class attributes are private, accessed through their respective public getter methods, and modified only through their public method functions.
+\end{quote}
+\subsubsection{Enumerations}\label{mJSDxUVvFp8Y_9_PFWSgy}
+\\
+The following code defines the enumeration used in the ATM system.
+\\
+\texttt{ATMStatus}: This enumeration keeps track of the following states of an ATM:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{mGkjYgIUsDj2CPfH5G-wL}
+Idle
+\item
+\protect\phantomsection\label{yA7mtfeJWRPrbbCta4Xhy}
+Card inserted by the user
+\item
+\protect\phantomsection\label{QIHN9QwxKbDprGVz91d_J}
+Option selected
+\item
+\protect\phantomsection\label{O9AxU5sYYIb8qw1lEzEZq}
+Cash withdrawal
+\item
+\protect\phantomsection\label{h7lIwWh1arTGdGptoXO31}
+Money transfer
+\item
+\protect\phantomsection\label{cAytsiHjCXRWvfbtQOo5G}
+Display the account balance
+\end{itemize}
+\begin{quote}
+\textbf{Note:} JavaScript does not support enumerations, so we will use the \texttt{Object.freeze()} method as an alternative that freezes an object and prevents further modifications.
+\end{quote}
+
+\textbf{Definition of enums}
+
+\begin{lstlisting}[language=Java]
+enum ATMStatus {
+    Idle,
+    HasCard,
+    SelectionOption,
+    Withdraw,
+    TransferMoney,
+    BalanceInquiry
+}
+
+enum TransactionType {
+    BalanceInquiry,
+    CashWithdrawal,
+    FundsTransfer,
+    ChangePIN,
+    Cancel
+}
+\end{lstlisting}
+
+\subsubsection{User and ATM card}\label{mn3zfNeJYir-RBT9xIj9B}
+\\
+The \texttt{User} class stores the user's \texttt{ATMcard} and bank account, where the \texttt{ATMCard} class holds the card number, customer name, card expiration date, and PIN. The definitions of these classes are provided below:
+
+\textbf{The User and ATMCard classes}
+
+\begin{lstlisting}[language=Java]
+public class User {
+  private ATMCard card;
+  private BankAccount account;
+}
+
+public class ATMCard {
+  private String cardNumber;
+  private String customerName;
+  private Date cardExpiryDate;
+  private int pin;
+}
+\end{lstlisting}
+
+\subsubsection{Bank and bank account}\label{d6DcwCJ0jKUAiX5iUpOvw-2}
+\\
+The \texttt{Bank} class represents a bank having a name and code. The
+\texttt{BankAccount} class represents a bank account with two child classes: \texttt{SavingAccount} and \texttt{CurrentAccount}. These derived classes provide a method for getting the withdrawal limit. The definitions of these classes are provided below:
+
+\textbf{The Bank and bank account classes}
+
+\begin{lstlisting}[language=Java]
+public class Bank {
+    private String name;
+    private String bankCode;
+
+    public String getBankCode() {
+        return bankCode;
+    }
+}
+
+public abstract class BankAccount {
+    protected int accountNumber;
+    protected double totalBalance;
+    protected double availableBalance;
+
+    public double getAvailableBalance() {
+        return availableBalance;
+    }
+
+    public boolean withdraw(double amount) {
+        if (amount <= availableBalance) {
+            availableBalance -= amount;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean transfer(BankAccount toAccount, double amount) {
+        if (amount <= availableBalance) {
+            availableBalance -= amount;
+            toAccount.availableBalance += amount;
+            return true;
+        }
+        return false;
+    }
+
+    public abstract double getWithdrawLimit();
+}
+
+public class SavingAccount extends BankAccount {
+    @Override
+    public double getWithdrawLimit() {
+        // Example: return some limit, e.g., 1000
+        return 1000.0;
+    }
+}
+
+public class CurrentAccount extends BankAccount {
+    @Override
+    public double getWithdrawLimit() {
+        // Example: return some limit, e.g., 5000
+        return 5000.0;
+    }
+}
+\end{lstlisting}
+
+\subsubsection{Card reader, card dispenser, printer, screen, and keypad}\label{d6DcwCJ0jKUAiX5iUpOvw-3}
+\\
+The \texttt{CardReader}, \texttt{CashDispenser}, \texttt{Keypad}, \texttt{Screen}, and \texttt{Printer} classes compose the ATM and have the following functionalities:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{XjtfTTIloQLt1R2IDn933}
+\texttt{CardReader}: Reads the card inserted by the user.
+\item
+\protect\phantomsection\label{HxgcmfBuht-nK7VRXnwfM}
+\texttt{CashDispenser}\textbf{:} Dispenses cash upon withdrawal request.
+\item
+\protect\phantomsection\label{yvbFIRaIYmQ2wRrL956Ig}
+\texttt{Keypad}\textbf{:} Used by the user to enter the PIN for authentication and to input amounts or a new PIN.
+\item
+\protect\phantomsection\label{5sAFpsnGkfPWV9fYjPbbI}
+\texttt{Screen}\textbf{:} Displays messages.
+\item
+\protect\phantomsection\label{sOE18OUPnGciys0Pg_a4N}
+\texttt{Printer}\textbf{:} Prints receipts.
+\end{itemize}
+\\
+The definitions of these classes are provided below:
+
+\textbf{Card reader and other classes}
+
+\begin{lstlisting}[language=Java]
+public class CardReader {
+    public boolean readCard(ATMCard card) {
+        // Simulate card reading logic
+        return card != null;
+    }
+}
+
+public class CashDispenser {
+    public boolean dispenseCash(int amount) {
+        // Simulate dispensing cash
+        return true;
+    }
+}
+
+public class Keypad {
+    public String getInput() {
+        // Simulate input
+        return "";
+    }
+}
+
+public class Screen {
+    public void showMessage(String message) {
+        System.out.println(message);
+    }
+}
+
+public class Printer {
+    public void printReceipt(String details) {
+        System.out.println("Receipt: " + details);
+    }
+}
+\end{lstlisting}
+
+\subsubsection{ATM state}\label{qoERsk9MnjoBfMB4T6sUi}
+\\
+\texttt{ATMState} is an abstract class extended by the following concrete classes:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{Q9QtJXQ5khRaclmS6oo2s}
+\texttt{IdleState} (handles card insertion)
+\item
+\protect\phantomsection\label{l_KP4t4SchrRcZqyuz07r}
+\texttt{HasCardState} (handles PIN authentication)
+\item
+\protect\phantomsection\label{IgnOQOs0qPSk_3D4sxA9p}
+\texttt{SelectionOptionState} (handles transaction selection)
+\item
+\protect\phantomsection\label{b3iguxJOrFtaTWHqz99m8}
+\texttt{BalanceInquiryState} (handles displaying balance)
+\item
+\protect\phantomsection\label{M91sa-xFcLS-9qEIAZUY7}
+\texttt{CashWithdrawalState} (handles cash withdrawal)
+\item
+\protect\phantomsection\label{6AxcUQmf2SDZSOWa1zIB3}
+\texttt{TransferMoneyState} (handles funds transfer)
+\item
+\protect\phantomsection\label{icIp1_OVAy2GbLedGevIb}
+\texttt{ChangePinState} (handles PIN changes)
+\end{itemize}
+\\
+These derived classes derived classes override the methods relevant to their respective states, including \texttt{returnCard()} and \texttt{exit()}.
+\\
+The definitions of these classes are provided below:
+
+\textbf{The ATMState classes}
+
+\begin{lstlisting}[language=Java]
+public abstract class ATMState {
+    public void insertCard(ATM atm, ATMCard card) {}
+    public void authenticatePin(ATM atm, ATMCard card, int pin) {}
+    public void selectOperation(ATM atm, TransactionType tType) {}
+    public void cashWithdrawal(ATM atm, ATMCard card, double amount) {}
+    public void displayBalance(ATM atm, ATMCard card) {}
+    public void transferMoney(ATM atm, ATMCard card, BankAccount toAccount, double amount) {}
+    public void changePin(ATM atm, ATMCard card, int newPin) {}
+    public void cancelTransaction(ATM atm) {}
+    public void returnCard(ATM atm) {}
+    public void exit(ATM atm) {}
+}
+
+// Concrete State classes follow this pattern. You can expand their bodies as needed.
+public class IdleState extends ATMState {}
+public class HasCardState extends ATMState {}
+public class SelectionOptionState extends ATMState {}
+public class CashWithdrawalState extends ATMState {}
+public class TransferMoneyState extends ATMState {}
+public class BalanceInquiryState extends ATMState {}
+public class ChangePinState extends ATMState {}
+\end{lstlisting}
+
+\subsubsection{ATM}\label{FGupxeC7BMVesM--rIm6c}
+\\
+An \texttt{ATM} maintains the following at any given moment:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{qqvFqdmZrb-QU1DddtPJC}
+A specific operational state, such as \texttt{Idle}, \texttt{HasCard}, \texttt{SelectionOption}, or an active transaction state (e.g., \texttt{CashWithdrawal}, \texttt{FundsTransfer}, \texttt{BalanceInquiry}, \texttt{ChangePIN})
+\item
+\protect\phantomsection\label{kVABSXsI1mfGm2vJCsvpP}
+Current cash balance
+\item
+\protect\phantomsection\label{LrEO2OTyuMDQU1aaXikxa}
+A limited number of bill denominations: one-hundred-dollar, fifty, and ten-dollar bills
+\end{itemize}
+\\
+It also references all essential hardware components (card reader, cash dispenser, keypad, screen, and printer) and delegates user interactions and transaction processing according to its current state.
+\\
+The definitions of these classes are provided below:
+
+\textbf{The ATM class}
+
+\begin{lstlisting}[language=Java]
+public class ATM {
+    private static ATM atmObject = new ATM();
+    private ATMState currentATMState;
+    private ATMStatus atmStatus;
+    private int atmBalance;
+    private int noOfHundredDollarBills;
+    private int noOfFiftyDollarBills;
+    private int noOfTenDollarBills;
+
+    private CardReader cardReader;
+    private CashDispenser cashDispenser;
+    private Keypad keypad;
+    private Screen screen;
+    private Printer printer;
+
+    private ATM() {
+        // Initialize hardware components
+    }
+
+    public static ATM getInstance() {
+        return atmObject;
+    }
+
+    public void displayCurrentState() {
+        System.out.println("ATM Status: " + atmStatus);
+    }
+
+    public void initializeATM(int atmBalance, int noOfHundredDollarBills, int noOfFiftyDollarBills, int noOfTenDollarBills) {
+        // Initialize balances and cash
+    }
+
+    // Delegate to current state
+    // ...
+}
+\end{lstlisting}
+
+\subsection{Executable code: ATM}\label{QbSyGqLz6KQcD27Ja5D3c}
+\\
+Below is a fully self-contained, runnable program in Java, C\#, C++, Python, and JavaScript that demonstrates the ATM system's core workflows. The system's main driver code resides in \texttt{Driver.java}, \texttt{Driver.cs}, \texttt{Driver.py}, \texttt{Driver.cpp}, and \texttt{Driver.js} for all respective languages. You can click the ``Run'' button to execute the codes.
+
+\subsubsection{What does this code show}\label{MsIhWQoRnpv9oTIkc4eX2}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{nkOQPvrgMBRrz4lHhkKl0}
+\textbf{System initialization:} Sets up the ATM, users, accounts, cards, and hardware components.
+\item
+\protect\phantomsection\label{IY-pBdf1-lbD_oUFAeNp0}
+\textbf{Scenario 1 (Cardholder checks account balance):} The user inserts their card, enters their PIN, and performs a balance inquiry.
+\item
+\protect\phantomsection\label{bK8bLld3B_fSw3roIKxNa}
+\textbf{Scenario 2 (Cash withdrawal):} The user withdraws cash, and the system dispenses money according to available denominations.
+\item
+\protect\phantomsection\label{Clf3SXMkuz8xWW-KYwW9d}
+\textbf{Scenario 3 (Funds transfer):} The user transfers money between accounts and receives a printed receipt.
+\item
+\protect\phantomsection\label{n5BqU9zApm1PFXCig7KBr}
+\textbf{Scenario 4 (Change PIN):} The user changes their ATM card PIN.
+\item
+\protect\phantomsection\label{WckOa4qqGS1hHhyrPk1UB}
+\textbf{Scenario 5 (Cancel transaction):} The user cancels a transaction after authentication, and the card is returned.
+\end{itemize}
+\\
+\textbf{Hint: Try customizing the code!}
+\\
+This code is designed for experimentation, not just reading. You can edit, extend, or modify any part of the example.
+
+\textbf{Executable code: ATM}
+
+\begin{lstlisting}[language=Java]
+import java.util.*;
+
+public class Driver {
+    public static void main(String[] args) {
+        // Set up bank, accounts, users, cards
+        Bank bank = new Bank("Sample Bank", "SB001");
+
+        BankAccount acc1 = new SavingAccount(1001, 1200.0);
+        BankAccount acc2 = new CurrentAccount(1002, 8000.0);
+        ATMCard card1 = new ATMCard("123456", "Alice", "12/27", 1111);
+        ATMCard card2 = new ATMCard("654321", "Bob", "08/26", 2222);
+
+        User user1 = new User(card1, acc1);
+        User user2 = new User(card2, acc2);
+
+        // Set up ATM
+        ATM atm = ATM.getInstance();
+        atm.initializeATM(20000, 100, 40, 50); // $20,000, 100x$100, 40x$50, 50x$10
+
+        System.out.println("=== Scenario 1: Alice - Balance Inquiry ===");
+        atm.setActiveUser(user1);
+        atm.getCurrentATMState().insertCard(atm, user1.getCard());
+        atm.getCurrentATMState().authenticatePin(atm, user1.getCard(), 1111);
+        atm.getCurrentATMState().selectOperation(atm, TransactionType.BalanceInquiry);
+        atm.getCurrentATMState().displayBalance(atm, user1.getCard());
+        atm.getCurrentATMState().returnCard(atm);
+
+        System.out.println("
+=== Scenario 2: Alice - Withdraw $500 ===");
+        atm.setActiveUser(user1);
+        atm.getCurrentATMState().insertCard(atm, user1.getCard());
+        atm.getCurrentATMState().authenticatePin(atm, user1.getCard(), 1111);
+        atm.getCurrentATMState().selectOperation(atm, TransactionType.CashWithdrawal);
+        atm.getCurrentATMState().cashWithdrawal(atm, user1.getCard(), 500.0);
+        atm.getCurrentATMState().returnCard(atm);
+
+        System.out.println("
+=== Scenario 3: Bob - Transfer $1000 to Alice ===");
+        atm.setActiveUser(user2);
+        atm.getCurrentATMState().insertCard(atm, user2.getCard());
+        atm.getCurrentATMState().authenticatePin(atm, user2.getCard(), 2222);
+        atm.getCurrentATMState().selectOperation(atm, TransactionType.FundsTransfer);
+        atm.getCurrentATMState().transferMoney(atm, user2.getCard(), acc1, 1000.0);
+        atm.getCurrentATMState().returnCard(atm);
+
+        System.out.println("
+=== Scenario 4: Bob - Change PIN ===");
+        atm.setActiveUser(user2);
+        atm.getCurrentATMState().insertCard(atm, user2.getCard());
+        atm.getCurrentATMState().authenticatePin(atm, user2.getCard(), 2222);
+        atm.getCurrentATMState().selectOperation(atm, TransactionType.ChangePIN);
+        atm.getCurrentATMState().changePin(atm, user2.getCard(), 9999); // Bob sets new PIN to 9999
+        atm.getCurrentATMState().returnCard(atm);
+
+        System.out.println("
+=== Scenario 5: Alice - Cancel transaction after PIN ===");
+        atm.setActiveUser(user1);
+        atm.getCurrentATMState().insertCard(atm, user1.getCard());
+        atm.getCurrentATMState().authenticatePin(atm, user1.getCard(), 1111);
+        atm.getCurrentATMState().selectOperation(atm, TransactionType.Cancel);
+        // Card returned, session ends
+    }
+}
+\end{lstlisting}
+
+\subsection{Wrapping up}\label{oduvT-U5GDbYO8Cu-X2TP}
+\\
+In this chapter, we've explored the complete design of the ATM, including how a basic ATM system can be visualized using various UML diagrams and designed using object-oriented principles and design patterns.
+
+% End of section content

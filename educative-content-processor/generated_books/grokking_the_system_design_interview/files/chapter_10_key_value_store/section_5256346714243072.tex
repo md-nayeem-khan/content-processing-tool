@@ -1,0 +1,342 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Ensure Scalability and Replication
+% Section ID: 5256346714243072
+% Section Slug: ensure-scalability-and-replication
+% Generated: 2025-12-06T22:43:04.636823
+
+\subsection{Add scalability}\label{02ApKBPlrro7HgDW11QeD}
+\\
+Let's start with one of the core design requirements: scalability. We store key-value data in storage nodes. With a change in demand, we might need to add or remove storage nodes. It means we need to partition data over the nodes in the system to distribute the load across all nodes.
+\\
+For example, let's consider that we have four nodes, and we want 25\% of the requests to go to each node to balance the load equally. The traditional way to solve this is through the modulus operator. Each request that arrives has a key associated with it. When a request comes in, we calculate the hash of the key. Then , we find the remainder by taking the modulus of the hashed value with the number of nodes \texttt{m}. The remainder value \texttt{x} is the node number, and we send the request to that node to process it.
+\\
+The following slides explain this process:
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/4753329903894528.png}
+ \caption{We get the hash of the key and take modulus with the number of nodes to find the node that should process the request}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/5746215176896512.png}
+ \caption{We perform the required operations on the key to get the node}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/4907268410441728.png}
+ \caption{Node 2 will process the request}
+ \end{subfigure}
+\end{figure}
+
+We want to add and remove nodes with minimal change in our infrastructure. But in this method, when we add or remove a node, we need to move a lot of keys. This is inefficient. For example, node 2 is removed, and suppose for the same key, the new server to process a request will be node 1 because \protect\phantomsection\label{katex_inline_OQJLFBZKFeO36tLD-ynX0}{{{\(10 \% 3 = 1\)}}}. Nodes hold information in their local caches, like keys and their values. So , we need to move that request\textquotesingle s data to the next node that has to process the request. But this replication can be costly and can cause high latency.
+\\
+In distributed key-value stores, consistent hashing decides which node stores a given key.
+\\
+This direct mapping lets requests reach the correct node immediately, maintaining data locality and low latency.
+\\
+A load balancer would interfere by spreading requests randomly, leading to misrouted traffic, extra cross-node communication, and higher latency. Consistent hashing already handles both load distribution and scalability without adding extra routing layers.
+\\
+Next, we'll learn how to copy data efficiently.
+
+\subsubsection{Consistent hashing}\label{LZreKB57_LZpnGlpn_gHK}
+\\
+\textbf{Consistent hashing} is an effective way to manage the load over the set of nodes. In consistent hashing, we consider that we have a conceptual ring of hashes from \protect\phantomsection\label{katex_inline_8n_kkpRM6pVDyL-n8ipjT}{{{\(0\)}}} to \protect\phantomsection\label{katex_inline_26BXtV7CUn0TBWskhoO6E}{{{\(n-1\)}}}, where \protect\phantomsection\label{katex_inline_ysWHEH_MvDL5T_hCW6gCy}{{{\(n\)}}} is the number of available hash values. We use each node's ID, calculate its hash, and map it to the ring. We apply the same process to requests. Each request is completed by the next node that it finds by moving in the clockwise direction in the ring.
+\\
+Whenever a new node is added to the ring, the immediate next node is affected. It has to share its data with the newly added node while other nodes are unaffected. It 's easy to scale since we're able to keep changes to our nodes minimal. This is because only a small portion of overall keys need to move. The hashes are randomly distributed, so we expect the load of requests to be random and distributed evenly on average on the ring.
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/5309827308060672.png}
+ \caption{Consider we have a conceptual ring of hashes from 0 to n-1, where n is the total number of hash values in the ring}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/5235058101452800.png}
+ \caption{A hash for Node1 is calculated and Node1 is added to the ring}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/5703478475489280.png}
+ \caption{A hash for Node2 is calculated and Node2 is added to the ring}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/5783560732803072.png}
+ \caption{Hashes for other nodes are calculated and nodes are added to the ring}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/6644203449483264.png}
+ \caption{Similarly, a hash is calculated for the key and the request is added to the ring}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/4637345563541504.png}
+ \caption{The request is completed by the next node it finds by moving in the clockwise direction}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/6420673849458688.png}
+ \caption{The hash is calculated for the next request and the request is added to the ring}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/6420673849458688.png}
+ \caption{The request is completed by N2 since it’s the next node in the clockwise direction}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/6420673849458688.png}
+ \caption{The hash is calculated for the request and the request is added to the ring}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/6420673849458688.png}
+ \caption{The request is completed by N3 since it’s the next node in the clockwise direction}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/6420673849458688.png}
+ \caption{The hash is calculated for a new node, Node5, which is added to the ring}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/6420673849458688.png}
+ \caption{N3 shares the keys from N2 to N5 with N5, since it is the responsibility of N5 it process the requests that comes after N2 and before N5}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/6420673849458688.png}
+ \caption{The hash is calculated for a new request and the request is added to the ring}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/6420673849458688.png}
+ \caption{The request is processed by N5 instead of N3 since N5 is the next node in the clockwise direction}
+ \end{subfigure}
+\end{figure}
+
+The primary benefit of consistent hashing is that as nodes join or leave, it ensures that a minimal number of keys need to move. However, the request load isn't equally divided in practice. Any server that handles a large chunk of data can become a bottleneck in a distributed system. That node will receive a disproportionately large share of data storage and retrieval requests, reducing the overall system performance. As a result, these are referred to as hotspots.
+\\
+As shown in the figure below, most of the requests are between the N4 and N1 nodes. Now , N1 has to handle most of the requests compared to other nodes, and it has become a hotspot. That means non-uniform load distribution has increased load on a single server.
+\begin{quote}
+\textbf{Note:} It's a good exercise to think of possible solutions to the non-uniform load distribution before reading on.
+\end{quote}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_10/section_5256346714243072/5126196516618240.png}
+ \caption{Non-uniform request distribution in the ring}
+\end{figure}
+
+\paragraph{Use virtual nodes}\label{5143_QcQLmh2i-RRNy_P-}
+\\
+We'll use virtual nodes to ensure a more evenly distributed load across the nodes. Instead of applying a single hash function, we'll apply multiple hash functions onto the same key.
+\\
+Let's take an example. Suppose we have three hash functions. For each node, we calculate three hashes and place them into the ring. For the request, we use only one hash function. Wherever the request lands onto the ring, it's processed by the next node found while moving in the clockwise direction. Each server has three positions, so the load of requests is more uniform. Moreover , if a node has more hardware capacity than others, we can add more virtual nodes by using additional hash functions. This way, it'll have more positions in the ring and serve more requests.
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/6752919168352256.png}
+ \caption{Calculate the hash for Node1 using Hash 1, and place the node in the ring}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/6464363126456320.png}
+ \caption{Calculate the hash for the first virtual node of Node1 using Hash 2, and place the node in the ring}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/6116245692350464.png}
+ \caption{Calculate the hash for the second virtual node of Node1 using Hash 3, and place the node in the ring}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/6718257282809856.png}
+ \caption{Calculate the hash for Node2 using Hash 1, and place the node in the ring}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/5277788854157312.png}
+ \caption{Calculate the hash for the first virtual node of Node2 using Hash 2, and place the node in the ring}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/6134049546043392.png}
+ \caption{Calculate the hash for the second virtual node of Node2 using Hash 3, and place the node in the ring}
+ \end{subfigure}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/5888896178716672.png}
+ \caption{Calculate the hash for the request using Hash 1, and place the request in the ring}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_10/section_5256346714243072/5025360573497344.png}
+ \caption{The request will be processed by the first virtual node of Node1 as requests are processed in the clockwise direction}
+ \end{subfigure}
+\end{figure}
+
+\subparagraph{Advantages of virtual nodes}\label{mUYrnTz-43atrBhxR5OJh}
+\\
+Following are some advantages of using virtual nodes:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{NvVmZgCkhse4VHBbSJsqS}
+If a node fails or does routine maintenance, the workload is uniformly distributed over other nodes. For each newly accessible node, the other nodes receive nearly equal load when it comes back online or is added to the system.
+\item
+\protect\phantomsection\label{dob_DmuWy2nTqHZxY6LRd}
+It's up to each node to decide how many virtual nodes it's responsible for, considering the heterogeneity(The system needs to exploit heterogeneity in its infrastructure. e.g., the work distribution must be proportional to the capabilities of the individual servers. It is essential to add new nodes with higher capacity without upgrading all hosts.) of the physical infrastructure. For example, if a node has roughly double the computational capacity as compared to the others, it can take more load.
+\end{itemize}
+\\
+We've made the proposed design of key-value storage scalable. The next task is to make our system highly available.
+\\
+Describe how a key-value store can support incremental scalability without disrupting service availability.
+\\
+Use the AI assessment widget below to submit your solution and get an interactive response.
+
+\textbf{Question:}
+
+How to achieve incremental scalability?
+
+\textbf{Reference Answer:}
+
+A key-value store can support incremental scalability without disrupting service availability by adopting the following techniques:
+
+\begin{itemize}
+\item
+Use consistent hashing to redistribute keys only among affected nodes when adding/removing nodes.
+\item
+Employ virtual nodes to minimize data movement during scaling.\\
+\item
+Perform data migration in the background with minimal impact on active operations.\\
+\item
+Implement read/write forwarding to handle in-transit data during scaling transitions.
+\end{itemize}
+
+\subsection{Data replication}\label{d7YVKjVCeaMCPVovSBw8V}
+\\
+We have various methods to replicate the storage. It can be either a primary-secondary relationship or a peer-to-peer relationship.
+
+\subsubsection{Primary-secondary approach}\label{e4-eVyydmR5SIGVofge1v}
+\\
+In a \textbf{primary-secondary} approach, one of the storage areas is primary, and other storage areas are secondary. The secondary replicates its data from the primary. The primary serves the write requests while the secondary serves read requests. After writing, there's a lag for replication. Moreover, if the primary goes down, we can't write into the storage, and it becomes a single point of failure.
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_10/section_5256346714243072/5260232945434624.png}
+ \caption{Primary-secondary approach}
+\end{figure}
+
+Does the primary-secondary approach fulfill the requirements of the key-value store that we defined in the System Design: The Key-value Store lesson?
+
+\textbf{Question:}
+
+Primary-secondary approach
+
+\textbf{Reference Answer:}
+
+One of our requirements is that we need the ability to always write. This approach is good for the always read option. However, this approach doesn't include the ability to always write because it will overload the primary storage. Moreover , if a primary server fails, we need to upgrade a secondary to a primary. The availability of write will suffer as we won't allow writes during the switch-over time.
+
+\subsubsection{Peer-to-peer approach}\label{rXAQOm8p5z4NdNTBl85bM}
+\\
+In the \textbf{peer-to-peer} approach, all involved storage areas are primary, and they replicate the data to stay updated. Both read and write are allowed on all nodes. Usually, it's inefficient and costly to replicate in all nnn nodes. Instead, three or five is a common choice for the number of storage nodes to be replicated.
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_10/section_5256346714243072/5465618382192640.png}
+ \caption{Peer-to-peer relationship}
+\end{figure}
+
+We'll use a peer-to-peer relationship for replication. We 'll replicate the data on multiple hosts to achieve durability and high availability. Each data item will be replicated at \protect\phantomsection\label{katex_inline_5zPhmUmOCsJVnFmCWUvxV}{{{\(n\)}}} hosts, where \protect\phantomsection\label{katex_inline_sRm_e676HPV9LP8k0sRvU}{{{\(n\)}}} is a parameter configured per instance of the key-value store. For example, if we choose \protect\phantomsection\label{katex_inline_24kAJ31QwdjxcNj70gYuX}{{{\(n\)}}} to be \protect\phantomsection\label{katex_inline__57yBDnlN2DZBx6RQT_-g}{{{\(5\)}}}, it means we want our data to be replicated to five nodes.\\
+\\
+Each node will replicate its data to the other nodes. We 'll call a node coordinator that handles read or write operations. It
+'s directly responsible for the keys. A coordinator node is assigned the key ``K.'' It's also responsible for replicating the keys to \protect\phantomsection\label{katex_inline_Sw4NT9KwUEpMXy4Ib8Kmi}{{{\(n-1\)}}} successors on the ring (clockwise). These lists of successor virtual nodes are called preference lists. To avoid putting replicas on the same physical nodes, the preference list can skip those virtual nodes whose physical node is already in the list.\\
+\strut \\
+Let's consider the illustration given below. We have a replication factor, \protect\phantomsection\label{katex_inline_sRiqWhIPCwtXsAhbX3AMn}{{{\(n\)}}}, set to 3. For the key ``K,'' the replication is done on the next three nodes: B, C, and D. Similarly , for key ``L,'' the replication is done on nodes C, D, and E.\\
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_10/section_5256346714243072/5455691620024320.png}
+ \caption{Replication in key-value store}
+\end{figure}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\\
+What is the impact of synchronous or asynchronous replication?
+
+\textbf{Question:}
+
+Synchronous and asynchronous replication
+
+\textbf{Reference Answer:}
+
+In synchronous replication, each write must be acknowledged by all replicas before it is considered complete. This process slows down performance but guarantees strong consistency. However, if some replicas are unreachable, availability is reduced. In asynchronous replication, writes finish without waiting for all replicas, which improves performance and availability but can result in temporary inconsistencies. These outcomes reflect the CAP theorem, where systems must balance consistency and availability when network partitions occur.
+\\
+In the context of the CAP theorem, key-value stores can either be consistent or be available when there are network partitions. For key-value stores, we prefer availability over consistency. It means if the two storage nodes lost connection for replication, they would keep on handling the requests sent to them, and when the connection is restored, they'll sync up. In the disconnected phase, it's highly possible for the nodes to be inconsistent. So, we need to resolve such conflicts. In the next lesson, we'll learn a concept to handle inconsistencies using the versioning of our data.\\
+\strut \\
+
+% End of section content

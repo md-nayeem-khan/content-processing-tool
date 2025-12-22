@@ -1,0 +1,233 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Summary: Designing a Chess Game
+% Section ID: 5225374563565568
+% Section Slug: summary-designing-a-chess-game
+% Generated: 2025-12-12T16:11:25.381894
+
+Now that you've completed the chess game case study, let's take a moment to reflect on and consolidate what we've learned. We 'll revisit the key system requirements, identify the core classes along with their responsibilities and relationships, and highlight the major design principles applied. We
+'ll also examine how objects interact within the system and walk through the overall workflow to understand how the components come together to achieve the desired functionality.
+
+\subsection{Key requirements}\label{_m4Rw9n7g7wNWfnd5D2aI}
+\\
+The following are the essential requirements that define the functional scope and expected behavior of the online chess game:
+
+\begin{enumerate}
+\item
+\protect\phantomsection\label{GdSGssBnXRzFDTYMG0aAM}
+Support two-player, real-time, turn-based chess gameplay online.
+\item
+\protect\phantomsection\label{U0SWC7CpCqZJeZO-6S_Ve}
+Enforce the official international chess rules throughout gameplay.
+\item
+\protect\phantomsection\label{j8G31zU_KUJy1yRWDoTQ5}
+Randomly assign player colors (white or black) at the start of the game.
+\item
+\protect\phantomsection\label{uoK89vwxrcR3A75RoMNMv}
+Initialize the game board with 16 pieces per player in standard positions.
+\item
+\protect\phantomsection\label{SpiYofM30Vn5VVuZgw57i}
+The player with the white pieces always makes the first move.
+\item
+\protect\phantomsection\label{1_dda2CLqBA6B4gXBXgMy}
+Players are not allowed to undo or retract their moves.
+\item
+\protect\phantomsection\label{nNDq9AVTfQ7iml4F--asF}
+Maintain a complete move history for every game session.
+\item
+\protect\phantomsection\label{j2WOP74e0tDTUAR8ixcNH}
+Recognize all valid game-ending scenarios: checkmate, stalemate, draw, resignation, and forfeiture.
+\item
+\protect\phantomsection\label{Xs754bkhaxrryV-qiSt0q}
+Implement all special moves: castling, en passant, and pawn promotion.
+\end{enumerate}
+
+\subsection{System actors}\label{cAeiMdLocRi3LKGzIXYIs}
+\\
+This section outlines the main actor who interacts with the chess game system.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{qYQmjXV9rhY3EBykkIzOd}
+\textbf{Player:} Participates in a chess match by starting games, making moves, reviewing game state, and ending games via resignation or forfeiture.
+\end{itemize}
+
+\subsection{Important classes and relationships}\label{dNN2Gdah9TBxCsz-wdNfS}
+\\
+The chess system has core and supporting classes that model pieces, gameplay flow, and game state.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|p{3.5cm}|p{6.5cm}|p{6cm}|}
+\hline
+\textbf{Class} & \textbf{Description} & \textbf{Important Relationships} \\
+\hline
+Box & Represents a square on the 8$\times$8 board. & Composed in ChessBoard; may contain a Piece. \\
+\hline
+ChessBoard & Manages the 64 Box instances and the current layout of the game. & Composed of Box; associated with ChessGame. \\
+\hline
+Piece & Base class for all chess pieces with color and status. & Inherited by King, Queen, Rook, Bishop, Knight, and Pawn; may exist in a Box. \\
+\hline
+Move & Captures details of a player’s move (from-box, to-box, piece moved, etc.). & Associated with Player, Piece, and Box. \\
+\hline
+Player & Represents a user participating in the game. & Aggregated in ChessGame; associated with Move. \\
+\hline
+ChessMoveController & Validates and executes moves based on chess rules. & Associated with ChessGame. \\
+\hline
+ChessGameView & Displays the board and game status to players. & Associated with ChessGame. \\
+\hline
+ChessGame & Coordinates gameplay, turn-taking, game state, and results. & Composed of ChessBoard and Move; aggregates two Player instances. \\
+\hline
+GameStatus (Enum) & Indicates the current status: in progress, draw, white wins, black wins, etc. & Used by ChessGame. \\
+\hline
+MoveType (Enum) & Classifies move types: regular, castling, en passant, promotion. & Used by Move. \\
+\hline
+\end{tabular}
+\caption{Chess Game Classes and Their Relationships}
+\label{tab:chess_classes}
+\end{table}
+
+
+\subsection{Design approach}\label{JrNmQGYOCEWV2dy6b3MN3}
+\\
+The system is designed using a bottom-up approach, beginning with low-level abstractions like \texttt{Box} and \texttt{Piece}, and progressively integrating them into higher-order components like \texttt{ChessBoard}, \texttt{Move}, and \texttt{ChessGame}.
+
+\subsubsection{Design principles}\label{gmPN8xJeNQxEZewRGtQJt}
+\\
+The system applies SOLID principles to maintain separation of concerns, enable flexibility, and ease maintenance:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{AU9ALGJ3F-AvmD5OAPTAI}
+\textbf{Single Responsibility principle (SRP):} Each class handles one distinct responsibility, such as board management, move validation, or gameplay coordination.
+\item
+\protect\phantomsection\label{Iv86PxR_nHoMAstsCK3x6}
+\textbf{Open/Closed principle (OCP):} The \texttt{Piece} class hierarchy and \texttt{MoveType} enum support easy extension of new logic without modifying existing code.
+\item
+\protect\phantomsection\label{kGy4f8eyTJUseN7295XwU}
+\textbf{Liskov Substitution principle (LSP):} All subclasses of \texttt{Piece} (e.g., \texttt{Knight}, \texttt{Bishop}) can be used interchangeably where \texttt{Piece} is expected.
+\item
+\protect\phantomsection\label{g-MvTnUv965bf1Kluq8i-}
+\textbf{Interface Segregation principle (ISP):} Components like \texttt{ChessMoveController} and \texttt{ChessGameView} focus on specialized interfaces and behaviors.
+\item
+\protect\phantomsection\label{1d8xOVFuBuvxIuq7gjk8j}
+\textbf{Dependency Inversion principle (DIP):} High-level modules such as \texttt{ChessGame} interact with abstractions (\texttt{Player}, \texttt{Move}) rather than concrete implementations.
+\end{itemize}
+
+\subsubsection{Design patterns}\label{97-pdb-o0K-dfWCmMS3Mf}
+\\
+Several design patterns strengthen the robustness and adaptability of the chess system:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{UfOQSzbEsIogaB1AlVXcy}
+\textbf{Singleton pattern:} Ensures a single \texttt{ChessBoard} instance exists during gameplay to maintain consistency.
+\item
+\protect\phantomsection\label{p2eR8SomN6Irc6OwIkZze}
+\textbf{Command pattern:} Encapsulates move behavior within each \texttt{Piece} class for polymorphic execution.
+\item
+\protect\phantomsection\label{x1DCR5ltib-5fAyzgSivN}
+\textbf{Observer pattern:} Allows \texttt{Piece} objects to react to changes in the board state, especially relevant for check and checkmate detection.
+\item
+\protect\phantomsection\label{PEK6Ba9j7v3Xb6bFqeWah}
+\textbf{State pattern:} Can handle player turns, move sequences, and transition between gameplay states.
+\item
+\protect\phantomsection\label{wcrQhJqPkEu0yx4w8j5MH}
+\textbf{Iterator pattern (recommended):} Useful for traversing valid moves or iterating through board tiles.
+\end{itemize}
+
+\subsection{Object interactions}\label{aa7o0d5Q8feyxGTcxrO8u}
+\\
+This section describes how key system components collaborate to handle game operations dynamically.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{LdDjpVTsxlERqjm-GSEfJ}
+\textbf{Start game:}
+
+\begin{itemize}
+\item
+\texttt{Player} joins or initiates a new game.
+\item
+\texttt{ChessGame} assigns colors, initializes the board, and sets the starting state.
+\end{itemize}
+\item
+\protect\phantomsection\label{SUh8zd20n9Bnk1aeoB0oo}
+\textbf{Make move:}
+
+\begin{itemize}
+\item
+\texttt{Player} selects a piece and a destination.
+\item
+\texttt{ChessMoveController} validates the move against the rules.
+\item
+If valid, \texttt{Move} is recorded and \texttt{ChessGame} updates the game state.
+\item
+\texttt{ChessGameView} reflects the new state.
+\end{itemize}
+\item
+\protect\phantomsection\label{nTmek3aI_3-HrM4yCqK4Z}
+\textbf{Check for endgame:}
+
+\begin{itemize}
+\item
+After each move, \texttt{ChessGame} checks for checkmate, stalemate, draw, etc.
+\item
+If any condition is met, \texttt{GameStatus} is updated.
+\end{itemize}
+\item
+\protect\phantomsection\label{WrjezFNJy2ocQ_mqw6dGP}
+\textbf{Resign or forfeit:}
+
+\begin{itemize}
+\item
+\texttt{Player} may resign or forfeit.
+\item
+\texttt{ChessGame} marks the game over and declares the result.
+\end{itemize}
+\end{itemize}
+
+\subsection{System workflow}\label{hKYDVlx11trVimx4kca05}
+\\
+This section outlines the end-to-end flow of the game from player actions to system responses.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{44s3qpvawcjO1EvKG2LAn}
+\textbf{Initialize game:}
+
+\begin{itemize}
+\item
+Two players are assigned colors, and pieces are positioned.
+\item
+\texttt{ChessGame} sets the initial state and prompts the first move.
+\end{itemize}
+\item
+\protect\phantomsection\label{Bc_VPurXwaoyY7RN9OH1h}
+\textbf{Gameplay loop:}
+
+\begin{itemize}
+\item
+On each turn, a player makes a move.
+\item
+\texttt{ChessMoveController} validates the move.
+\item
+If valid, the board state is updated and the move is logged.
+\item
+System checks for end conditions (checkmate, draw, resignation, etc.).
+\end{itemize}
+\item
+\protect\phantomsection\label{9ByKhayzHoSpwLQVN9ewP}
+\textbf{End game:}
+
+\begin{itemize}
+\item
+If an end condition is met, \texttt{ChessGame} updates \texttt{GameStatus}.
+\item
+\texttt{ChessGameView} displays the final board and outcome to players.
+\end{itemize}
+\end{itemize}
+
+% End of section content

@@ -1,0 +1,236 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Summary: Designing ATM
+% Section ID: 5238067785760768
+% Section Slug: summary-designing-atm
+% Generated: 2025-12-12T15:54:10.272976
+
+Now that you've completed the ATM system case study, let's take a moment to reflect on and consolidate what we've learned. We 'll revisit the key system requirements, identify the core classes along with their responsibilities and relationships, and highlight the major design principles applied. We
+'ll also examine how objects interact within the system and walk through the overall workflow to understand how the components come together to achieve the desired functionality.
+
+\subsection{Key requirements}\label{d-IFMO2hF4b9ohX-Rt9JC}
+\\
+The following are the primary functional and operational requirements for the ATM system:
+
+\begin{enumerate}
+\item
+\protect\phantomsection\label{ugBNWFHGRrK8AVec8PNyJ}
+Each user has a single bank account accessible via an ATM card.
+\item
+\protect\phantomsection\label{gHbwiEC3YZmazRKMGBrSh}
+Core ATM components include a card reader, a keypad, a screen, a printer, a cash dispenser, and a network interface.
+\item
+\protect\phantomsection\label{YSLCHjWZQPyIAg8XU5Hir}
+ATM must authenticate users using a PIN before permitting transaction access.
+\item
+\protect\phantomsection\label{rh52im4qieitU6k52xMJl}
+Only authenticated users can perform transactions.
+\item
+\protect\phantomsection\label{7ilNn4HoCcDtM8-jiy5x0}
+Users may have a current and/or savings account.
+\item
+\protect\phantomsection\label{j30Ai8ylMJDaxTvMWS8df}
+Supported operations: balance inquiry, cash withdrawal, and fund transfer.
+\item
+\protect\phantomsection\label{Th3AEQjhJvC-RV-xdEEtq}
+After a transaction, users can choose to perform another or end the session and retrieve their card.
+\end{enumerate}
+
+\subsection{System actors}\label{PjjvyraiBWpSz24CcMI-B}
+\\
+The ATM system involves a single primary actor:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{w0G8VAmhiZMjv2GW8MuCF}
+\texttt{Cardholder}\textbf{:} Interacts with the ATM to perform various banking transactions, including inserting/removing the card, entering the PIN, and initiating actions such as balance inquiry, fund transfer, or cash withdrawal.
+\end{itemize}
+
+\subsection{Important classes and relationships}\label{_66iFhW1wlaXfoPZW_mwD}
+\\
+This system includes several interacting classes to handle authentication, transactions, and hardware interfaces.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|p{3cm}|p{6cm}|p{6cm}|}
+\hline
+\textbf{Class} & \textbf{Description} & \textbf{Important Relationships} \\
+\hline
+User & Represents a bank customer. & Associated with ATMCard and BankAccount. \\
+\hline
+ATMCard & Holds card data (number, name, expiry, PIN). & Associated with BankAccount. \\
+\hline
+BankAccount & Base class for accounts; includes balance and account details. & Inherited by SavingAccount and CurrentAccount. \\
+\hline
+Bank & Represents the issuing bank. & Associated with ATM. \\
+\hline
+ATM & Central unit handling transactions, user input/output, and session control. & Associated with Bank, ATMCard, and ATMState; composed of core hardware interfaces. \\
+\hline
+ATMState & Abstract class for ATM behavioral states. & Extended by CheckBalanceState, CashWithdrawalState, etc. \\
+\hline
+ATMStatus (Enum) & Represents ATM states (idle, card inserted, etc.). & Used by ATM. \\
+\hline
+TransactionType (Enum) & Represents transaction categories: BalanceInquiry, CashWithdrawal, FundsTransfer. & Used for transaction classification and UI routing. \\
+\hline
+\end{tabular}
+\caption{ATM System Classes and Their Relationships}
+\label{tab:atm_system_classes}
+\end{table}
+
+
+\subsection{Design highlights}\label{vWbdyYFMW6bGOtneXPd5a}
+\\
+The ATM design integrates hardware and software elements to create a secure, user-friendly banking terminal.
+
+\subsubsection{Design approach}\label{xN_l-7IQEFq1XtOZelSJQ}
+\\
+The system was designed using a bottom-up approach, starting from low-level hardware components like \texttt{CardReader} and \texttt{Keypad}, and building toward complete transaction workflows using \texttt{ATMState} abstractions.
+
+\subsubsection{Design principles}\label{H08IyDxn2WAQn69f_YhyK}
+\\
+The system adheres to SOLID principles for robust and maintainable architecture:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{sdqqxKKu6KgEOA7JkasKS}
+\textbf{Single Responsibility principle (SRP):} Each class serves a specific purpose (e.g., \texttt{CardReader} reads cards, \texttt{CashDispenser} handles cash).
+\item
+\protect\phantomsection\label{8mKUEhPVtALlVFGRfPq5J}
+\textbf{Open/Closed principle (OCP):} ATM states and withdrawal logic can be extended without modifying base classes.
+\item
+\protect\phantomsection\label{4tqUBUbaRR3TiGuZBTaMy}
+\textbf{Liskov Substitution principle (LSP):} Subtypes (e.g., \texttt{SavingAccount}) can replace their parent \texttt{BankAccount} without breaking functionality.
+\item
+\protect\phantomsection\label{O1eFSiwY2WoeNII3Dw2g_}
+\textbf{Interface Segregation principle (ISP):} Interfaces like \texttt{ATMState} segregate behavior into distinct contexts (e.g., balance checking, withdrawal).
+\item
+\protect\phantomsection\label{P6vhBaDEyKRZ-dF-LRA0j}
+\textbf{Dependency Inversion principle (DIP):} High-level logic in \texttt{ATM} depends on abstractions like \texttt{ATMState}.
+\end{itemize}
+
+\subsubsection{Design patterns}\label{7lO_sr2_e10506munsuOC}
+\\
+Several classic design patterns are utilized:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{AHTNY8c4qBKs2Mgs4PK6n}
+\textbf{Singleton pattern:} Ensures only one instance of the \texttt{ATM} is active at any given time.
+\item
+\protect\phantomsection\label{DDmbYW-PYnmYEbVlhAL3A}
+\textbf{State pattern:} Enables the ATM to change behavior based on internal state transitions (e.g., from idle to withdrawal).
+\item
+\protect\phantomsection\label{MWd-NqRWFB5TSaPU1-K_x}
+~\textbf{Chain of Responsibility pattern:} The cash for \$100, \$50, and \$2 bills is distributed via a chain of handlers.
+\item
+\protect\phantomsection\label{KIi0jKGzpwwa8-Afdfs-t}
+\textbf{Composite and Builder patterns:} Suggested for future extensibility across transaction types and UI flows.
+\end{itemize}
+
+\subsection{Object interactions}\label{WD_uWTU6UhzjCfZpdp6RM}
+\\
+These key interactions demonstrate how components coordinate to perform ATM operations:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{TgBtAw-3IjKDBbcYXtMiV}
+\textbf{Balance inquiry:}
+
+\begin{itemize}
+\item
+User inserts card → enters PIN → system verifies PIN via bank.
+\item
+User selects balance inquiry → ATM requests balance from issuer.
+\item
+Balance is displayed; receipt optionally printed → card returned.
+\end{itemize}
+\item
+\protect\phantomsection\label{DpPNMeS3Fu7zI56fY5iT_}
+\textbf{Cash withdrawal:}
+
+\begin{itemize}
+\item
+User selects withdrawal → enters amount.
+\item
+System checks ATM cash limits and account limits.
+\item
+Uses \texttt{CashDispenser} chain to dispense correct denominations.
+\item
+Receipt printed; card returned.
+\end{itemize}
+\item
+\protect\phantomsection\label{hWRQYHKknDs1LserTwri4}
+\textbf{Fund transfer:}
+
+\begin{itemize}
+\item
+Similar to withdrawal, but no cash is dispensed.
+\item
+ATM verifies account balances, updates them accordingly, and prints a receipt.
+\end{itemize}
+\item
+\protect\phantomsection\label{PBUPMMmdMUXNaIDrY9k7G}
+\textbf{PIN validation and retry:}
+
+\begin{itemize}
+\item
+The ATM card is immediately ejected with an error message if the PIN is invalid.
+\end{itemize}
+\end{itemize}
+
+\subsection{System workflow}\label{0iTgUQw8A55fI5AIXfL13}
+\\
+The workflows below reflect key user scenarios and are modeled after the system's activity diagrams:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{ju9hHj_XYcjqBd3c1BA7i}
+\textbf{General ATM transaction:}
+
+\begin{itemize}
+\item
+User inserts card and enters PIN.
+\item
+If the PIN is invalid, → the card is ejected, session ends.
+\item
+If the PIN is valid, → the transaction menu is displayed.
+\item
+User selects transaction → ATM transitions to appropriate state.
+\item
+Transaction executed → receipt offered → card returned.
+\end{itemize}
+\item
+\protect\phantomsection\label{Be7dtD3x7fX1EsXb_rhv1}
+\textbf{Cash withdrawal:}
+
+\begin{itemize}
+\item
+User selects withdrawal → inputs amount.
+\item
+ATM validates funds and denomination availability.
+\item
+Cash is dispensed using withdrawal processors.
+\item
+Receipt printed → card returned.
+\end{itemize}
+\item
+\protect\phantomsection\label{j6BpJAPDlQYzN-MdDcwHF}
+\textbf{Balance inquiry:}
+
+\begin{itemize}
+\item
+Follows the same steps as a general transaction, leading to a balance display.
+\end{itemize}
+\item
+\protect\phantomsection\label{b-umn83H0AmF5X-nhLoWV}
+\textbf{Cancel transaction:}
+
+\begin{itemize}
+\item
+At any point, the user can cancel → ATM halts the transaction, returns the card.
+\end{itemize}
+\end{itemize}
+
+% End of section content

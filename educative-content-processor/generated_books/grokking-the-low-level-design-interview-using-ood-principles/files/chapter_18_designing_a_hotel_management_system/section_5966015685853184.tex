@@ -1,0 +1,229 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Summary: Designing a Hotel Management System
+% Section ID: 5966015685853184
+% Section Slug: summary-designing-a-hotel-management-system
+% Generated: 2025-12-12T16:23:47.491743
+
+Now that you've completed the hotel management system case study, let's take a moment to reflect on and consolidate what we've learned. We 'll revisit the key system requirements, identify the core classes along with their responsibilities and relationships, and highlight the major design principles applied. We
+'ll also examine how objects interact within the system and walk through the overall workflow to understand how the components come together to achieve the desired functionality.
+
+\subsection{Key requirements}\label{vKkq-kSb43w1HBeBI9qeY}
+\\
+This section outlines the primary functional requirements that guided the design of the hotel management system.
+
+\begin{enumerate}
+\item
+\protect\phantomsection\label{DHmirR6nu7bM_YAKgbqi6}
+The system must support different user accounts: guest, receptionist, and housekeeper.
+\item
+\protect\phantomsection\label{6bZ-U2DVSXshSKo-8_zGU}
+Rooms must be classifiable by different styles, such as standard, deluxe, family suite, or business suite.
+\item
+\protect\phantomsection\label{5OO52ZVHp2iaqdRJ8Igij}
+Guests must be able to search for and book available rooms.
+\item
+\protect\phantomsection\label{KmKLsTYzpWZKBavJXOp6W}
+The booking process requires a check-in date, duration of stay, and an advance payment.
+\item
+\protect\phantomsection\label{Lu0mJp7IoWsZAoyOnb5Ac}
+Bookings can be canceled with a full refund if done more than 24 hours before check-in.
+\item
+\protect\phantomsection\label{f-fdsu6JpVkRbXjaiack0}
+The system needs to notify customers regarding their booking status.
+\item
+\protect\phantomsection\label{PVR0p22U3yDNg7-ZTowvK}
+All maintenance activities for each room must be logged and managed.
+\item
+\protect\phantomsection\label{DwrC_7QvdBaJ79km1ZSMh}
+Guests should be able to add extra services like room service or amenities to their booking.
+\item
+\protect\phantomsection\label{ipYA3JIwVlBkODfIDTb53}
+Each room must have a unique key, with a master key available for specific rooms.
+\item
+\protect\phantomsection\label{UrA-4bfrRZ7ol1JRYmYUB}
+The system must support multiple hotel branches.
+\end{enumerate}
+
+\subsection{System actors}\label{f72mYXJGzG7illST3OGnH}
+\\
+Here are the primary and secondary actors who interact with the system.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{7OcXw2A6bLQsM2QJZf_0q}
+\textbf{Guest:} The primary user who can search for rooms, create, manage, cancel bookings, and make payments.
+\item
+\protect\phantomsection\label{0PLbRPhAryGOEH2ENsNAz}
+\textbf{Receptionist:} An administrative user who can perform all guest actions, manage room inventory (add, update, remove), check guests in and out, and issue room keys.
+\item
+\protect\phantomsection\label{Yo4zs2rl9MQmtwwNqgAGR}
+\textbf{Housekeeper:} Responsible for updating the maintenance status of rooms.
+\item
+\protect\phantomsection\label{ggEOdoLfZd0Co6GoEANVq}
+\textbf{System:} A secondary actor responsible for automated tasks like sending booking notifications to guests.
+\item
+\protect\phantomsection\label{J-e_dRKW0TSg5qptWg_OS}
+\textbf{Server:} A secondary actor that updates the status of rooms based on change requests.
+\end{itemize}
+
+\subsection{Important classes and relationships}\label{MrlLciD3b1fATGrbHXHpo}
+\\
+The following table identifies the core classes in the system, describing their main responsibilities and relationships.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|p{3.5cm}|p{6.5cm}|p{6cm}|}
+\hline
+\textbf{Class} & \textbf{Description} & \textbf{Important Relationships} \\
+\hline
+Hotel & 
+The main class representing the hotel, which can have multiple branches. & 
+Composition of HotelBranch; follows the Singleton pattern. \\
+\hline
+HotelBranch & 
+Represents a specific location or branch of the hotel. & 
+Composition of Room. \\
+\hline
+Person & 
+An abstract base class for all system users, holding common details such as name and address. & 
+Composed of Account; extended by Guest, Receptionist, etc. \\
+\hline
+Guest & 
+A user who can search for and book rooms. & 
+Inherits from Person; associated with RoomBooking. \\
+\hline
+Receptionist & 
+An administrative user who manages rooms and bookings. & 
+Inherits from Person; associated with RoomBooking. \\
+\hline
+Room & 
+Represents a single room in the hotel, with properties such as style, status, and price. & 
+Composed of RoomKey and RoomHousekeeping. \\
+\hline
+RoomBooking & 
+Manages reservation details, including dates, guest information, and status. & 
+Composed of Invoice; aggregates Service. \\
+\hline
+Invoice & 
+Represents the bill for a booking, detailing the total amount to be paid. & 
+Composed of BillTransaction. \\
+\hline
+Service & 
+An abstract class for additional services (e.g., room service, amenities) that can be added to a booking. & 
+Extended by RoomService, KitchenService, and Amenity. \\
+\hline
+Notification & 
+An abstract class for sending notifications to users. & 
+Extended by SMSNotification and EmailNotification. \\
+\hline
+Search & 
+An interface that defines the contract for searching rooms. & 
+Implemented by Catalog. \\
+\hline
+Catalog & 
+Implements the Search interface and maintains a list of all rooms available in the hotel. & 
+Implements Search. \\
+\hline
+\end{tabular}
+\caption{Hotel Management System Classes and Their Relationships}
+\label{tab:hotel_classes}
+\end{table}
+
+
+\subsection{Design highlights}\label{bS_S1dLq6LXPX1z2UtPcX}
+\\
+This section covers the overall design methodology, the core principles followed, and the specific design patterns applied.
+
+\subsubsection{Design approach}\label{v82OL36pgFyBTBqz6xThh}
+\\
+The system was designed using a bottom-up approach. This involved identifying and designing the smallest, most granular components (like \texttt{Room} and \texttt{Account}), and then composing them into larger, more complex components until the entire system was constructed.
+
+\subsubsection{Design principles}\label{yTTY1jnckldTdoluLyBiI}
+\\
+The design of the Hotel Management system adheres to the five SOLID principles to ensure it is robust, maintainable, and scalable.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{SnXnbR9LHmyjL7LACTn7e}
+\textbf{Single Responsibility principle (SRP):} Each class has a distinct responsibility. For example, the \texttt{Room} class manages room-specific data and state, the \texttt{Invoice} class is solely responsible for billing, and the \texttt{Notification} class handles sending alerts.
+\item
+\protect\phantomsection\label{GHGQq7Lh6XFKvBKaSGGWI}
+\textbf{Open/Closed principle (OCP):} The system is open for extension but closed for modification. Using abstract classes like \texttt{Person}, \texttt{Service}, and \texttt{Notification}, new types of users, services, or notification methods can be added by creating new subclasses without altering existing, tested code.
+\item
+\protect\phantomsection\label{zhfsQJt4gRHvYn2bY6f1V}
+\textbf{Liskov Substitution principle (LSP):} Subtypes can be substituted for their base types without affecting the program's correctness. For instance, a \texttt{Guest} object can be used wherever a \texttt{Person} object is expected, and a \texttt{RoomService} can be treated as a generic \texttt{Service}.
+\item
+\protect\phantomsection\label{eoXz1OrD4Ab_O52q99GH9}
+\textbf{Interface Segregation principle (ISP):} The \texttt{Search} interface is a clear example, providing a specific contract for room searching functionality that the \texttt{Catalog} class implements. This prevents client classes from depending on methods they don't use.
+\item
+\protect\phantomsection\label{8_BNviDFkUqAMf9GWj9Ba}
+\textbf{Dependency Inversion principle (DIP):} The system depends on abstractions rather than concrete implementations. High-level modules like \texttt{RoomBooking} interact with abstract classes like \texttt{Service}, decoupling them from the specific details of \texttt{RoomService} or \texttt{Amenity}.
+\end{itemize}
+
+\subsubsection{Design patterns}\label{vBpXlTdWZJ7PtcpiHNKW0}
+\\
+The following design patterns were used to solve common problems and improve the system's structure.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{hYwsuqvXcHb5V76DR8one}
+\textbf{Singleton:} This was used to ensure the \texttt{Hotel} or \texttt{Catalog} instance is globally accessible and that no duplicate instances are created.
+\item
+\protect\phantomsection\label{y6_8UL2SohvlfGY-rYkbk}
+\textbf{Strategy:} This was chosen to handle different payment methods (e.g., credit card, cash) flexibly, allowing the payment algorithm to be selected at runtime.
+\item
+\protect\phantomsection\label{Bh-wL1IJaTlNBshljbiUH}
+\textbf{Factory:} This was applied to manage creating different notification types (e.g., SMS, Email), allowing the system to create the correct type without exposing instantiation logic.
+\item
+\protect\phantomsection\label{GNb0zL5WkUrFst3VVtjzX}
+\textbf{Observer:} This allowed guests to receive various notifications, decoupling the notification senders (like booking confirmations) from the notification receivers.
+\item
+\protect\phantomsection\label{SB0JmUlP_LI4EpqEHQ6cq}
+\textbf{Builder:} This was chosen to manage the complex construction of \texttt{RoomBooking} and \texttt{Invoice} objects, which require setting multiple details like dates, guest information, and status.
+\end{itemize}
+
+\subsection{Object interactions}\label{wZ7LOzHawTU5hjtjWallt}
+\\
+Let's examine how objects collaborate to book a room to understand the system's dynamic behavior.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{ppPDwUVnoJctJjj8mv_W0}
+\textbf{Room search:} A \texttt{Guest} initiates a search for a room via the \texttt{Catalog} object, which holds all room information. The \texttt{Catalog} returns a list of available rooms that match the criteria.
+\item
+\protect\phantomsection\label{WOgWTI7t3TcfoSTUAnZsb}
+\textbf{Booking creation:} Upon selecting a \texttt{Room}, the \texttt{Guest} creates a \texttt{RoomBooking}. The \texttt{RoomBooking} object then fetches the price from the selected \texttt{Room} object to calculate the total cost.
+\item
+\protect\phantomsection\label{cm-qgjZ5bdoCRLXi0Ebj0}
+\textbf{Payment processing:} The \texttt{Guest} initiates a \texttt{Payment} for the booking. The system processes this payment.
+\item
+\protect\phantomsection\label{qXxoKBUMvAY8IxJpxZ5J_}
+\textbf{Status update:} If the payment is successful, the \texttt{System} is notified and updates the \texttt{Room}'s status to ``reserved'' to prevent double-booking. If the payment fails, the guest is notified, and the booking is not confirmed.
+\end{itemize}
+
+\subsection{System workflow}\label{HtiiQc-GmcLSpqfhFXuoU}
+\\
+The following describes the primary workflow for a guest checking into the hotel.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{XJAnC_u5d63uN1mGD9E0g}
+\textbf{Arrival and verification:} A guest with a confirmed booking arrives at the reception. The \texttt{Receptionist} searches for and finds the guest's \texttt{RoomBooking} in the system.
+\item
+\protect\phantomsection\label{Vz59FvVK2ByoShhnpS_Ch}
+\textbf{Booking validation:} The receptionist validates the booking details to ensure they are correct.
+\item
+\protect\phantomsection\label{XHb5_UhMffW61s7GCUlFU}
+\textbf{Room readiness check:} The system checks if the assigned \texttt{Room} is clean and ready for occupancy. If not, the guest may be asked to wait.
+\item
+\protect\phantomsection\label{RU_MZ86El64YUssAhrZXc}
+\textbf{Key issuance:} The \texttt{Receptionist} issues a \texttt{RoomKey} to the guest once the room is ready.
+\item
+\protect\phantomsection\label{N3tO8Qok12fOgRlg8zBL0}
+\textbf{System update:} Finally, the receptionist updates the \texttt{Room}'s status in the system to ``Checked-in,'' completing the check-in process.
+\end{itemize}
+
+% End of section content

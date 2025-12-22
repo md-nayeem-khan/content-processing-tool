@@ -1,0 +1,14 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1} Real-World Design Problems }{1}{chapter.0.1}%
+\ttl@starttoc {chapters@1}
+\contentsline {section}{\numberline {1} An Approach to Solve a Real-World Problem }{2}{section.0.1.1}%
+\contentsline {subsection}{\numberline {1.1}Interview process}{2}{subsection.0.1.1.1}%
+\contentsline {subsubsection}{Identify the requirements}{2}{figure.caption.1}%
+\contentsline {subsubsection}{Model the problem}{2}{section*.4}%
+\contentsline {subsubsection}{Establish the classes and their relationships}{2}{section*.4}%
+\contentsline {subsubsection}{Sequence and activity diagrams}{3}{section*.4}%
+\contentsline {subsubsection}{Use design patterns}{3}{section*.4}%
+\contentsline {subsubsection}{Code}{3}{section*.4}%
+\contentsline {subsection}{\numberline {1.2}Design approach}{3}{subsection.0.1.1.2}%
+\contentsline {subsubsection}{Top-down vs. bottom-up approach}{4}{subsection.0.1.1.2}%
+\contentsfinish 

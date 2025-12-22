@@ -1,0 +1,366 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Code for the Parking Lot
+% Section ID: 6211656583741440
+% Section Slug: code-for-the-parking-lot
+% Generated: 2025-12-11T13:40:38.983519
+
+We've reviewed the different aspects of the parking lot system and observed the attributes attached to the problem using various UML diagrams. Now , let's explore the more practical side of things, where we will work on implementing the parking lot system using multiple languages. This is usually the last step in an object-oriented design interview process.
+\\
+We have chosen the following languages to write the skeleton code of the different classes present in the parking lot system:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{_qpoOH6BVcZvs_OVsUnDJ}
+Java
+\item
+\protect\phantomsection\label{twS78OUNyTY_wEw6mXikl}
+C\#
+\item
+\protect\phantomsection\label{VC8aG5lMnY05_Rrq7D9MJ}
+Python
+\item
+\protect\phantomsection\label{TGmtQJau4uIf2d7581Dox}
+C++
+\item
+\protect\phantomsection\label{Yd0ySCdlteKUHbcuBUaxg}
+JavaScript
+\end{itemize}
+\\
+If you want to skip directly to the implementation and see the complete workflow, simply scroll down or click~\hyperref[Executable-code-Parking-lot-system]{Executable Code: Parking Lot System}.
+
+\subsection{Parking lot classes}\label{nFLgbwaZhJD2iWxw0OHp9}
+\\
+This section will provide the skeleton code of the classes designed in the class diagram lesson.
+\begin{quote}
+\textbf{Note:} For simplicity, we aren't defining getter and setter functions. The reader can assume that all class attributes are private, accessed through their respective public getter methods, and modified only through their public method functions.
+\end{quote}
+\subsubsection{Enumerations and custom data type}\label{z7LzkzcJk9Qq6YQmaHW77}
+\\
+First, we will define all the enumerations(A special data type which contains a set of predefined constants.) required in the parking lot. According to the class diagram, two enumerations are used in the system, i.e., \texttt{PaymentStatus} and \texttt{AccountStatus}\emph{.} The code to implement these enumerations and custom data types is as follows:
+\begin{quote}
+\textbf{Note:} JavaScript does not support enumerations, so we will use the \texttt{Object.freeze()} method as an alternative that freezes an object and prevents further modifications.
+\end{quote}
+
+\textbf{Definition for the constants }
+
+\begin{lstlisting}[language=Java]
+// Enumerations for status tracking in the system
+enum PaymentStatus { COMPLETED, FAILED, PENDING, UNPAID, REFUNDED }
+enum AccountStatus { ACTIVE, CLOSED, CANCELED, BLOCKLISTED, NONE }
+enum TicketStatus { ISSUED, IN_USE, PAID, VALIDATED, CANCELED, REFUNDED }
+
+// Custom data type for personal and address information
+class Person {
+    private String name;
+    private String address;
+    private String phone;
+    private String email;
+}
+
+class Address {
+    private int zipCode;
+    private String street;
+    private String city;
+    private String state;
+    private String country;
+}
+\end{lstlisting}
+
+\subsubsection{Parking spots}\label{J-I53vTuIEEZkuWsUQZsK}
+\\
+The first section of the parking lot system we will work on is the \texttt{ParkingSpot} class, which will act as a base class for four parking spots: accessible, compact, large, and motorcycle. This will have an instance of the \texttt{Vehicle} class. The definition of the \texttt{ParkingSpot} class and the classes being derived from it are given below:
+
+\textbf{ParkingSpot and its derived classes}
+
+\begin{lstlisting}[language=Java]
+// Abstract base class for parking spots
+abstract class ParkingSpot {
+    private int id;
+    private boolean isFree;
+    private Vehicle vehicle; // Association: Each spot can be assigned to one vehicle
+
+    public abstract boolean assignVehicle(Vehicle vehicle);
+
+    public boolean removeVehicle() {
+        // Logic to remove vehicle from spot and mark as free
+        return true;
+    }
+\end{lstlisting}
+
+\subsubsection{Vehicle}\label{c04oHcXQcgWECpLpjiv5I}
+\\
+\texttt{Vehicle} will be another abstract class, which serves as a parent for four different types of vehicles: car, truck, van, and motorcycle. The definition of the \texttt{Vehicle} and its child classes is given below:
+
+\textbf{Vehicle and its child classes}
+
+\begin{lstlisting}[language=Java]
+abstract class Vehicle { private String licenseNo;
+private ParkingTicket ticket; // Association: Each vehicle has a ticket public abstract void assignTicket(ParkingTicket ticket); }
+
+class Car extends Vehicle { public void assignTicket(ParkingTicket ticket) { /* ... */ }
+}
+class Van extends Vehicle { public void assignTicket(ParkingTicket ticket) { /* ... */ }
+}
+class Truck extends Vehicle { public void assignTicket(ParkingTicket ticket) { /* ... */ }
+}
+class Motorcycle extends Vehicle { public void assignTicket(ParkingTicket ticket) { /* ... */ }
+}
+\end{lstlisting}
+
+\subsubsection{Account}\label{qi1YnazzvssPv5CCTaUkF}
+\\
+The \texttt{Account} class will be an abstract class, which will have the actor \texttt{Admin} as its child class. The definition of these classes is given below:
+
+\textbf{Account and its child classes}
+
+\begin{lstlisting}[language=Java]
+abstract class Account {
+    private String userName;
+    private String password;
+    private Person person;
+    private AccountStatus status;
+
+    public abstract boolean resetPassword();
+}
+
+class Admin extends Account {
+    public boolean addParkingSpot(ParkingSpot spot) { /* ... */ return true; }
+    public boolean addDisplayBoard(DisplayBoard board) { /* ... */ return true; }
+    public boolean addEntrance(Entrance entrance) { /* ... */ return true; }
+    public boolean addExit(Exit exit) { /* ... */ return true; }
+
+    public boolean resetPassword() { /* ... */ return true; }
+}
+
+\end{lstlisting}
+
+\subsubsection{Display board and parking rate}\label{4eiuhzKUF0Xfd1Qtt8zx6}
+\\
+This section contains the \texttt{DisplayBoard} and \texttt{ParkingRate} classes, which only have the composition class with the \texttt{ParkingLot} class. This relationship is highlighted in the \texttt{ParkingLot} class. The definition of these classes is given below:
+
+\textbf{The DisplayBoard and ParkingRate classes}
+
+\begin{lstlisting}[language=Java]
+class DisplayBoard { private int id;
+ private Map<String, List<ParkingSpot>> parkingSpots;
+
+ public DisplayBoard(int id) { /* ... */ }
+ public void addParkingSpot(String spotType, List<ParkingSpot> spots) { /* ... */ }
+ public void showFreeSlot() { /* ... */ }
+}
+
+class ParkingRate { private double hours;
+ private double rate;
+
+public double calculate(double duration, Vehicle vehicle, ParkingSpot spot) { // Pricing logic can use duration, vehicle type, spot type, etc.
+return 0.0; }
+}
+\end{lstlisting}
+
+\subsubsection{Entrance and exit}\label{5i0vSGVZwzgtt6ISXOmlx}
+\\
+This section contains the \texttt{Entrance} and \texttt{Exit} classes associated with the \texttt{ParkingTicket} class. The definition of the \texttt{Entrance} and \texttt{Exit} classes is given below:
+
+\textbf{The Entrance and Exit classes}
+
+\begin{lstlisting}[language=Java]
+class Entrance { private int id;
+ public ParkingTicket getTicket(Vehicle vehicle) { /* ... */ return null; }
+}
+
+class Exit { private int id;
+ public void validateTicket(ParkingTicket ticket) { /* ... */ }
+}
+\end{lstlisting}
+
+\subsubsection{Parking ticket}\label{tEFLPb3YyBGOjUNCoM_ly}
+\\
+The definition of the \texttt{ParkingTicket} class can be found below. This contains instances of the \texttt{Vehicle}, \texttt{Payment}, \texttt{Entrance}, and \texttt{Exit} classes:
+
+\textbf{The ParkingTicket class}
+
+\begin{lstlisting}[language=Java]
+class ParkingTicket {
+    private int ticketNo;
+    private Date entryTime;
+    private Date exitTime;
+    private double amount;
+    private TicketStatus status;
+
+    private Vehicle vehicle;
+    private Payment payment; // Composition: Ticket owns Payment
+    private Entrance entrance;
+    private Exit exitIns;
+}
+\end{lstlisting}
+
+\subsubsection{Payment}\label{zk4DGInaHU9339zJZPs5y}
+\\
+The \texttt{Payment} class is another abstract class, with the \texttt{Cash} and \texttt{CreditCard} classes as its child classes. This takes the \texttt{PaymentStatus} enumeration and the \texttt{Date} data type to keep track of the payment\ status and time. The definition of this class is given below:
+
+\textbf{Payment and its derived classes}
+
+\begin{lstlisting}[language=Java]
+abstract class Payment {
+    private double amount;
+    private PaymentStatus status;
+    private Date timestamp;
+
+    public abstract boolean initiateTransaction();
+}
+
+class Cash extends Payment {
+    public boolean initiateTransaction() { /* ... */ return true; }
+}
+\end{lstlisting}
+
+\subsubsection{Parking lot}\label{69aQSAvO3a888XAkeX43G}
+\\
+The final class of the parking lot system is the \texttt{ParkingLot} class, which will be a Singleton class, meaning the entire system will only have one instance of this class. The definition of this class is given below:
+
+\textbf{The ParkingLot class}
+
+\begin{lstlisting}[language=Java]
+class ParkingLot {
+    private int id;
+    private String name;
+    private Address address;
+    private ParkingRate parkingRate;
+
+    private Map<String, Entrance> entrances;
+    private Map<String, Exit> exits;
+    private Map<Integer, ParkingSpot> spots;
+    private Map<String, ParkingTicket> tickets;
+    private List<DisplayBoard> displayBoards;
+
+    // Singleton implementation
+    private static ParkingLot parkingLot = null;
+    private ParkingLot() { /* ... */ }
+    public static ParkingLot getInstance() {
+        if (parkingLot == null) { parkingLot = new ParkingLot(); }
+        return parkingLot;
+    }
+
+    public boolean addEntrance(Entrance entrance) { /* ... */ return true; }
+    public boolean addExit(Exit exit) { /* ... */ return true; }
+    public boolean addParkingSpot(ParkingSpot spot) { /* ... */ return true; }
+    public boolean addDisplayBoard(DisplayBoard board) { /* ... */ return true; }
+
+    public ParkingTicket getParkingTicket(Vehicle vehicle) { /* ... */ return null; }
+    public boolean isFull(ParkingSpot spotType) { /* ... */ return false; }
+}
+\end{lstlisting}
+
+\subsection{Executable code: Parking lot system}\label{O_GHWRSaXvz1aMAWqnNNw}
+\\
+Below is a fully self-contained, runnable program in Java, C\#, C++, Python, and JavaScript that demonstrates the parking lot system's core workflows. The main driver code resides in \texttt{Driver.java}, \texttt{Driver.cs}, \texttt{Driver.py}, \texttt{Driver.cpp}, and \texttt{Driver.js} for all respective languages. You can click the ``Run'' button to execute the code.
+
+\subsubsection{What this code shows}\label{6mk22RnDFZ6wTCfNGY21H}
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{mbPCt4sWYC2_u_yU80neL}
+System initialization (creates a lot, spots, entrances, exits, and display boards)
+\item
+\protect\phantomsection\label{3R70WZtPXUHV6EVuLQPCD}
+\textbf{Scenario 1:} Customer parks and receives a ticket.
+\item
+\protect\phantomsection\label{WyoYC5bRAMidNqXCQMMeG}
+\textbf{Scenario 2:} Customer exits, system calculates fee, payment is processed.
+\item
+\protect\phantomsection\label{0DtU_CVR7G2E4dtnUCB_m}
+\textbf{Scenario 3:} Another customer enters, parks, and a new customer is rejected when the lot is full.
+\end{itemize}
+\\
+\textbf{Hint: Try customizing the code!}
+\\
+This code is designed for experimentation, not just reading. You can edit, extend, or modify any part of the example.
+
+\textbf{Executable code: Parking lot system}
+
+\begin{lstlisting}[language=Java]
+public class Driver {
+    public static void main(String[] args) throws InterruptedException {
+        // -------------- SYSTEM INITIALIZATION --------------
+        System.out.println("\n====================== PARKING LOT SYSTEM DEMO ======================\n");
+
+        ParkingLot lot = ParkingLot.getInstance();
+        lot.addSpot(new Accessible(1));
+        lot.addSpot(new Compact(2));
+        lot.addSpot(new Large(3));
+        lot.addSpot(new MotorcycleSpot(4));
+
+        DisplayBoard board = new DisplayBoard(1);
+        lot.addDisplayBoard(board);
+
+        Entrance entrance = new Entrance(1);
+        Exit exit = new Exit(1);
+
+        // ----------------- SCENARIO 1: CUSTOMER ENTERS, PARKS -----------------
+        System.out.println("\n→→→ SCENARIO 1: Customer enters and parks a car\n");
+
+        Vehicle car = new Car("KA-01-HH-1234");
+        System.out.println("-> Car " + car.getLicenseNo() + " arrives at entrance");
+        ParkingTicket ticket1 = entrance.getTicket(car);
+
+        System.out.println("-> Updating display board after parking:");
+        board.update(lot.getAllSpots());
+        board.showFreeSlot();
+
+        // ----------------- SCENARIO 2: CUSTOMER EXITS AND PAYS -----------------
+        System.out.println("\n→→→ SCENARIO 2: Customer exits and pays\n");
+
+        System.out.println("-> Car " + car.getLicenseNo() + " proceeds to exit panel");
+        Thread.sleep(1500); // Simulate parking duration (1.5 sec)
+        exit.validateTicket(ticket1);
+
+        System.out.println("-> Updating display board after exit:");
+        board.update(lot.getAllSpots());
+        board.showFreeSlot();
+
+        // --------- SCENARIO 3: FILLING LOT AND REJECTING ENTRY IF FULL ---------
+        System.out.println("\n→→→ SCENARIO 3: Multiple customers attempt to enter; lot may become full\n");
+
+        // Vehicles arriving
+        Vehicle van = new Van("KA-01-HH-9999");
+        Vehicle motorcycle = new Motorcycle("KA-02-XX-3333");
+        Vehicle truck = new Truck("KA-04-AA-9998");
+        Vehicle car2 = new Car("DL-09-YY-1234");
+
+        System.out.println("-> Van " + van.getLicenseNo() + " arrives at entrance");
+        ParkingTicket ticket2 = entrance.getTicket(van);
+
+        System.out.println("-> Motorcycle " + motorcycle.getLicenseNo() + " arrives at entrance");
+        ParkingTicket ticket3 = entrance.getTicket(motorcycle);
+
+        System.out.println("-> Truck " + truck.getLicenseNo() + " arrives at entrance");
+        ParkingTicket ticket4 = entrance.getTicket(truck);
+
+        System.out.println("-> Car " + car2.getLicenseNo() + " arrives at entrance");
+        ParkingTicket ticket5 = entrance.getTicket(car2);
+
+        System.out.println("-> Updating display board after several parkings:");
+        board.update(lot.getAllSpots());
+        board.showFreeSlot();
+
+        // Try to park another car (lot may now be full)
+        Vehicle car3 = new Car("UP-01-CC-1001");
+        System.out.println("-> Car " + car3.getLicenseNo() + " attempts to park (should be denied if lot is full):");
+        ParkingTicket ticket6 = entrance.getTicket(car3);
+
+        board.update(lot.getAllSpots());
+        board.showFreeSlot();
+
+        System.out.println("\n====================== END OF DEMONSTRATION ======================\n");
+    }
+}
+\end{lstlisting}
+
+\subsection{Wrapping up}\label{zfacxjX0I9O5Culv6EE1U}
+\\
+In this chapter, we've explored the complete design of a parking lot system. We 've also looked at how a basic parking lot system can be visualized using various UML diagrams and designed using object-oriented principles and design patterns.
+
+% End of section content

@@ -1,0 +1,487 @@
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The SOLID design principle in object-oriented design}}{46}{figure.caption.5}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces An example of SRP}}{47}{figure.caption.6}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces The class diagram of the book invoice application without applying the SRP rule}}{48}{figure.caption.10}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces The class diagram of the book invoice application after applying the SRP rule}}{48}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces The volume calculator class}}{49}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces The volume(Cuboid) function}}{49}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Add a Cone class and update the volume method}}{50}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces The volume (Shape) function}}{50}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces The class diagram of VolumeCalculator according to OCP}}{51}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces The vehicle superclass}}{52}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Violation of the LSP}}{53}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces An example of the LSP implementation}}{53}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces The Shape interface}}{54}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Violation of the ISP}}{55}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Solution of the ISP}}{56}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Violation of the DIP}}{57}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces DIP example of a high school}}{57}{figure.caption.32}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Secretary is added to the high school example}}{58}{figure.caption.33}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces The OOD interview}}{66}{figure.caption.36}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces The sequence of the design problem discussion in the interview}}{67}{figure.caption.40}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces The layout of the parking lot}}{70}{figure.caption.49}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces The use case diagram of the parking lot system}}{76}{figure.caption.93}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces The class diagram of Vehicle and its derived classes}}{77}{figure.caption.99}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces The class diagram of the ParkingSpot and its derived classes}}{78}{figure.caption.100}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces The class diagram of Account and its derived classes}}{78}{figure.caption.101}%
+\contentsline {figure}{\numberline {7.6}{\ignorespaces The class diagram of the DisplayBoard class}}{79}{figure.caption.102}%
+\contentsline {figure}{\numberline {7.7}{\ignorespaces The class diagram of the Entrance and Exit classes}}{79}{figure.caption.103}%
+\contentsline {figure}{\numberline {7.8}{\ignorespaces The class diagram of the ParkingTicket class}}{80}{figure.caption.104}%
+\contentsline {figure}{\numberline {7.9}{\ignorespaces The class diagram of the Payment class}}{81}{figure.caption.105}%
+\contentsline {figure}{\numberline {7.10}{\ignorespaces The class diagram of the ParkingRate class}}{81}{figure.caption.106}%
+\contentsline {figure}{\numberline {7.11}{\ignorespaces The class diagram for the ParkingLot class}}{82}{figure.caption.107}%
+\contentsline {figure}{\numberline {7.12}{\ignorespaces Enums in the parking lot system}}{82}{figure.caption.109}%
+\contentsline {figure}{\numberline {7.13}{\ignorespaces The class diagram of the Address custom data type}}{83}{figure.caption.110}%
+\contentsline {figure}{\numberline {7.14}{\ignorespaces The class diagram of the Person class custom data type}}{83}{figure.caption.111}%
+\contentsline {figure}{\numberline {7.15}{\ignorespaces The association relationship between classes}}{84}{figure.caption.116}%
+\contentsline {figure}{\numberline {7.16}{\ignorespaces The composition relationship between classes}}{85}{figure.caption.118}%
+\contentsline {figure}{\numberline {7.17}{\ignorespaces The class diagram of the parking lot system}}{86}{figure.caption.121}%
+\contentsline {figure}{\numberline {7.18}{\ignorespaces Relationship of the ParkingFloor class with other classes}}{87}{figure.caption.125}%
+\contentsline {figure}{\numberline {7.19}{\ignorespaces Relationship of the Electric and ElectricPanel classes with other classes}}{87}{figure.caption.126}%
+\contentsline {figure}{\numberline {7.20}{\ignorespaces The sequence diagram for the card payment}}{89}{figure.caption.139}%
+\contentsline {figure}{\numberline {7.21}{\ignorespaces The sequence diagram for payment verification}}{89}{figure.caption.140}%
+\contentsline {figure}{\numberline {7.22}{\ignorespaces The activity diagram for the vehicle entering a parking lot}}{91}{figure.caption.145}%
+\contentsline {figure}{\numberline {7.23}{\ignorespaces The activity diagram for the vehicle entering a parking lot}}{91}{figure.caption.146}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces The elevator system}}{106}{figure.caption.195}%
+\contentsline {figure}{\numberline {8.2}{\ignorespaces The use case diagram of the elevator system}}{112}{figure.caption.231}%
+\contentsline {figure}{\numberline {8.3}{\ignorespaces The class diagram of Button and its derived classes}}{113}{figure.caption.232}%
+\contentsline {figure}{\numberline {8.4}{\ignorespaces The class diagram of the HallPanel and ElevatorPanel classes}}{114}{figure.caption.233}%
+\contentsline {figure}{\numberline {8.5}{\ignorespaces The class diagram of the Display class}}{115}{figure.caption.234}%
+\contentsline {figure}{\numberline {8.6}{\ignorespaces The class diagram of the Door class}}{115}{figure.caption.235}%
+\contentsline {figure}{\numberline {8.7}{\ignorespaces The class diagram of the ElevatorCar class}}{117}{figure.caption.236}%
+\contentsline {figure}{\numberline {8.8}{\ignorespaces The class diagram of the Floor class}}{118}{figure.caption.237}%
+\contentsline {figure}{\numberline {8.9}{\ignorespaces The class diagram of the Building class}}{118}{figure.caption.238}%
+\contentsline {figure}{\numberline {8.10}{\ignorespaces The class diagram of the ElevatorSystem class}}{118}{figure.caption.239}%
+\contentsline {figure}{\numberline {8.11}{\ignorespaces Enums in the elevator system}}{119}{figure.caption.243}%
+\contentsline {figure}{\numberline {8.12}{\ignorespaces The association relationship between classes}}{120}{figure.caption.246}%
+\contentsline {figure}{\numberline {8.13}{\ignorespaces The composition relationships between classes}}{121}{figure.caption.251}%
+\contentsline {figure}{\numberline {8.14}{\ignorespaces The class diagram of elevator system}}{122}{figure.caption.253}%
+\contentsline {figure}{\numberline {8.45}{\ignorespaces The sequence diagram for an elevator call}}{154}{figure.caption.311}%
+\contentsline {figure}{\numberline {8.46}{\ignorespaces The sequence diagram for an elevator ride}}{155}{figure.caption.312}%
+\contentsline {figure}{\numberline {8.47}{\ignorespaces The activity diagram for a passenger arriving at their desired floor}}{156}{figure.caption.317}%
+\contentsline {figure}{\numberline {8.48}{\ignorespaces The activity diagram for a passenger calling for the elevator}}{157}{figure.caption.318}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {9.1}{\ignorespaces An example of the library management system}}{172}{figure.caption.374}%
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Use case diagram of the library management system}}{179}{figure.caption.421}%
+\contentsline {figure}{\numberline {9.3}{\ignorespaces The class diagram of the Book and BookItem classes}}{179}{figure.caption.422}%
+\contentsline {figure}{\numberline {9.4}{\ignorespaces The class diagram of the Rack class}}{180}{figure.caption.423}%
+\contentsline {figure}{\numberline {9.5}{\ignorespaces The class diagram of the Person and Author classes}}{181}{figure.caption.424}%
+\contentsline {figure}{\numberline {9.6}{\ignorespaces The class diagram of the User, Librarian, and Member classes}}{182}{figure.caption.425}%
+\contentsline {figure}{\numberline {9.7}{\ignorespaces The class diagram of the LibraryCard class}}{182}{figure.caption.426}%
+\contentsline {figure}{\numberline {9.8}{\ignorespaces The class diagram of the BookReservation class}}{183}{figure.caption.427}%
+\contentsline {figure}{\numberline {9.9}{\ignorespaces The class diagram of the BookLending class}}{183}{figure.caption.428}%
+\contentsline {figure}{\numberline {9.10}{\ignorespaces The class diagram of the Notification, PostalNotification, and EmailNotification classes}}{184}{figure.caption.429}%
+\contentsline {figure}{\numberline {9.11}{\ignorespaces The class diagram of the Search and Catalog classes}}{185}{figure.caption.434}%
+\contentsline {figure}{\numberline {9.12}{\ignorespaces The class diagram of the Library class}}{185}{figure.caption.435}%
+\contentsline {figure}{\numberline {9.13}{\ignorespaces Enums in the library management system}}{185}{figure.caption.436}%
+\contentsline {figure}{\numberline {9.14}{\ignorespaces Class diagram of the Address custom data type}}{186}{figure.caption.437}%
+\contentsline {figure}{\numberline {9.15}{\ignorespaces The one-way association relationship between the classes}}{186}{figure.caption.440}%
+\contentsline {figure}{\numberline {9.16}{\ignorespaces The two-way association relationship between the classes}}{187}{figure.caption.445}%
+\contentsline {figure}{\numberline {9.17}{\ignorespaces The composition relationship between the classes}}{187}{figure.caption.449}%
+\contentsline {figure}{\numberline {9.18}{\ignorespaces The aggregation relationship between the classes}}{188}{figure.caption.451}%
+\contentsline {figure}{\numberline {9.19}{\ignorespaces The class diagram of the library management system}}{189}{figure.caption.455}%
+\contentsline {figure}{\numberline {9.20}{\ignorespaces Relationship between the BarcodeReader and the LibraryCard class}}{190}{figure.caption.460}%
+\contentsline {figure}{\numberline {9.21}{\ignorespaces Relationship of the FineTransaction class with other classes}}{190}{figure.caption.461}%
+\contentsline {figure}{\numberline {9.22}{\ignorespaces The sequence diagram for issuing a book}}{192}{figure.caption.469}%
+\contentsline {figure}{\numberline {9.23}{\ignorespaces The sequence diagram for returning a book}}{192}{figure.caption.470}%
+\contentsline {figure}{\numberline {9.24}{\ignorespaces The activity diagram to check out a book from the library}}{194}{figure.caption.476}%
+\contentsline {figure}{\numberline {9.25}{\ignorespaces The activity diagram for returning a book to the library}}{195}{figure.caption.479}%
+\contentsline {figure}{\numberline {9.26}{\ignorespaces The activity diagram for renewing a book at the library}}{196}{figure.caption.480}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {10.1}{\ignorespaces The Amazon Locker service}}{212}{figure.caption.534}%
+\contentsline {figure}{\numberline {10.2}{\ignorespaces The use case diagram for the Amazon Locker system}}{218}{figure.caption.565}%
+\contentsline {figure}{\numberline {10.3}{\ignorespaces The class diagram of the Item class}}{220}{figure.caption.568}%
+\contentsline {figure}{\numberline {10.4}{\ignorespaces The class diagram of the Order class}}{220}{figure.caption.569}%
+\contentsline {figure}{\numberline {10.5}{\ignorespaces The class diagram of the Notification class}}{221}{figure.caption.570}%
+\contentsline {figure}{\numberline {10.6}{\ignorespaces The class diagram of the Package and LockerPackage classes}}{222}{figure.caption.571}%
+\contentsline {figure}{\numberline {10.7}{\ignorespaces The class diagram of the Locker class}}{223}{figure.caption.572}%
+\contentsline {figure}{\numberline {10.8}{\ignorespaces The class diagram of the LockerLocation class}}{224}{figure.caption.573}%
+\contentsline {figure}{\numberline {10.9}{\ignorespaces The class diagram of the LockerService class}}{224}{figure.caption.574}%
+\contentsline {figure}{\numberline {10.10}{\ignorespaces Enums in the Amazon Locker service}}{225}{figure.caption.577}%
+\contentsline {figure}{\numberline {10.11}{\ignorespaces The association relationship between classes}}{225}{figure.caption.582}%
+\contentsline {figure}{\numberline {10.12}{\ignorespaces The composition relationship between classes}}{226}{figure.caption.587}%
+\contentsline {figure}{\numberline {10.13}{\ignorespaces The class diagram of the Amazon Locker service}}{227}{figure.caption.589}%
+\contentsline {figure}{\numberline {10.14}{\ignorespaces The sequence diagram for returning a package}}{230}{figure.caption.606}%
+\contentsline {figure}{\numberline {10.15}{\ignorespaces The activity diagram for product pickup from the locker}}{231}{figure.caption.609}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {11.1}{\ignorespaces The use case diagram of the vending machine}}{249}{figure.caption.685}%
+\contentsline {figure}{\numberline {11.2}{\ignorespaces The class diagram of the State interface and its subclasses}}{250}{figure.caption.691}%
+\contentsline {figure}{\numberline {11.3}{\ignorespaces The class diagram of the Product class}}{251}{figure.caption.692}%
+\contentsline {figure}{\numberline {11.4}{\ignorespaces The class diagram of the Rack class}}{252}{figure.caption.693}%
+\contentsline {figure}{\numberline {11.5}{\ignorespaces The class diagram of the Inventory class}}{252}{figure.caption.697}%
+\contentsline {figure}{\numberline {11.6}{\ignorespaces The class diagram of the VendingMachine class}}{253}{figure.caption.704}%
+\contentsline {figure}{\numberline {11.7}{\ignorespaces The ProductType enumeration}}{254}{figure.caption.705}%
+\contentsline {figure}{\numberline {11.8}{\ignorespaces The composition relationship between classes}}{255}{figure.caption.709}%
+\contentsline {figure}{\numberline {11.9}{\ignorespaces The aggregation relationship between classes}}{255}{figure.caption.714}%
+\contentsline {figure}{\numberline {11.10}{\ignorespaces The association relationship between classes}}{256}{figure.caption.719}%
+\contentsline {figure}{\numberline {11.11}{\ignorespaces The class diagram of the vending machine}}{257}{figure.caption.722}%
+\contentsline {figure}{\numberline {11.12}{\ignorespaces Modified class diagram of the vending machine}}{258}{figure.caption.724}%
+\contentsline {figure}{\numberline {11.13}{\ignorespaces The activity diagram for the product purchase from the vending machine}}{259}{figure.caption.728}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {12.11}{\ignorespaces The use case diagram for the Blackjack game}}{281}{figure.caption.829}%
+\contentsline {figure}{\numberline {12.12}{\ignorespaces The class diagram of the Card class}}{281}{figure.caption.830}%
+\contentsline {figure}{\numberline {12.13}{\ignorespaces The class diagram of the Deck class}}{282}{figure.caption.831}%
+\contentsline {figure}{\numberline {12.14}{\ignorespaces The class diagram of the Shoe class}}{282}{figure.caption.832}%
+\contentsline {figure}{\numberline {12.15}{\ignorespaces The class diagram of the Hand class}}{283}{figure.caption.833}%
+\contentsline {figure}{\numberline {12.16}{\ignorespaces The class diagram of Player and its derived classes}}{284}{figure.caption.836}%
+\contentsline {figure}{\numberline {12.17}{\ignorespaces The class diagram of the BlackjackController class}}{284}{figure.caption.837}%
+\contentsline {figure}{\numberline {12.18}{\ignorespaces The class diagram of the BlackjackGameView class}}{284}{figure.caption.838}%
+\contentsline {figure}{\numberline {12.19}{\ignorespaces The class diagram of the BlackjackGame class}}{285}{figure.caption.839}%
+\contentsline {figure}{\numberline {12.20}{\ignorespaces Enums in the Blackjack game}}{285}{figure.caption.842}%
+\contentsline {figure}{\numberline {12.21}{\ignorespaces The class diagram of the Person class}}{286}{figure.caption.844}%
+\contentsline {figure}{\numberline {12.22}{\ignorespaces The association relationship between classes}}{286}{figure.caption.846}%
+\contentsline {figure}{\numberline {12.23}{\ignorespaces The aggregation relationship between classes}}{287}{figure.caption.850}%
+\contentsline {figure}{\numberline {12.24}{\ignorespaces The composition relationship between classes}}{287}{figure.caption.854}%
+\contentsline {figure}{\numberline {12.25}{\ignorespaces The class diagram of the Blackjack game}}{288}{figure.caption.856}%
+\contentsline {figure}{\numberline {12.26}{\ignorespaces The activity diagram for the Blackjack game play}}{291}{figure.caption.868}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {13.1}{\ignorespaces Schedule a meeting using a meeting scheduler}}{304}{figure.caption.918}%
+\contentsline {figure}{\numberline {13.2}{\ignorespaces The use case diagram of the meeting scheduler}}{310}{figure.caption.965}%
+\contentsline {figure}{\numberline {13.3}{\ignorespaces The class diagram of the User class}}{310}{figure.caption.966}%
+\contentsline {figure}{\numberline {13.4}{\ignorespaces The class diagram of the Interval class}}{311}{figure.caption.967}%
+\contentsline {figure}{\numberline {13.5}{\ignorespaces The class diagram of the MeetingRoom class}}{312}{figure.caption.968}%
+\contentsline {figure}{\numberline {13.6}{\ignorespaces The class diagram of the Meeting class}}{312}{figure.caption.969}%
+\contentsline {figure}{\numberline {13.7}{\ignorespaces The class diagram of the Calendar class}}{313}{figure.caption.970}%
+\contentsline {figure}{\numberline {13.8}{\ignorespaces Class diagram of the MeetingScheduler class}}{313}{figure.caption.971}%
+\contentsline {figure}{\numberline {13.9}{\ignorespaces The class diagram of the Notification class}}{314}{figure.caption.972}%
+\contentsline {figure}{\numberline {13.10}{\ignorespaces The association relationship between classes}}{315}{figure.caption.977}%
+\contentsline {figure}{\numberline {13.11}{\ignorespaces The composition relationship between classes}}{316}{figure.caption.981}%
+\contentsline {figure}{\numberline {13.12}{\ignorespaces The aggregation relationship between classes}}{316}{figure.caption.985}%
+\contentsline {figure}{\numberline {13.13}{\ignorespaces The class diagram of the meeting scheduler}}{317}{figure.caption.986}%
+\contentsline {figure}{\numberline {13.14}{\ignorespaces The sequence diagram for scheduling a meeting}}{319}{figure.caption.998}%
+\contentsline {figure}{\numberline {13.15}{\ignorespaces The sequence diagram for canceling a meeting}}{319}{figure.caption.999}%
+\contentsline {figure}{\numberline {13.16}{\ignorespaces The activity diagram for a user scheduling a meeting}}{320}{figure.caption.1002}%
+\contentsline {figure}{\numberline {13.17}{\ignorespaces The activity diagram for a user responding to an invite}}{321}{figure.caption.1003}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {14.1}{\ignorespaces Customers are lining up to book tickets for a show}}{334}{figure.caption.1057}%
+\contentsline {figure}{\numberline {14.2}{\ignorespaces Use case diagram of a movie ticket booking system}}{341}{figure.caption.1102}%
+\contentsline {figure}{\numberline {14.3}{\ignorespaces The class diagram of Seat and its derived classes}}{342}{figure.caption.1106}%
+\contentsline {figure}{\numberline {14.4}{\ignorespaces The class diagram of the ShowTime class}}{342}{figure.caption.1109}%
+\contentsline {figure}{\numberline {14.5}{\ignorespaces The class diagram of the Hall class}}{343}{figure.caption.1112}%
+\contentsline {figure}{\numberline {14.6}{\ignorespaces The class diagram of the Cinema class}}{343}{figure.caption.1113}%
+\contentsline {figure}{\numberline {14.7}{\ignorespaces The class diagram of the City class}}{344}{figure.caption.1114}%
+\contentsline {figure}{\numberline {14.8}{\ignorespaces The class diagram of the Movie class}}{344}{figure.caption.1115}%
+\contentsline {figure}{\numberline {14.9}{\ignorespaces The class diagram of the MovieTicket class}}{345}{figure.caption.1116}%
+\contentsline {figure}{\numberline {14.10}{\ignorespaces The class diagram of the Payment class and its child classes}}{346}{figure.caption.1117}%
+\contentsline {figure}{\numberline {14.11}{\ignorespaces The class diagram of different people who interact with our system}}{346}{figure.caption.1121}%
+\contentsline {figure}{\numberline {14.12}{\ignorespaces The class diagram of Notification and its child classes}}{347}{figure.caption.1125}%
+\contentsline {figure}{\numberline {14.13}{\ignorespaces The class diagram of the Catalog class}}{348}{figure.caption.1126}%
+\contentsline {figure}{\numberline {14.14}{\ignorespaces The class diagram of the Search interface}}{348}{figure.caption.1131}%
+\contentsline {figure}{\numberline {14.15}{\ignorespaces The class diagram of the Booking class}}{349}{figure.caption.1132}%
+\contentsline {figure}{\numberline {14.16}{\ignorespaces Enums in the movie ticket booking system}}{350}{figure.caption.1136}%
+\contentsline {figure}{\numberline {14.17}{\ignorespaces The association relationship between classes}}{351}{figure.caption.1144}%
+\contentsline {figure}{\numberline {14.18}{\ignorespaces The composition relationship between classes}}{352}{figure.caption.1146}%
+\contentsline {figure}{\numberline {14.19}{\ignorespaces The aggregation relationship between classes}}{353}{figure.caption.1148}%
+\contentsline {figure}{\numberline {14.20}{\ignorespaces The generalization relationship between classes}}{353}{figure.caption.1150}%
+\contentsline {figure}{\numberline {14.21}{\ignorespaces The class diagram of the movie ticket booking system}}{354}{figure.caption.1155}%
+\contentsline {figure}{\numberline {14.26}{\ignorespaces The relationship between the Discount class and the Payment class}}{358}{figure.caption.1162}%
+\contentsline {figure}{\numberline {14.27}{\ignorespaces The class diagram of different users of our system}}{359}{figure.caption.1163}%
+\contentsline {figure}{\numberline {14.28}{\ignorespaces The sequence diagram to create a booking }}{360}{figure.caption.1176}%
+\contentsline {figure}{\numberline {14.29}{\ignorespaces The sequence diagram for the payment of a booking interaction}}{361}{figure.caption.1183}%
+\contentsline {figure}{\numberline {14.30}{\ignorespaces The sequence diagram for canceling the booking}}{361}{figure.caption.1184}%
+\contentsline {figure}{\numberline {14.31}{\ignorespaces The activity diagram for the customer making a booking}}{363}{figure.caption.1189}%
+\contentsline {figure}{\numberline {14.32}{\ignorespaces The activity diagram for an admin cancelling a show}}{364}{figure.caption.1190}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {15.1}{\ignorespaces Application of the car rental system}}{382}{figure.caption.1248}%
+\contentsline {figure}{\numberline {15.2}{\ignorespaces The use case diagram of the car rental system}}{390}{figure.caption.1305}%
+\contentsline {figure}{\numberline {15.3}{\ignorespaces The class diagram of the Address and Person classes}}{391}{figure.caption.1306}%
+\contentsline {figure}{\numberline {15.4}{\ignorespaces The class diagram of the Account class}}{391}{figure.caption.1307}%
+\contentsline {figure}{\numberline {15.5}{\ignorespaces The class diagram of the Driver class}}{392}{figure.caption.1308}%
+\contentsline {figure}{\numberline {15.6}{\ignorespaces The class diagram of Vehicle and its derived classes}}{392}{figure.caption.1309}%
+\contentsline {figure}{\numberline {15.7}{\ignorespaces The class diagram of Equipment and its derived classes}}{393}{figure.caption.1310}%
+\contentsline {figure}{\numberline {15.8}{\ignorespaces The class diagram of Service and its derived classes}}{393}{figure.caption.1311}%
+\contentsline {figure}{\numberline {15.9}{\ignorespaces The class diagram of Notification and its derived classes}}{394}{figure.caption.1312}%
+\contentsline {figure}{\numberline {15.10}{\ignorespaces The class diagram of the ParkingStall class}}{394}{figure.caption.1313}%
+\contentsline {figure}{\numberline {15.11}{\ignorespaces The class diagram of the VehicleLog class}}{395}{figure.caption.1314}%
+\contentsline {figure}{\numberline {15.12}{\ignorespaces The class diagram of the VehicleReservation class}}{395}{figure.caption.1315}%
+\contentsline {figure}{\numberline {15.13}{\ignorespaces The class diagram of Payment and its child classes}}{395}{figure.caption.1316}%
+\contentsline {figure}{\numberline {15.14}{\ignorespaces The class diagram of the Fine class}}{396}{figure.caption.1317}%
+\contentsline {figure}{\numberline {15.15}{\ignorespaces The class diagram of the Search interface and the VehicleCatalog class}}{397}{figure.caption.1320}%
+\contentsline {figure}{\numberline {15.16}{\ignorespaces The class diagram of the CarRentalSystem and CarRentalBranch classes}}{397}{figure.caption.1321}%
+\contentsline {figure}{\numberline {15.17}{\ignorespaces Enums in the car rental system}}{398}{figure.caption.1331}%
+\contentsline {figure}{\numberline {15.18}{\ignorespaces The one-way association relationship between classes}}{399}{figure.caption.1333}%
+\contentsline {figure}{\numberline {15.19}{\ignorespaces The two-way association relationship between classes}}{399}{figure.caption.1335}%
+\contentsline {figure}{\numberline {15.20}{\ignorespaces The composition relationship between classes}}{400}{figure.caption.1338}%
+\contentsline {figure}{\numberline {15.21}{\ignorespaces The aggregation relationship between classes}}{400}{figure.caption.1342}%
+\contentsline {figure}{\numberline {15.22}{\ignorespaces The class diagram of the different users of our system}}{401}{figure.caption.1351}%
+\contentsline {figure}{\numberline {15.23}{\ignorespaces The class diagram of the car rental system}}{403}{figure.caption.1352}%
+\contentsline {figure}{\numberline {15.24}{\ignorespaces The class diagram of barcode scanner functionality}}{404}{figure.caption.1358}%
+\contentsline {figure}{\numberline {15.25}{\ignorespaces The sequence diagram for vehicle reservation}}{405}{figure.caption.1367}%
+\contentsline {figure}{\numberline {15.26}{\ignorespaces The sequence diagram for canceling a reservation}}{406}{figure.caption.1368}%
+\contentsline {figure}{\numberline {15.27}{\ignorespaces The activity diagram for vehicle pickup}}{407}{figure.caption.1371}%
+\contentsline {figure}{\numberline {15.28}{\ignorespaces The activity diagram for vehicle return}}{408}{figure.caption.1372}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {16.10}{\ignorespaces ATM components}}{437}{figure.caption.1467}%
+\contentsline {figure}{\numberline {16.11}{\ignorespaces The use case diagram of the ATM system}}{440}{figure.caption.1479}%
+\contentsline {figure}{\numberline {16.12}{\ignorespaces The User class}}{440}{figure.caption.1480}%
+\contentsline {figure}{\numberline {16.13}{\ignorespaces The ATMCard class}}{441}{figure.caption.1481}%
+\contentsline {figure}{\numberline {16.14}{\ignorespaces BankAccount and its derived classes}}{441}{figure.caption.1484}%
+\contentsline {figure}{\numberline {16.15}{\ignorespaces The Bank class}}{442}{figure.caption.1485}%
+\contentsline {figure}{\numberline {16.16}{\ignorespaces The class diagram of the Keypad, CashDispenser, CardReader, Screen, and Printer classes}}{442}{figure.caption.1491}%
+\contentsline {figure}{\numberline {16.17}{\ignorespaces ATMState and its derived classes}}{443}{figure.caption.1499}%
+\contentsline {figure}{\numberline {16.18}{\ignorespaces The ATM class}}{444}{figure.caption.1500}%
+\contentsline {figure}{\numberline {16.19}{\ignorespaces The ATMRoom class}}{444}{figure.caption.1501}%
+\contentsline {figure}{\numberline {16.20}{\ignorespaces Enums in the ATM design problem}}{445}{figure.caption.1504}%
+\contentsline {figure}{\numberline {16.21}{\ignorespaces The association relationship between classes}}{446}{figure.caption.1508}%
+\contentsline {figure}{\numberline {16.22}{\ignorespaces The composition relationship between classes}}{446}{figure.caption.1511}%
+\contentsline {figure}{\numberline {16.23}{\ignorespaces The class diagram of the ATM design problem}}{448}{figure.caption.1514}%
+\contentsline {figure}{\numberline {16.24}{\ignorespaces How to apply the Chain of Responsibility design pattern to the cashWithdrawal method}}{449}{figure.caption.1518}%
+\contentsline {figure}{\numberline {16.25}{\ignorespaces The sequence diagram for how to complete a balance inquiry from an ATM}}{450}{figure.caption.1526}%
+\contentsline {figure}{\numberline {16.26}{\ignorespaces The activity diagram for the cardholder performing ATM transactions}}{451}{figure.caption.1531}%
+\contentsline {figure}{\numberline {16.27}{\ignorespaces The activity diagram of the cardholder performing an ATM cash withdrawal}}{452}{figure.caption.1532}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {17.7}{\ignorespaces White pawn takes the first move}}{472}{figure.caption.1626}%
+\contentsline {figure}{\numberline {17.8}{\ignorespaces The use case diagram of a chess game}}{475}{figure.caption.1639}%
+\contentsline {figure}{\numberline {17.9}{\ignorespaces The class diagram of the Box class}}{476}{figure.caption.1640}%
+\contentsline {figure}{\numberline {17.10}{\ignorespaces The class diagram of the Chessboard class}}{476}{figure.caption.1641}%
+\contentsline {figure}{\numberline {17.11}{\ignorespaces The class diagram of the Piece and its derived classes}}{477}{figure.caption.1643}%
+\contentsline {figure}{\numberline {17.12}{\ignorespaces The class diagram of the Move class}}{477}{figure.caption.1644}%
+\contentsline {figure}{\numberline {17.13}{\ignorespaces The class diagram of Player and its derived classes}}{478}{figure.caption.1645}%
+\contentsline {figure}{\numberline {17.14}{\ignorespaces The class diagram of the ChessMoveController class}}{478}{figure.caption.1646}%
+\contentsline {figure}{\numberline {17.15}{\ignorespaces The class diagram of the ChessGameView class}}{478}{figure.caption.1647}%
+\contentsline {figure}{\numberline {17.16}{\ignorespaces The ChessGame class}}{479}{figure.caption.1648}%
+\contentsline {figure}{\numberline {17.17}{\ignorespaces The class diagram of the Person class}}{479}{figure.caption.1651}%
+\contentsline {figure}{\numberline {17.18}{\ignorespaces The association relationship between classes}}{480}{figure.caption.1657}%
+\contentsline {figure}{\numberline {17.19}{\ignorespaces The aggregation relationship between classes}}{480}{figure.caption.1659}%
+\contentsline {figure}{\numberline {17.20}{\ignorespaces The composition relationship between classes}}{481}{figure.caption.1663}%
+\contentsline {figure}{\numberline {17.21}{\ignorespaces The class diagram of the chess game}}{482}{figure.caption.1666}%
+\contentsline {figure}{\numberline {17.22}{\ignorespaces The activity diagram for an online chess game}}{484}{figure.caption.1675}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {18.1}{\ignorespaces The class diagram of the Address and Account classes}}{504}{figure.caption.1757}%
+\contentsline {figure}{\numberline {18.2}{\ignorespaces The class diagram of Person and its derived classes}}{504}{figure.caption.1758}%
+\contentsline {figure}{\numberline {18.3}{\ignorespaces The class diagram of Service and its derived classes}}{505}{figure.caption.1759}%
+\contentsline {figure}{\numberline {18.4}{\ignorespaces The class diagram of the Invoice class}}{505}{figure.caption.1760}%
+\contentsline {figure}{\numberline {18.5}{\ignorespaces The class diagram of the RoomBooking class}}{506}{figure.caption.1761}%
+\contentsline {figure}{\numberline {18.6}{\ignorespaces The class diagram of Notification and its derived classes}}{506}{figure.caption.1762}%
+\contentsline {figure}{\numberline {18.7}{\ignorespaces The class diagram of the Room, RoomKey, and RoomMaintenance classes}}{507}{figure.caption.1763}%
+\contentsline {figure}{\numberline {18.8}{\ignorespaces The class diagram of the Search interface and the Catalog class}}{507}{figure.caption.1764}%
+\contentsline {figure}{\numberline {18.9}{\ignorespaces The class diagram of BillTransaction and its derived classes}}{508}{figure.caption.1765}%
+\contentsline {figure}{\numberline {18.10}{\ignorespaces The class diagram of the Hotel and HotelBranch classes}}{508}{figure.caption.1766}%
+\contentsline {figure}{\numberline {18.11}{\ignorespaces Enums in the hotel management system}}{509}{figure.caption.1767}%
+\contentsline {figure}{\numberline {18.12}{\ignorespaces A one-way association relationship between classes}}{509}{figure.caption.1771}%
+\contentsline {figure}{\numberline {18.13}{\ignorespaces A two-way association relationship between classes}}{510}{figure.caption.1772}%
+\contentsline {figure}{\numberline {18.14}{\ignorespaces An aggregation relationship between classes}}{510}{figure.caption.1774}%
+\contentsline {figure}{\numberline {18.15}{\ignorespaces A composition relationship between classes}}{510}{figure.caption.1781}%
+\contentsline {figure}{\numberline {18.16}{\ignorespaces The class diagram of the hotel management system}}{512}{figure.caption.1787}%
+\contentsline {figure}{\numberline {18.17}{\ignorespaces The relationship of the Discount class with the BillTransaction class}}{513}{figure.caption.1789}%
+\contentsline {figure}{\numberline {18.18}{\ignorespaces The sequence diagram for online room booking}}{514}{figure.caption.1800}%
+\contentsline {figure}{\numberline {18.19}{\ignorespaces The sequence diagram for checking out of the hotel}}{515}{figure.caption.1801}%
+\contentsline {figure}{\numberline {18.20}{\ignorespaces The activity diagram for the hotel check-in}}{516}{figure.caption.1803}%
+\contentsline {figure}{\numberline {18.21}{\ignorespaces The activity diagram for booking cancellation}}{517}{figure.caption.1804}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {19.1}{\ignorespaces Users interacting with an online shopping system}}{534}{figure.caption.1855}%
+\contentsline {figure}{\numberline {19.2}{\ignorespaces The use case diagram of the Amazon online shopping system}}{539}{figure.caption.1889}%
+\contentsline {figure}{\numberline {19.3}{\ignorespaces The class diagram of the Customer class and its child classes}}{540}{figure.caption.1894}%
+\contentsline {figure}{\numberline {19.4}{\ignorespaces The class diagram of the Admin class}}{540}{figure.caption.1895}%
+\contentsline {figure}{\numberline {19.5}{\ignorespaces The class diagram of the Account class}}{540}{figure.caption.1896}%
+\contentsline {figure}{\numberline {19.6}{\ignorespaces The class diagram of the Product class}}{541}{figure.caption.1897}%
+\contentsline {figure}{\numberline {19.7}{\ignorespaces The class diagram of the ProductCategory class}}{541}{figure.caption.1898}%
+\contentsline {figure}{\numberline {19.8}{\ignorespaces The class diagram of the ProductReview class}}{542}{figure.caption.1899}%
+\contentsline {figure}{\numberline {19.9}{\ignorespaces The class diagram of the Search interface}}{542}{figure.caption.1900}%
+\contentsline {figure}{\numberline {19.10}{\ignorespaces The class diagram of the CartItem class}}{542}{figure.caption.1901}%
+\contentsline {figure}{\numberline {19.11}{\ignorespaces The class diagram of the ShoppingCart class}}{543}{figure.caption.1902}%
+\contentsline {figure}{\numberline {19.12}{\ignorespaces The class diagram of the Order class}}{544}{figure.caption.1903}%
+\contentsline {figure}{\numberline {19.13}{\ignorespaces The class diagram of the Shipment class}}{544}{figure.caption.1904}%
+\contentsline {figure}{\numberline {19.14}{\ignorespaces The class diagram of Payment and its child classes}}{544}{figure.caption.1905}%
+\contentsline {figure}{\numberline {19.15}{\ignorespaces The class diagram of Notification and its child classes}}{545}{figure.caption.1906}%
+\contentsline {figure}{\numberline {19.16}{\ignorespaces Enums in Amazon }}{545}{figure.caption.1911}%
+\contentsline {figure}{\numberline {19.17}{\ignorespaces The class diagram of the Address custom data type}}{546}{figure.caption.1912}%
+\contentsline {figure}{\numberline {19.18}{\ignorespaces The association relationship between classes}}{547}{figure.caption.1917}%
+\contentsline {figure}{\numberline {19.19}{\ignorespaces The composition relationship between classes}}{547}{figure.caption.1922}%
+\contentsline {figure}{\numberline {19.20}{\ignorespaces The aggregation relationship between classes}}{548}{figure.caption.1924}%
+\contentsline {figure}{\numberline {19.21}{\ignorespaces The class diagram of Amazon}}{548}{figure.caption.1928}%
+\contentsline {figure}{\numberline {19.22}{\ignorespaces Adding Wishlist functionality}}{550}{figure.caption.1931}%
+\contentsline {figure}{\numberline {19.23}{\ignorespaces Relationship between the Discount class with the Payment class}}{551}{figure.caption.1932}%
+\contentsline {figure}{\numberline {19.24}{\ignorespaces The sequence diagram for checkout and payment}}{552}{figure.caption.1942}%
+\contentsline {figure}{\numberline {19.25}{\ignorespaces The sequence diagram for search and add items to the cart}}{552}{figure.caption.1943}%
+\contentsline {figure}{\numberline {19.26}{\ignorespaces The activity diagram for a customer buying a product}}{554}{figure.caption.1946}%
+\contentsline {figure}{\numberline {19.27}{\ignorespaces The activity diagram for a customer receiving their order}}{555}{figure.caption.1947}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {20.1}{\ignorespaces A question page on Stack Overflow}}{570}{figure.caption.2000}%
+\contentsline {figure}{\numberline {20.2}{\ignorespaces The use case diagram for Stack Overflow}}{576}{figure.caption.2031}%
+\contentsline {figure}{\numberline {20.3}{\ignorespaces The class diagram of the Guest class}}{576}{figure.caption.2032}%
+\contentsline {figure}{\numberline {20.4}{\ignorespaces The class diagram of the Question class}}{577}{figure.caption.2033}%
+\contentsline {figure}{\numberline {20.5}{\ignorespaces The class diagram of the Answer class}}{578}{figure.caption.2034}%
+\contentsline {figure}{\numberline {20.6}{\ignorespaces The class diagram of the Comment class}}{579}{figure.caption.2035}%
+\contentsline {figure}{\numberline {20.7}{\ignorespaces The class diagram of the Bounty class}}{579}{figure.caption.2036}%
+\contentsline {figure}{\numberline {20.8}{\ignorespaces The class diagram of the Badge class}}{579}{figure.caption.2037}%
+\contentsline {figure}{\numberline {20.9}{\ignorespaces The class diagram of the Tag and TagList classes}}{580}{figure.caption.2038}%
+\contentsline {figure}{\numberline {20.10}{\ignorespaces The class diagram of the User class}}{580}{figure.caption.2041}%
+\contentsline {figure}{\numberline {20.11}{\ignorespaces The class diagram of User and its child classes}}{581}{figure.caption.2042}%
+\contentsline {figure}{\numberline {20.12}{\ignorespaces The class diagram of the Notification class}}{581}{figure.caption.2043}%
+\contentsline {figure}{\numberline {20.13}{\ignorespaces The class diagram of the Search interface}}{582}{figure.caption.2044}%
+\contentsline {figure}{\numberline {20.14}{\ignorespaces The class diagram of the SearchCatalog class}}{582}{figure.caption.2045}%
+\contentsline {figure}{\numberline {20.15}{\ignorespaces Enums in Stack Overflow}}{583}{figure.caption.2048}%
+\contentsline {figure}{\numberline {20.16}{\ignorespaces The association relationship between classes}}{583}{figure.caption.2053}%
+\contentsline {figure}{\numberline {20.17}{\ignorespaces The composition relationship between classes}}{584}{figure.caption.2057}%
+\contentsline {figure}{\numberline {20.18}{\ignorespaces The generalization relationship between classes}}{585}{figure.caption.2059}%
+\contentsline {figure}{\numberline {20.19}{\ignorespaces The class diagram of Stack Overflow}}{586}{figure.caption.2062}%
+\contentsline {figure}{\numberline {20.20}{\ignorespaces The class diagram of the save functionality in Stack Overflow}}{588}{figure.caption.2065}%
+\contentsline {figure}{\numberline {20.21}{\ignorespaces The sequence diagram for closing a question}}{589}{figure.caption.2073}%
+\contentsline {figure}{\numberline {20.22}{\ignorespaces The sequence diagram for creating a question}}{589}{figure.caption.2074}%
+\contentsline {figure}{\numberline {20.23}{\ignorespaces The activity diagram for a member posting a question}}{591}{figure.caption.2079}%
+\contentsline {figure}{\numberline {20.24}{\ignorespaces The activity diagram for a member closing a question}}{591}{figure.caption.2080}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {21.3}{\ignorespaces The use case diagram of the restaurant management system}}{611}{figure.caption.2183}%
+\contentsline {figure}{\numberline {21.4}{\ignorespaces Person and its derived classes}}{612}{figure.caption.2188}%
+\contentsline {figure}{\numberline {21.5}{\ignorespaces The Table class}}{613}{figure.caption.2189}%
+\contentsline {figure}{\numberline {21.6}{\ignorespaces The Meal and MealItem classes}}{613}{figure.caption.2190}%
+\contentsline {figure}{\numberline {21.7}{\ignorespaces The Menu, MenuSection, and MenuItem classes}}{614}{figure.caption.2191}%
+\contentsline {figure}{\numberline {21.8}{\ignorespaces The Order class}}{614}{figure.caption.2192}%
+\contentsline {figure}{\numberline {21.9}{\ignorespaces The Reservation class}}{615}{figure.caption.2193}%
+\contentsline {figure}{\numberline {21.10}{\ignorespaces Payment and its derived classes}}{616}{figure.caption.2196}%
+\contentsline {figure}{\numberline {21.11}{\ignorespaces The Bill class}}{616}{figure.caption.2197}%
+\contentsline {figure}{\numberline {21.12}{\ignorespaces The Notification and its derived classes}}{617}{figure.caption.2198}%
+\contentsline {figure}{\numberline {21.13}{\ignorespaces The SeatingChart, Branch, and Restaurant classes}}{617}{figure.caption.2199}%
+\contentsline {figure}{\numberline {21.14}{\ignorespaces Enums in the restaurant management system}}{617}{figure.caption.2200}%
+\contentsline {figure}{\numberline {21.15}{\ignorespaces Class diagram of the Address custom data type}}{618}{figure.caption.2201}%
+\contentsline {figure}{\numberline {21.16}{\ignorespaces The one-way association relationship between classes}}{618}{figure.caption.2208}%
+\contentsline {figure}{\numberline {21.17}{\ignorespaces The two-way association relationship between classes}}{619}{figure.caption.2214}%
+\contentsline {figure}{\numberline {21.18}{\ignorespaces The composition relationship between classes}}{620}{figure.caption.2220}%
+\contentsline {figure}{\numberline {21.19}{\ignorespaces The class diagram of the restaurant management system}}{620}{figure.caption.2224}%
+\contentsline {figure}{\numberline {21.20}{\ignorespaces The relationship of the Discount class with the Payment class}}{622}{figure.caption.2230}%
+\contentsline {figure}{\numberline {21.21}{\ignorespaces The sequence diagram for making a reservation}}{623}{figure.caption.2242}%
+\contentsline {figure}{\numberline {21.22}{\ignorespaces A sequence diagram of a customer placing the order and paying the bill}}{624}{figure.caption.2243}%
+\contentsline {figure}{\numberline {21.23}{\ignorespaces The activity diagram for placing the order}}{625}{figure.caption.2246}%
+\contentsline {figure}{\numberline {21.24}{\ignorespaces The activity diagram for order cancellation}}{626}{figure.caption.2247}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {22.1}{\ignorespaces The Facebook home page of a user}}{642}{figure.caption.2298}%
+\contentsline {figure}{\numberline {22.2}{\ignorespaces The use case diagram of Facebook}}{648}{figure.caption.2343}%
+\contentsline {figure}{\numberline {22.3}{\ignorespaces The class diagram of the Person and User classes}}{650}{figure.caption.2344}%
+\contentsline {figure}{\numberline {22.4}{\ignorespaces The class diagram of the Profile class}}{651}{figure.caption.2345}%
+\contentsline {figure}{\numberline {22.5}{\ignorespaces The class diagram of the Work, Education, and Places classes}}{651}{figure.caption.2346}%
+\contentsline {figure}{\numberline {22.6}{\ignorespaces The class diagram of the Page class}}{652}{figure.caption.2347}%
+\contentsline {figure}{\numberline {22.7}{\ignorespaces The class diagram of the Group class}}{652}{figure.caption.2348}%
+\contentsline {figure}{\numberline {22.8}{\ignorespaces The GroupFunctions interface as a subscriber}}{653}{figure.caption.2349}%
+\contentsline {figure}{\numberline {22.9}{\ignorespaces The class diagram of the Post class}}{653}{figure.caption.2350}%
+\contentsline {figure}{\numberline {22.10}{\ignorespaces The class diagram of the Comment class}}{654}{figure.caption.2351}%
+\contentsline {figure}{\numberline {22.11}{\ignorespaces The class diagram of the FriendRequest class}}{654}{figure.caption.2352}%
+\contentsline {figure}{\numberline {22.12}{\ignorespaces The class diagram of the Message class}}{655}{figure.caption.2353}%
+\contentsline {figure}{\numberline {22.13}{\ignorespaces The class diagram of the ProfilePrivacy class}}{655}{figure.caption.2354}%
+\contentsline {figure}{\numberline {22.14}{\ignorespaces The class diagram of the Notification class}}{656}{figure.caption.2359}%
+\contentsline {figure}{\numberline {22.15}{\ignorespaces The class diagram of interfaces to be implemented by users in Facebook}}{656}{figure.caption.2365}%
+\contentsline {figure}{\numberline {22.16}{\ignorespaces The class diagram of the SearchCatalog class}}{657}{figure.caption.2366}%
+\contentsline {figure}{\numberline {22.17}{\ignorespaces Enums in Facebook}}{657}{figure.caption.2371}%
+\contentsline {figure}{\numberline {22.18}{\ignorespaces The class diagram of the custom Address data type}}{658}{figure.caption.2372}%
+\contentsline {figure}{\numberline {22.19}{\ignorespaces The association relationship between classes}}{659}{figure.caption.2377}%
+\contentsline {figure}{\numberline {22.20}{\ignorespaces The composition relationship between classes}}{659}{figure.caption.2379}%
+\contentsline {figure}{\numberline {22.21}{\ignorespaces The aggregation relationship between classes}}{659}{figure.caption.2381}%
+\contentsline {figure}{\numberline {22.22}{\ignorespaces The generalization relationship between classes}}{660}{figure.caption.2384}%
+\contentsline {figure}{\numberline {22.23}{\ignorespaces The class diagram of Facebook}}{662}{figure.caption.2387}%
+\contentsline {figure}{\numberline {22.24}{\ignorespaces The class diagram of the Recommendation functionality}}{663}{figure.caption.2396}%
+\contentsline {figure}{\numberline {22.25}{\ignorespaces The sequence diagram for sending a friend request}}{664}{figure.caption.2403}%
+\contentsline {figure}{\numberline {22.26}{\ignorespaces The activity diagram for a user creating a new post}}{665}{figure.caption.2406}%
+\contentsline {figure}{\numberline {22.27}{\ignorespaces The activity diagram for a user joining the group}}{666}{figure.caption.2407}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {23.1}{\ignorespaces The online stock brokerage system}}{684}{figure.caption.2473}%
+\contentsline {figure}{\numberline {23.2}{\ignorespaces The use case diagram of the online stock brokerage system}}{689}{figure.caption.2515}%
+\contentsline {figure}{\numberline {23.3}{\ignorespaces The class diagram of Account and its derived classes}}{690}{figure.caption.2516}%
+\contentsline {figure}{\numberline {23.4}{\ignorespaces The class diagram of the Watchlist class}}{690}{figure.caption.2517}%
+\contentsline {figure}{\numberline {23.5}{\ignorespaces The class diagram of the Stock class}}{691}{figure.caption.2518}%
+\contentsline {figure}{\numberline {23.6}{\ignorespaces The class diagram of the Search interface and the StockInventory class}}{691}{figure.caption.2519}%
+\contentsline {figure}{\numberline {23.7}{\ignorespaces The class diagram of the StockPosition class}}{692}{figure.caption.2520}%
+\contentsline {figure}{\numberline {23.8}{\ignorespaces The class diagram of the StockLot class}}{692}{figure.caption.2521}%
+\contentsline {figure}{\numberline {23.9}{\ignorespaces The class diagram of Order and its derived classes}}{693}{figure.caption.2522}%
+\contentsline {figure}{\numberline {23.10}{\ignorespaces The class diagram of the OrderPart class}}{694}{figure.caption.2523}%
+\contentsline {figure}{\numberline {23.11}{\ignorespaces The class diagram of the DepositMoney and WithdrawMoney classes}}{694}{figure.caption.2524}%
+\contentsline {figure}{\numberline {23.12}{\ignorespaces The class diagram of TransferMoney and its derived classes}}{694}{figure.caption.2525}%
+\contentsline {figure}{\numberline {23.13}{\ignorespaces The class diagram of Notification and its derived classes}}{695}{figure.caption.2526}%
+\contentsline {figure}{\numberline {23.14}{\ignorespaces The class diagram of the StockExchange class}}{695}{figure.caption.2527}%
+\contentsline {figure}{\numberline {23.15}{\ignorespaces The OrderStatus enumerations}}{696}{figure.caption.2529}%
+\contentsline {figure}{\numberline {23.16}{\ignorespaces The TimeEnforcementType enumerations}}{696}{figure.caption.2531}%
+\contentsline {figure}{\numberline {23.17}{\ignorespaces The AccountStatus enumerations}}{697}{figure.caption.2533}%
+\contentsline {figure}{\numberline {23.18}{\ignorespaces The class diagram of the Address class}}{697}{figure.caption.2536}%
+\contentsline {figure}{\numberline {23.19}{\ignorespaces The one-way association relationship between classes}}{698}{figure.caption.2541}%
+\contentsline {figure}{\numberline {23.20}{\ignorespaces The two-way association relationship between classes}}{698}{figure.caption.2544}%
+\contentsline {figure}{\numberline {23.21}{\ignorespaces The composition relationship between classes}}{699}{figure.caption.2548}%
+\contentsline {figure}{\numberline {23.22}{\ignorespaces The class diagram of the online stock brokerage system}}{701}{figure.caption.2555}%
+\contentsline {figure}{\numberline {23.23}{\ignorespaces The sequence diagram for selling a stock}}{703}{figure.caption.2563}%
+\contentsline {figure}{\numberline {23.24}{\ignorespaces The activity diagram for buying a stock}}{704}{figure.caption.2566}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {24.1}{\ignorespaces The class diagram of the Side class}}{722}{figure.caption.2627}%
+\contentsline {figure}{\numberline {24.2}{\ignorespaces The class diagram of the Piece class}}{722}{figure.caption.2628}%
+\contentsline {figure}{\numberline {24.3}{\ignorespaces The class diagram of the Puzzle class}}{723}{figure.caption.2629}%
+\contentsline {figure}{\numberline {24.4}{\ignorespaces The class diagram of the PuzzleSolver class}}{723}{figure.caption.2630}%
+\contentsline {figure}{\numberline {24.5}{\ignorespaces The class diagram of the Edge enum}}{724}{figure.caption.2631}%
+\contentsline {figure}{\numberline {24.6}{\ignorespaces The association relationship between classes}}{724}{figure.caption.2633}%
+\contentsline {figure}{\numberline {24.7}{\ignorespaces The composition relationship between classes}}{725}{figure.caption.2635}%
+\contentsline {figure}{\numberline {24.8}{\ignorespaces The class diagram of the jigsaw puzzle}}{725}{figure.caption.2636}%
+\contentsline {figure}{\numberline {24.9}{\ignorespaces The class diagram of the rotation functionality in the Piece class}}{727}{figure.caption.2638}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {25.1}{\ignorespaces Airline management system}}{732}{figure.caption.2644}%
+\contentsline {figure}{\numberline {25.2}{\ignorespaces The use case diagram of the airline management system}}{738}{figure.caption.2683}%
+\contentsline {figure}{\numberline {25.3}{\ignorespaces The Account class}}{739}{figure.caption.2684}%
+\contentsline {figure}{\numberline {25.4}{\ignorespaces Person and its derived classes}}{739}{figure.caption.2685}%
+\contentsline {figure}{\numberline {25.5}{\ignorespaces The Airline, Airport, and Aircraft classes}}{740}{figure.caption.2686}%
+\contentsline {figure}{\numberline {25.6}{\ignorespaces Seat and its derived class}}{741}{figure.caption.2687}%
+\contentsline {figure}{\numberline {25.7}{\ignorespaces The Flight and FlightInstance classes}}{741}{figure.caption.2688}%
+\contentsline {figure}{\numberline {25.8}{\ignorespaces The FlightReservation class}}{741}{figure.caption.2689}%
+\contentsline {figure}{\numberline {25.9}{\ignorespaces The Itinerary and Passenger classes}}{742}{figure.caption.2690}%
+\contentsline {figure}{\numberline {25.10}{\ignorespaces The Search interface and the SearchCatalog class}}{742}{figure.caption.2693}%
+\contentsline {figure}{\numberline {25.11}{\ignorespaces The Payment and its derived classes}}{743}{figure.caption.2694}%
+\contentsline {figure}{\numberline {25.12}{\ignorespaces Notification and its derived classes}}{743}{figure.caption.2695}%
+\contentsline {figure}{\numberline {25.13}{\ignorespaces Enums in the airline management system}}{744}{figure.caption.2696}%
+\contentsline {figure}{\numberline {25.14}{\ignorespaces The Address custom data type}}{744}{figure.caption.2697}%
+\contentsline {figure}{\numberline {25.15}{\ignorespaces Association relationship between classes}}{745}{figure.caption.2705}%
+\contentsline {figure}{\numberline {25.16}{\ignorespaces The aggregation relationship between classes}}{746}{figure.caption.2707}%
+\contentsline {figure}{\numberline {25.17}{\ignorespaces The composition relationship between classes}}{746}{figure.caption.2714}%
+\contentsline {figure}{\numberline {25.18}{\ignorespaces The class diagram of the airline management system}}{748}{figure.caption.2719}%
+\contentsline {figure}{\numberline {25.19}{\ignorespaces The sequence diagram for the “Reserve a flight” interaction}}{750}{figure.caption.2733}%
+\contentsline {figure}{\numberline {25.20}{\ignorespaces The sequence diagram for assigning a seat via FrontDeskOfficer}}{750}{figure.caption.2734}%
+\contentsline {figure}{\numberline {25.21}{\ignorespaces The activity diagram to create an itinerary}}{751}{figure.caption.2737}%
+\contentsline {figure}{\numberline {25.22}{\ignorespaces The activity diagram for a user receiving a confirmation notification after the payment}}{752}{figure.caption.2738}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {26.1}{\ignorespaces The use case diagram of ESPNcricinfo}}{773}{figure.caption.2824}%
+\contentsline {figure}{\numberline {26.2}{\ignorespaces The Admin class}}{774}{figure.caption.2825}%
+\contentsline {figure}{\numberline {26.3}{\ignorespaces The Run, Ball, and Wicket classes}}{774}{figure.caption.2826}%
+\contentsline {figure}{\numberline {26.4}{\ignorespaces The Over and Innings classes}}{774}{figure.caption.2827}%
+\contentsline {figure}{\numberline {26.5}{\ignorespaces The Match and its derived classes}}{775}{figure.caption.2831}%
+\contentsline {figure}{\numberline {26.6}{\ignorespaces The Stadium class}}{775}{figure.caption.2832}%
+\contentsline {figure}{\numberline {26.7}{\ignorespaces The Player, Coach, and Umpire classes}}{776}{figure.caption.2833}%
+\contentsline {figure}{\numberline {26.8}{\ignorespaces The Team, TournamentSquad, and Playing11 classes}}{776}{figure.caption.2834}%
+\contentsline {figure}{\numberline {26.9}{\ignorespaces The Tournament and PointsTable classes}}{776}{figure.caption.2835}%
+\contentsline {figure}{\numberline {26.10}{\ignorespaces Stat and its derived classes}}{777}{figure.caption.2836}%
+\contentsline {figure}{\numberline {26.11}{\ignorespaces The Commentator and Commentary classes}}{777}{figure.caption.2837}%
+\contentsline {figure}{\numberline {26.12}{\ignorespaces The News class}}{777}{figure.caption.2838}%
+\contentsline {figure}{\numberline {26.13}{\ignorespaces Enums in ESPNcricinfo}}{778}{figure.caption.2845}%
+\contentsline {figure}{\numberline {26.14}{\ignorespaces The Address custom data type}}{778}{figure.caption.2846}%
+\contentsline {figure}{\numberline {26.15}{\ignorespaces The association relationships between classes}}{779}{figure.caption.2856}%
+\contentsline {figure}{\numberline {26.16}{\ignorespaces The aggregation relationship between classes}}{780}{figure.caption.2858}%
+\contentsline {figure}{\numberline {26.17}{\ignorespaces The composition relationships between classes}}{780}{figure.caption.2865}%
+\contentsline {figure}{\numberline {26.18}{\ignorespaces The class diagram of ESPNcricinfo}}{782}{figure.caption.2868}%
+\contentsline {figure}{\numberline {26.19}{\ignorespaces The sequence diagram for adding a match}}{784}{figure.caption.2878}%
+\contentsline {figure}{\numberline {26.20}{\ignorespaces The activity diagram for making a record of a ball}}{785}{figure.caption.2879}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {27.1}{\ignorespaces The home page of a LinkedIn user}}{802}{figure.caption.2925}%
+\contentsline {figure}{\numberline {27.2}{\ignorespaces The use case diagram of LinkedIn}}{808}{figure.caption.2959}%
+\contentsline {figure}{\numberline {27.3}{\ignorespaces The Education, Achievement, Experience, and Skill classes}}{809}{figure.caption.2960}%
+\contentsline {figure}{\numberline {27.4}{\ignorespaces The Recommendation and Analytics classes}}{809}{figure.caption.2961}%
+\contentsline {figure}{\numberline {27.5}{\ignorespaces The Profile class}}{810}{figure.caption.2962}%
+\contentsline {figure}{\numberline {27.6}{\ignorespaces The CompanyPage, Job, and Group classes}}{810}{figure.caption.2963}%
+\contentsline {figure}{\numberline {27.7}{\ignorespaces The Post, Comment, and Message classes}}{811}{figure.caption.2964}%
+\contentsline {figure}{\numberline {27.8}{\ignorespaces The ConnectionInvitation class}}{811}{figure.caption.2965}%
+\contentsline {figure}{\numberline {27.9}{\ignorespaces The Person and its derived classes}}{812}{figure.caption.2966}%
+\contentsline {figure}{\numberline {27.10}{\ignorespaces The Notification class}}{813}{figure.caption.2972}%
+\contentsline {figure}{\numberline {27.11}{\ignorespaces The SearchCatalog class and the Search interface}}{813}{figure.caption.2973}%
+\contentsline {figure}{\numberline {27.12}{\ignorespaces Enums in LinkedIn}}{814}{figure.caption.2976}%
+\contentsline {figure}{\numberline {27.13}{\ignorespaces The Address custom data type}}{814}{figure.caption.2977}%
+\contentsline {figure}{\numberline {27.14}{\ignorespaces The association relationship between classes}}{815}{figure.caption.2980}%
+\contentsline {figure}{\numberline {27.15}{\ignorespaces The composition relationship between classes}}{816}{figure.caption.2986}%
+\contentsline {figure}{\numberline {27.16}{\ignorespaces The class diagram of LinkedIn}}{818}{figure.caption.2988}%
+\contentsline {figure}{\numberline {27.17}{\ignorespaces The sequence diagram for sending a connection invitation}}{819}{figure.caption.2993}%
+\contentsline {figure}{\numberline {27.18}{\ignorespaces The activity diagram for a user creating a new post}}{820}{figure.caption.2996}%
+\contentsline {figure}{\numberline {27.19}{\ignorespaces The activity diagram for a user creating a page}}{821}{figure.caption.2997}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {28.1}{\ignorespaces Activities to include in the interview}}{838}{figure.caption.3033}%
+\contentsline {figure}{\numberline {28.2}{\ignorespaces Design problems of our course}}{840}{figure.caption.3034}%
+\addvspace {10\p@ }
+\contentsfinish 
+\contentsfinish 

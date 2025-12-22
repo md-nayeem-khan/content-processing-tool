@@ -1,0 +1,259 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: System Design: The Distributed Cache
+% Section ID: 5053577315221504
+% Section Slug: system-design-the-distributed-cache
+% Generated: 2025-12-07T20:14:16.714095
+
+\subsection{Problem statement}\label{Qf9qCt5umbsR-gpInSUuE}
+\\
+A typical system consists of these components:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{HedxyLHQR1GC_m7Ng2V1j}
+It has a client who requests the service.
+\item
+\protect\phantomsection\label{JqiZ5Cn04dBIG5ab_BOKj}
+It has one or more service hosts that entertain client requests.
+\item
+\protect\phantomsection\label{jE3SWWd4h529JBYqKedX1}
+It utilizes a database for data storage, which is used by the service.
+\end{itemize}
+\\
+Under normal circumstances, this abstraction performs fine.
+\\
+However, as the number of users increases, the number of database queries also increases. As a result, service providers are overburdened, leading to slow performance. In such cases, a \textbf{cache} is added to the system to deal with performance deterioration.
+\\
+A cache is a temporary data storage that can serve data faster by keeping data entries in memory.
+\\
+Caches store only the most frequently accessed data. When a request reaches the serving host, it retrieves data from the cache (cache hit(When the requested data is found in the cache, the server responds with the data immediately.)) and serves the user. However, if the data is unavailable in the cache (cache miss(When the requested data isn't found in the cache, it's called a cache miss.)), the data will be queried from the database.
+\\
+Additionally, the cache is populated with the new value to prevent cache misses in the future.
+
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_16/section_5053577315221504/5585160643149824.png}
+ \caption{Service before using caching}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}[b]{0.48\textwidth}
+ \centering
+ \includegraphics[width=\textwidth]{Images/chapter_16/section_5053577315221504/6243560423030784.png}
+ \caption{Service using caching to improve performance.}
+ \end{subfigure}
+\end{figure}
+
+A cache is a non-persistent storage area used to store data that is repeatedly read and written, providing the end user with lower latency. Therefore, a cache must serve data from a storage component that is fast, has sufficient storage, and is affordable in terms of dollar cost as the caching service scales.
+\\
+The following illustration highlights the suitability of RAM as the raw building block for caching:
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.5\textwidth]{Images/chapter_16/section_5053577315221504/6278203601846272.png}
+ \caption{An approximation that depicts how RAM is the optimal choice for serving cached data}
+\end{figure}
+
+We understand the need for a cache and suitable storage hardware, but what is a distributed cache? Let's discuss this next.
+
+\subsection{What is a distributed cache?}\label{b6zhM9auu0FQMmR1UlyBu}
+\\
+A \textbf{distributed cache} is a caching system where multiple cache servers coordinate to store frequently accessed data.
+\\
+Distributed caches are necessary in environments where a single cache server is insufficient to store all the data. At the same time, it's scalable and guarantees a higher degree of availability. Caches are generally small, frequently accessed, short-term storage with fast read time. Caches use the locality of reference(Locality of reference is the notion that a program will access a particular set of data over a short period of time. Locality can be spatial or temporal.) principle.
+\\
+Generally, distributed caches are beneficial in these ways:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{bM7VOtKkJH1uJHwJbSB0v}
+They minimize user-perceived latency by precalculating results and storing frequently accessed data.
+\item
+\protect\phantomsection\label{YpUl9IIXHgkCYUNJWQWsN}
+They pre-generate expensive queries from the database.
+\item
+\protect\phantomsection\label{x9xStcP19USEvoem4szRV}
+They store user session data temporarily.
+\item
+\protect\phantomsection\label{d5wKBqd-69rDgnB3U2l0D}
+They serve data from temporary storage even if the data store is down temporarily.
+\item
+\protect\phantomsection\label{-V5eR4Dq6jhxbr5r3R89D}
+They reduce network costs by serving data from local resources.
+\item
+\protect\phantomsection\label{GNKcM-QOsW-ZslL3-VIkT}
+They can be scaled horizontally by adding more servers, making them ideal for applications with high traffic or large datasets.
+\item
+\protect\phantomsection\label{CPMEGehwEQUMGsL5uk3Eu}
+They can reduce the load on databases by offloading frequently accessed data to memory, freeing up database resources for more complex queries and transactions.
+\item
+\protect\phantomsection\label{4h9LgxoiiWpwh7iFwK331}
+They are typically more highly available than databases, as they are not subject to single points of failure.
+\end{itemize}
+\\
+While these benefits are compelling, you might wonder why we can\textquotesingle t simply use a larger single cache server instead. Let 's examine the practical reasons that make distribution necessary.
+
+\subsection{Why distributed cache?}\label{0yeKZqspmm3iB3L6wEvIe}
+\\
+As the size of the data required in the cache increases, storing the entire dataset in one system becomes impractical. This is because of the following three reasons:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{k8wFFkXxaM5hMtZbBj5hk}
+It can be a potential single point of failure (SPOF).
+\item
+\protect\phantomsection\label{vNY9BS0rESV2LRVM_2GtC}
+A system is designed in layers, and each layer should have its caching mechanism to ensure the decoupling of sensitive data from different layers.
+\item
+\protect\phantomsection\label{lc8FSp4sYC6OzvCDkLxCE}
+Caching at different locations helps reduce the latency of serving at that layer.
+\end{itemize}
+\\
+In the table below, we describe how caching is performed at different layers using various technologies. It 's essential to note that key-value store components are utilized across multiple layers.
+
+\textbf{Caching at different layers of a system}
+
+\begin{table}[htbp]
+\centering
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{|p{0.149\textwidth}|p{0.462\textwidth}|p{0.339\textwidth}|}
+\hline
+System Layer & Technology in Use & Usage \\
+\hline
+\hline
+Web & HTTP cache headers, web accelerators, key-value store, CDNs, and so on & Accelerate retrieval of static web content, and manage sessions \\
+\hline
+Application & Local cache and key-value data store & Accelerate application-level computations and data retrieval \\
+\hline
+Database & Database cache, buffers, and key-value data store & Reduce data retrieval latency and I/O load from database \\
+\hline
+\end{tabular}
+}
+\caption{Caching at different layers of a system}
+\end{table}
+
+\begin{quote}
+Apart from the three system layers above, caching is also performed at DNS and client-side technologies like browsers or end-devices.
+\end{quote}
+\\
+Understanding where to implement caching is only part of the equation. To truly maximize its effectiveness, we must follow established practices for managing our distributed cache.
+
+\subsection{How does distributed caching work?}\label{f5p7m0bUaF5YMDZIxbUcM}
+\\
+Here's an example of how distributed caching can be used in a web application:
+
+\begin{enumerate}
+\item
+\protect\phantomsection\label{VnPoAkeACEXduRaZ1amsw}
+A~web application~makes a request to the distributed cache for data.
+\item
+\protect\phantomsection\label{evDz8HvHv2IeC9xsyfnPM}
+The distributed cache server checks to see if the data is in the cache.~If it is,~the cache server returns the data to the application.
+\item
+\protect\phantomsection\label{c-n6ImgimbcmagQMiqj98}
+If the data is not in the cache,~the cache server retrieves the data from the backend system (e.g.,~a database) and stores it in the cache for future requests.
+\item
+\protect\phantomsection\label{YooeviGlZ-b9obUUy6i6o}
+The cache server then returns the data to the application.
+\item
+\protect\phantomsection\label{DlhbOCpaK4C14xrRm-Oy5}
+The distributed cache server can be located on the same server as the application or on a separate server. Distributed cache servers are often deployed in a cluster to improve performance and scalability.
+\end{enumerate}
+\\
+By using distributed caching, the web server can avoid retrieving the required data from the database for every request. This can significantly improve the performance of the web application.
+
+\subsection{Cache management best practices}\label{9JZb7ufvZOD5rn5UjxgcF}
+\\
+To maximize the benefits of distributed caching, adhere to these best practices, which we will discuss in the coming lesson in detail:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{KQnhErRatsEt0RtIBG6Ds}
+\textbf{Cache eviction:}~Implement cache eviction policies, such as Least Recently Used (LRU) or Time to Live (TTL), to maintain a refreshed and relevant cache.
+\item
+\protect\phantomsection\label{DLwKAFvZEjyzkkxdabUIJ}
+\textbf{Data consistency:}~Ensure data consistency between the cache and the primary data source, especially for frequently updated data.
+\item
+\protect\phantomsection\label{ytPT3KWcaFDvvgwDNtyDe}
+\textbf{Monitoring:}~Regularly monitor cache performance metrics, such as hit and miss rates, to identify areas for improvement.
+\item
+\protect\phantomsection\label{N1ZIcgS8xIk7KTYwmPc1V}
+\textbf{Scalability:}~Design the cache infrastructure to be scalable, allowing for easy addition of cache nodes as the application grows.
+\end{itemize}
+\\
+Implementing distributed caching involves selecting the right solution, installing and configuring it on all nodes, defining data partitioning and replication strategies, integrating the cache with the application, and continuously monitoring and fine-tuning performance.
+\\
+With these benefits in mind, let's examine some of the industry-standard tools available for implementing distributed caching.
+
+\subsection{Use cases for distributed caching}\label{Dzr0wLsUA586-iDnQR799}
+\\
+Distributed caching can be used in a variety of scenarios, including:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{3xnEydxvt4ERPqNNl5HLf}
+\textbf{Web applications:}~Distributed caches can be used to store frequently accessed web pages,~images,~and other resources.~This can improve the performance and scalability of web applications.
+\item
+\protect\phantomsection\label{Q1PjzvkiKpSbJDWHy8jea}
+\textbf{E-commerce applications:}~Distributed caches can store product catalogs,~shopping carts,~and other customer data.~This can improve the performance and scalability of e-commerce applications.
+\item
+\protect\phantomsection\label{ggVmi8WMtHP0rczdYWFox}
+\href{https://how.dev/answers/what-is-a-content-delivery-network}{\textbf{Content delivery networks (CDNs)}}\textbf{:}~Distributed caches are often used in CDNs to store static content,~such as images,~CSS,~and JavaScript files.~This can improve the performance of websites and web applications.
+\item
+\protect\phantomsection\label{dEbzz8R5c02khJoBJQPex}
+\textbf{Gaming applications:}~Distributed caches can store game state data,~including player inventory, map data, and leaderboard information.~This can improve the performance and scalability of gaming applications.
+\end{itemize}
+
+\subsection{Popular distributed caching solutions}\label{uGwLeLrFXz9n9TqonvlaW}
+\\
+There are a number of popular distributed caching solutions available, including:
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{wXLzK60-AeQ3BV16PdSMl}
+\textbf{Redis}~is an open-source in-memory data structure store that can be used as a distributed cache.~It is known for its speed and scalability.
+\item
+\protect\phantomsection\label{QrO12Kfq60m5z0fwbKJYm}
+\textbf{Memcached}~is another popular open-source distributed cache.~It is simple to use and easily scalable.
+\item
+\protect\phantomsection\label{c3KoL7xH2LlrxkXRaz7AR}
+\textbf{Hazelcast}~is a commercial distributed caching solution that offers several advanced features, including data replication and eventing.
+\item
+\protect\phantomsection\label{RqUI_ZXg-QgUPlBvWzYc7}
+\textbf{Apache Ignite}~is an open-source distributed caching and computing platform.~It offers several features, including in-memory data processing and distributed SQL queries.
+\end{itemize}
+\\
+Distributed caching is a powerful way to improve application performance, scalability, and availability.
+\\
+To use it effectively, focus on caching data that is frequently accessed and rarely changes, set appropriate expiration times to keep data fresh, monitor cache performance regularly, and consider using a cache management library to handle eviction and synchronization efficiently.
+
+\subsection{How will we design a distributed cache?}\label{PurZWEmv5LUAmAwFKh0oK}
+\\
+We'll divide the task of designing and reinforcing the learning of major concepts of distributed cache into five lessons:
+
+\begin{enumerate}
+\item
+\protect\phantomsection\label{7wIiWRf8II9oh1_N5hkJu}
+\href{https://www.educative.io/courses/grokking-the-system-design-interview/background-of-distributed-cache}{\textbf{Background of Distributed Cache}}\textbf{:} It's imperative to build the background knowledge necessary to make critical decisions when designing distributed caches. This lesson will revisit some fundamental yet essential concepts.
+\item
+\protect\phantomsection\label{OrZltW0GFbNxsAVSNIpIp}
+\href{https://www.educative.io/courses/grokking-the-system-design-interview/high-level-design-of-a-distributed-cache}{\textbf{High-level Design of a Distributed Cache}}\textbf{:} We'll build a high-level design of a distributed cache in this lesson.
+\item
+\protect\phantomsection\label{--T7TbjorzQrzQ2XmVb8u}
+\href{https://www.educative.io/courses/grokking-the-system-design-interview/detailed-design-of-a-distributed-cache}{\textbf{Detailed Design of a Distributed Cache}}\textbf{:} We'll identify some limitations of our high-level design and work toward a scalable, affordable, and performant solution.
+\item
+\protect\phantomsection\label{_WHPlIOByyV1TTVVSEBKf}
+\href{https://www.educative.io/courses/grokking-the-system-design-interview/evaluation-of-a-distributed-caches-design}{\textbf{Evaluation of a Distributed Cache Design}}\textbf{:} This lesson will assess our design against various non-functional requirements, including scalability, consistency, and availability.
+\item
+\protect\phantomsection\label{MVqUvKRuzzmltNPH3w80i}
+\href{https://www.educative.io/courses/grokking-the-system-design-interview/memcached-versus-redis}{\textbf{Memcached versus Redis}}\textbf{:} We'll discuss well-known industrial solutions, namely Memcached and Redis. We'll also go through their details and compare their features to help us understand their potential use cases and how they relate to our design.
+\end{enumerate}
+\\
+Let's begin by exploring the background of the distributed cache in the next lesson.
+
+% End of section content

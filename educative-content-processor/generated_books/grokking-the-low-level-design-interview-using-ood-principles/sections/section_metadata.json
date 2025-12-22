@@ -1,0 +1,2967 @@
+{
+  "book_title": "Grokking the Low Level Design Interview Using OOD Principles",
+  "content_type": "course",
+  "generation_timestamp": "2025-12-11T05:49:15.103399",
+  "chapters": [
+    {
+      "chapter_number": 1,
+      "chapter_title": "Introduction",
+      "chapter_slug": "introduction",
+      "chapter_file": "files/chapter_1_introduction.tex",
+      "sections": [
+        {
+          "section_id": "5960523739037696",
+          "section_title": "Overview",
+          "section_slug": "overview",
+          "section_file": "files/chapter_1_introduction/section_5960523739037696.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6156041320660992",
+          "section_title": "Introduction to the Course",
+          "section_slug": "introduction-to-the-course",
+          "section_file": "files/chapter_1_introduction/section_6156041320660992.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 2,
+      "chapter_title": "Cornerstones of Object-Oriented Programming",
+      "chapter_slug": "cornerstones_of_object_oriented_programming",
+      "chapter_file": "files/chapter_2_cornerstones_of_object_oriented_programming.tex",
+      "sections": [
+        {
+          "section_id": "6098172273491968",
+          "section_title": "Background of Object-Oriented Programming (OOP)",
+          "section_slug": "background-of-object-oriented-programming-oop",
+          "section_file": "files/chapter_2_cornerstones_of_object_oriented_programming/section_6098172273491968.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-16T12:48:38.306004",
+          "component_types": [
+            "SlateHTML",
+            "LazyLoadPlaceholder"
+          ]
+        },
+        {
+          "section_id": "6504525840252928",
+          "section_title": "Encapsulation",
+          "section_slug": "encapsulation",
+          "section_file": "files/chapter_2_cornerstones_of_object_oriented_programming/section_6504525840252928.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-16T12:48:39.561746",
+          "component_types": [
+            "SlateHTML",
+            "TabbedCode"
+          ]
+        },
+        {
+          "section_id": "4989957095817216",
+          "section_title": "Abstraction",
+          "section_slug": "abstraction",
+          "section_file": "files/chapter_2_cornerstones_of_object_oriented_programming/section_4989957095817216.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-16T12:48:46.707100",
+          "component_types": [
+            "SlateHTML",
+            "Table",
+            "TabbedCode",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "5510500085661696",
+          "section_title": "Inheritance",
+          "section_slug": "inheritance",
+          "section_file": "files/chapter_2_cornerstones_of_object_oriented_programming/section_5510500085661696.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-16T12:49:25.641554",
+          "component_types": [
+            "SlateHTML",
+            "TabbedCode",
+            "Table",
+            "LazyLoadPlaceholder"
+          ]
+        },
+        {
+          "section_id": "4506169807601664",
+          "section_title": "Generalization",
+          "section_slug": "generalization",
+          "section_file": "files/chapter_2_cornerstones_of_object_oriented_programming/section_4506169807601664.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-16T12:49:37.130588",
+          "component_types": [
+            "SlateHTML",
+            "TabbedCode",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "4612292360798208",
+          "section_title": "Polymorphism",
+          "section_slug": "polymorphism",
+          "section_file": "files/chapter_2_cornerstones_of_object_oriented_programming/section_4612292360798208.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-16T12:49:46.798494",
+          "component_types": [
+            "LazyLoadPlaceholder",
+            "Table",
+            "MarkMap",
+            "SlateHTML",
+            "TabbedCode"
+          ]
+        },
+        {
+          "section_id": "5962355341262848",
+          "section_title": "Quiz: Object-Oriented Basics",
+          "section_slug": "quiz-object-oriented-basics",
+          "section_file": "files/chapter_2_cornerstones_of_object_oriented_programming/section_5962355341262848.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-16T12:49:54.816084",
+          "component_types": [
+            "SlateHTML",
+            "MatchTheAnswers",
+            "EditorCode",
+            "Quiz"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 3,
+      "chapter_title": "Object-Oriented Design",
+      "chapter_slug": "object_oriented_design",
+      "chapter_file": "files/chapter_3_object_oriented_design.tex",
+      "sections": [
+        {
+          "section_id": "5399405387841536",
+          "section_title": "Introduction to Object-Oriented Analysis and Design (OOAD)",
+          "section_slug": "introduction-to-object-oriented-analysis-and-design-ooad",
+          "section_file": "files/chapter_3_object_oriented_design/section_5399405387841536.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5905000549318656",
+          "section_title": "Introduction to the Unified Modeling Language",
+          "section_slug": "introduction-to-the-unified-modeling-language",
+          "section_file": "files/chapter_3_object_oriented_design/section_5905000549318656.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "4722803754663936",
+          "section_title": "Types of UML Diagrams",
+          "section_slug": "types-of-uml-diagrams",
+          "section_file": "files/chapter_3_object_oriented_design/section_4722803754663936.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5424575903170560",
+          "section_title": "Use Case Diagram",
+          "section_slug": "use-case-diagram",
+          "section_file": "files/chapter_3_object_oriented_design/section_5424575903170560.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5678758717816832",
+          "section_title": "Class Diagram",
+          "section_slug": "class-diagram",
+          "section_file": "files/chapter_3_object_oriented_design/section_5678758717816832.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "5224098311700480",
+          "section_title": "Sequence Diagram",
+          "section_slug": "sequence-diagram",
+          "section_file": "files/chapter_3_object_oriented_design/section_5224098311700480.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "6705616068542464",
+          "section_title": "Activity Diagram",
+          "section_slug": "activity-diagram",
+          "section_file": "files/chapter_3_object_oriented_design/section_6705616068542464.tex",
+          "content_status": "pending"
+        },
+        {
+          "section_id": "4504644179197952",
+          "section_title": "Quiz: Object-Oriented Design",
+          "section_slug": "quiz-object-oriented-design",
+          "section_file": "files/chapter_3_object_oriented_design/section_4504644179197952.tex",
+          "content_status": "pending"
+        }
+      ]
+    },
+    {
+      "chapter_number": 4,
+      "chapter_title": "Object-Oriented Design Principles",
+      "chapter_slug": "object_oriented_design_principles",
+      "chapter_file": "files/chapter_4_object_oriented_design_principles.tex",
+      "sections": [
+        {
+          "section_id": "6732554378149888",
+          "section_title": "Introduction to SOLID Design Principles",
+          "section_slug": "introduction-to-solid-design-principles",
+          "section_file": "files/chapter_4_object_oriented_design_principles/section_6732554378149888.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T05:49:40.716647",
+          "component_types": [
+            "LazyLoadPlaceholder",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "6062503710949376",
+          "section_title": "SOLID: Single Responsibility Principle",
+          "section_slug": "solid-single-responsibility-principle",
+          "section_file": "files/chapter_4_object_oriented_design_principles/section_6062503710949376.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T05:49:53.592652",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "6348852334690304",
+          "section_title": "SOLID: Open Closed Principle",
+          "section_slug": "solid-open-closed-principle",
+          "section_file": "files/chapter_4_object_oriented_design_principles/section_6348852334690304.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T05:50:09.785157",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "4941477451137024",
+          "section_title": "SOLID: Liskov Substitution Principle",
+          "section_slug": "solid-liskov-substitution-principle",
+          "section_file": "files/chapter_4_object_oriented_design_principles/section_4941477451137024.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T05:50:20.915309",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "6500211344277504",
+          "section_title": "SOLID: Interface Segregation Principle",
+          "section_slug": "solid-interface-segregation-principle",
+          "section_file": "files/chapter_4_object_oriented_design_principles/section_6500211344277504.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T05:50:30.681316",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "4975213607649280",
+          "section_title": "SOLID: Dependency Inversion Principle",
+          "section_slug": "solid-dependency-inversion-principle",
+          "section_file": "files/chapter_4_object_oriented_design_principles/section_4975213607649280.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T05:50:40.264941",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "4522841418760192",
+          "section_title": "Quiz: Object-Oriented Design Principles",
+          "section_slug": "quiz-object-oriented-design-principles",
+          "section_file": "files/chapter_4_object_oriented_design_principles/section_4522841418760192.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T05:50:47.580708",
+          "component_types": [
+            "Quiz",
+            "SlateHTML"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 5,
+      "chapter_title": "Design Patterns",
+      "chapter_slug": "design_patterns",
+      "chapter_file": "files/chapter_5_design_patterns.tex",
+      "sections": [
+        {
+          "section_id": "5742887740637184",
+          "section_title": "Introduction to the Design Patterns",
+          "section_slug": "introduction-to-the-design-patterns",
+          "section_file": "files/chapter_5_design_patterns/section_5742887740637184.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T06:15:42.415115",
+          "component_types": [
+            "LazyLoadPlaceholder",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "6424853855076352",
+          "section_title": "Classification of Design Patterns",
+          "section_slug": "classification-of-design-patterns",
+          "section_file": "files/chapter_5_design_patterns/section_6424853855076352.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T06:15:43.652369",
+          "component_types": [
+            "MarkMap",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "6512418782183424",
+          "section_title": "Creational Design Patterns",
+          "section_slug": "creational-design-patterns",
+          "section_file": "files/chapter_5_design_patterns/section_6512418782183424.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T06:15:51.881948",
+          "component_types": [
+            "LazyLoadPlaceholder",
+            "Table",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5770496058851328",
+          "section_title": "Structural Design Patterns",
+          "section_slug": "structural-design-patterns",
+          "section_file": "files/chapter_5_design_patterns/section_5770496058851328.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T06:16:21.660082",
+          "component_types": [
+            "LazyLoadPlaceholder",
+            "Table",
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5765883666628608",
+          "section_title": "Behavioral Design Patterns",
+          "section_slug": "behavioral-design-patterns",
+          "section_file": "files/chapter_5_design_patterns/section_5765883666628608.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T06:16:26.922323",
+          "component_types": [
+            "TableHTML",
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5602661385502720",
+          "section_title": "Architectural Design Patterns",
+          "section_slug": "architectural-design-patterns",
+          "section_file": "files/chapter_5_design_patterns/section_5602661385502720.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T06:16:31.654532",
+          "component_types": [
+            "TableHTML",
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5218544979804160",
+          "section_title": "Quiz: Design Patterns",
+          "section_slug": "quiz-design-patterns",
+          "section_file": "files/chapter_5_design_patterns/section_5218544979804160.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T06:16:39.720264",
+          "component_types": [
+            "Quiz",
+            "SlateHTML"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 6,
+      "chapter_title": "Real-World Design Problems",
+      "chapter_slug": "real_world_design_problems",
+      "chapter_file": "files/chapter_6_real_world_design_problems.tex",
+      "sections": [
+        {
+          "section_id": "5225512261910528",
+          "section_title": "An Approach to Solve a Real-World Problem",
+          "section_slug": "an-approach-to-solve-a-real-world-problem",
+          "section_file": "files/chapter_6_real_world_design_problems/section_5225512261910528.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T12:15:33.997992",
+          "component_types": [
+            "LazyLoadPlaceholder",
+            "Table",
+            "SlateHTML"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 7,
+      "chapter_title": "Designing a Parking Lot ",
+      "chapter_slug": "designing_a_parking_lot",
+      "chapter_file": "files/chapter_7_designing_a_parking_lot.tex",
+      "sections": [
+        {
+          "section_id": "6276164341727232",
+          "section_title": "Getting Ready: Parking Lot",
+          "section_slug": "getting-ready-parking-lot",
+          "section_file": "files/chapter_7_designing_a_parking_lot/section_6276164341727232.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T13:39:03.686659",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML",
+            "Notepad"
+          ]
+        },
+        {
+          "section_id": "4928023392681984",
+          "section_title": "Requirements for the Parking Lot Design",
+          "section_slug": "requirements-for-the-parking-lot-design",
+          "section_file": "files/chapter_7_designing_a_parking_lot/section_4928023392681984.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T13:39:22.348893",
+          "component_types": [
+            "Columns",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5098525681778688",
+          "section_title": "Use Case Diagram for the Parking Lot",
+          "section_slug": "use-case-diagram-for-the-parking-lot",
+          "section_file": "files/chapter_7_designing_a_parking_lot/section_5098525681778688.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T13:39:26.511119",
+          "component_types": [
+            "TableHTML",
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "6722059256463360",
+          "section_title": "Class Diagram for the Parking Lot",
+          "section_slug": "class-diagram-for-the-parking-lot",
+          "section_file": "files/chapter_7_designing_a_parking_lot/section_6722059256463360.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T13:40:18.873930",
+          "component_types": [
+            "PromptAI",
+            "SlateHTML",
+            "TableHTML",
+            "DrawIOWidget",
+            "SpoilerEditor",
+            "StructuredQuiz"
+          ]
+        },
+        {
+          "section_id": "5942521041780736",
+          "section_title": "Sequence Diagram for the Parking Lot",
+          "section_slug": "sequence-diagram-for-the-parking-lot",
+          "section_file": "files/chapter_7_designing_a_parking_lot/section_5942521041780736.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T13:40:28.537544",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML",
+            "Permutation",
+            "SpoilerEditor"
+          ]
+        },
+        {
+          "section_id": "5488447435571200",
+          "section_title": "Activity Diagram for the Parking Lot",
+          "section_slug": "activity-diagram-for-the-parking-lot",
+          "section_file": "files/chapter_7_designing_a_parking_lot/section_5488447435571200.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T13:40:36.558903",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML",
+            "Permutation",
+            "SpoilerEditor"
+          ]
+        },
+        {
+          "section_id": "6211656583741440",
+          "section_title": "Code for the Parking Lot",
+          "section_slug": "code-for-the-parking-lot",
+          "section_file": "files/chapter_7_designing_a_parking_lot/section_6211656583741440.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T13:40:38.984351",
+          "component_types": [
+            "TabbedCode",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5194898247385088",
+          "section_title": "Summary: Designing a Parking Lot",
+          "section_slug": "summary-designing-a-parking-lot",
+          "section_file": "files/chapter_7_designing_a_parking_lot/section_5194898247385088.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T13:40:40.350960",
+          "component_types": [
+            "TableHTML",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "4610542210514944",
+          "section_title": "Key Insights and Tips: Designing a Parking Lot",
+          "section_slug": "key-insights-and-tips-designing-a-parking-lot",
+          "section_file": "files/chapter_7_designing_a_parking_lot/section_4610542210514944.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T13:40:44.483120",
+          "component_types": [
+            "TableHTML",
+            "SlateHTML",
+            "Quiz"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 8,
+      "chapter_title": "Designing an Elevator System",
+      "chapter_slug": "designing_an_elevator_system",
+      "chapter_file": "files/chapter_8_designing_an_elevator_system.tex",
+      "sections": [
+        {
+          "section_id": "5598619459911680",
+          "section_title": "Getting Ready: Elevator System",
+          "section_slug": "getting-ready-elevator-system",
+          "section_file": "files/chapter_8_designing_an_elevator_system/section_5598619459911680.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T14:04:33.297172",
+          "component_types": [
+            "LazyLoadPlaceholder",
+            "SlateHTML",
+            "Notepad"
+          ]
+        },
+        {
+          "section_id": "6642858409066496",
+          "section_title": "Requirements for the Elevator System",
+          "section_slug": "requirements-for-the-elevator-system",
+          "section_file": "files/chapter_8_designing_an_elevator_system/section_6642858409066496.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T14:04:34.676546",
+          "component_types": [
+            "Columns",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5060455555137536",
+          "section_title": "Use Case Diagram for the Elevator System",
+          "section_slug": "use-case-diagram-for-the-elevator-system",
+          "section_file": "files/chapter_8_designing_an_elevator_system/section_5060455555137536.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T14:04:38.805632",
+          "component_types": [
+            "TableHTML",
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5884475900952576",
+          "section_title": "Class Diagram for the Elevator System",
+          "section_slug": "class-diagram-for-the-elevator-system",
+          "section_file": "files/chapter_8_designing_an_elevator_system/section_5884475900952576.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T14:08:26.824529",
+          "component_types": [
+            "LazyLoadPlaceholder",
+            "PromptAI",
+            "SlateHTML",
+            "TableHTML",
+            "DrawIOWidget",
+            "SpoilerEditor"
+          ]
+        },
+        {
+          "section_id": "6423575504617472",
+          "section_title": "Sequence Diagram for the Elevator System",
+          "section_slug": "sequence-diagram-for-the-elevator-system",
+          "section_file": "files/chapter_8_designing_an_elevator_system/section_6423575504617472.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T14:08:37.336539",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML",
+            "Permutation",
+            "SpoilerEditor"
+          ]
+        },
+        {
+          "section_id": "6452401311842304",
+          "section_title": "Activity Diagram for the Elevator System",
+          "section_slug": "activity-diagram-for-the-elevator-system",
+          "section_file": "files/chapter_8_designing_an_elevator_system/section_6452401311842304.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T14:08:46.093751",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML",
+            "Permutation",
+            "SpoilerEditor"
+          ]
+        },
+        {
+          "section_id": "6527052601884672",
+          "section_title": "Code of Elevator System",
+          "section_slug": "code-of-elevator-system",
+          "section_file": "files/chapter_8_designing_an_elevator_system/section_6527052601884672.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T14:08:48.527500",
+          "component_types": [
+            "TabbedCode",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5490841492520960",
+          "section_title": "Summary: Designing an Elevator System",
+          "section_slug": "summary-designing-an-elevator-system",
+          "section_file": "files/chapter_8_designing_an_elevator_system/section_5490841492520960.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T14:08:49.977959",
+          "component_types": [
+            "TableHTML",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "4973261040254976",
+          "section_title": "Key Insights and Tips: Designing an Elevator System",
+          "section_slug": "key-insights-and-tips-designing-an-elevator-system",
+          "section_file": "files/chapter_8_designing_an_elevator_system/section_4973261040254976.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T14:08:55.008637",
+          "component_types": [
+            "TableHTML",
+            "SlateHTML",
+            "Quiz"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 9,
+      "chapter_title": "Designing a Library Management System",
+      "chapter_slug": "designing_a_library_management_system",
+      "chapter_file": "files/chapter_9_designing_a_library_management_system.tex",
+      "sections": [
+        {
+          "section_id": "5798165848784896",
+          "section_title": "Getting Ready: Library Management System",
+          "section_slug": "getting-ready-library-management-system",
+          "section_file": "files/chapter_9_designing_a_library_management_system/section_5798165848784896.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T15:12:10.425215",
+          "component_types": [
+            "LazyLoadPlaceholder",
+            "SlateHTML",
+            "MarkdownEditor",
+            "Notepad"
+          ]
+        },
+        {
+          "section_id": "5635469541113856",
+          "section_title": "Requirements for the Library Management System",
+          "section_slug": "requirements-for-the-library-management-system",
+          "section_file": "files/chapter_9_designing_a_library_management_system/section_5635469541113856.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T15:12:12.053593",
+          "component_types": [
+            "Columns",
+            "MarkdownEditor"
+          ]
+        },
+        {
+          "section_id": "6616873252945920",
+          "section_title": "Use Case Diagram for the Library Management System",
+          "section_slug": "use-case-diagram-for-the-library-management-system",
+          "section_file": "files/chapter_9_designing_a_library_management_system/section_6616873252945920.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T15:12:16.764083",
+          "component_types": [
+            "TableHTML",
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "4823331759194112",
+          "section_title": "Class Diagram for the Library Management System",
+          "section_slug": "class-diagram-for-the-library-management-system",
+          "section_file": "files/chapter_9_designing_a_library_management_system/section_4823331759194112.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T15:13:16.610258",
+          "component_types": [
+            "Columns",
+            "PromptAI",
+            "SlateHTML",
+            "TableHTML",
+            "DrawIOWidget",
+            "SpoilerEditor",
+            "StructuredQuiz"
+          ]
+        },
+        {
+          "section_id": "4655341294059520",
+          "section_title": "Sequence Diagram for the Library Management System",
+          "section_slug": "sequence-diagram-for-the-library-management-system",
+          "section_file": "files/chapter_9_designing_a_library_management_system/section_4655341294059520.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T15:13:24.933600",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML",
+            "Permutation",
+            "SpoilerEditor"
+          ]
+        },
+        {
+          "section_id": "6368808088633344",
+          "section_title": "Activity Diagram for the Library Management System",
+          "section_slug": "activity-diagram-for-the-library-management-system",
+          "section_file": "files/chapter_9_designing_a_library_management_system/section_6368808088633344.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T15:13:35.281609",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML",
+            "Permutation",
+            "SpoilerEditor"
+          ]
+        },
+        {
+          "section_id": "6101410175516672",
+          "section_title": "Code of Library Management System",
+          "section_slug": "code-of-library-management-system",
+          "section_file": "files/chapter_9_designing_a_library_management_system/section_6101410175516672.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T15:13:37.472941",
+          "component_types": [
+            "TabbedCode",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "4646102778118144",
+          "section_title": "Summary: Designing a Library Management System",
+          "section_slug": "summary-designing-a-library-management-system",
+          "section_file": "files/chapter_9_designing_a_library_management_system/section_4646102778118144.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T15:13:38.819646",
+          "component_types": [
+            "TableHTML",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5377736766783488",
+          "section_title": "Key Insights and Tips: Designing a Library Management System",
+          "section_slug": "key-insights-and-tips-designing-a-library-management-system",
+          "section_file": "files/chapter_9_designing_a_library_management_system/section_5377736766783488.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T15:13:43.605155",
+          "component_types": [
+            "TableHTML",
+            "SlateHTML",
+            "Quiz"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 10,
+      "chapter_title": "Designing the Amazon Locker Service",
+      "chapter_slug": "designing_the_amazon_locker_service",
+      "chapter_file": "files/chapter_10_designing_the_amazon_locker_service.tex",
+      "sections": [
+        {
+          "section_id": "6069894208815104",
+          "section_title": "Getting Ready: Amazon Locker Service",
+          "section_slug": "getting-ready-amazon-locker-service",
+          "section_file": "files/chapter_10_designing_the_amazon_locker_service/section_6069894208815104.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T15:16:29.335808",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML",
+            "Notepad"
+          ]
+        },
+        {
+          "section_id": "5801016767545344",
+          "section_title": "Requirements for the Amazon Locker Service",
+          "section_slug": "requirements-for-the-amazon-locker-service",
+          "section_file": "files/chapter_10_designing_the_amazon_locker_service/section_5801016767545344.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T15:16:31.025144",
+          "component_types": [
+            "Columns",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "6219731115966464",
+          "section_title": "Use Case Diagram for the Amazon Locker Service",
+          "section_slug": "use-case-diagram-for-the-amazon-locker-service",
+          "section_file": "files/chapter_10_designing_the_amazon_locker_service/section_6219731115966464.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T15:16:35.436288",
+          "component_types": [
+            "TableHTML",
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "4691537063837696",
+          "section_title": "Class Diagram for the Amazon Locker Service",
+          "section_slug": "class-diagram-for-the-amazon-locker-service",
+          "section_file": "files/chapter_10_designing_the_amazon_locker_service/section_4691537063837696.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T15:17:17.882625",
+          "component_types": [
+            "PromptAI",
+            "SlateHTML",
+            "TableHTML",
+            "DrawIOWidget",
+            "SpoilerEditor"
+          ]
+        },
+        {
+          "section_id": "5436453903663104",
+          "section_title": "Sequence Diagram for the Amazon Locker Service",
+          "section_slug": "sequence-diagram-for-the-amazon-locker-service",
+          "section_file": "files/chapter_10_designing_the_amazon_locker_service/section_5436453903663104.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T15:17:22.484519",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "6599789557055488",
+          "section_title": "Activity Diagram for the Amazon Locker Service",
+          "section_slug": "activity-diagram-for-the-amazon-locker-service",
+          "section_file": "files/chapter_10_designing_the_amazon_locker_service/section_6599789557055488.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T15:17:26.650075",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5125081531678720",
+          "section_title": "Code for the Amazon Locker Service",
+          "section_slug": "code-for-the-amazon-locker-service",
+          "section_file": "files/chapter_10_designing_the_amazon_locker_service/section_5125081531678720.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T15:17:28.570626",
+          "component_types": [
+            "TabbedCode",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "6564313689882624",
+          "section_title": "Summary: Designing the Amazon Locker Service",
+          "section_slug": "summary-designing-the-amazon-locker-service",
+          "section_file": "files/chapter_10_designing_the_amazon_locker_service/section_6564313689882624.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T15:17:29.901646",
+          "component_types": [
+            "TableHTML",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5924418541715456",
+          "section_title": "Key Insights and Tips: Designing the Amazon Locker Service",
+          "section_slug": "key-insights-and-tips-designing-the-amazon-locker-service",
+          "section_file": "files/chapter_10_designing_the_amazon_locker_service/section_5924418541715456.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T15:17:34.860353",
+          "component_types": [
+            "TableHTML",
+            "SlateHTML",
+            "Quiz"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 11,
+      "chapter_title": "Designing a Vending Machine",
+      "chapter_slug": "designing_a_vending_machine",
+      "chapter_file": "files/chapter_11_designing_a_vending_machine.tex",
+      "sections": [
+        {
+          "section_id": "6351761436835840",
+          "section_title": "Getting Ready: Vending Machine",
+          "section_slug": "getting-ready-vending-machine",
+          "section_file": "files/chapter_11_designing_a_vending_machine/section_6351761436835840.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T20:25:19.631986",
+          "component_types": [
+            "LazyLoadPlaceholder",
+            "SlateHTML",
+            "Notepad"
+          ]
+        },
+        {
+          "section_id": "6161581157384192",
+          "section_title": "Requirements for the Vending Machine",
+          "section_slug": "requirements-for-the-vending-machine",
+          "section_file": "files/chapter_11_designing_a_vending_machine/section_6161581157384192.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T20:25:35.334062",
+          "component_types": [
+            "SlateHTML",
+            "Columns"
+          ]
+        },
+        {
+          "section_id": "4732761898483712",
+          "section_title": "Use Case Diagram for the Vending Machine",
+          "section_slug": "use-case-diagram-for-the-vending-machine",
+          "section_file": "files/chapter_11_designing_a_vending_machine/section_4732761898483712.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T20:25:39.471163",
+          "component_types": [
+            "SlateHTML",
+            "DrawIOWidget",
+            "TableHTML"
+          ]
+        },
+        {
+          "section_id": "5373748763164672",
+          "section_title": "Class Diagram for the Vending Machine",
+          "section_slug": "class-diagram-for-the-vending-machine",
+          "section_file": "files/chapter_11_designing_a_vending_machine/section_5373748763164672.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T20:26:17.907663",
+          "component_types": [
+            "SlateHTML",
+            "SpoilerEditor",
+            "TableHTML",
+            "PromptAI",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "6512840561393664",
+          "section_title": "Activity Diagram for the Vending Machine",
+          "section_slug": "activity-diagram-for-the-vending-machine",
+          "section_file": "files/chapter_11_designing_a_vending_machine/section_6512840561393664.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T20:26:23.480313",
+          "component_types": [
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "5842069681864704",
+          "section_title": "Code for the Vending Machine",
+          "section_slug": "code-for-the-vending-machine",
+          "section_file": "files/chapter_11_designing_a_vending_machine/section_5842069681864704.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T20:26:25.297921",
+          "component_types": [
+            "SlateHTML",
+            "TabbedCode"
+          ]
+        },
+        {
+          "section_id": "4847744110690304",
+          "section_title": "Summary: Designing a Vending Machine",
+          "section_slug": "summary-designing-a-vending-machine",
+          "section_file": "files/chapter_11_designing_a_vending_machine/section_4847744110690304.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T20:26:26.581724",
+          "component_types": [
+            "SlateHTML",
+            "TableHTML"
+          ]
+        },
+        {
+          "section_id": "5475949196738560",
+          "section_title": "Key Insights and Tips: Designing a Vending Machine",
+          "section_slug": "key-insights-and-tips-designing-a-vending-machine",
+          "section_file": "files/chapter_11_designing_a_vending_machine/section_5475949196738560.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-11T20:26:31.610198",
+          "component_types": [
+            "SlateHTML",
+            "TableHTML",
+            "Quiz"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 12,
+      "chapter_title": "Designing an Online Blackjack Game",
+      "chapter_slug": "designing_an_online_blackjack_game",
+      "chapter_file": "files/chapter_12_designing_an_online_blackjack_game.tex",
+      "sections": [
+        {
+          "section_id": "5784621407272960",
+          "section_title": "Getting Ready: Online Blackjack Game",
+          "section_slug": "getting-ready-online-blackjack-game",
+          "section_file": "files/chapter_12_designing_an_online_blackjack_game/section_5784621407272960.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T12:54:26.652472",
+          "component_types": [
+            "Notepad",
+            "SlateHTML",
+            "LazyLoadPlaceholder"
+          ]
+        },
+        {
+          "section_id": "6503083804983296",
+          "section_title": "Requirements for the Online Blackjack Game",
+          "section_slug": "requirements-for-the-online-blackjack-game",
+          "section_file": "files/chapter_12_designing_an_online_blackjack_game/section_6503083804983296.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T12:54:31.391555",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML",
+            "TableHTML"
+          ]
+        },
+        {
+          "section_id": "5466181593202688",
+          "section_title": "Use Case Diagram for the Online Blackjack Game",
+          "section_slug": "use-case-diagram-for-the-online-blackjack-game",
+          "section_file": "files/chapter_12_designing_an_online_blackjack_game/section_5466181593202688.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T12:54:35.392577",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML",
+            "TableHTML"
+          ]
+        },
+        {
+          "section_id": "4902989846544384",
+          "section_title": "Class Diagram for the Online Blackjack Game",
+          "section_slug": "class-diagram-for-the-online-blackjack-game",
+          "section_file": "files/chapter_12_designing_an_online_blackjack_game/section_4902989846544384.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T12:55:19.898337",
+          "component_types": [
+            "PromptAI",
+            "SlateHTML",
+            "TableHTML",
+            "SpoilerEditor",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "6271264281067520",
+          "section_title": "Activity Diagram for the Online Blackjack Game",
+          "section_slug": "activity-diagram-for-the-online-blackjack-game",
+          "section_file": "files/chapter_12_designing_an_online_blackjack_game/section_6271264281067520.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T12:55:24.325415",
+          "component_types": [
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "5678759047069696",
+          "section_title": "Code for the Online Blackjack Game",
+          "section_slug": "code-for-the-online-blackjack-game",
+          "section_file": "files/chapter_12_designing_an_online_blackjack_game/section_5678759047069696.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T12:55:26.591961",
+          "component_types": [
+            "SlateHTML",
+            "TabbedCode"
+          ]
+        },
+        {
+          "section_id": "4672026118586368",
+          "section_title": "Summary: Online Blackjack Game",
+          "section_slug": "summary-online-blackjack-game",
+          "section_file": "files/chapter_12_designing_an_online_blackjack_game/section_4672026118586368.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T12:55:28.044010",
+          "component_types": [
+            "SlateHTML",
+            "TableHTML"
+          ]
+        },
+        {
+          "section_id": "5475450393329664",
+          "section_title": "Key Insights and Tips: Designing an Online Blackjack Game",
+          "section_slug": "key-insights-and-tips-designing-an-online-blackjack-game",
+          "section_file": "files/chapter_12_designing_an_online_blackjack_game/section_5475450393329664.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T12:55:31.428050",
+          "component_types": [
+            "SlateHTML",
+            "Quiz",
+            "TableHTML"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 13,
+      "chapter_title": "Designing a Meeting Scheduler",
+      "chapter_slug": "designing_a_meeting_scheduler",
+      "chapter_file": "files/chapter_13_designing_a_meeting_scheduler.tex",
+      "sections": [
+        {
+          "section_id": "5571997574889472",
+          "section_title": "Getting Ready: The Meeting Scheduler Problem",
+          "section_slug": "getting-ready-the-meeting-scheduler-problem",
+          "section_file": "files/chapter_13_designing_a_meeting_scheduler/section_5571997574889472.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T13:05:42.095388",
+          "component_types": [
+            "Notepad",
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "4552859140227072",
+          "section_title": "Requirements for the Meeting Scheduler",
+          "section_slug": "requirements-for-the-meeting-scheduler",
+          "section_file": "files/chapter_13_designing_a_meeting_scheduler/section_4552859140227072.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T13:05:51.176901",
+          "component_types": [
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "6566425982664704",
+          "section_title": "Use Case Diagram for the Meeting Scheduler",
+          "section_slug": "use-case-diagram-for-the-meeting-scheduler",
+          "section_file": "files/chapter_13_designing_a_meeting_scheduler/section_6566425982664704.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T13:05:55.068480",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML",
+            "TableHTML"
+          ]
+        },
+        {
+          "section_id": "5916251618803712",
+          "section_title": "Class Diagram for the Meeting Scheduler",
+          "section_slug": "class-diagram-for-the-meeting-scheduler",
+          "section_file": "files/chapter_13_designing_a_meeting_scheduler/section_5916251618803712.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T13:06:30.332312",
+          "component_types": [
+            "PromptAI",
+            "SlateHTML",
+            "TableHTML",
+            "SpoilerEditor",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "4728022133637120",
+          "section_title": "Sequence Diagram for the Meeting Scheduler",
+          "section_slug": "sequence-diagram-for-the-meeting-scheduler",
+          "section_file": "files/chapter_13_designing_a_meeting_scheduler/section_4728022133637120.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T13:06:38.705361",
+          "component_types": [
+            "SpoilerEditor",
+            "Permutation",
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "5955594525868032",
+          "section_title": "Activity Diagram for the Meeting Scheduler",
+          "section_slug": "activity-diagram-for-the-meeting-scheduler",
+          "section_file": "files/chapter_13_designing_a_meeting_scheduler/section_5955594525868032.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T13:06:45.037920",
+          "component_types": [
+            "SpoilerEditor",
+            "Permutation",
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "4653866107011072",
+          "section_title": "Code for the Meeting Scheduler",
+          "section_slug": "code-for-the-meeting-scheduler",
+          "section_file": "files/chapter_13_designing_a_meeting_scheduler/section_4653866107011072.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T13:06:47.425513",
+          "component_types": [
+            "SlateHTML",
+            "TabbedCode"
+          ]
+        },
+        {
+          "section_id": "5490132386709504",
+          "section_title": "Summary: Designing a Meeting Scheduler",
+          "section_slug": "summary-designing-a-meeting-scheduler",
+          "section_file": "files/chapter_13_designing_a_meeting_scheduler/section_5490132386709504.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T13:06:48.691723",
+          "component_types": [
+            "SlateHTML",
+            "TableHTML"
+          ]
+        },
+        {
+          "section_id": "5105527863246848",
+          "section_title": "Key Insights and Tips: Designing a Meeting Scheduler",
+          "section_slug": "key-insights-and-tips-designing-a-meeting-scheduler",
+          "section_file": "files/chapter_13_designing_a_meeting_scheduler/section_5105527863246848.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T13:06:52.943796",
+          "component_types": [
+            "SlateHTML",
+            "Quiz",
+            "TableHTML"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 14,
+      "chapter_title": "Designing a Movie Ticket Booking System",
+      "chapter_slug": "designing_a_movie_ticket_booking_system",
+      "chapter_file": "files/chapter_14_designing_a_movie_ticket_booking_system.tex",
+      "sections": [
+        {
+          "section_id": "6553143930519552",
+          "section_title": "Getting Ready: Movie Ticket Booking System",
+          "section_slug": "getting-ready-movie-ticket-booking-system",
+          "section_file": "files/chapter_14_designing_a_movie_ticket_booking_system/section_6553143930519552.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T14:17:42.062091",
+          "component_types": [
+            "Notepad",
+            "SlateHTML",
+            "LazyLoadPlaceholder"
+          ]
+        },
+        {
+          "section_id": "5748348657336320",
+          "section_title": "Requirements for the Movie Ticket Booking System",
+          "section_slug": "requirements-for-the-movie-ticket-booking-system",
+          "section_file": "files/chapter_14_designing_a_movie_ticket_booking_system/section_5748348657336320.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T14:17:43.680953",
+          "component_types": [
+            "Columns",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5302189004423168",
+          "section_title": "Use Case Diagram for the Movie Ticket Booking System",
+          "section_slug": "use-case-diagram-for-the-movie-ticket-booking-system",
+          "section_file": "files/chapter_14_designing_a_movie_ticket_booking_system/section_5302189004423168.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T14:17:48.525454",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML",
+            "TableHTML"
+          ]
+        },
+        {
+          "section_id": "6632333597999104",
+          "section_title": "Class Diagram for the Movie Ticket Booking System",
+          "section_slug": "class-diagram-for-the-movie-ticket-booking-system",
+          "section_file": "files/chapter_14_designing_a_movie_ticket_booking_system/section_6632333597999104.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T14:19:33.825886",
+          "component_types": [
+            "PromptAI",
+            "SlateHTML",
+            "TableHTML",
+            "LazyLoadPlaceholder",
+            "SpoilerEditor",
+            "MarkdownEditor",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "4835239549730816",
+          "section_title": "Sequence Diagram for the Movie Ticket Booking System",
+          "section_slug": "sequence-diagram-for-the-movie-ticket-booking-system",
+          "section_file": "files/chapter_14_designing_a_movie_ticket_booking_system/section_4835239549730816.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T14:19:45.435801",
+          "component_types": [
+            "SpoilerEditor",
+            "Permutation",
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "6345062630031360",
+          "section_title": "Activity Diagram for the Movie Ticket Booking System",
+          "section_slug": "activity-diagram-for-the-movie-ticket-booking-system",
+          "section_file": "files/chapter_14_designing_a_movie_ticket_booking_system/section_6345062630031360.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T14:19:52.018666",
+          "component_types": [
+            "SpoilerEditor",
+            "Permutation",
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "6523839966347264",
+          "section_title": "Code for the Movie Ticket Booking System",
+          "section_slug": "code-for-the-movie-ticket-booking-system",
+          "section_file": "files/chapter_14_designing_a_movie_ticket_booking_system/section_6523839966347264.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T14:19:54.380249",
+          "component_types": [
+            "SlateHTML",
+            "TabbedCode"
+          ]
+        },
+        {
+          "section_id": "5336635833974784",
+          "section_title": "Summary: Designing a Movie Ticket Booking System",
+          "section_slug": "summary-designing-a-movie-ticket-booking-system",
+          "section_file": "files/chapter_14_designing_a_movie_ticket_booking_system/section_5336635833974784.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T14:19:55.688564",
+          "component_types": [
+            "SlateHTML",
+            "TableHTML"
+          ]
+        },
+        {
+          "section_id": "5824618920017920",
+          "section_title": "Key Insights and Tips: Designing a Movie Ticket Booking System",
+          "section_slug": "key-insights-and-tips-designing-a-movie-ticket-booking-system",
+          "section_file": "files/chapter_14_designing_a_movie_ticket_booking_system/section_5824618920017920.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T14:19:59.037425",
+          "component_types": [
+            "SlateHTML",
+            "Quiz",
+            "TableHTML"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 15,
+      "chapter_title": "Designing a Car Rental System",
+      "chapter_slug": "designing_a_car_rental_system",
+      "chapter_file": "files/chapter_15_designing_a_car_rental_system.tex",
+      "sections": [
+        {
+          "section_id": "5816226192556032",
+          "section_title": "Getting Ready: The Car Rental System",
+          "section_slug": "getting-ready-the-car-rental-system",
+          "section_file": "files/chapter_15_designing_a_car_rental_system/section_5816226192556032.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T14:50:09.691470",
+          "component_types": [
+            "Notepad",
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "4954864321036288",
+          "section_title": "Requirements for the Car Rental System",
+          "section_slug": "requirements-for-the-car-rental-system",
+          "section_file": "files/chapter_15_designing_a_car_rental_system/section_4954864321036288.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T14:50:28.066141",
+          "component_types": [
+            "Columns",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5990796071534592",
+          "section_title": "Use Case Diagram for the Car Rental System",
+          "section_slug": "use-case-diagram-for-the-car-rental-system",
+          "section_file": "files/chapter_15_designing_a_car_rental_system/section_5990796071534592.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T14:50:33.084813",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML",
+            "TableHTML"
+          ]
+        },
+        {
+          "section_id": "5607380186562560",
+          "section_title": "Class Diagram for the Car Rental System",
+          "section_slug": "class-diagram-for-the-car-rental-system",
+          "section_file": "files/chapter_15_designing_a_car_rental_system/section_5607380186562560.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T14:51:39.206985",
+          "component_types": [
+            "PromptAI",
+            "SlateHTML",
+            "TableHTML",
+            "SpoilerEditor",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "6250981438521344",
+          "section_title": "Sequence Diagram for the Car Rental System",
+          "section_slug": "sequence-diagram-for-the-car-rental-system",
+          "section_file": "files/chapter_15_designing_a_car_rental_system/section_6250981438521344.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T14:51:47.458102",
+          "component_types": [
+            "SpoilerEditor",
+            "Permutation",
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "6111367285440512",
+          "section_title": "Activity Diagram for the Car Rental System",
+          "section_slug": "activity-diagram-for-the-car-rental-system",
+          "section_file": "files/chapter_15_designing_a_car_rental_system/section_6111367285440512.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T14:51:54.953645",
+          "component_types": [
+            "SpoilerEditor",
+            "Permutation",
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "6317290968842240",
+          "section_title": "Code for the Car Rental System",
+          "section_slug": "code-for-the-car-rental-system",
+          "section_file": "files/chapter_15_designing_a_car_rental_system/section_6317290968842240.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T14:51:58.485542",
+          "component_types": [
+            "SlateHTML",
+            "TabbedCode"
+          ]
+        },
+        {
+          "section_id": "4754498181267456",
+          "section_title": "Summary: Designing a Car Rental System",
+          "section_slug": "summary-designing-a-car-rental-system",
+          "section_file": "files/chapter_15_designing_a_car_rental_system/section_4754498181267456.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T14:51:59.811678",
+          "component_types": [
+            "SlateHTML",
+            "TableHTML"
+          ]
+        },
+        {
+          "section_id": "6048210890915840",
+          "section_title": "Key Insights and Tips: Designing a Car Rental System",
+          "section_slug": "key-insights-and-tips-designing-a-car-rental-system",
+          "section_file": "files/chapter_15_designing_a_car_rental_system/section_6048210890915840.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T14:52:04.019834",
+          "component_types": [
+            "SlateHTML",
+            "Quiz",
+            "TableHTML"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 16,
+      "chapter_title": "Designing ATM",
+      "chapter_slug": "designing_atm",
+      "chapter_file": "files/chapter_16_designing_atm.tex",
+      "sections": [
+        {
+          "section_id": "5101998182760448",
+          "section_title": "Getting Ready: The ATM System",
+          "section_slug": "getting-ready-the-atm-system",
+          "section_file": "files/chapter_16_designing_atm/section_5101998182760448.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T15:53:03.338809",
+          "component_types": [
+            "Notepad",
+            "SlateHTML",
+            "LazyLoadPlaceholder"
+          ]
+        },
+        {
+          "section_id": "5777893008605184",
+          "section_title": "Requirements for the ATM System",
+          "section_slug": "requirements-for-the-atm-system",
+          "section_file": "files/chapter_16_designing_atm/section_5777893008605184.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T15:53:08.801203",
+          "component_types": [
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "5191075351494656",
+          "section_title": "Use Case Diagram for the ATM System",
+          "section_slug": "use-case-diagram-for-the-atm-system",
+          "section_file": "files/chapter_16_designing_atm/section_5191075351494656.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T15:53:13.004034",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML",
+            "TableHTML"
+          ]
+        },
+        {
+          "section_id": "4804677498830848",
+          "section_title": "Class Diagram for the ATM System",
+          "section_slug": "class-diagram-for-the-atm-system",
+          "section_file": "files/chapter_16_designing_atm/section_4804677498830848.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T15:53:54.908308",
+          "component_types": [
+            "PromptAI",
+            "SlateHTML",
+            "TableHTML",
+            "SpoilerEditor",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "4871817715253248",
+          "section_title": "Sequence Diagram for the ATM System",
+          "section_slug": "sequence-diagram-for-the-atm-system",
+          "section_file": "files/chapter_16_designing_atm/section_4871817715253248.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T15:53:59.543821",
+          "component_types": [
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "5109112275992576",
+          "section_title": "Activity Diagram for the ATM System",
+          "section_slug": "activity-diagram-for-the-atm-system",
+          "section_file": "files/chapter_16_designing_atm/section_5109112275992576.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T15:54:06.989728",
+          "component_types": [
+            "SpoilerEditor",
+            "Permutation",
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "4911472275881984",
+          "section_title": "Code for the ATM System",
+          "section_slug": "code-for-the-atm-system",
+          "section_file": "files/chapter_16_designing_atm/section_4911472275881984.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T15:54:08.995773",
+          "component_types": [
+            "SlateHTML",
+            "TabbedCode"
+          ]
+        },
+        {
+          "section_id": "5238067785760768",
+          "section_title": "Summary: Designing ATM",
+          "section_slug": "summary-designing-atm",
+          "section_file": "files/chapter_16_designing_atm/section_5238067785760768.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T15:54:10.273551",
+          "component_types": [
+            "SlateHTML",
+            "TableHTML"
+          ]
+        },
+        {
+          "section_id": "4756207620194304",
+          "section_title": "Key Insights and Tips: Designing ATM",
+          "section_slug": "key-insights-and-tips-designing-atm",
+          "section_file": "files/chapter_16_designing_atm/section_4756207620194304.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T15:54:14.969209",
+          "component_types": [
+            "SlateHTML",
+            "Quiz",
+            "TableHTML"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 17,
+      "chapter_title": "Designing a Chess Game",
+      "chapter_slug": "designing_a_chess_game",
+      "chapter_file": "files/chapter_17_designing_a_chess_game.tex",
+      "sections": [
+        {
+          "section_id": "5572728729108480",
+          "section_title": "Getting Ready: The Chess Game",
+          "section_slug": "getting-ready-the-chess-game",
+          "section_file": "files/chapter_17_designing_a_chess_game/section_5572728729108480.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T16:10:10.172634",
+          "component_types": [
+            "Notepad",
+            "SlateHTML",
+            "LazyLoadPlaceholder"
+          ]
+        },
+        {
+          "section_id": "5244835679436800",
+          "section_title": "Requirements for the Chess Game",
+          "section_slug": "requirements-for-the-chess-game",
+          "section_file": "files/chapter_17_designing_a_chess_game/section_5244835679436800.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T16:10:31.302617",
+          "component_types": [
+            "Columns",
+            "TableHTML",
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "6007166617255936",
+          "section_title": "Use Case Diagram for the Chess Game",
+          "section_slug": "use-case-diagram-for-the-chess-game",
+          "section_file": "files/chapter_17_designing_a_chess_game/section_6007166617255936.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T16:10:35.619258",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML",
+            "TableHTML"
+          ]
+        },
+        {
+          "section_id": "5732015845670912",
+          "section_title": "Class Diagram for the Chess Game",
+          "section_slug": "class-diagram-for-the-chess-game",
+          "section_file": "files/chapter_17_designing_a_chess_game/section_5732015845670912.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T16:11:17.430284",
+          "component_types": [
+            "PromptAI",
+            "SlateHTML",
+            "TableHTML",
+            "SpoilerEditor",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "6608838909493248",
+          "section_title": "Activity Diagram for the Chess Game",
+          "section_slug": "activity-diagram-for-the-chess-game",
+          "section_file": "files/chapter_17_designing_a_chess_game/section_6608838909493248.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T16:11:21.566935",
+          "component_types": [
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "5419005675569152",
+          "section_title": "Code for the Chess Game",
+          "section_slug": "code-for-the-chess-game",
+          "section_file": "files/chapter_17_designing_a_chess_game/section_5419005675569152.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T16:11:23.967992",
+          "component_types": [
+            "SlateHTML",
+            "TabbedCode"
+          ]
+        },
+        {
+          "section_id": "5225374563565568",
+          "section_title": "Summary: Designing a Chess Game",
+          "section_slug": "summary-designing-a-chess-game",
+          "section_file": "files/chapter_17_designing_a_chess_game/section_5225374563565568.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T16:11:25.393674",
+          "component_types": [
+            "SlateHTML",
+            "TableHTML"
+          ]
+        },
+        {
+          "section_id": "6566136257576960",
+          "section_title": "Key Insights and Tips: Designing a Chess Game",
+          "section_slug": "key-insights-and-tips-designing-a-chess-game",
+          "section_file": "files/chapter_17_designing_a_chess_game/section_6566136257576960.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T16:11:30.307951",
+          "component_types": [
+            "SlateHTML",
+            "Quiz",
+            "TableHTML"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 18,
+      "chapter_title": "Designing a Hotel Management System",
+      "chapter_slug": "designing_a_hotel_management_system",
+      "chapter_file": "files/chapter_18_designing_a_hotel_management_system.tex",
+      "sections": [
+        {
+          "section_id": "5397940059504640",
+          "section_title": "Getting Ready: The Hotel Management System",
+          "section_slug": "getting-ready-the-hotel-management-system",
+          "section_file": "files/chapter_18_designing_a_hotel_management_system/section_5397940059504640.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T16:22:17.007708",
+          "component_types": [
+            "Notepad",
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "5616280768086016",
+          "section_title": "Requirements for the Hotel Management System",
+          "section_slug": "requirements-for-the-hotel-management-system",
+          "section_file": "files/chapter_18_designing_a_hotel_management_system/section_5616280768086016.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T16:22:18.536724",
+          "component_types": [
+            "Columns",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "4770202208436224",
+          "section_title": "Use Case Diagram for the Hotel Management System",
+          "section_slug": "use-case-diagram-for-the-hotel-management-system",
+          "section_file": "files/chapter_18_designing_a_hotel_management_system/section_4770202208436224.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T16:22:31.264975",
+          "component_types": [
+            "Table",
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "6101784200478720",
+          "section_title": "Class Diagram for the Hotel Management System",
+          "section_slug": "class-diagram-for-the-hotel-management-system",
+          "section_file": "files/chapter_18_designing_a_hotel_management_system/section_6101784200478720.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T16:23:26.725547",
+          "component_types": [
+            "PromptAI",
+            "SlateHTML",
+            "TableHTML",
+            "SpoilerEditor",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "4909350250610688",
+          "section_title": "Sequence Diagram for the Hotel Management System",
+          "section_slug": "sequence-diagram-for-the-hotel-management-system",
+          "section_file": "files/chapter_18_designing_a_hotel_management_system/section_4909350250610688.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T16:23:35.495373",
+          "component_types": [
+            "Permutation",
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "5412792868012032",
+          "section_title": "Activity Diagram for the Hotel Management System",
+          "section_slug": "activity-diagram-for-the-hotel-management-system",
+          "section_file": "files/chapter_18_designing_a_hotel_management_system/section_5412792868012032.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T16:23:43.000553",
+          "component_types": [
+            "SpoilerEditor",
+            "Permutation",
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "4898729440313344",
+          "section_title": "Code for the Hotel Management System",
+          "section_slug": "code-for-the-hotel-management-system",
+          "section_file": "files/chapter_18_designing_a_hotel_management_system/section_4898729440313344.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T16:23:46.018472",
+          "component_types": [
+            "SlateHTML",
+            "TabbedCode"
+          ]
+        },
+        {
+          "section_id": "5966015685853184",
+          "section_title": "Summary: Designing a Hotel Management System",
+          "section_slug": "summary-designing-a-hotel-management-system",
+          "section_file": "files/chapter_18_designing_a_hotel_management_system/section_5966015685853184.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T16:23:47.503729",
+          "component_types": [
+            "SlateHTML",
+            "TableHTML"
+          ]
+        },
+        {
+          "section_id": "5901566010589184",
+          "section_title": "Key Insights: The Hotel Management System",
+          "section_slug": "key-insights-the-hotel-management-system",
+          "section_file": "files/chapter_18_designing_a_hotel_management_system/section_5901566010589184.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T16:23:52.457237",
+          "component_types": [
+            "SlateHTML",
+            "Quiz",
+            "TableHTML"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 19,
+      "chapter_title": "Designing the Amazon Online Shopping System",
+      "chapter_slug": "designing_the_amazon_online_shopping_system",
+      "chapter_file": "files/chapter_19_designing_the_amazon_online_shopping_system.tex",
+      "sections": [
+        {
+          "section_id": "6076512478691328",
+          "section_title": "Getting Ready: The Amazon Online Shopping System",
+          "section_slug": "getting-ready-the-amazon-online-shopping-system",
+          "section_file": "files/chapter_19_designing_the_amazon_online_shopping_system/section_6076512478691328.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T22:44:02.700728",
+          "component_types": [
+            "Notepad",
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "4824408051154944",
+          "section_title": "Requirements for the Amazon Online Shopping System",
+          "section_slug": "requirements-for-the-amazon-online-shopping-system",
+          "section_file": "files/chapter_19_designing_the_amazon_online_shopping_system/section_4824408051154944.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T22:44:04.424205",
+          "component_types": [
+            "Columns",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5402575537176576",
+          "section_title": "Use Case Diagram for the Amazon Online Shopping System",
+          "section_slug": "use-case-diagram-for-the-amazon-online-shopping-system",
+          "section_file": "files/chapter_19_designing_the_amazon_online_shopping_system/section_5402575537176576.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T22:44:13.388615",
+          "component_types": [
+            "Table",
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "6113026015232000",
+          "section_title": "Class Diagram for the Amazon Online Shopping System",
+          "section_slug": "class-diagram-for-the-amazon-online-shopping-system",
+          "section_file": "files/chapter_19_designing_the_amazon_online_shopping_system/section_6113026015232000.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T22:45:42.036331",
+          "component_types": [
+            "PromptAI",
+            "SlateHTML",
+            "TableHTML",
+            "SpoilerEditor",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "5101364581761024",
+          "section_title": "Sequence Diagram for the Amazon Online Shopping System",
+          "section_slug": "sequence-diagram-for-the-amazon-online-shopping-system",
+          "section_file": "files/chapter_19_designing_the_amazon_online_shopping_system/section_5101364581761024.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T22:45:52.263632",
+          "component_types": [
+            "SpoilerEditor",
+            "Permutation",
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "5911026583470080",
+          "section_title": "Activity Diagram for the Amazon Online Shopping System",
+          "section_slug": "activity-diagram-for-the-amazon-online-shopping-system",
+          "section_file": "files/chapter_19_designing_the_amazon_online_shopping_system/section_5911026583470080.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T22:46:02.305332",
+          "component_types": [
+            "SpoilerEditor",
+            "Permutation",
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "5634660812193792",
+          "section_title": "Code for the Amazon Online Shopping System",
+          "section_slug": "code-for-the-amazon-online-shopping-system",
+          "section_file": "files/chapter_19_designing_the_amazon_online_shopping_system/section_5634660812193792.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T22:46:06.577307",
+          "component_types": [
+            "SlateHTML",
+            "TabbedCode"
+          ]
+        },
+        {
+          "section_id": "5469326290059264",
+          "section_title": "Summary: Designing the Amazon Online Shopping System",
+          "section_slug": "summary-designing-the-amazon-online-shopping-system",
+          "section_file": "files/chapter_19_designing_the_amazon_online_shopping_system/section_5469326290059264.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T22:46:09.334347",
+          "component_types": [
+            "SlateHTML",
+            "TableHTML"
+          ]
+        },
+        {
+          "section_id": "5387748855644160",
+          "section_title": "Key Insights: The Amazon Online Shopping System",
+          "section_slug": "key-insights-the-amazon-online-shopping-system",
+          "section_file": "files/chapter_19_designing_the_amazon_online_shopping_system/section_5387748855644160.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T22:46:16.208220",
+          "component_types": [
+            "SlateHTML",
+            "Quiz",
+            "TableHTML"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 20,
+      "chapter_title": "Designing Stack Overflow",
+      "chapter_slug": "designing_stack_overflow",
+      "chapter_file": "files/chapter_20_designing_stack_overflow.tex",
+      "sections": [
+        {
+          "section_id": "5007773721165824",
+          "section_title": "Getting Ready: Stack Overflow",
+          "section_slug": "getting-ready-stack-overflow",
+          "section_file": "files/chapter_20_designing_stack_overflow/section_5007773721165824.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T22:48:52.488402",
+          "component_types": [
+            "Notepad",
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "4681614011662336",
+          "section_title": "Requirements for Stack Overflow",
+          "section_slug": "requirements-for-stack-overflow",
+          "section_file": "files/chapter_20_designing_stack_overflow/section_4681614011662336.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T22:49:03.824136",
+          "component_types": [
+            "Columns",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "4790351711961088",
+          "section_title": "Use Case Diagram for Stack Overflow",
+          "section_slug": "use-case-diagram-for-stack-overflow",
+          "section_file": "files/chapter_20_designing_stack_overflow/section_4790351711961088.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T22:49:13.721848",
+          "component_types": [
+            "Table",
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "5490973346103296",
+          "section_title": "Class Diagram for Stack Overflow",
+          "section_slug": "class-diagram-for-stack-overflow",
+          "section_file": "files/chapter_20_designing_stack_overflow/section_5490973346103296.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T22:50:09.035361",
+          "component_types": [
+            "PromptAI",
+            "SlateHTML",
+            "TableHTML",
+            "SpoilerEditor",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "5490623111233536",
+          "section_title": "Sequence Diagram for Stack Overflow",
+          "section_slug": "sequence-diagram-for-stack-overflow",
+          "section_file": "files/chapter_20_designing_stack_overflow/section_5490623111233536.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T22:50:20.024843",
+          "component_types": [
+            "SpoilerEditor",
+            "Permutation",
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "4613720120754176",
+          "section_title": "Activity Diagram for Stack Overflow",
+          "section_slug": "activity-diagram-for-stack-overflow",
+          "section_file": "files/chapter_20_designing_stack_overflow/section_4613720120754176.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T22:50:26.910671",
+          "component_types": [
+            "SpoilerEditor",
+            "Permutation",
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "5913671215874048",
+          "section_title": "Code for Stack Overflow",
+          "section_slug": "code-for-stack-overflow",
+          "section_file": "files/chapter_20_designing_stack_overflow/section_5913671215874048.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T22:50:28.869340",
+          "component_types": [
+            "SlateHTML",
+            "TabbedCode"
+          ]
+        },
+        {
+          "section_id": "4590596768268288",
+          "section_title": "Summary: Designing Stack Overflow",
+          "section_slug": "summary-designing-stack-overflow",
+          "section_file": "files/chapter_20_designing_stack_overflow/section_4590596768268288.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T22:50:30.225563",
+          "component_types": [
+            "SlateHTML",
+            "TableHTML"
+          ]
+        },
+        {
+          "section_id": "6216187120582656",
+          "section_title": "Key Insights: Stack Overflow",
+          "section_slug": "key-insights-stack-overflow",
+          "section_file": "files/chapter_20_designing_stack_overflow/section_6216187120582656.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-12T22:50:34.412974",
+          "component_types": [
+            "SlateHTML",
+            "Quiz",
+            "TableHTML"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 21,
+      "chapter_title": "Designing a Restaurant Management System",
+      "chapter_slug": "designing_a_restaurant_management_system",
+      "chapter_file": "files/chapter_21_designing_a_restaurant_management_system.tex",
+      "sections": [
+        {
+          "section_id": "4775481582026752",
+          "section_title": "Getting Ready: The Restaurant Management System",
+          "section_slug": "getting-ready-the-restaurant-management-system",
+          "section_file": "files/chapter_21_designing_a_restaurant_management_system/section_4775481582026752.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:22:34.348089",
+          "component_types": [
+            "Notepad",
+            "LazyLoadPlaceholder",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5592799430049792",
+          "section_title": "Requirements for the Restaurant Management System",
+          "section_slug": "requirements-for-the-restaurant-management-system",
+          "section_file": "files/chapter_21_designing_a_restaurant_management_system/section_5592799430049792.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:22:51.001113",
+          "component_types": [
+            "Columns",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "6482479776268288",
+          "section_title": "Use Case Diagram for the Restaurant Management System",
+          "section_slug": "use-case-diagram-for-the-restaurant-management-system",
+          "section_file": "files/chapter_21_designing_a_restaurant_management_system/section_6482479776268288.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:23:00.239723",
+          "component_types": [
+            "DrawIOWidget",
+            "Table",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "6210405828657152",
+          "section_title": "Class diagram for the Restaurant Management System",
+          "section_slug": "class-diagram-for-the-restaurant-management-system",
+          "section_file": "files/chapter_21_designing_a_restaurant_management_system/section_6210405828657152.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:23:58.313567",
+          "component_types": [
+            "PromptAI",
+            "TableHTML",
+            "SpoilerEditor",
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5569020712714240",
+          "section_title": "Sequence Diagram for the Restaurant Management System",
+          "section_slug": "sequence-diagram-for-the-restaurant-management-system",
+          "section_file": "files/chapter_21_designing_a_restaurant_management_system/section_5569020712714240.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:24:06.224704",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML",
+            "SpoilerEditor",
+            "Permutation"
+          ]
+        },
+        {
+          "section_id": "5616451496181760",
+          "section_title": "Activity Diagram for the Restaurant Management System",
+          "section_slug": "activity-diagram-for-the-restaurant-management-system",
+          "section_file": "files/chapter_21_designing_a_restaurant_management_system/section_5616451496181760.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:24:13.703072",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML",
+            "SpoilerEditor",
+            "Permutation"
+          ]
+        },
+        {
+          "section_id": "5649412002152448",
+          "section_title": "Code of Restaurant Management System",
+          "section_slug": "code-of-restaurant-management-system",
+          "section_file": "files/chapter_21_designing_a_restaurant_management_system/section_5649412002152448.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:24:16.340118",
+          "component_types": [
+            "TabbedCode",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "4860088844943360",
+          "section_title": "Summary: Designing a Restaurant Management System",
+          "section_slug": "summary-designing-a-restaurant-management-system",
+          "section_file": "files/chapter_21_designing_a_restaurant_management_system/section_4860088844943360.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:24:18.066827",
+          "component_types": [
+            "TableHTML",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "4848581562204160",
+          "section_title": "Key Insights: The Restaurant Management System",
+          "section_slug": "key-insights-the-restaurant-management-system",
+          "section_file": "files/chapter_21_designing_a_restaurant_management_system/section_4848581562204160.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:24:23.001245",
+          "component_types": [
+            "Quiz",
+            "TableHTML",
+            "SlateHTML"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 22,
+      "chapter_title": "Designing Facebook",
+      "chapter_slug": "designing_facebook",
+      "chapter_file": "files/chapter_22_designing_facebook.tex",
+      "sections": [
+        {
+          "section_id": "5513562525270016",
+          "section_title": "Getting Ready: The Facebook System",
+          "section_slug": "getting-ready-the-facebook-system",
+          "section_file": "files/chapter_22_designing_facebook/section_5513562525270016.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:38:25.936200",
+          "component_types": [
+            "Notepad",
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5451109412110336",
+          "section_title": "Requirements for Facebook",
+          "section_slug": "requirements-for-facebook",
+          "section_file": "files/chapter_22_designing_facebook/section_5451109412110336.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:38:42.195062",
+          "component_types": [
+            "Columns",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5550076061810688",
+          "section_title": "Use Case Diagram for Facebook",
+          "section_slug": "use-case-diagram-for-facebook",
+          "section_file": "files/chapter_22_designing_facebook/section_5550076061810688.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:38:52.374557",
+          "component_types": [
+            "DrawIOWidget",
+            "Table",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "4730817050050560",
+          "section_title": "Class Diagram for Facebook",
+          "section_slug": "class-diagram-for-facebook",
+          "section_file": "files/chapter_22_designing_facebook/section_4730817050050560.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:40:02.893669",
+          "component_types": [
+            "PromptAI",
+            "TableHTML",
+            "SpoilerEditor",
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5720196763615232",
+          "section_title": "Sequence Diagram for  Facebook",
+          "section_slug": "sequence-diagram-for-facebook",
+          "section_file": "files/chapter_22_designing_facebook/section_5720196763615232.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:40:09.107794",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "4550266590593024",
+          "section_title": "Activity Diagram for  Facebook",
+          "section_slug": "activity-diagram-for-facebook",
+          "section_file": "files/chapter_22_designing_facebook/section_4550266590593024.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:40:16.559674",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML",
+            "SpoilerEditor",
+            "Permutation"
+          ]
+        },
+        {
+          "section_id": "6053923299524608",
+          "section_title": "Code for Facebook",
+          "section_slug": "code-for-facebook",
+          "section_file": "files/chapter_22_designing_facebook/section_6053923299524608.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:40:19.471056",
+          "component_types": [
+            "TabbedCode",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5929095408779264",
+          "section_title": "Summary: Designing Facebook",
+          "section_slug": "summary-designing-facebook",
+          "section_file": "files/chapter_22_designing_facebook/section_5929095408779264.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:40:20.795001",
+          "component_types": [
+            "TableHTML",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5594877646471168",
+          "section_title": "Key Insights: Facebook",
+          "section_slug": "key-insights-facebook",
+          "section_file": "files/chapter_22_designing_facebook/section_5594877646471168.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:40:25.321649",
+          "component_types": [
+            "Quiz",
+            "TableHTML",
+            "SlateHTML"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 23,
+      "chapter_title": "Designing an Online Stock Brokerage System",
+      "chapter_slug": "designing_an_online_stock_brokerage_system",
+      "chapter_file": "files/chapter_23_designing_an_online_stock_brokerage_system.tex",
+      "sections": [
+        {
+          "section_id": "5081333196128256",
+          "section_title": "Getting Ready: An Online Stock Brokerage System",
+          "section_slug": "getting-ready-an-online-stock-brokerage-system",
+          "section_file": "files/chapter_23_designing_an_online_stock_brokerage_system/section_5081333196128256.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:53:00.199983",
+          "component_types": [
+            "Notepad",
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5002522888765440",
+          "section_title": "Requirements for the Online Stock Brokerage System",
+          "section_slug": "requirements-for-the-online-stock-brokerage-system",
+          "section_file": "files/chapter_23_designing_an_online_stock_brokerage_system/section_5002522888765440.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:53:12.943830",
+          "component_types": [
+            "MarkdownEditor",
+            "Columns",
+            "SlateHTML",
+            "DrawIOWidget"
+          ]
+        },
+        {
+          "section_id": "5131948513296384",
+          "section_title": "Use Case Diagram for the Online Stock Brokerage System",
+          "section_slug": "use-case-diagram-for-the-online-stock-brokerage-system",
+          "section_file": "files/chapter_23_designing_an_online_stock_brokerage_system/section_5131948513296384.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:53:20.829208",
+          "component_types": [
+            "DrawIOWidget",
+            "Table",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "4575406147764224",
+          "section_title": "Class Diagram for the Online Stock Brokerage System",
+          "section_slug": "class-diagram-for-the-online-stock-brokerage-system",
+          "section_file": "files/chapter_23_designing_an_online_stock_brokerage_system/section_4575406147764224.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:54:27.229295",
+          "component_types": [
+            "PromptAI",
+            "TableHTML",
+            "SpoilerEditor",
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5185398703915008",
+          "section_title": "Sequence Diagram for the Online Stock Brokerage System",
+          "section_slug": "sequence-diagram-for-the-online-stock-brokerage-system",
+          "section_file": "files/chapter_23_designing_an_online_stock_brokerage_system/section_5185398703915008.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:54:31.462591",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "4961338850017280",
+          "section_title": "Activity Diagram for the Online Stock Brokerage System",
+          "section_slug": "activity-diagram-for-the-online-stock-brokerage-system",
+          "section_file": "files/chapter_23_designing_an_online_stock_brokerage_system/section_4961338850017280.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:54:35.693493",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5620382120017920",
+          "section_title": "Code for the Online Stock Brokerage System",
+          "section_slug": "code-for-the-online-stock-brokerage-system",
+          "section_file": "files/chapter_23_designing_an_online_stock_brokerage_system/section_5620382120017920.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:54:37.767764",
+          "component_types": [
+            "TabbedCode",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5285709693714432",
+          "section_title": "Summary: Designing an Online Stock Brokerage System",
+          "section_slug": "summary-designing-an-online-stock-brokerage-system",
+          "section_file": "files/chapter_23_designing_an_online_stock_brokerage_system/section_5285709693714432.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:54:39.067198",
+          "component_types": [
+            "TableHTML",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "4957315084976128",
+          "section_title": "Key Insights and Tips: Designing a Stock Brokerage System",
+          "section_slug": "key-insights-and-tips-designing-a-stock-brokerage-system",
+          "section_file": "files/chapter_23_designing_an_online_stock_brokerage_system/section_4957315084976128.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T12:54:43.411933",
+          "component_types": [
+            "Quiz",
+            "TableHTML",
+            "SlateHTML"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 24,
+      "chapter_title": "Designing a Jigsaw Puzzle",
+      "chapter_slug": "designing_a_jigsaw_puzzle",
+      "chapter_file": "files/chapter_24_designing_a_jigsaw_puzzle.tex",
+      "sections": [
+        {
+          "section_id": "4983191784128512",
+          "section_title": "Getting Ready: Jigsaw Puzzle",
+          "section_slug": "getting-ready-jigsaw-puzzle",
+          "section_file": "files/chapter_24_designing_a_jigsaw_puzzle/section_4983191784128512.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:10:11.080537",
+          "component_types": [
+            "Notepad",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "6422319629336576",
+          "section_title": "Requirements for the Jigsaw Puzzle",
+          "section_slug": "requirements-for-the-jigsaw-puzzle",
+          "section_file": "files/chapter_24_designing_a_jigsaw_puzzle/section_6422319629336576.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:10:21.846046",
+          "component_types": [
+            "LazyLoadPlaceholder",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "4983682953904128",
+          "section_title": "Class Diagram for the Jigsaw Puzzle",
+          "section_slug": "class-diagram-for-the-jigsaw-puzzle",
+          "section_file": "files/chapter_24_designing_a_jigsaw_puzzle/section_4983682953904128.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:10:54.521023",
+          "component_types": [
+            "PromptAI",
+            "DrawIOWidget",
+            "SlateHTML",
+            "SpoilerEditor"
+          ]
+        },
+        {
+          "section_id": "4527257987317760",
+          "section_title": "Code of Jigsaw Puzzle",
+          "section_slug": "code-of-jigsaw-puzzle",
+          "section_file": "files/chapter_24_designing_a_jigsaw_puzzle/section_4527257987317760.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:10:56.129785",
+          "component_types": [
+            "TabbedCode",
+            "SlateHTML"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 25,
+      "chapter_title": "Designing an Airline Management System",
+      "chapter_slug": "designing_an_airline_management_system",
+      "chapter_file": "files/chapter_25_designing_an_airline_management_system.tex",
+      "sections": [
+        {
+          "section_id": "5983485107109888",
+          "section_title": "Getting Ready: The Airline Management System",
+          "section_slug": "getting-ready-the-airline-management-system",
+          "section_file": "files/chapter_25_designing_an_airline_management_system/section_5983485107109888.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:16:34.919677",
+          "component_types": [
+            "Notepad",
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5890216939487232",
+          "section_title": "Requirements for the Airline Management System",
+          "section_slug": "requirements-for-the-airline-management-system",
+          "section_file": "files/chapter_25_designing_an_airline_management_system/section_5890216939487232.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:16:48.864622",
+          "component_types": [
+            "Columns",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "4984766765203456",
+          "section_title": "Use Case Diagram for the Airline Management System",
+          "section_slug": "use-case-diagram-for-the-airline-management-system",
+          "section_file": "files/chapter_25_designing_an_airline_management_system/section_4984766765203456.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:16:57.438377",
+          "component_types": [
+            "DrawIOWidget",
+            "Table",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5381527174381568",
+          "section_title": "Class Diagram for the Airline Management System",
+          "section_slug": "class-diagram-for-the-airline-management-system",
+          "section_file": "files/chapter_25_designing_an_airline_management_system/section_5381527174381568.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:17:47.042553",
+          "component_types": [
+            "PromptAI",
+            "TableHTML",
+            "SpoilerEditor",
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5450949964595200",
+          "section_title": "Sequence Diagram for the Airline Management System",
+          "section_slug": "sequence-diagram-for-the-airline-management-system",
+          "section_file": "files/chapter_25_designing_an_airline_management_system/section_5450949964595200.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:17:54.211451",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML",
+            "Permutation"
+          ]
+        },
+        {
+          "section_id": "5273648345907200",
+          "section_title": "Activity Diagram for the Airline Management System",
+          "section_slug": "activity-diagram-for-the-airline-management-system",
+          "section_file": "files/chapter_25_designing_an_airline_management_system/section_5273648345907200.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:18:02.999000",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML",
+            "SpoilerEditor",
+            "Permutation"
+          ]
+        },
+        {
+          "section_id": "5995883335516160",
+          "section_title": "Code for the Airline Management System",
+          "section_slug": "code-for-the-airline-management-system",
+          "section_file": "files/chapter_25_designing_an_airline_management_system/section_5995883335516160.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:18:05.355103",
+          "component_types": [
+            "TabbedCode",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "6091648243990528",
+          "section_title": "Summary: Designing an Airline Management System",
+          "section_slug": "summary-designing-an-airline-management-system",
+          "section_file": "files/chapter_25_designing_an_airline_management_system/section_6091648243990528.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:18:06.573622",
+          "component_types": [
+            "TableHTML",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "4904772199907328",
+          "section_title": "Key Insights and Tips: Designing an Airline Management System",
+          "section_slug": "key-insights-and-tips-designing-an-airline-management-system",
+          "section_file": "files/chapter_25_designing_an_airline_management_system/section_4904772199907328.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:18:11.101531",
+          "component_types": [
+            "Quiz",
+            "TableHTML",
+            "SlateHTML"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 26,
+      "chapter_title": "Designing ESPNcricinfo",
+      "chapter_slug": "designing_espncricinfo",
+      "chapter_file": "files/chapter_26_designing_espncricinfo.tex",
+      "sections": [
+        {
+          "section_id": "5701411636772864",
+          "section_title": "Getting Ready: The ESPNcricinfo System",
+          "section_slug": "getting-ready-the-espncricinfo-system",
+          "section_file": "files/chapter_26_designing_espncricinfo/section_5701411636772864.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:32:11.838813",
+          "component_types": [
+            "Notepad",
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5684717988085760",
+          "section_title": "Requirements for ESPNcricinfo",
+          "section_slug": "requirements-for-espncricinfo",
+          "section_file": "files/chapter_26_designing_espncricinfo/section_5684717988085760.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:32:22.835450",
+          "component_types": [
+            "Columns",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5181276366831616",
+          "section_title": "Use Case Diagram for ESPNcricinfo",
+          "section_slug": "use-case-diagram-for-espncricinfo",
+          "section_file": "files/chapter_26_designing_espncricinfo/section_5181276366831616.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:32:31.302425",
+          "component_types": [
+            "DrawIOWidget",
+            "Table",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5683148496306176",
+          "section_title": "Class Diagram for ESPNcricinfo",
+          "section_slug": "class-diagram-for-espncricinfo",
+          "section_file": "files/chapter_26_designing_espncricinfo/section_5683148496306176.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:33:19.291681",
+          "component_types": [
+            "PromptAI",
+            "TableHTML",
+            "SpoilerEditor",
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5017688209620992",
+          "section_title": "Sequence Diagram for ESPNcricinfo",
+          "section_slug": "sequence-diagram-for-espncricinfo",
+          "section_file": "files/chapter_26_designing_espncricinfo/section_5017688209620992.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:33:23.014322",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5446998141698048",
+          "section_title": "Activity Diagram for ESPNcricinfo",
+          "section_slug": "activity-diagram-for-espncricinfo",
+          "section_file": "files/chapter_26_designing_espncricinfo/section_5446998141698048.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:33:26.645160",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5124345484804096",
+          "section_title": "Code for ESPNcricinfo",
+          "section_slug": "code-for-espncricinfo",
+          "section_file": "files/chapter_26_designing_espncricinfo/section_5124345484804096.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:33:28.971151",
+          "component_types": [
+            "TabbedCode",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5284917423243264",
+          "section_title": "Summary: Designing ESPNcricinfo",
+          "section_slug": "summary-designing-espncricinfo",
+          "section_file": "files/chapter_26_designing_espncricinfo/section_5284917423243264.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:33:30.299484",
+          "component_types": [
+            "TableHTML",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "6593523426918400",
+          "section_title": "Key Insights and Tips: Designing ESPNcricinfo",
+          "section_slug": "key-insights-and-tips-designing-espncricinfo",
+          "section_file": "files/chapter_26_designing_espncricinfo/section_6593523426918400.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:33:34.667857",
+          "component_types": [
+            "Quiz",
+            "TableHTML",
+            "SlateHTML"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 27,
+      "chapter_title": "Designing LinkedIn",
+      "chapter_slug": "designing_linkedin",
+      "chapter_file": "files/chapter_27_designing_linkedin.tex",
+      "sections": [
+        {
+          "section_id": "5121032991277056",
+          "section_title": "Getting Ready: The LinkedIn System",
+          "section_slug": "getting-ready-the-linkedin-system",
+          "section_file": "files/chapter_27_designing_linkedin/section_5121032991277056.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:33:48.130744",
+          "component_types": [
+            "Notepad",
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "6676498603048960",
+          "section_title": "Requirements for LinkedIn",
+          "section_slug": "requirements-for-linkedin",
+          "section_file": "files/chapter_27_designing_linkedin/section_6676498603048960.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:34:08.202739",
+          "component_types": [
+            "Columns",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "6663591366492160",
+          "section_title": "Use Case Diagram for LinkedIn",
+          "section_slug": "use-case-diagram-for-linkedin",
+          "section_file": "files/chapter_27_designing_linkedin/section_6663591366492160.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:34:19.224609",
+          "component_types": [
+            "DrawIOWidget",
+            "Table",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5159026271977472",
+          "section_title": "Class Diagram for LinkedIn",
+          "section_slug": "class-diagram-for-linkedin",
+          "section_file": "files/chapter_27_designing_linkedin/section_5159026271977472.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:35:12.968766",
+          "component_types": [
+            "PromptAI",
+            "TableHTML",
+            "SpoilerEditor",
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "4668575836274688",
+          "section_title": "Sequence Diagram for LinkedIn",
+          "section_slug": "sequence-diagram-for-linkedin",
+          "section_file": "files/chapter_27_designing_linkedin/section_4668575836274688.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:35:17.412238",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5714015537070080",
+          "section_title": "Activity Diagram for LinkedIn",
+          "section_slug": "activity-diagram-for-linkedin",
+          "section_file": "files/chapter_27_designing_linkedin/section_5714015537070080.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:35:25.125904",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML",
+            "SpoilerEditor",
+            "Permutation"
+          ]
+        },
+        {
+          "section_id": "6071551264030720",
+          "section_title": "Code for LinkedIn",
+          "section_slug": "code-for-linkedin",
+          "section_file": "files/chapter_27_designing_linkedin/section_6071551264030720.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:35:27.462059",
+          "component_types": [
+            "TabbedCode",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "6228210168496128",
+          "section_title": "Summary: Designing LinkedIn",
+          "section_slug": "summary-designing-linkedin",
+          "section_file": "files/chapter_27_designing_linkedin/section_6228210168496128.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:35:29.525245",
+          "component_types": [
+            "TableHTML",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5195044309827584",
+          "section_title": "Key Insights and Tips: LinkedIn System",
+          "section_slug": "key-insights-and-tips-linkedin-system",
+          "section_file": "files/chapter_27_designing_linkedin/section_5195044309827584.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T13:35:34.236284",
+          "component_types": [
+            "Quiz",
+            "TableHTML",
+            "SlateHTML"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 28,
+      "chapter_title": "Wrapping Up",
+      "chapter_slug": "wrapping_up",
+      "chapter_file": "files/chapter_28_wrapping_up.tex",
+      "sections": [
+        {
+          "section_id": "6310221117128704",
+          "section_title": "Interview Tips",
+          "section_slug": "interview-tips",
+          "section_file": "files/chapter_28_wrapping_up/section_6310221117128704.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T14:24:59.447169",
+          "component_types": [
+            "DrawIOWidget",
+            "Columns",
+            "SlateHTML"
+          ]
+        },
+        {
+          "section_id": "5035681250541568",
+          "section_title": "Conclusion",
+          "section_slug": "conclusion",
+          "section_file": "files/chapter_28_wrapping_up/section_5035681250541568.tex",
+          "content_status": "generated",
+          "generated_timestamp": "2025-12-14T14:25:04.911710",
+          "component_types": [
+            "DrawIOWidget",
+            "SlateHTML"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": 29,
+      "chapter_title": "Recovered Lessons",
+      "chapter_slug": "recovered_lessons",
+      "chapter_file": "files/chapter_29_recovered_lessons.tex",
+      "sections": []
+    }
+  ]
+}

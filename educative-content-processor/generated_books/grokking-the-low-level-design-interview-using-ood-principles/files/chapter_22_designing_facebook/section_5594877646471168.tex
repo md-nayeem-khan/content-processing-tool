@@ -1,0 +1,152 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Key Insights: Facebook
+% Section ID: 5594877646471168
+% Section Slug: key-insights-facebook
+% Generated: 2025-12-14T12:40:25.320740
+
+Great work advancing your Facebook system design! This lesson offers practical insights to help you fine-tune your approach, avoid common pitfalls, and confidently tackle interview questions. You 'll also find a short quiz to test your knowledge and related case studies to deepen your practice.
+
+\subsection{Common mistakes}\label{Y_vKzl8nfAvETi6YBY-uw}
+\\
+While designing Facebook in an interview, many candidates face similar pitfalls that weaken their solution or presentation.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{ecfltY9S6G1RlYVlXWP6V}
+\textbf{Ignoring privacy details:} Candidates often overlook designing how privacy settings work for profiles, posts, groups, and pages. For example, they may forget to clarify how friends-only or custom visibility impacts post delivery and notifications. Always design and explain a dedicated class with clear methods for setting visibility. Show how these settings control what friends, followers, or custom lists can see.
+\item
+\protect\phantomsection\label{igcaS7oKHF2Pbqsnxg4KV}
+\textbf{Weak search design:} Many candidates skip explaining how the \texttt{SearchCatalog} efficiently handles searching for users, posts, pages, and groups, or how the \texttt{Search} interface should be implemented to avoid redundant logic. Keep search logic in a separate \texttt{SearchCatalog} class that implements a \texttt{Search} interface. Clarify that it indexes users, posts, pages, and groups efficiently, avoiding search logic in the \texttt{User} or \texttt{Page} classes.
+\item
+\protect\phantomsection\label{V84qmDoGNYzEqyOM7Pl9W}
+\textbf{Neglecting friend request flow:} Some candidates forget to design the full friend request life cycle, i.e., from sending, accepting/rejecting, to status updates. They skip the \texttt{FriendRequest} class or fail to show its states (PENDING, ACCEPTED, REJECTED, CANCELED). This weakens the design for user connections. Always include a dedicated \texttt{FriendRequest} class with clear methods (\texttt{sendFriendRequest()}, \texttt{acceptRequest()}, \texttt{rejectRequest()}), and link it to notifications for status changes.
+\item
+\protect\phantomsection\label{XQ-GlMKKGAaJCj5XTwfey}
+\textbf{Missing observer pattern for notifications:} Some fail to identify that Facebook's notification mechanism, especially for groups and posts, can be well modeled with the Observer pattern to keep subscribers updated dynamically. Explain that groups and posts use the Observer pattern, i.e., members (subscribers) register for updates, and \texttt{Notification} handles notify them whenever an event occurs. Also, mention unsubscribe options.
+\item
+\protect\phantomsection\label{cFGGChnEh4IutULsWaeLz}
+\textbf{Overlooking messaging flows:} Candidates sometimes ignore the need for clear message handling. Facebook's design should separate \texttt{Message} as its class with methods to add recipients, handle content, and trigger notifications rather than mixing it with unrelated user actions.
+\end{itemize}
+
+\subsection{Key interview tips}\label{mkfuMpCrxoDuJ9bDv4r-u}
+\\
+These actionable tips help you communicate your Facebook design more effectively.
+
+\begin{table}[h!]
+\centering
+\begin{tabularx}{\textwidth}{|X|X|}
+\hline
+\textbf{Tip} & \textbf{Explanation} \\
+\hline
+Design using interface-based modularity. & Use interfaces like PostFunctionsByUser, Search, and GroupFunctionsByUser to decouple behavior and enable scalability. \\
+\hline
+Emphasize relationship modeling. & Showcase generalization (e.g., User/Admin), composition (e.g., Profile → Education), and aggregation to reflect real-world object interactions. \\
+\hline
+Highlight the news feed generation strategy. & Discuss how posts from friends, pages, and groups are aggregated and ordered using feed ranking, time decay, and relevance, showing real-world system thinking. \\
+\hline
+Discuss access control and privacy. & Model content visibility using classes like PostPrivacySettings and ProfilePrivacy, and explain how different access levels affect the UI/UX logic. \\
+\hline
+Highlight how notifications are linked to actions. & Explain how notifications tie into key actions like sending friend requests, comments, and posts. For example, when a user sends a friend request, show how the FriendRequest class triggers a notification. This demonstrates understanding of “include” relationships and user engagement. \\
+\hline
+\end{tabularx}
+\caption{Design and Explanation Tips for Social Media System}
+\label{tab:social_media_tips}
+\end{table}
+
+\subsection{Test your understanding}\label{K3brrBHtXmdHXejbUywHv}
+\\
+Check how well you've grasped the Facebook system design by tackling these tricky questions that test your OOD thinking and understanding of the design approach.
+
+\subsection*{Facebook}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 1:} Which class best demonstrates the Single Responsibility principle when handling user profile details?
+\\[0.2cm]
+\begin{itemize}
+ \item \texttt{User}
+ \item \texttt{Account}
+ \item \textbf{[CORRECT]} \texttt{Profile}
+\\[0.1cm]
+\textit{Explanation:} 
+The \texttt{Profile} class focuses solely on personal info, keeping the \texttt{User} class clean for actions.
+ \item \texttt{Admin}
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 2:} Which relationship best describes the link between \texttt{User} and \texttt{Admin}?
+\\[0.2cm]
+\begin{itemize}
+ \item Association
+ \item \textbf{[CORRECT]} Inheritance
+\\[0.1cm]
+\textit{Explanation:} 
+Admin generalizes User.
+ \item Aggregation
+ \item Composition
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 3:} Suppose we want to add a feature that lets users undo deleting a comment. Which design pattern would be the best fit for this?
+\\[0.2cm]
+\begin{itemize}
+ \item \textbf{[CORRECT]} Command pattern
+\\[0.1cm]
+\textit{Explanation:} 
+The Command pattern turns actions into objects. This makes it possible to store, queue, and undo actions like deleting a comment.
+ \item State pattern
+ \item Template Method pattern
+ \item Visitor pattern
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 4:} What is the relationship between \texttt{Profile} and \texttt{Work}, \texttt{Education}, and \texttt{Places}?
+\\[0.2cm]
+\begin{itemize}
+ \item Composition
+ \item Inheritance
+ \item Generalization
+ \item \textbf{[CORRECT]} Aggregation
+\\[0.1cm]
+\textit{Explanation:} 
+They're aggregated into \texttt{Profile}.
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 5:} In the friend request flow, which relationship ensures that sending a request always triggers a notification?
+\\[0.2cm]
+\begin{itemize}
+ \item Generalization relationship
+ \item Association relationship
+ \item \textbf{[CORRECT]} Include relationship
+\\[0.1cm]
+\textit{Explanation:} 
+The include relationship shows that the Send Friend Request use case always includes Send Friend Request Notification.
+ \item Aggregation relationship
+\end{itemize}
+
+\subsection{Related case studies}\label{Ps8dhkN0s56fiaL5m1Dvp}
+\\
+These related case studies build on similar OOD challenges you tackled with Facebook.
+
+\begin{itemize}
+\item
+\protect\phantomsection\label{y8oYv6v1Aq11vfzkb4lFJ}
+\textbf{Designing Stack Overflow:} Highlights user profiles, posts, comments, votes, and notifications, reinforcing content interaction and discoverability.
+\item
+\protect\phantomsection\label{R4txkhF5Eox9iB17zZkzY}
+\textbf{Designing Amazon's online shopping system:} This section explores user accounts, privacy for orders, personalized recommendations, and notifications, a good contrast to Facebook's social feed.
+\item
+\protect\phantomsection\label{UlgC65xe5oiPdKG3wN2ey}
+\textbf{Designing LinkedIn:} Adds professional connections, recommendations, and groups with more nuanced privacy and profile structures.
+\item
+\protect\phantomsection\label{7ZVclELh5TQwNeAkT0p9O}
+\textbf{Designing Twitter:} Similar focus on feed generation, follower relationships, and notifications with a different interaction model (following vs. friending).
+\item
+\protect\phantomsection\label{ZC7o2G7bcrAuOYZfAA9p8}
+\textbf{Designing Instagram:} This also involves posts, comments, likes, privacy, and notification flows, especially visual content and stories.
+\end{itemize}
+
+% End of section content

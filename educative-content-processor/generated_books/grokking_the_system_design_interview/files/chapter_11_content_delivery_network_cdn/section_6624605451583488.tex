@@ -1,0 +1,150 @@
+% Section content template for individual Educative lessons
+% This file contains the actual content for a specific section
+% Generated from Educative API section content
+
+% Section: Quiz on CDN's Design
+% Section ID: 6624605451583488
+% Section Slug: quiz-on-cdns-design
+% Generated: 2025-12-07T17:14:35.222839
+
+\subsection*{Quiz}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 1:} Which CDN approach will be the most suitable to use when most of the web content is static?
+\\[0.2cm]
+\begin{itemize}
+ \item Pull CDN
+\\[0.1cm]
+\textit{Explanation:} 
+Use Pull CDN where web content changes frequently.
+ \item \textbf{[CORRECT]} Push CDN
+\\[0.1cm]
+\textit{Explanation:} 
+Use Push CDN where web content changes infrequently and caches in the edge proxy servers for a long period.
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 2:} \textbf{(Select all that apply.)} What are the limitations of using a public CDN?
+\\
+\textit{(Select all that apply.)}
+\\[0.2cm]
+\begin{itemize}
+ \item \textbf{[CORRECT]} An additional point of failure
+\\[0.1cm]
+\textit{Explanation:} 
+The content hosted on CDN will not be available.
+ \item \textbf{[CORRECT]} Risk of a data breach
+\\[0.1cm]
+\textit{Explanation:} 
+There are always risks when third parties manage the data.
+ \item \textbf{[CORRECT]} Loss of control
+\\[0.1cm]
+\textit{Explanation:} 
+When content publishes to the proxy servers, the CDN providers control it.
+ \item \textbf{[CORRECT]} An additional DNS lookup
+\\[0.1cm]
+\textit{Explanation:} 
+CDN network layer increases DNS lookup.
+ \item Increased latency
+\\[0.1cm]
+\textit{Explanation:} 
+CDN is used to reduce the latency between end-users and the content. Therefore, this option can not be a limitation.
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 3:} \textbf{(Select all that apply.)} What are the main reasons for building a specialized CDN?
+\\
+\textit{(Select all that apply.)}
+\\[0.2cm]
+\begin{itemize}
+ \item \textbf{[CORRECT]} It optimizes the content delivery.
+\\[0.1cm]
+\textit{Explanation:} 
+Specified CDN is dedicated to a particular content provider which optimizes the delivery of the requested content.
+ \item \textbf{[CORRECT]} It helps us avoid the increasing cost of CDN providers.
+\\[0.1cm]
+\textit{Explanation:} 
+The cost of CDN providers increases when we increase the cache size or add more components.
+ \item It prevents ISP intervention.
+\\[0.1cm]
+\textit{Explanation:} 
+Each request comes through ISP using encrypted connections. So, ISPs can't intervene.
+ \item It reduces the hit ratio.
+\\[0.1cm]
+\textit{Explanation:} 
+Specialized CDN will increase the hit ratio instead of reducing it because it is dedicated to particular content.
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 4:} Suppose you're asked to scale the Quora system to reduce the burden of data distribution on the origin server. Which technique will you use to do this?
+\\[0.2cm]
+\begin{itemize}
+ \item A single-tier CDN
+\\[0.1cm]
+\textit{Explanation:} 
+This approach reduces some load, but the origin still needs to push content directly to all CDN servers. This limits scalability.
+ \item \textbf{[CORRECT]} A multi-tier CDN
+\\[0.1cm]
+\textit{Explanation:} 
+This is the most effective. Multi-tier CDNs distribute load in layers. The origin pushes to parent CDN nodes, which then propagate to lower-tier nodes, significantly reducing origin traffic.
+ \item A public CDN
+\\[0.1cm]
+\textit{Explanation:} 
+While public CDNs offer caching, they typically lack custom multi-tier propagation. The origin still serves as the source for all cache nodes, so the burden on it remains.
+ \item A multi CDN
+\\[0.1cm]
+\textit{Explanation:} 
+Multi-CDN strategies increase availability and coverage, but they do not reduce the origin load significantly. Each CDN still pulls from the origin unless additional layering is introduced.
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 5:} \textbf{(Select all that apply.)} Why do most websites use a CDN?
+\\
+\textit{(Select all that apply.)}
+\\[0.2cm]
+\begin{itemize}
+ \item \textbf{[CORRECT]} A CDN ensures improved scalability.
+\\[0.1cm]
+\textit{Explanation:} 
+Horizontal scaling is not a problem for the CDN.
+ \item \textbf{[CORRECT]} A CDN offers protection against DDoS attacks.
+\\[0.1cm]
+\textit{Explanation:} 
+Scrubber servers are used to prevent DDoS attacks in the CDN network.
+ \item A CDN creates a backup for all the evicted content.
+\\[0.1cm]
+\textit{Explanation:} 
+Content is deleted from all storage of the specified CDN servers for consistency in the eviction process.
+ \item \textbf{[CORRECT]} A CDN reduces the load on the origin server.
+\\[0.1cm]
+\textit{Explanation:} 
+CDN reduces the burden from the origin servers like data distribution, handling massive traffic, etc.
+ \item \textbf{[CORRECT]} A CDN guarantees better performance.
+\\[0.1cm]
+\textit{Explanation:} 
+CDN is placed near the end-user, so it increases the performance by reducing latency and speeding up the request/response process.
+\end{itemize}
+\vspace{0.3cm}
+\noindent
+\textbf{Question 6:} Which metric pair is the most suitable for finding the nearest proxy servers?
+\\[0.2cm]
+\begin{itemize}
+ \item Traffic load, caching capacity
+\\[0.1cm]
+\textit{Explanation:} 
+Caching capacity is not a relevant factor, but Traffic load is.
+ \item \textbf{[CORRECT]} Request load, network distance
+\\[0.1cm]
+\textit{Explanation:} 
+This is the best suitable pair to find the nearest proxy server.
+ \item Location, bandwidth
+\\[0.1cm]
+\textit{Explanation:} 
+Location does not describe any details, but the distance between two locations does.
+ \item Caching capacity, network distance
+\\[0.1cm]
+\textit{Explanation:} 
+Caching capacity is not a relevant factor, but network distance is.
+\end{itemize}
+
+% End of section content

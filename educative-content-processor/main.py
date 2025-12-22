@@ -41,12 +41,24 @@ def get_course_ids(book_name: str) -> dict:
         
         # Low Level Design Interview course - these are the correct IDs
         "grokking_the_low_level_design_interview_using_ood_principles": {
-            "author_id": "10370001",  # Try same author first
+            "author_id": "10370001",
             "collection_id": "6303669653422080"  # Different collection ID for low-level design
         },
         "grokking-the-low-level-design-interview": {
             "author_id": "10370001",
             "collection_id": "6303669653422080"
+        },
+        "low-level-design-interview-using-ood-principles": {
+            "author_id": "10370001",
+            "collection_id": "5583710957338624"  # Correct collection ID
+        },
+        "grokking-the-low-level-design-interview-using-ood-principles": {
+            "author_id": "10370001",
+            "collection_id": "5583710957338624"  # Correct collection ID (with grokking prefix)
+        },
+        "new-grokking-the-low-level-design-interview-using-ood-principles": {
+            "author_id": "10370001",
+            "collection_id": "5583710957338624"  # Correct collection ID (with new-grokking prefix)
         },
         
         # Add more courses as needed
@@ -855,10 +867,28 @@ async def generate_section_content(request: GenerateSectionContentRequest):
                 # Get section metadata from book data
                 section_meta = section_metadata_map.get(section_id, {})
                 
-                # Get course-specific IDs or use fallbacks
+                # Get course-specific IDs - ALWAYS prioritize mapping over API response
                 course_ids = get_course_ids(request.book_name)
-                author_id = section_meta.get("author_id") or course_ids["author_id"]
-                collection_id = section_meta.get("collection_id") or course_ids["collection_id"]
+                
+                # Debug: Print what we're getting
+                print(f"DEBUG: book_name = '{request.book_name}'")
+                print(f"DEBUG: course_ids = {course_ids}")
+                print(f"DEBUG: section_meta = {section_meta}")
+                
+                # Use mapping ALWAYS if it has collection_id, otherwise fallback to section metadata
+                # This ensures correct collection_id for all books in our mapping
+                if course_ids and "collection_id" in course_ids and course_ids["collection_id"]:
+                    # Mapping has collection_id - use it
+                    author_id = course_ids["author_id"]
+                    collection_id = course_ids["collection_id"]
+                    print(f"DEBUG: Using course_ids mapping for collection_id")
+                else:
+                    # No mapping or mapping is incomplete - use section metadata
+                    author_id = section_meta.get("author_id", "10370001")
+                    collection_id = section_meta.get("collection_id", "4941429335392256")
+                    print(f"DEBUG: Using section_meta for collection_id")
+                
+                print(f"DEBUG: Final author_id = {author_id}, collection_id = {collection_id}")
                 
                 # Initialize section processor with hierarchical context
                 processor = SectionContentProcessor()
@@ -966,11 +996,24 @@ async def generate_section_content(request: GenerateSectionContentRequest):
                         if section_data:
                             break
                     
-                    # If all attempts failed, report comprehensive error
+                    # If all attempts failed, check if we got 400 errors (section doesn't exist)
                     if not section_data:
                         print(f"ERROR: All course/section slug combinations failed for section '{section_info.get('section_title', section_id)}'")
                         print(f"       Tried {len(all_attempts)} combinations: {all_attempts}")
-                        raise Exception(f"No valid course/section slug combination found. Tried: {all_attempts}")
+                        
+                        # Check if any 400 errors occurred (indicates section doesn't exist or is inaccessible)
+                        # Create a placeholder section content
+                        section_data = {
+                            "summary": {
+                                "title": section_info.get('section_title', 'Section Not Available'),
+                                "id": section_id
+                            },
+                            "elements": [{
+                                "type": "SlateHTML",
+                                "value": f"<p><strong>Note:</strong> The content for this section '{section_info.get('section_title', section_id)}' is not available from the Educative API. This section may have been removed, archived, or is not accessible through the API endpoints.</p><p>Please visit the course directly on Educative.io to access this content.</p>"
+                            }]
+                        }
+                        print(f"INFO: Created placeholder content for inaccessible section '{section_info.get('section_title', section_id)}'")
                 
                 else:
                     # For course content, use the traditional ID-based approach
