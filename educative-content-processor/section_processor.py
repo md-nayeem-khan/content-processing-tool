@@ -32,13 +32,17 @@ def _lazy_import_pypandoc():
     return PANDOC_AVAILABLE
 
 def _lazy_import_cairosvg():
-    """Lazy import cairosvg only when needed"""
+    """Lazy import cairosvg only when needed - requires Cairo library which may not be installed"""
     global CAIROSVG_AVAILABLE
     if CAIROSVG_AVAILABLE is None:
         try:
             import cairosvg
             CAIROSVG_AVAILABLE = True
-        except (ImportError, Exception):
+        except (ImportError, OSError, Exception) as e:
+            # ImportError: package not installed
+            # OSError: Cairo library (.dll/.so) not found
+            if isinstance(e, OSError) and 'cairo' in str(e).lower():
+                print("[INFO] cairosvg skipped: Cairo library not found. Install GTK+ runtime or use Inkscape instead.")
             CAIROSVG_AVAILABLE = False
     return CAIROSVG_AVAILABLE
 
@@ -552,7 +556,7 @@ class SectionContentProcessor:
     {f"\\caption{{{self._escape_latex(caption)}}}" if caption else ""}
 \\end{{figure}}
 """
-                        print(f"✅ Using converted PNG image: {converted_path}")
+                        print(f"[OK] Using converted PNG image: {converted_path}")
                         return latex_content.strip(), [converted_path]
                     else:
                         # Use original image (PNG/JPG or conversion failed)
@@ -576,7 +580,7 @@ class SectionContentProcessor:
     {f"\\caption{{{self._escape_latex(caption)}}}" if caption else ""}
 \\end{{figure}}
 """
-                            print(f"⚠️  Warning: Unsupported image format {file_ext} for LaTeX")
+                            print(f"[WARN]  Warning: Unsupported image format {file_ext} for LaTeX")
                     
                     return latex_content.strip(), generated_images
                     
@@ -657,7 +661,7 @@ class SectionContentProcessor:
     {f"\\caption{{{self._escape_latex(caption)}}}" if caption else ""}
 \\end{{figure}}
 """
-                        print(f"✅ Using converted PNG image: {converted_path}")
+                        print(f"[OK] Using converted PNG image: {converted_path}")
                         return latex_content.strip(), [converted_path]
                     else:
                         # Use original image (PNG/JPG or conversion failed)
@@ -681,7 +685,7 @@ class SectionContentProcessor:
     {f"\\caption{{{self._escape_latex(caption)}}}" if caption else ""}
 \\end{{figure}}
 """
-                            print(f"⚠️  Warning: Unsupported image format {file_ext} for LaTeX")
+                            print(f"[WARN]  Warning: Unsupported image format {file_ext} for LaTeX")
                     
                     return latex_content.strip(), generated_images
                     
@@ -774,12 +778,12 @@ class SectionContentProcessor:
                         
                         if converted_path:
                             processed_images.append(converted_path)
-                            print(f"✅ Slide image {idx + 1} processed: {converted_path}")
+                            print(f"[OK] Slide image {idx + 1} processed: {converted_path}")
                         else:
                             processed_images.append(image_relative_path)
-                            print(f"✅ Slide image {idx + 1} using original: {image_relative_path}")
+                            print(f"[OK] Slide image {idx + 1} using original: {image_relative_path}")
                     else:
-                        print(f"⚠️  Failed to download slide image {idx + 1}")
+                        print(f"[WARN]  Failed to download slide image {idx + 1}")
                         
                 except Exception as e:
                     print(f"Error processing slide image {idx + 1}: {e}")
@@ -824,7 +828,7 @@ class SectionContentProcessor:
             
             latex_content = "\n".join(latex_parts)
             
-            print(f"✅ Generated LaTeX for DrawIOWidget slides with {len(processed_images)} images")
+            print(f"[OK] Generated LaTeX for DrawIOWidget slides with {len(processed_images)} images")
             return latex_content.strip(), processed_images
             
         except httpx.HTTPError as e:
@@ -942,7 +946,7 @@ class SectionContentProcessor:
     {f"\\caption{{{self._escape_latex(caption)}}}" if caption else ""}
 \\end{{figure}}
 """
-                        print(f"✅ Using converted PNG image for MxGraphWidget: {converted_path}")
+                        print(f"[OK] Using converted PNG image for MxGraphWidget: {converted_path}")
                         return latex_content.strip(), [converted_path]
                     else:
                         # Use original image (PNG/JPG or conversion failed)
@@ -966,7 +970,7 @@ class SectionContentProcessor:
     {f"\\caption{{{self._escape_latex(caption)}}}" if caption else ""}
 \\end{{figure}}
 """
-                            print(f"⚠️  Warning: Unsupported image format {file_ext} for LaTeX")
+                            print(f"[WARN]  Warning: Unsupported image format {file_ext} for LaTeX")
                         
                         return latex_content.strip(), generated_images
                         
@@ -1099,12 +1103,12 @@ class SectionContentProcessor:
                         
                         if converted_path:
                             processed_images.append(converted_path)
-                            print(f"✅ Canvas image {idx + 1} processed: {converted_path}")
+                            print(f"[OK] Canvas image {idx + 1} processed: {converted_path}")
                         else:
                             processed_images.append(image_relative_path)
-                            print(f"✅ Canvas image {idx + 1} using original: {image_relative_path}")
+                            print(f"[OK] Canvas image {idx + 1} using original: {image_relative_path}")
                     else:
-                        print(f"⚠️  Failed to download canvas image {idx + 1}")
+                        print(f"[WARN]  Failed to download canvas image {idx + 1}")
                         
                 except Exception as e:
                     print(f"Error processing canvas image {idx + 1}: {e}")
@@ -1149,7 +1153,7 @@ class SectionContentProcessor:
             
             latex_content = "\n".join(latex_parts)
             
-            print(f"✅ Generated LaTeX for CanvasAnimation with {len(processed_images)} images")
+            print(f"[OK] Generated LaTeX for CanvasAnimation with {len(processed_images)} images")
             return latex_content.strip(), processed_images
             
         except httpx.HTTPError as e:
@@ -2855,18 +2859,18 @@ class SectionContentProcessor:
                         async with aiofiles.open(png_file_path, 'wb') as f:
                             await f.write(png_data)
                         
-                        print(f"✅ Successfully converted SVG to PNG using cairosvg: {png_filename}")
+                        print(f"[OK] Successfully converted SVG to PNG using cairosvg: {png_filename}")
                         return png_relative_path
                     except OSError as e:
                         if 'cairo' in str(e).lower() or 'library' in str(e).lower():
-                            print(f"⚠️  cairosvg requires Cairo library (not installed): Install GTK+ runtime")
+                            print(f"[WARN]  cairosvg requires Cairo library (not installed): Install GTK+ runtime")
                         else:
-                            print(f"⚠️  cairosvg conversion failed: {e}")
+                            print(f"[WARN]  cairosvg conversion failed: {e}")
                         print(f"    Trying Wand/ImageMagick...")
                     except Exception as e:
-                        print(f"⚠️  cairosvg conversion failed: {e}, trying Wand/ImageMagick...")
+                        print(f"[WARN]  cairosvg conversion failed: {e}, trying Wand/ImageMagick...")
                 else:
-                    print(f"⚠️  cairosvg not available, trying Wand/ImageMagick...")
+                    print(f"[WARN]  cairosvg not available, trying Wand/ImageMagick...")
                 
                 # Method 2: Try Wand (ImageMagick) 
                 if _lazy_import_wand():
@@ -2886,12 +2890,12 @@ class SectionContentProcessor:
                         await loop.run_in_executor(None, convert_svg_with_wand)
                         
                         if png_file_path.exists() and png_file_path.stat().st_size > 0:
-                            print(f"✅ Successfully converted SVG to PNG using Wand: {png_filename}")
+                            print(f"[OK] Successfully converted SVG to PNG using Wand: {png_filename}")
                             return png_relative_path
                         else:
-                            print(f"⚠️ Wand conversion produced empty file, trying next method...")
+                            print(f"[WARN] Wand conversion produced empty file, trying next method...")
                     except Exception as e:
-                        print(f"⚠️ Wand conversion failed: {e}, trying fallback...")
+                        print(f"[WARN] Wand conversion failed: {e}, trying fallback...")
                 
                 # Method 3: Try ImageMagick CLI
                 try:
@@ -2914,7 +2918,7 @@ class SectionContentProcessor:
                             '-background', 'white',
                             '-alpha', 'remove',
                             str(png_file_path)
-                        ], capture_output=True, text=True, timeout=30)
+                        ], capture_output=True, text=True, timeout=120)
                         
                         if result.returncode != 0:
                             raise Exception(f"ImageMagick CLI failed: {result.stderr}")
@@ -2925,14 +2929,14 @@ class SectionContentProcessor:
                     await loop.run_in_executor(None, convert_svg_with_imagemagick_cli)
                     
                     if png_file_path.exists() and png_file_path.stat().st_size > 0:
-                        print(f"✅ Successfully converted SVG to PNG using ImageMagick CLI: {png_filename}")
+                        print(f"[OK] Successfully converted SVG to PNG using ImageMagick CLI: {png_filename}")
                         return png_relative_path
                     else:
-                        print(f"⚠️ ImageMagick CLI conversion produced empty file, trying Inkscape...")
+                        print(f"[WARN] ImageMagick CLI conversion produced empty file, trying Inkscape...")
                 except FileNotFoundError:
-                    print(f"⚠️ ImageMagick not found (install from imagemagick.org), trying Inkscape...")
+                    print(f"[WARN] ImageMagick not found (install from imagemagick.org), trying Inkscape...")
                 except Exception as e:
-                    print(f"⚠️ ImageMagick CLI conversion failed: {e}, trying Inkscape...")
+                    print(f"[WARN] ImageMagick CLI conversion failed: {e}, trying Inkscape...")
                 
                 # Method 4: Try Inkscape CLI (excellent for SVG, often pre-installed)
                 try:
@@ -2965,7 +2969,7 @@ class SectionContentProcessor:
                             f'--export-filename={str(png_file_path)}',
                             '--export-width=1200',
                             '--export-background=white',
-                        ], capture_output=True, text=True, timeout=30)
+                        ], capture_output=True, text=True, timeout=120)
                         
                         if result.returncode != 0 and not png_file_path.exists():
                             raise Exception(f"Inkscape conversion failed: {result.stderr}")
@@ -2976,14 +2980,14 @@ class SectionContentProcessor:
                     await loop.run_in_executor(None, convert_svg_with_inkscape)
                     
                     if png_file_path.exists() and png_file_path.stat().st_size > 0:
-                        print(f"✅ Successfully converted SVG to PNG using Inkscape: {png_filename}")
+                        print(f"[OK] Successfully converted SVG to PNG using Inkscape: {png_filename}")
                         return png_relative_path
                     else:
-                        print(f"⚠️ Inkscape conversion produced empty file, trying Pillow...")
+                        print(f"[WARN] Inkscape conversion produced empty file, trying Pillow...")
                 except FileNotFoundError:
-                    print(f"⚠️ Inkscape not found (install from inkscape.org), trying Pillow...")
+                    print(f"[WARN] Inkscape not found (install from inkscape.org), trying Pillow...")
                 except Exception as e:
-                    print(f"⚠️ Inkscape conversion failed: {e}, trying Pillow...")
+                    print(f"[WARN] Inkscape conversion failed: {e}, trying Pillow...")
                 
                 # Method 5: Try Pillow with svg handling (very limited, rarely works)
                 if _lazy_import_pil():
@@ -3009,17 +3013,17 @@ class SectionContentProcessor:
                         loop = asyncio.get_event_loop()
                         await loop.run_in_executor(None, convert_svg_with_pillow)
                         
-                        print(f"✅ Successfully converted SVG to PNG using Pillow: {png_filename}")
+                        print(f"[OK] Successfully converted SVG to PNG using Pillow: {png_filename}")
                         return png_relative_path
                     except Exception as e:
-                        print(f"⚠️  Pillow SVG conversion failed: {e}")
+                        print(f"[WARN]  Pillow SVG conversion failed: {e}")
                 
                 # All conversion methods failed
                 print("")
-                print("❌ All SVG conversion methods failed. SVG images will remain as SVG.")
+                print("[ERROR] All SVG conversion methods failed. SVG images will remain as SVG.")
                 print("   LaTeX may not render SVG images properly in PDFs.")
                 print("")
-                print("   💡 SOLUTIONS:")
+                print("   [*] SOLUTIONS:")
                 print("   1. Install Inkscape: https://inkscape.org/release/ (RECOMMENDED)")
                 print("   2. Install ImageMagick: https://imagemagick.org/script/download.php")
                 print("   3. Install GTK+ runtime for Cairo: https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer")
@@ -3058,7 +3062,7 @@ class SectionContentProcessor:
                 loop = asyncio.get_event_loop()
                 await loop.run_in_executor(None, convert_to_png)
                 
-                print(f"✅ Successfully converted {file_ext.upper()} to PNG: {png_filename}")
+                print(f"[OK] Successfully converted {file_ext.upper()} to PNG: {png_filename}")
                 return png_relative_path
             
             else:
@@ -3067,7 +3071,7 @@ class SectionContentProcessor:
                 return image_path
                 
         except Exception as e:
-            print(f"❌ Failed to convert {file_ext} to PNG: {e}")
+            print(f"[ERROR] Failed to convert {file_ext} to PNG: {e}")
             print(f"   Falling back to original image: {image_path}")
             return image_path
 
