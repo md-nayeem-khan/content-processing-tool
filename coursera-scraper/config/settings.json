@@ -1,0 +1,11 @@
+{
+  "default_output_dir": "./courses",
+  "filename_sanitization": true,
+  "max_filename_length": 100,
+  "create_backups": false,
+  "log_level": "INFO",
+  "max_concurrent_requests": 3,
+  "request_timeout": 30,
+  "retry_attempts": 3,
+  "retry_backoff_factor": 2.0
+}

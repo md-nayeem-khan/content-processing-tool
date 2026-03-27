@@ -1,0 +1,85 @@
+{
+  "lesson_data": {
+    "course_id": "46b4tHEkEeWbbw5cIAKQrw",
+    "lesson_name": "Lesson 1: Course Overview and Assessment",
+    "video_item_ids": [
+      "DKbsC",
+      "2Zis7",
+      "6AM0l"
+    ]
+  },
+  "video_results": [
+    {
+      "item_id": "DKbsC",
+      "video_id": "skiBT8LqEeWqfgo-Z2ThOQ",
+      "success": true,
+      "available_formats": [
+        "720p_mp4",
+        "720p_webm",
+        "360p_mp4",
+        "360p_webm",
+        "540p_mp4",
+        "540p_webm"
+      ],
+      "video_urls": {
+        "720p_mp4": "https://d3c33hcgiwev3.cloudfront.net/g2eUesLpEeWcpBJ24z85uQ.processed/full/720p/index.mp4?Expires=1774483200&Signature=A5~~VQZ5QbnHBMU-Utv3kQZLsreuzI2KXjqOZOqQ7Hq1~UVr0psrzBlEpMHvfGONTJUmFNc4n7Gcv64WHifX3PhIcOyI5Slr83hJZxt1dEbzq6rYN9UGzf5yamVjXWxg7WTEOzGyFJR0GIE8UaC9cTU0LO~pxxCYvUJjidhWGBY_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A",
+        "720p_webm": "https://d3c33hcgiwev3.cloudfront.net/g2eUesLpEeWcpBJ24z85uQ.processed/full/720p/index.webm?Expires=1774483200&Signature=Z3FHJKLaU8ISQ4i3~sTVY5aEOrRn1x4VaFo33~LQRMdFOwsLexznjB52M0v4GHKhk8hn4UnhoWLh8932powKVhAFHQ32KctlBmB5D7bvLZXdoDLwIeLfxYOgIvRJ2Lm8gATdzo-bjgG5i8FCvGSYsLQNw78cKK64n7fAHA-PlW0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A",
+        "360p_mp4": "https://d3c33hcgiwev3.cloudfront.net/g2eUesLpEeWcpBJ24z85uQ.processed/full/360p/index.mp4?Expires=1774483200&Signature=N37OIkgolLItIPhfUOYsNb9mxDekYYwl8LabZjrkSGQv863LDjY8hkVEPbfnGbDK0BfKUuldM7cpFZKbYy-GVEjwtMB0eIrBGgNbLS4ddTDHsx8r1PjHcc4wFhB2R4OGATktnI46l~DOv-1-B-U4M-pR5HkNvA-0o0AYp53BDPg_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A",
+        "360p_webm": "https://d3c33hcgiwev3.cloudfront.net/g2eUesLpEeWcpBJ24z85uQ.processed/full/360p/index.webm?Expires=1774483200&Signature=ggxXL1gv7oMpsq~Wc~Fs2DQaQd2s0BEL9DFzebJoGlCcFb22kIxQLX1i1BXQXVHLglczOjYN7K64LgbdYx0DoLUdRVG~UQUZuIwyqfcrOkBoefUeLMhKPi3vgd1HKqODt5ddxUBOXPWV8xzQVyqtgkyWZ423-QDNem1ffIzelDk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A",
+        "540p_mp4": "https://d3c33hcgiwev3.cloudfront.net/g2eUesLpEeWcpBJ24z85uQ.processed/full/540p/index.mp4?Expires=1774483200&Signature=P352aW3B4N-rI47HU06t41wsUl~C0ZHWgHExxsyHMcR~WrqeVSG9XTUjqL7i9xDlnjXxexbx6dkkZ5Q2XNAcX3Z2auqTH1p~kHhjAVockGfXX~l1G-o1UCPpfsRBsleMtQfDyeUFhJdlN90VEAKgUFzkUOgWhBUvv6c5timP-9I_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A",
+        "540p_webm": "https://d3c33hcgiwev3.cloudfront.net/g2eUesLpEeWcpBJ24z85uQ.processed/full/540p/index.webm?Expires=1774483200&Signature=Qsz2CZd8O0XQ-ZdCi2CTqTMK8-LN77Uefsu24TL2lUgZArNGlwAj3v9RkHWINR12E3q2PwnMl33hbSTttjHks3ccKx~hub2pTh93JXrfYjr03e40HlUi2oLZE9Y8T6UFL7YCMX~71GITQ9-4k1W1T0AVMaR6~6ixt4B9GJBzEv8_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A"
+      },
+      "has_720p_mp4": true
+    },
+    {
+      "item_id": "2Zis7",
+      "video_id": "ZACbycLsEeW1mArHeoKP7Q",
+      "success": true,
+      "available_formats": [
+        "720p_mp4",
+        "720p_webm",
+        "360p_mp4",
+        "360p_webm",
+        "540p_mp4",
+        "540p_webm"
+      ],
+      "video_urls": {
+        "720p_mp4": "https://d3c33hcgiwev3.cloudfront.net/IcRkj8LrEeWcpBJ24z85uQ.processed/full/720p/index.mp4?Expires=1774483200&Signature=aE4VKypX8QGWMkHkh5n0Ad4SjoiAb4MXPDoYtVtEOZZQ8UvyqGcAJ-WAGlZV77A41p4~qwoZ5EBo~K44KTdb1zkqqc5Ee178rLqYrmH0Kee7dfp7hB3JgtWRlLDmGQkMYaHFOCYC7-XyHWmfpCqmk8peb34PPmLEzWlXQ-iJtG8_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A",
+        "720p_webm": "https://d3c33hcgiwev3.cloudfront.net/IcRkj8LrEeWcpBJ24z85uQ.processed/full/720p/index.webm?Expires=1774483200&Signature=hSZ49B8~363rZ6ZjMsXP-qOSognJ6WWsxZ093eDcjGdYvLTkMBO547Alp7AI9gKPIoLIlgz0rurT-rn9wBcP5-aGqh~fpIa54eMZ1lt7AKMcGSPucqQ-btBKi3d~kwRkNGO23mi-wHCt8Cagq82Z~q9Q2OWtpUp-NYN5xkzJFeM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A",
+        "360p_mp4": "https://d3c33hcgiwev3.cloudfront.net/IcRkj8LrEeWcpBJ24z85uQ.processed/full/360p/index.mp4?Expires=1774483200&Signature=CDkT71KqEzlDdapRa8jJ3m-t69hqwF5uMpwU2Bezu5iCMTfHHEcnEfgLXbF0lHDo~xUas3rnB0IRfhcpUN~y8zCzWA8J7twUIYjiEyG9sIhh-tmyWxfT8UOdr5R0vmKPKsj4lmY92~YGmPbZF-QXmbaKymsWcs8cVlzjt1sOSS0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A",
+        "360p_webm": "https://d3c33hcgiwev3.cloudfront.net/IcRkj8LrEeWcpBJ24z85uQ.processed/full/360p/index.webm?Expires=1774483200&Signature=EldFbqOcHh0XVfYCwVYeNxiad2Nah-4mqEMP8V03-NzUzcYijZulfw0YeU3uagBRlrl6N7t2HfMwBxaeR8VwQOEnpQ7KqBDbMU5nl81UqZPxEqvAosTuGnXm-9CaxytYc6MYROqNEcphiK0RW3AoTrudvdE9NlpYb3q21td3UmM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A",
+        "540p_mp4": "https://d3c33hcgiwev3.cloudfront.net/IcRkj8LrEeWcpBJ24z85uQ.processed/full/540p/index.mp4?Expires=1774483200&Signature=J68Xdtf2JGry9BNHx6PUfBjWbWBVg3e~yZd0vZvXqZPxl0u1V5k7OLfd8F~MqRkArpvXL2dVix-CgKo9A9R5fX3mAVX33GmYUvRt0OtuqzfQ1GvDQV7QYeCuivauzUC0UwfMWSDbkgc00tMQX0NEHthmv9fkOIVRRXYNVHLPjVM_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A",
+        "540p_webm": "https://d3c33hcgiwev3.cloudfront.net/IcRkj8LrEeWcpBJ24z85uQ.processed/full/540p/index.webm?Expires=1774483200&Signature=ZAHBapehWEpbCatYtDfU4yh0OFXGk1Kxx~X5JM4pjEbMKUVY8BF2qcN1G3snjCHtf8slaemqPGZAy0zhAIn4sqn6IC5hLuS8BHVIv2l~-IQdYkTYDgQ~jexFyxSuKWN2MRYQLbzZ0f90rclhiQJPqyWV9Z8R5bMLQJwSGURBXvA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A"
+      },
+      "has_720p_mp4": true
+    },
+    {
+      "item_id": "6AM0l",
+      "video_id": "9CoEkDmpEee9sA6wP1Xrzg",
+      "success": true,
+      "available_formats": [
+        "720p_mp4",
+        "720p_webm",
+        "360p_mp4",
+        "360p_webm",
+        "540p_mp4",
+        "540p_webm"
+      ],
+      "video_urls": {
+        "720p_mp4": "https://d3c33hcgiwev3.cloudfront.net/WO17SsrDEeWpkxJMLsNSfQ.processed/full/720p/index.mp4?Expires=1774483200&Signature=lbXwP1ZhBuWWMfTswU~7llMPRmSuDP9JQYxMrHg6m1BqypRBy5t4T1R7S-g6zuPgzJeFf7trMBhchVIWUflx~zK-L5IinONSFwNig5Mk-GK9piAZyNbWLK5qKCowJ5jsUy12sPwhTS5daz1x3jM1peYrMRwa-JlK90ub-HTfUh4_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A",
+        "720p_webm": "https://d3c33hcgiwev3.cloudfront.net/WO17SsrDEeWpkxJMLsNSfQ.processed/full/720p/index.webm?Expires=1774483200&Signature=Oo5NTDrtMrbB5~F1FKAzmldgS8-xQpYw27XBJvZ~1R6TJv-DOtutjbWXqCXWx-~mucFW~~JAgXmHCf2ai8H~rhJSBU1u-Avb149PsN9Ri2~iynpRx15uE0bIIfjrkUKH3Y6T~IlNHrjy40j3MFhDFlfwyMrUBfMTY4OtQuyqV2k_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A",
+        "360p_mp4": "https://d3c33hcgiwev3.cloudfront.net/WO17SsrDEeWpkxJMLsNSfQ.processed/full/360p/index.mp4?Expires=1774483200&Signature=eF6jodJc16C9LbvlB8RJM7~h3qKTvTRZ29-aWwx9ExDlR~1d6bOHl-zVd5-SBEpG506H14yuvj-9b6phJcWR6kmlYEz-R9kZZIZG9jFM9kSRvqfF4D-mB8UD8JgDNrcihHK6gL7dUNov4Lyb68uLUcuGoVwLqAj~bCCIDgeB1~Y_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A",
+        "360p_webm": "https://d3c33hcgiwev3.cloudfront.net/WO17SsrDEeWpkxJMLsNSfQ.processed/full/360p/index.webm?Expires=1774483200&Signature=H6rqdFWKWvfXXC6udhSeGF56uSmtmL292uBPP27T-QwgqKm-8MDu9J8ujWS2CEsLqjeShipSkuZ~YFQk7yaFAVm5vB7R7r-FoC2ur2937cY53hhRmE8Wd5BktYqAge52buv6zqZUX0iCz47DcSaLQi7yT4F6UA3m1mTMjwpC7Y0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A",
+        "540p_mp4": "https://d3c33hcgiwev3.cloudfront.net/WO17SsrDEeWpkxJMLsNSfQ.processed/full/540p/index.mp4?Expires=1774483200&Signature=TtlQbINNGhEc7TFmWfnixIvm6OXPvSEtpBiyDxgrKOX01eL6h-W5EhYPlZtu36iXIlIK2aXFWgZUvuoepFD-ojqg5KCLtpmMKz-WmUjW7pCCxWkt2m7XFb4W1~niaDAlzru~pNWgLYp2cWizFJN~YZhi4efLAVk0kg5aIAO5Jxs_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A",
+        "540p_webm": "https://d3c33hcgiwev3.cloudfront.net/WO17SsrDEeWpkxJMLsNSfQ.processed/full/540p/index.webm?Expires=1774483200&Signature=WbRHqPdPcrgQfRq92hDVgAOH~-Q3r603Tu-afqEwsm66VTiDqNKY3mjN68jgUDOUSA5J2jZ821j6N2-ZKPIY4iDZFWm0uPUFn-LVZKa-EyTsKP84fgyedGgH03Fw7bh2MZAg0O4bEsSff3D2Ci3m1PCBqLb3pkfeXXeZgVab1Uo_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A"
+      },
+      "has_720p_mp4": true
+    }
+  ],
+  "summary": {
+    "total_expected": 3,
+    "successful_extractions": 3,
+    "videos_with_720p": 3,
+    "test_status": "PASS"
+  }
+}

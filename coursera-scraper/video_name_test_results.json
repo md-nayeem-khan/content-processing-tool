@@ -1,0 +1,27 @@
+{
+  "test_name": "video_name_extraction",
+  "lesson_name": "Lesson 1: Course Overview and Assessment ",
+  "video_items": [
+    {
+      "item_id": "DKbsC",
+      "original_name": "Video: Welcome to Business English",
+      "safe_name": "Video_Welcome_to_Business_English",
+      "filename": "Video_Welcome_to_Business_English_720p.mp4"
+    },
+    {
+      "item_id": "2Zis7",
+      "original_name": "Video: Course Overview",
+      "safe_name": "Video_Course_Overview",
+      "filename": "Video_Course_Overview_720p.mp4"
+    },
+    {
+      "item_id": "6AM0l",
+      "original_name": "Quiz Proficiency Video: Phone Conversation",
+      "safe_name": "Quiz_Proficiency_Video_Phone_Conversation",
+      "filename": "Quiz_Proficiency_Video_Phone_Conversation_720p.mp4"
+    }
+  ],
+  "expected_count": 3,
+  "actual_count": 3,
+  "test_status": "PASS"
+}

@@ -1,0 +1,10 @@
+{
+  "download_files": true,
+  "file_types": ["pdf", "mp4", "txt", "docx", "pptx", "html", "json"],
+  "max_file_size_mb": 500,
+  "create_metadata": true,
+  "save_urls": true,
+  "concurrent_downloads": 3,
+  "skip_existing": true,
+  "create_progress_file": true
+}

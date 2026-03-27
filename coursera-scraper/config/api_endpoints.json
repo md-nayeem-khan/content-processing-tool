@@ -1,0 +1,120 @@
+{
+  "base_url": "https://www.coursera.org",
+  "endpoints": {
+    "course_info": {
+      "path": "/api/courses.v1/courses?q=slug&slug={course_slug}",
+      "method": "GET",
+      "headers": {
+        "accept": "application/json",
+        "authority": "www.coursera.org"
+      },
+      "response_mapping": {
+        "course_name": "elements[0].name",
+        "description": "elements[0].description",
+        "course_id": "elements[0].id",
+        "modules": "elements[0].courseModules"
+      }
+    },
+    "lecture_video": {
+      "path": "/api/onDemandLectureVideos.v1/{course_id}~{lecture_id}?includes=video&fields=onDemandVideos.v1(sources%2Csubtitles%2CsubtitlesVtt%2CsubtitlesTxt%2CsubtitlesAssetTags%2CdubbedSources%2CdubbedSubtitlesVtt%2CaudioDescriptionVideoSources)%2CdisableSkippingForward%2CstartMs%2CendMs",
+      "method": "GET",
+      "headers": {
+        "accept": "*/*",
+        "authority": "www.coursera.org",
+        "x-coursera-application": "ondemand",
+        "x-requested-with": "XMLHttpRequest"
+      },
+      "response_mapping": {
+        "video_sources": "linked.onDemandVideos.v1[0].sources.byResolution",
+        "audio_sources": "linked.onDemandVideos.v1[0].sources.audio",
+        "hls_playlist": "linked.onDemandVideos.v1[0].sources.playlists.hls",
+        "subtitles": "linked.onDemandVideos.v1[0].subtitles",
+        "subtitles_vtt": "linked.onDemandVideos.v1[0].subtitlesVtt",
+        "subtitles_txt": "linked.onDemandVideos.v1[0].subtitlesTxt",
+        "course_id": "elements[0].courseId",
+        "item_id": "elements[0].itemId"
+      }
+    },
+    "course_modules": {
+      "path": "/api/onDemandCourseModules.v1/course/{course_id}/modules",
+      "method": "GET",
+      "headers": {
+        "accept": "application/json",
+        "authority": "www.coursera.org"
+      },
+      "response_mapping": {
+        "modules": "elements"
+      }
+    },
+    "search_courses": {
+      "path": "/api/courses.v1/courses?q=search&query={search_term}&start=0&limit=20",
+      "method": "GET",
+      "headers": {
+        "accept": "application/json",
+        "authority": "www.coursera.org"
+      },
+      "response_mapping": {
+        "courses": "elements"
+      }
+    },
+    "course_materials": {
+      "path": "/api/onDemandCourseMaterials.v2/?q=slug&slug={course_slug}&includes=modules%2Clessons%2CpassableItemGroups%2CpassableItemGroupChoices%2CpassableLessonElements%2Citems%2Ctracks%2CgradePolicy%2CgradingParameters%2CembeddedContentMapping&fields=moduleIds%2ConDemandCourseMaterialModules.v1(name%2Cslug%2Cdescription%2CtimeCommitment%2ClessonIds%2Coptional%2ClearningObjectives)%2ConDemandCourseMaterialLessons.v1(name%2Cslug%2CtimeCommitment%2CelementIds%2Coptional%2CtrackId)%2ConDemandCourseMaterialPassableItemGroups.v1(requiredPassedCount%2CpassableItemGroupChoiceIds%2CtrackId)%2ConDemandCourseMaterialPassableItemGroupChoices.v1(name%2Cdescription%2CitemIds)%2ConDemandCourseMaterialPassableLessonElements.v1(gradingWeight%2CisRequiredForPassing)%2ConDemandCourseMaterialItems.v2(name%2CoriginalName%2Cslug%2CtimeCommitment%2CcontentSummary%2CisLocked%2ClockableByItem%2CitemLockedReasonCode%2CtrackId%2ClockedStatus%2CitemLockSummary%2CcustomDisplayTypenameOverride)%2ConDemandCourseMaterialTracks.v1(passablesCount)%2ConDemandGradingParameters.v1(gradedAssignmentGroups)%2CcontentAtomRelations.v1(embeddedContentSourceCourseId%2CsubContainerId)&showLockedItems=true",
+      "method": "GET",
+      "headers": {
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br, zstd",
+        "accept-language": "en",
+        "authority": "www.coursera.org",
+        "sec-ch-ua": "\"Not:A-Brand\";v=\"99\", \"Google Chrome\";v=\"145\", \"Chromium\";v=\"145\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "same-origin",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+        "x-coursera-application": "ondemand",
+        "x-coursera-version": "bce4a25eeed3dbe74433190073b2e745c824261d",
+        "x-requested-with": "XMLHttpRequest"
+      },
+      "response_mapping": {
+        "course_id": "elements[0].id",
+        "module_ids": "elements[0].moduleIds",
+        "modules": "linked.onDemandCourseMaterialModules.v1",
+        "lessons": "linked.onDemandCourseMaterialLessons.v1",
+        "items": "linked.onDemandCourseMaterialItems.v2",
+        "tracks": "linked.onDemandCourseMaterialTracks.v1",
+        "grading_parameters": "linked.onDemandGradingParameters.v1",
+        "passable_lesson_elements": "linked.onDemandCourseMaterialPassableLessonElements.v1",
+        "passable_item_groups": "linked.onDemandCourseMaterialPassableItemGroups.v1",
+        "passable_item_group_choices": "linked.onDemandCourseMaterialPassableItemGroupChoices.v1",
+        "content_atom_relations": "linked.contentAtomRelations.v1"
+      }
+    },
+    "supplement_content": {
+      "path": "/api/onDemandSupplements.v1/{course_id}~{item_id}?includes=asset&fields=openCourseAssets.v1(typeName)%2CopenCourseAssets.v1(definition)%2CminimumDurationToComplete",
+      "method": "GET",
+      "headers": {
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br, zstd",
+        "accept-language": "en",
+        "authority": "www.coursera.org",
+        "sec-ch-ua": "\"Chromium\";v=\"146\", \"Not-A.Brand\";v=\"24\", \"Google Chrome\";v=\"146\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "same-origin",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
+        "x-coursera-application": "ondemand",
+        "x-requested-with": "XMLHttpRequest"
+      },
+      "response_mapping": {
+        "course_id": "elements[0].courseId",
+        "item_id": "elements[0].itemId",
+        "asset_type": "linked.openCourseAssets.v1[0].typeName",
+        "asset_definition": "linked.openCourseAssets.v1[0].definition",
+        "renderable_html": "linked.openCourseAssets.v1[0].definition.renderableHtmlWithMetadata.renderableHtml"
+      }
+    }
+  }
+}
